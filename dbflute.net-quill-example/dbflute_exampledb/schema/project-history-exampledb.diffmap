@@ -1,0 +1,1773 @@
+map:{
+    ; 2012/08/04 21:40:29 = map:{
+        ; diffDate = 2012/08/04 21:40:29
+        ; tableCount = map:{
+            ; next = 30
+            ; previous = 30
+        }
+        ; tableDiff = map:{
+            ; member = map:{
+                ; tableName = member
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MEMBER_NAME = map:{
+                        ; columnName = MEMBER_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; MEMBER_ACCOUNT = map:{
+                        ; columnName = MEMBER_ACCOUNT
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; MEMBER_STATUS_CODE = map:{
+                        ; columnName = MEMBER_STATUS_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_USER = map:{
+                        ; columnName = REGISTER_USER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_PROCESS = map:{
+                        ; columnName = REGISTER_PROCESS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_USER = map:{
+                        ; columnName = UPDATE_USER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_PROCESS = map:{
+                        ; columnName = UPDATE_PROCESS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; VERSION_NO = map:{
+                        ; columnName = VERSION_NO
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; member_address = map:{
+                ; tableName = member_address
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MEMBER_ID = map:{
+                        ; columnName = MEMBER_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; VALID_BEGIN_DATE = map:{
+                        ; columnName = VALID_BEGIN_DATE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; VALID_END_DATE = map:{
+                        ; columnName = VALID_END_DATE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; ADDRESS = map:{
+                        ; columnName = ADDRESS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_PROCESS = map:{
+                        ; columnName = REGISTER_PROCESS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_USER = map:{
+                        ; columnName = REGISTER_USER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_PROCESS = map:{
+                        ; columnName = UPDATE_PROCESS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_USER = map:{
+                        ; columnName = UPDATE_USER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; VERSION_NO = map:{
+                        ; columnName = VERSION_NO
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; member_login = map:{
+                ; tableName = member_login
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MEMBER_ID = map:{
+                        ; columnName = MEMBER_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; LOGIN_DATETIME = map:{
+                        ; columnName = LOGIN_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; MOBILE_LOGIN_FLG = map:{
+                        ; columnName = MOBILE_LOGIN_FLG
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; LOGIN_MEMBER_STATUS_CODE = map:{
+                        ; columnName = LOGIN_MEMBER_STATUS_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; member_security = map:{
+                ; tableName = member_security
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MEMBER_ID = map:{
+                        ; columnName = MEMBER_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; LOGIN_PASSWORD = map:{
+                        ; columnName = LOGIN_PASSWORD
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REMINDER_QUESTION = map:{
+                        ; columnName = REMINDER_QUESTION
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REMINDER_ANSWER = map:{
+                        ; columnName = REMINDER_ANSWER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_PROCESS = map:{
+                        ; columnName = REGISTER_PROCESS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_USER = map:{
+                        ; columnName = REGISTER_USER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_PROCESS = map:{
+                        ; columnName = UPDATE_PROCESS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_USER = map:{
+                        ; columnName = UPDATE_USER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; VERSION_NO = map:{
+                        ; columnName = VERSION_NO
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; member_status = map:{
+                ; tableName = member_status
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MEMBER_STATUS_CODE = map:{
+                        ; columnName = MEMBER_STATUS_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; MEMBER_STATUS_NAME = map:{
+                        ; columnName = MEMBER_STATUS_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; DISPLAY_ORDER = map:{
+                        ; columnName = DISPLAY_ORDER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; member_withdrawal = map:{
+                ; tableName = member_withdrawal
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MEMBER_ID = map:{
+                        ; columnName = MEMBER_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; WITHDRAWAL_DATETIME = map:{
+                        ; columnName = WITHDRAWAL_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_PROCESS = map:{
+                        ; columnName = REGISTER_PROCESS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_USER = map:{
+                        ; columnName = REGISTER_USER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_PROCESS = map:{
+                        ; columnName = UPDATE_PROCESS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_USER = map:{
+                        ; columnName = UPDATE_USER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; VERSION_NO = map:{
+                        ; columnName = VERSION_NO
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; myself = map:{
+                ; tableName = myself
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MYSELF_ID = map:{
+                        ; columnName = MYSELF_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; MYSELF_NAME = map:{
+                        ; columnName = MYSELF_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; myself_check = map:{
+                ; tableName = myself_check
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MYSELF_CHECK_ID = map:{
+                        ; columnName = MYSELF_CHECK_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; MYSELF_CHECK_NAME = map:{
+                        ; columnName = MYSELF_CHECK_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; product = map:{
+                ; tableName = product
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; PRODUCT_NAME = map:{
+                        ; columnName = PRODUCT_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; PRODUCT_HANDLE_CODE = map:{
+                        ; columnName = PRODUCT_HANDLE_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; PRODUCT_STATUS_CODE = map:{
+                        ; columnName = PRODUCT_STATUS_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_USER = map:{
+                        ; columnName = REGISTER_USER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_PROCESS = map:{
+                        ; columnName = REGISTER_PROCESS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_USER = map:{
+                        ; columnName = UPDATE_USER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_PROCESS = map:{
+                        ; columnName = UPDATE_PROCESS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; VERSION_NO = map:{
+                        ; columnName = VERSION_NO
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; product_status = map:{
+                ; tableName = product_status
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; PRODUCT_STATUS_CODE = map:{
+                        ; columnName = PRODUCT_STATUS_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; PRODUCT_STATUS_NAME = map:{
+                        ; columnName = PRODUCT_STATUS_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; purchase = map:{
+                ; tableName = purchase
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MEMBER_ID = map:{
+                        ; columnName = MEMBER_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; PRODUCT_ID = map:{
+                        ; columnName = PRODUCT_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; PURCHASE_DATETIME = map:{
+                        ; columnName = PURCHASE_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; PURCHASE_COUNT = map:{
+                        ; columnName = PURCHASE_COUNT
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; PURCHASE_PRICE = map:{
+                        ; columnName = PURCHASE_PRICE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; PAYMENT_COMPLETE_FLG = map:{
+                        ; columnName = PAYMENT_COMPLETE_FLG
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_USER = map:{
+                        ; columnName = REGISTER_USER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REGISTER_PROCESS = map:{
+                        ; columnName = REGISTER_PROCESS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_USER = map:{
+                        ; columnName = UPDATE_USER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; UPDATE_PROCESS = map:{
+                        ; columnName = UPDATE_PROCESS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; VERSION_NO = map:{
+                        ; columnName = VERSION_NO
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; vendor_check = map:{
+                ; tableName = vendor_check
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; VENDOR_CHECK_ID = map:{
+                        ; columnName = VENDOR_CHECK_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; TYPE_OF_BOOLEAN = map:{
+                        ; columnName = TYPE_OF_BOOLEAN
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; vendor_self_reference = map:{
+                ; tableName = vendor_self_reference
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; SELF_REFERENCE_ID = map:{
+                        ; columnName = SELF_REFERENCE_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; SELF_REFERENCE_NAME = map:{
+                        ; columnName = SELF_REFERENCE_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; vendor_token = map:{
+                ; tableName = vendor_token
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; VENDOR_TOKEN_ID = map:{
+                        ; columnName = VENDOR_TOKEN_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; white_all_in_one_cls = map:{
+                ; tableName = white_all_in_one_cls
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; CLS_CATEGORY_CODE = map:{
+                        ; columnName = CLS_CATEGORY_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; CLS_ELEMENT_CODE = map:{
+                        ; columnName = CLS_ELEMENT_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; ATTRIBUTE_EXP = map:{
+                        ; columnName = ATTRIBUTE_EXP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; white_all_in_one_cls_ref = map:{
+                ; tableName = white_all_in_one_cls_ref
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; CLS_REF_ID = map:{
+                        ; columnName = CLS_REF_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; FOO_CODE = map:{
+                        ; columnName = FOO_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; BAR_CODE = map:{
+                        ; columnName = BAR_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; QUX_CODE = map:{
+                        ; columnName = QUX_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; white_column_except = map:{
+                ; tableName = white_column_except
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; EXCEPT_COLUMN_ID = map:{
+                        ; columnName = EXCEPT_COLUMN_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; white_compound_pk = map:{
+                ; tableName = white_compound_pk
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; PK_FIRST_ID = map:{
+                        ; columnName = PK_FIRST_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; PK_SECOND_ID = map:{
+                        ; columnName = PK_SECOND_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; PK_NAME = map:{
+                        ; columnName = PK_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; white_compound_pk_ref = map:{
+                ; tableName = white_compound_pk_ref
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MULTIPLE_FIRST_ID = map:{
+                        ; columnName = MULTIPLE_FIRST_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; MULTIPLE_SECOND_ID = map:{
+                        ; columnName = MULTIPLE_SECOND_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REF_FIRST_ID = map:{
+                        ; columnName = REF_FIRST_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; REF_SECOND_ID = map:{
+                        ; columnName = REF_SECOND_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; white_compound_pk_ref_nest = map:{
+                ; tableName = white_compound_pk_ref_nest
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; COMPOUND_PK_REF_NEST_ID = map:{
+                        ; columnName = COMPOUND_PK_REF_NEST_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; FOO_MULTIPLE_ID = map:{
+                        ; columnName = FOO_MULTIPLE_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; BAR_MULTIPLE_ID = map:{
+                        ; columnName = BAR_MULTIPLE_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; QUX_MULTIPLE_ID = map:{
+                        ; columnName = QUX_MULTIPLE_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; white_delimiter = map:{
+                ; tableName = white_delimiter
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; DELIMITER_ID = map:{
+                        ; columnName = DELIMITER_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; STRING_CONVERTED = map:{
+                        ; columnName = STRING_CONVERTED
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; DATE_DEFAULT = map:{
+                        ; columnName = DATE_DEFAULT
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; white_myself = map:{
+                ; tableName = white_myself
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MYSELF_ID = map:{
+                        ; columnName = MYSELF_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; MYSELF_NAME = map:{
+                        ; columnName = MYSELF_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; white_myself_check = map:{
+                ; tableName = white_myself_check
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MYSELF_CHECK_ID = map:{
+                        ; columnName = MYSELF_CHECK_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; MYSELF_CHECK_NAME = map:{
+                        ; columnName = MYSELF_CHECK_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; white_no_pk = map:{
+                ; tableName = white_no_pk
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; NO_PK_ID = map:{
+                        ; columnName = NO_PK_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; white_pg_reserv = map:{
+                ; tableName = white_pg_reserv
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; CLASS = map:{
+                        ; columnName = CLASS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; RESERV_NAME = map:{
+                        ; columnName = RESERV_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; white_pg_reserv_ref = map:{
+                ; tableName = white_pg_reserv_ref
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; REF_ID = map:{
+                        ; columnName = REF_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; white_quoted = map:{
+                ; tableName = white_quoted
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; SELECT = map:{
+                        ; columnName = SELECT
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; white_self_reference = map:{
+                ; tableName = white_self_reference
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; SELF_REFERENCE_ID = map:{
+                        ; columnName = SELF_REFERENCE_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; SELF_REFERENCE_NAME = map:{
+                        ; columnName = SELF_REFERENCE_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; withdrawal_reason = map:{
+                ; tableName = withdrawal_reason
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; WITHDRAWAL_REASON_CODE = map:{
+                        ; columnName = WITHDRAWAL_REASON_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; WITHDRAWAL_REASON_TEXT = map:{
+                        ; columnName = WITHDRAWAL_REASON_TEXT
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; DISPLAY_ORDER = map:{
+                        ; columnName = DISPLAY_ORDER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; summary_product = map:{
+                ; tableName = summary_product
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; PRODUCT_NAME = map:{
+                        ; columnName = PRODUCT_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; PRODUCT_HANDLE_CODE = map:{
+                        ; columnName = PRODUCT_HANDLE_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; PRODUCT_STATUS_CODE = map:{
+                        ; columnName = PRODUCT_STATUS_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ; 2011/01/15 07:40:26 = map:{
+        ; diffDate = 2011/01/15 07:40:26
+        ; tableCount = map:{
+            ; next = 30
+            ; previous = 30
+        }
+        ; tableDiff = map:{
+            ; white_pg_reserv = map:{
+                ; tableName = white_pg_reserv
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; CASE = map:{
+                        ; columnName = CASE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; PACKAGE = map:{
+                        ; columnName = PACKAGE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; DEFAULT = map:{
+                        ; columnName = DEFAULT
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; NEW = map:{
+                        ; columnName = NEW
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; NATIVE = map:{
+                        ; columnName = NATIVE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; VOID = map:{
+                        ; columnName = VOID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; PUBLIC = map:{
+                        ; columnName = PUBLIC
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; PROTECTED = map:{
+                        ; columnName = PROTECTED
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; PRIVATE = map:{
+                        ; columnName = PRIVATE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; INTERFACE = map:{
+                        ; columnName = INTERFACE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; ABSTRACT = map:{
+                        ; columnName = ABSTRACT
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; FINAL = map:{
+                        ; columnName = FINAL
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; FINALLY = map:{
+                        ; columnName = FINALLY
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; RETURN = map:{
+                        ; columnName = RETURN
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; DOUBLE = map:{
+                        ; columnName = DOUBLE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; FLOAT = map:{
+                        ; columnName = FLOAT
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; SHORT = map:{
+                        ; columnName = SHORT
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; TYPE = map:{
+                        ; columnName = TYPE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                }
+            }
+            ; white_pg_reserv_ref = map:{
+                ; tableName = white_pg_reserv_ref
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; CLASS = map:{
+                        ; columnName = CLASS
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ; 2011/01/15 03:18:42 = map:{
+        ; diffDate = 2011/01/15 03:18:42
+        ; tableCount = map:{
+            ; next = 30
+            ; previous = 31
+        }
+        ; tableDiff = map:{
+            ; white_quoted_ref = map:{
+                ; tableName = white_quoted_ref
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2011/01/15 03:15:46 = map:{
+        ; diffDate = 2011/01/15 03:15:46
+        ; tableCount = map:{
+            ; next = 31
+            ; previous = 36
+        }
+        ; tableDiff = map:{
+            ; white_all_in_one_cls_ref = map:{
+                ; tableName = white_all_in_one_cls_ref
+                ; diffType = ADD
+            }
+            ; white_delimiter = map:{
+                ; tableName = white_delimiter
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; DELIMITER_ID = map:{
+                        ; columnName = DELIMITER_ID
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = DECIMAL
+                            ; previous = BIGINT
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 16
+                            ; previous = 19
+                        }
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; autoIncrementDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                }
+            }
+            ; white_all_in_one_cls_compound_pk_ref = map:{
+                ; tableName = white_all_in_one_cls_compound_pk_ref
+                ; diffType = DELETE
+            }
+            ; white_all_in_one_cls_normal_col_ref = map:{
+                ; tableName = white_all_in_one_cls_normal_col_ref
+                ; diffType = DELETE
+            }
+            ; white_load_data = map:{
+                ; tableName = white_load_data
+                ; diffType = DELETE
+            }
+            ; white_uq_reference = map:{
+                ; tableName = white_uq_reference
+                ; diffType = DELETE
+            }
+            ; white_uq_reference_ref = map:{
+                ; tableName = white_uq_reference_ref
+                ; diffType = DELETE
+            }
+            ; white_uq_reference_ref_nest = map:{
+                ; tableName = white_uq_reference_ref_nest
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2011/01/15 03:11:56 = map:{
+        ; diffDate = 2011/01/15 03:11:56
+        ; tableCount = map:{
+            ; next = 36
+            ; previous = 30
+        }
+        ; tableDiff = map:{
+            ; white_all_in_one_cls_compound_pk_ref = map:{
+                ; tableName = white_all_in_one_cls_compound_pk_ref
+                ; diffType = ADD
+            }
+            ; white_all_in_one_cls_normal_col_ref = map:{
+                ; tableName = white_all_in_one_cls_normal_col_ref
+                ; diffType = ADD
+            }
+            ; white_load_data = map:{
+                ; tableName = white_load_data
+                ; diffType = ADD
+            }
+            ; white_quoted_ref = map:{
+                ; tableName = white_quoted_ref
+                ; diffType = ADD
+            }
+            ; white_uq_reference = map:{
+                ; tableName = white_uq_reference
+                ; diffType = ADD
+            }
+            ; white_uq_reference_ref = map:{
+                ; tableName = white_uq_reference_ref
+                ; diffType = ADD
+            }
+            ; white_uq_reference_ref_nest = map:{
+                ; tableName = white_uq_reference_ref_nest
+                ; diffType = ADD
+            }
+            ; white_delimiter = map:{
+                ; tableName = white_delimiter
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; DELIMITER_ID = map:{
+                        ; columnName = DELIMITER_ID
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = BIGINT
+                            ; previous = DECIMAL
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 19
+                            ; previous = 16
+                        }
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = null
+                        }
+                        ; autoIncrementDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                }
+            }
+            ; white_pg_reserv = map:{
+                ; tableName = white_pg_reserv
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; CASE = map:{
+                        ; columnName = CASE
+                        ; diffType = ADD
+                    }
+                    ; PACKAGE = map:{
+                        ; columnName = PACKAGE
+                        ; diffType = ADD
+                    }
+                    ; DEFAULT = map:{
+                        ; columnName = DEFAULT
+                        ; diffType = ADD
+                    }
+                    ; NEW = map:{
+                        ; columnName = NEW
+                        ; diffType = ADD
+                    }
+                    ; NATIVE = map:{
+                        ; columnName = NATIVE
+                        ; diffType = ADD
+                    }
+                    ; VOID = map:{
+                        ; columnName = VOID
+                        ; diffType = ADD
+                    }
+                    ; PUBLIC = map:{
+                        ; columnName = PUBLIC
+                        ; diffType = ADD
+                    }
+                    ; PROTECTED = map:{
+                        ; columnName = PROTECTED
+                        ; diffType = ADD
+                    }
+                    ; PRIVATE = map:{
+                        ; columnName = PRIVATE
+                        ; diffType = ADD
+                    }
+                    ; INTERFACE = map:{
+                        ; columnName = INTERFACE
+                        ; diffType = ADD
+                    }
+                    ; ABSTRACT = map:{
+                        ; columnName = ABSTRACT
+                        ; diffType = ADD
+                    }
+                    ; FINAL = map:{
+                        ; columnName = FINAL
+                        ; diffType = ADD
+                    }
+                    ; FINALLY = map:{
+                        ; columnName = FINALLY
+                        ; diffType = ADD
+                    }
+                    ; RETURN = map:{
+                        ; columnName = RETURN
+                        ; diffType = ADD
+                    }
+                    ; DOUBLE = map:{
+                        ; columnName = DOUBLE
+                        ; diffType = ADD
+                    }
+                    ; FLOAT = map:{
+                        ; columnName = FLOAT
+                        ; diffType = ADD
+                    }
+                    ; SHORT = map:{
+                        ; columnName = SHORT
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; white_quoted = map:{
+                ; tableName = white_quoted
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; SELECT = map:{
+                        ; columnName = SELECT
+                        ; diffType = ADD
+                    }
+                    ; FROM = map:{
+                        ; columnName = FROM
+                        ; diffType = ADD
+                    }
+                    ; QUOTED_ID = map:{
+                        ; columnName = QUOTED_ID
+                        ; diffType = DELETE
+                    }
+                    ; QUOTED_NAME = map:{
+                        ; columnName = QUOTED_NAME
+                        ; diffType = DELETE
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = SELECT
+                            ; previous = QUOTED_ID
+                        }
+                    }
+                }
+            }
+            ; white_all_in_one_cls_ref = map:{
+                ; tableName = white_all_in_one_cls_ref
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2010/12/04 03:00:30 = map:{
+        ; diffDate = 2010/12/04 03:00:30
+        ; tableCount = map:{
+            ; next = 30
+            ; previous = 32
+        }
+        ; tableDiff = map:{
+            ; white_uq_reference = map:{
+                ; tableName = white_uq_reference
+                ; diffType = DELETE
+            }
+            ; white_uq_reference_ref = map:{
+                ; tableName = white_uq_reference_ref
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2010/12/04 02:49:40 = map:{
+        ; diffDate = 2010/12/04 02:49:40
+        ; tableCount = map:{
+            ; next = 32
+            ; previous = 33
+        }
+        ; tableDiff = map:{
+            ; white_uq_reference_ref_nest = map:{
+                ; tableName = white_uq_reference_ref_nest
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2010/12/04 02:14:34 = map:{
+        ; diffDate = 2010/12/04 02:14:34
+        ; tableCount = map:{
+            ; next = 33
+            ; previous = 18
+        }
+        ; tableDiff = map:{
+            ; white_all_in_one_cls = map:{
+                ; tableName = white_all_in_one_cls
+                ; diffType = ADD
+            }
+            ; white_all_in_one_cls_ref = map:{
+                ; tableName = white_all_in_one_cls_ref
+                ; diffType = ADD
+            }
+            ; white_column_except = map:{
+                ; tableName = white_column_except
+                ; diffType = ADD
+            }
+            ; white_compound_pk = map:{
+                ; tableName = white_compound_pk
+                ; diffType = ADD
+            }
+            ; white_compound_pk_ref = map:{
+                ; tableName = white_compound_pk_ref
+                ; diffType = ADD
+            }
+            ; white_compound_pk_ref_nest = map:{
+                ; tableName = white_compound_pk_ref_nest
+                ; diffType = ADD
+            }
+            ; white_delimiter = map:{
+                ; tableName = white_delimiter
+                ; diffType = ADD
+            }
+            ; white_myself = map:{
+                ; tableName = white_myself
+                ; diffType = ADD
+            }
+            ; white_myself_check = map:{
+                ; tableName = white_myself_check
+                ; diffType = ADD
+            }
+            ; white_no_pk = map:{
+                ; tableName = white_no_pk
+                ; diffType = ADD
+            }
+            ; white_quoted = map:{
+                ; tableName = white_quoted
+                ; diffType = ADD
+            }
+            ; white_self_reference = map:{
+                ; tableName = white_self_reference
+                ; diffType = ADD
+            }
+            ; white_uq_reference = map:{
+                ; tableName = white_uq_reference
+                ; diffType = ADD
+            }
+            ; white_uq_reference_ref = map:{
+                ; tableName = white_uq_reference_ref
+                ; diffType = ADD
+            }
+            ; white_uq_reference_ref_nest = map:{
+                ; tableName = white_uq_reference_ref_nest
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2010/10/19 18:48:55 = map:{
+        ; diffDate = 2010/10/19 18:48:55
+        ; tableCount = map:{
+            ; next = 18
+            ; previous = 16
+        }
+        ; tableDiff = map:{
+            ; white_pg_reserv = map:{
+                ; tableName = white_pg_reserv
+                ; diffType = ADD
+            }
+            ; white_pg_reserv_ref = map:{
+                ; tableName = white_pg_reserv_ref
+                ; diffType = ADD
+            }
+        }
+    }
+}

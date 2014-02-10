@@ -1,0 +1,141 @@
+# /---------------------------------------------------------------------------
+# additionalForeignKeyMap: (NotRequired - Default 'map:{}')
+#
+# If foreign key does not exist in your database,
+# you can set up here as virtual foreign key for DBFlute.
+#
+# And it's one-to-one relation if you add one fixed condition to referrer table, 
+# you can set virtual foreign key with fixedCondition and fixedSuffix.
+# And you can use it to view objects too.
+#
+# If local column name is same as foreign column name,
+# you can omit the setting of localColumnName and foreignColumnName.
+# The names are treated as case insensitive.
+#
+# Example:
+# map:{
+#     ; FK_MEMBER_MEMBER_STATUS_CODE = map:{
+#         ; localTableName  = MEMBER             ; foreignTableName  = MEMBER_STATUS
+#         ; localColumnName = MEMBER_STATUS_CODE ; foreignColumnName = MEMBER_STATUS_CODE
+#     }
+#     ; FK_PURCHASE_MEMBER_ID = map:{
+#         ; localTableName  = PURCHASE  ; foreignTableName  = MEMBER
+#     }
+#     ; FK_MEMBER_MEMBER_ADDRESS_VALID = map:{
+#         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_ADDRESS
+#         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+#         ; fixedCondition = 
+#      $$foreignAlias$$.VALID_BEGIN_DATE <= /*targetDate(Date)*/null
+#  and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/null 
+#         ; fixedSuffix = AsValid
+#     }
+# }
+# 
+# *The line that starts with '#' means comment-out.
+#
+map:{
+    # * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+    # 会員から最新ログインへの関連。
+    # 
+    # 最新ログインを結合するための固定の条件を付与している(fixedCondition)。
+    # ConditionBeanの結合はleft outer join限定なので、
+    # ログインが１つも存在しない会員が絞られてしまうことは無い。
+    # * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+    ; FK_MEMBER_MEMBER_LOGIN_LATEST  = map:{
+        ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
+        ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+        ; fixedCondition  = 
+
+    # on句の固定条件として「結合先ログイン情報が該当会員の最新のログイン日時であること」を追加
+    # 以下の変数を使うことでテーブルのAlias名がSQL実行時に自動解決。
+    #   $$localAlias$$   = 基点テーブルのAlias名
+    #   $$foreignAlias$$ = 結合テーブルのAlias名
+$$foreignAlias$$.LOGIN_DATETIME = (select max(LOGIN_DATETIME)
+                                     from MEMBER_LOGIN
+                                    where MEMBER_ID = $$localAlias$$.MEMBER_ID
+                                  )
+
+        ; fixedSuffix = AsLatest
+    }
+    ; FK_MEMBER_MEMBER_ADDRESS_VALID = map:{
+        ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_ADDRESS
+        ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+        ; fixedCondition = 
+             $$foreignAlias$$.VALID_BEGIN_DATE <= /*targetDate(DateTime)*/null
+         and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(DateTime)*/null
+        ; fixedSuffix = AsValid
+    }
+
+    #
+    # for test of over-relation for biz-one-to-one
+    #  -> $$over(TABLE_NAME.relationName)$$
+    #
+    ; FK_MEMBER_MEMBER_LOCAL_FOREIGN_OVER_TEST = map:{
+        ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
+        ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+        ; fixedCondition = 
+     $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = $$over($localTable.memberStatus)$$.MEMBER_STATUS_NAME
+        ; fixedSuffix = AsLocalForeignOverTest
+    }
+    ; FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OVER_TEST = map:{
+        ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
+        ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+        ; fixedCondition = 
+     $$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER
+        ; fixedSuffix = AsForeignForeignOverTest
+    }
+    ; FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_PARAMETER_OVER_TEST = map:{
+        ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
+        ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+        ; fixedCondition = 
+             $$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER
+         and $$localAlias$$.BIRTHDATE > /*targetDate(DateTime)*/null
+        ; fixedSuffix = AsForeignForeignParameterOverTest
+    }
+    ; FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_VARIOUS_OVER_TEST = map:{
+        ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
+        ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+        ; fixedCondition = 
+             $$over($foreignTable.member.memberStatus)$$.DISPLAY_ORDER is not null
+         and $$over($foreignTable.member.memberWithdrawalAsOne)$$.WITHDRAWAL_DATETIME is not null
+         and $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER is not null
+         and $$over($foreignTable.member.memberWithdrawalAsOne.withdrawalReason, DISPLAY_ORDER)$$.REASON_ORDER is not null
+         and $$over($foreignTable.memberStatus)$$.MEMBER_STATUS_NAME is not null
+         and $$over(PURCHASE.product.productStatus)$$.PRODUCT_STATUS_NAME is not null
+        ; fixedSuffix = AsForeignForeignVariousOverTest
+    }
+    ; FK_MEMBER_MEMBER_LOGIN_REFERRER_OVER_TEST = map:{
+        ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
+        ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+        ; fixedCondition = 
+     $$foreignAlias$$.LOGIN_DATETIME > $$over(PURCHASE)$$.PURCHASE_DATETIME
+        ; fixedSuffix = AsReferrerOverTest
+    }
+    ; FK_MEMBER_MEMBER_LOGIN_REFERRER_FOREIGN_OVER_TEST = map:{
+        ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
+        ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+        ; fixedCondition = 
+     $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = $$over(PURCHASE.product.productStatus)$$.PRODUCT_STATUS_NAME
+        ; fixedSuffix = AsReferrerForeignOverTest
+    }
+
+    #
+    # for the test of biz-many-to-one
+    # (expect no compile error)
+    #
+    ; FK_WHITE_ALL_IN_ONE_CLS_REF_FOO_TEST = map:{
+        ; localTableName  = WHITE_ALL_IN_ONE_CLS_REF ; foreignTableName  = WHITE_ALL_IN_ONE_CLS
+        ; localColumnName = FOO_CODE ; foreignColumnName = CLS_ELEMENT_CODE
+        ; fixedCondition = $$foreignAlias$$.CLS_CATEGORY_CODE = 'FOO'
+        ; fixedSuffix = AsFoo
+    }
+    ; FK_WHITE_ALL_IN_ONE_CLS_REF_BAR_TEST = map:{
+        ; localTableName  = WHITE_ALL_IN_ONE_CLS_REF ; foreignTableName  = WHITE_ALL_IN_ONE_CLS
+        ; localColumnName = BAR_CODE ; foreignColumnName = CLS_ELEMENT_CODE
+        ; fixedCondition = $$foreignAlias$$.CLS_CATEGORY_CODE = 'BAR'
+        ; fixedSuffix = AsBar
+    }
+}
+# ----------------/
+
+
