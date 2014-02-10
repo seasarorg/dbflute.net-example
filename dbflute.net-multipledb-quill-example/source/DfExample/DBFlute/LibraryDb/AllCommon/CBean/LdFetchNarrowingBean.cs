@@ -1,0 +1,33 @@
+
+using System;
+using System.Collections;
+using DfExample.DBFlute.LibraryDb.AllCommon.CBean.SClause;
+
+namespace DfExample.DBFlute.LibraryDb.AllCommon.CBean {
+
+    /// <summary>
+    /// The bean of fetch narrowing.
+    /// Author: DBFlute(AutoGenerator)
+    /// </summary>
+    public interface LdFetchNarrowingBean {
+
+        int FetchNarrowingSkipStartIndex { get; }
+        int FetchNarrowingLoopCount { get; }
+        bool IsFetchNarrowingSkipStartIndexEffective { get; }
+        bool IsFetchNarrowingLoopCountEffective { get; }
+        bool IsFetchNarrowingEffective { get; }
+
+        /// <summary>
+        /// Ignore fetch narrowing. Only checking safety result size is valid. {INTERNAL METHOD}
+        /// </summary>
+        void IgnoreFetchNarrowing();
+
+        /// <summary>
+        /// Restore ignored fetch narrowing. {INTERNAL METHOD}
+        /// </summary>
+        void RestoreIgnoredFetchNarrowing();
+
+        void CheckSafetyResult(int safetyMaxResultSize);
+        int SafetyMaxResultSize { get; }
+    }
+}

@@ -1,0 +1,81 @@
+# /---------------------------------------------------------------------------
+# [Classification Definition]
+#   classificationDefinitionMap: (NotRequired - Default 'map:{}')
+#
+#     ex) map:{
+#             ; $$topCodeVariableNamePrefix$$ = TOP_CODE
+#             ; $$codeVariableNamePrefix$$    = CODE
+#             ; YesNo            = list:{
+#                                      ; map:{code=y;name=Yes;alias=はい}
+#                                      ; map:{code=n;name=No;alias=いいえ}
+#                                  }
+#             ; CollectionStatus = list:{
+#                                      ; map:{groupComment=蔵書の状態を示す}
+#                                      ; map:{code=NOR; comment=通常状態を示す}
+#                                      ; map:{code=WAT; comment=待ち状態を示す}
+#                                      ; map:{code=OUT; comment=貸し出し中を示す}
+#                                  }
+#         }
+#
+map:{
+	; YesNo				=	list:{
+								; map:{topCode=YESNO;topComment=はいいいえを示す}
+								; map:{code=y;name=Yes;alias=はい}
+								; map:{code=n;name=No;alias=いいえ}
+							}
+	; CollectionStatus	=	list:{
+								; map:{topComment=蔵書の状態を示す}
+								; map:{code=NOR; comment=通常状態を示す}
+								; map:{code=WAT; comment=待ち状態を示す}
+								; map:{code=OUT; comment=貸し出し中を示す}
+							}
+}
+
+#
+#     ex) From Database Example (normal)
+#      map:{
+#        CollectionStatus   =   list:{
+#              ; map:{table   = COLLECTION_STATUS_LOOKUP
+#                   ; code    = COLLECTION_STATUS_CODE
+#                   ; name    = COLLECTION_STATUS_NAME
+#                   ; alias   = COLLECTION_STATUS_ALIAS
+#                   ; comment = COLLECTION_STATUS_COMMENT
+#                   ; orderBy = COLLECTION_STATUS_CODE asc
+#                   ; topComment = コレクションステータスを示す
+#              }
+#          }
+#      }
+#
+#     ex) From Database Example (using where)
+#      map:{
+#        CollectionStatus   =   list:{
+#              ; map:{table   = COLLECTION_STATUS_LOOKUP
+#                   ; code    = COLLECTION_STATUS_CODE
+#                   ; name    = COLLECTION_STATUS_NAME
+#                   ; alias   = COLLECTION_STATUS_ALIAS
+#                   ; comment = COLLECTION_STATUS_COMMENT
+#                   ; where   = COLLECTION_STATUS_NAME like 'S2Dao%'
+#                   ; orderBy = COLLECTION_STATUS_CODE asc
+#                   ; topCode = COLSTS
+#                   ; topComment = 名前がS2Daoで始まるコレクションステータスを示す
+#              }
+#          }
+#      }
+#
+#     ex) From Database Example (special)
+#      map:{
+#          ; $$SQL$$ = select parent.CLASSIFICATION_NAME as classificationName
+#                           , base.CLASS_CODE as code
+#                           , base.CLASS_NAME as name
+#                           , base.CLASS_ALIAS as alias
+#                           , base.CLASS_COMMENT as comment
+#                           , parent.TOP_CODE as topCode
+#                           , parent.TOP_COMMENT as topComment
+#                        from MST_CLASS base
+#                          inner join MST_CLASS_GROUP parent
+#                            on base.GROUP_CODE = parent.GROUP_CODE
+#          ; CollectionStatus = list:{...
+#          }
+#      }
+# ----------------/
+

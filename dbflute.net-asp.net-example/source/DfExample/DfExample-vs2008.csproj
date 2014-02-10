@@ -1,0 +1,2160 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8D0EB8AD-5D0F-48F1-9E66-ED97B158343C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DfExample</RootNamespace>
+    <AssemblyName>DfExample</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\net2.0\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.DynamicProxy, Version=1.1.5.0, Culture=neutral, PublicKeyToken=f362209d9bee91d8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\Castle.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.102.2.20, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph, Version=2.21.1.0, Culture=neutral, PublicKeyToken=975e84d0c8d6464d">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\QuickGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph.Algorithms, Version=2.21.1.0, Culture=neutral, PublicKeyToken=975e84d0c8d6464d">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\QuickGraph.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="Seasar, Version=1.3.18.0, Culture=neutral, PublicKeyToken=1d0d0c484d50ca62, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\Seasar.dll</HintPath>
+    </Reference>
+    <Reference Include="Seasar.Dao, Version=1.3.18.0, Culture=neutral, PublicKeyToken=73a7c921d802e17e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\Seasar.Dao.dll</HintPath>
+    </Reference>
+    <Reference Include="Seasar.DynamicProxy, Version=1.3.18.0, Culture=neutral, PublicKeyToken=1d0d0c484d50ca62, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\Seasar.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Seasar.Quill, Version=1.3.18.0, Culture=neutral, PublicKeyToken=1d0d0c484d50ca62, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\Seasar.Quill.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBFlute\AllCommon\AccessContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Ado\CursorHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Ado\LatestSqlProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Ado\SqlLogHandler.cs" />
+    <Compile Include="DBFlute\AllCommon\Ado\SqlResultHandler.cs" />
+    <Compile Include="DBFlute\AllCommon\Ado\SqlResultInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Ado\StatementConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Annotation\OutsideSql.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\BehaviorSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Bhv\AbstractBehaviorReadable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Bhv\AbstractBehaviorWritable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Bhv\BehaviorReadable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Bhv\BehaviorWritable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Bhv\Load\LoadReferrerOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Bhv\Setup\ConditionBeanSetupper.cs" />
+    <Compile Include="DBFlute\AllCommon\Bhv\Setup\EntityListSetupper.cs" />
+    <Compile Include="DBFlute\AllCommon\CacheBehaviorSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CacheDaoSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CallbackContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\AbstractConditionBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\AbstractConditionQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CHelper\HpFixedConditionQueryResolver.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKey.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyEqual.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyGreaterEqual.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyGreaterThan.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyInScope.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyIsNotNull.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyIsNull.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyLessEqual.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyLessThan.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyLikeSearch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyNotEqual.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyNotEqualStandard.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyNotEqualTradition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyNotInScope.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyNotLikeSearch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CKey\ConditionKeyPrefixSearch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\ConditionBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\ConditionBeanContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\ConditionQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\COption\ConditionOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\COption\DateFromToOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\COption\FromToOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\COption\LikeSearchOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\COption\SimpleStringOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\CValue\ConditionValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\FetchNarrowingBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\FetchNarrowingBeanContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\Grouping\GroupingOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\Grouping\GroupingRowEndDeterminer.cs" />
+    <Compile Include="DBFlute\AllCommon\CBean\Grouping\GroupingRowResource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\Grouping\GroupingRowSetupper.cs" />
+    <Compile Include="DBFlute\AllCommon\CBean\ListResultBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\MapParameterBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\Mapping\EntityDtoMapper.cs" />
+    <Compile Include="DBFlute\AllCommon\CBean\OrderByBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\OrQuery.cs" />
+    <Compile Include="DBFlute\AllCommon\CBean\OutsideSql\Executor\OutsideSqlBasicExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\OutsideSql\Executor\OutsideSqlCursorExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\OutsideSql\Executor\OutsideSqlEntityExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\OutsideSql\Executor\OutsideSqlPagingExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\OutsideSql\OutsideSqlContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\OutsideSql\OutsideSqlDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\OutsideSql\OutsideSqlOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\OutsideSql\ProcedurePmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\PageNavi\Group\PageGroupBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\PageNavi\Group\PageGroupOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\PageNavi\PageNumberLink.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\PageNavi\PageNumberLinkSetupper.cs" />
+    <Compile Include="DBFlute\AllCommon\CBean\PageNavi\Range\PageRangeBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\PageNavi\Range\PageRangeOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\PagingBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\PagingHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\PagingInvoker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\PagingResultBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\ResultBeanBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\ScalarQuery.cs" />
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\AbstractSqlClause.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\OrderByClause.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\OrderByElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\SqlClause.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\SqlClauseDb2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\SqlClauseDefault.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\SqlClauseDerby.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\SqlClauseFirebird.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\SqlClauseH2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\SqlClauseInterbase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\SqlClauseMsAccess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\SqlClauseMySql.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\SqlClauseOracle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\SqlClausePostgreSql.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\SqlClauseSqlite.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SClause\SqlClauseSqlServer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SelectResource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SimplePagingBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\CBean\SpecifyQuery.cs" />
+    <Compile Include="DBFlute\AllCommon\CBean\SubQuery.cs" />
+    <Compile Include="DBFlute\AllCommon\CBean\UnionQuery.cs" />
+    <Compile Include="DBFlute\AllCommon\CDef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\ClassificationDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\DaoReadable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\DaoSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\DaoWritable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\DBFluteConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Dbm\AbstractDBMeta.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Dbm\DBMeta.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Dbm\DBMetaInstanceHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Dbm\Info\ColumnInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Dbm\Info\ForeignInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Dbm\Info\ReferrerInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Dbm\Info\RelationInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Dbm\Info\UniqueInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Entity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\EntityDefinedCommonColumn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\BatchEntityAlreadyUpdatedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\BindVariableCommentNotFoundPropertyException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\BindVariableParameterNullValueException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\DangerousResultSizeException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\EmbeddedValueCommentNotFoundPropertyException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\EmbeddedValueParameterNullValueException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\EndCommentNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\EntityAlreadyDeletedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\EntityAlreadyExistsException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\EntityAlreadyUpdatedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\EntityDuplicatedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\IfCommentConditionNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\IfCommentNotBooleanResultException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\IfCommentWrongExpressionException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\InvalidQueryRegisteredException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\OutsideSqlNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\RequiredOptionNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\SelectEntityConditionNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Exp\SQLFailureException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\GenMetaData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Helper\MapListString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Helper\MapListStringImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Helper\MapStringBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Helper\MapStringBuilderImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\InternalMapContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\JavaLike\JavaBasic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\JavaLike\JavaCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\JavaLike\JavaException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\JavaLike\JavaReflection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\QLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\ContextStack.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\FetchNarrowingResultSetFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\FetchNarrowingResultSetWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\RsHandler\InternalAbstractBeanMetaDataResultSetHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\RsHandler\InternalBeanArrayMetaDataResultSetHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\RsHandler\InternalBeanGenericListMetaDataResultSetHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\RsHandler\InternalBeanListMetaDataResultSetHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlCommand\InternalAbstractAutoStaticCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlCommand\InternalDeleteAutoStaticCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlCommand\InternalDeleteQueryAutoDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlCommand\InternalInsertAutoDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlCommand\InternalProcedureCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlCommand\InternalUpdateAutoDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlCommand\InternalUpdateDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlCommand\InternalUpdateModifiedOnlyCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlCommand\InternalUpdateQueryAutoDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlHandler\InternalAbstractAutoHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlHandler\InternalBasicHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlHandler\InternalBasicSelectHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlHandler\InternalBasicUpdateHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlHandler\InternalCommandContextHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlHandler\InternalDeleteAutoHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlHandler\InternalInsertAutoHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlHandler\InternalProcedureHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlHandler\InternalUpdateAutoHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlLog\InternalSqlLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlLog\InternalSqlLogRegistry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlLog\InternalSqlLogRegistryLocator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlParser\InternalCommandContextCreator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlParser\InternalSqlParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\SqlParser\InternalSqlTokenizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\Util\InternalBindVariableUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\internal\ValueType\Plugin\AnsiStringType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\S2DaoInterceptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\S2DaoMetaDataExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\S2DaoMetaDataFactoryImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\S2DaoSelectDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\S2DaoSetting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\SqlLogRegistryLatestSqlProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\S2Dao\TxSetting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Util\DfCollectionUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Util\DfStringUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Util\DfSystemUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Util\SimpleAssertUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Util\SimpleStringUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Util\SimpleSystemUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\Util\TraceViewUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\AllCommon\XLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsMemberAddressBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsMemberBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsMemberLoginBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsMemberSecurityBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsMemberStatusBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsMemberVendorSynonymBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsMemberWithdrawalBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsProductBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsProductStatusBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsPurchaseBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsSummaryMemberPurchaseBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsSummaryProductBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVdSynonymMemberBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVdSynonymMemberLoginBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVdSynonymMemberWithdrawalBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVdSynonymProductBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVdSynonymProductStatusBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVdSynonymVendorExceptBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVdSynonymVendorRefExceptBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVdSynonymVendorRefTargetBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVdSynonymVendorTargetBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVendorCheckBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVendorExceptBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVendorLargeName901234567890Bhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVendorLargeName90123456RefBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVendorRefExceptBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVendorRefTargetBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVendorSynonymMemberBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsVendorTargetBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsBhv\BsWithdrawalReasonBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsMemberAddressDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsMemberDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsMemberLoginDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsMemberSecurityDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsMemberStatusDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsMemberVendorSynonymDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsMemberWithdrawalDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsProductDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsProductStatusDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsPurchaseDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsSummaryMemberPurchaseDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsSummaryProductDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVdSynonymMemberDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVdSynonymMemberLoginDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVdSynonymMemberWithdrawalDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVdSynonymProductDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVdSynonymProductStatusDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVdSynonymVendorExceptDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVdSynonymVendorRefExceptDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVdSynonymVendorRefTargetDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVdSynonymVendorTargetDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVendorCheckDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVendorExceptDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVendorLargeName901234567890Dao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVendorLargeName90123456RefDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVendorRefExceptDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVendorRefTargetDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVendorSynonymMemberDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsVendorTargetDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\BsWithdrawalReasonDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\Cursor\BsPurchaseSummaryMemberCursor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\Cursor\BsPurchaseSummaryMemberCursorHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsFnInOutParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsFnNoParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsMainPkgSpPkgInOutParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsMainPkgSpPkgNoParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsOptionMemberPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsOverloadPkgSpOverloadParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsPurchaseMaxPriceMemberPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsPurchaseSummaryMemberPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsResolvedPackageNamePmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSamePkgSpPkgInOutParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSamePkgSpPkgNoParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSimpleMemberPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpInOutParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpNoParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpNullOutParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpOracleCharInoutParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpResultSetParameterMorePmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpResultSetParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpResultSetParameterWithPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpStructBasicParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpStructListParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpStructNestedParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpStructNextParameterPmb.cs" />
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpStructSynonymParameterPmb.cs" />
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpTableManualParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpTableNestedParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpTableNextParameterPmb.cs" />
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpTablePackedParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpTableSynonymParameterPmb.cs" />
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpTableVariousParameterPmb.cs" />
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpTransactionInheritPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpVariousTypeParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsSpVarrayManualParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsDao\PmBean\BsUnpaidSummaryMemberPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsMemberAddress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsMemberLogin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsMemberSecurity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsMemberStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsMemberVendorSynonym.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsMemberWithdrawal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsProduct.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsProductStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsPurchase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsSummaryMemberPurchase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsSummaryProduct.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVdSynonymMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVdSynonymMemberLogin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVdSynonymMemberWithdrawal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVdSynonymProduct.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVdSynonymProductStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVdSynonymVendorExcept.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVdSynonymVendorRefExcept.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVdSynonymVendorRefTarget.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVdSynonymVendorTarget.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVendorCheck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVendorExcept.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVendorLargeName901234567890.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVendorLargeName90123456Ref.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVendorRefExcept.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVendorRefTarget.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVendorSynonymMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsVendorTarget.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\BsWithdrawalReason.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Customize\BsOptionMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Customize\BsPurchaseMaxPriceMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Customize\BsSimpleMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Customize\BsUnpaidSummaryMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Customize\Dbm\OptionMemberDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Customize\Dbm\PurchaseMaxPriceMemberDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Customize\Dbm\SimpleMemberDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Customize\Dbm\UnpaidSummaryMemberDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\MemberAddressDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\MemberDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\MemberLoginDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\MemberSecurityDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\MemberStatusDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\MemberVendorSynonymDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\MemberWithdrawalDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\ProductDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\ProductStatusDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\PurchaseDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\SummaryMemberPurchaseDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\SummaryProductDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VdSynonymMemberDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VdSynonymMemberLoginDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VdSynonymMemberWithdrawalDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VdSynonymProductDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VdSynonymProductStatusDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VdSynonymVendorExceptDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VdSynonymVendorRefExceptDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VdSynonymVendorRefTargetDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VdSynonymVendorTargetDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VendorCheckDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VendorExceptDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VendorLargeName901234567890Dbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VendorLargeName90123456RefDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VendorRefExceptDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VendorRefTargetDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VendorSynonymMemberDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\VendorTargetDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\BsEntity\Dbm\WithdrawalReasonDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsMemberAddressCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsMemberCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsMemberLoginCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsMemberSecurityCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsMemberStatusCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsMemberVendorSynonymCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsMemberWithdrawalCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsProductCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsProductStatusCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsPurchaseCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsSummaryMemberPurchaseCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsSummaryProductCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVdSynonymMemberCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVdSynonymMemberLoginCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVdSynonymMemberWithdrawalCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVdSynonymProductCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVdSynonymProductStatusCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVdSynonymVendorExceptCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVdSynonymVendorRefExceptCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVdSynonymVendorRefTargetCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVdSynonymVendorTargetCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVendorCheckCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVendorExceptCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVendorLargeName901234567890CB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVendorLargeName90123456RefCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVendorRefExceptCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVendorRefTargetCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVendorSynonymMemberCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsVendorTargetCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\BS\BsWithdrawalReasonCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsMemberAddressCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsMemberCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsMemberLoginCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsMemberSecurityCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsMemberStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsMemberVendorSynonymCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsMemberWithdrawalCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsProductCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsProductStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsPurchaseCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsSummaryMemberPurchaseCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsSummaryProductCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVdSynonymMemberCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVdSynonymMemberLoginCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVdSynonymMemberWithdrawalCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVdSynonymProductCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVdSynonymProductStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVdSynonymVendorExceptCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVdSynonymVendorRefExceptCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVdSynonymVendorRefTargetCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVdSynonymVendorTargetCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVendorCheckCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVendorExceptCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVendorLargeName901234567890CQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVendorLargeName90123456RefCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVendorRefExceptCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVendorRefTargetCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVendorSynonymMemberCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsVendorTargetCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\AbstractBsWithdrawalReasonCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsMemberAddressCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsMemberCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsMemberLoginCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsMemberSecurityCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsMemberStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsMemberVendorSynonymCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsMemberWithdrawalCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsProductCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsProductStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsPurchaseCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsSummaryMemberPurchaseCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsSummaryProductCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVdSynonymMemberCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVdSynonymMemberLoginCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVdSynonymMemberWithdrawalCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVdSynonymProductCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVdSynonymProductStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVdSynonymVendorExceptCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVdSynonymVendorRefExceptCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVdSynonymVendorRefTargetCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVdSynonymVendorTargetCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVendorCheckCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVendorExceptCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVendorLargeName901234567890CQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVendorLargeName90123456RefCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVendorRefExceptCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVendorRefTargetCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVendorSynonymMemberCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsVendorTargetCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\BS\BsWithdrawalReasonCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\MemberAddressCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\MemberCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\MemberLoginCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\MemberSecurityCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\MemberStatusCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\MemberVendorSynonymCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\MemberWithdrawalCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\ProductCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\ProductStatusCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\PurchaseCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\SummaryMemberPurchaseCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\SummaryProductCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VdSynonymMemberCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VdSynonymMemberLoginCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VdSynonymMemberWithdrawalCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VdSynonymProductCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VdSynonymProductStatusCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VdSynonymVendorExceptCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VdSynonymVendorRefExceptCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VdSynonymVendorRefTargetCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VdSynonymVendorTargetCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VendorCheckCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VendorExceptCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VendorLargeName901234567890CIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VendorLargeName90123456RefCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VendorRefExceptCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VendorRefTargetCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VendorSynonymMemberCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\VendorTargetCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\Ciq\WithdrawalReasonCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\MemberAddressCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\MemberCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\MemberLoginCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\MemberSecurityCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\MemberStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\MemberVendorSynonymCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\MemberWithdrawalCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\ProductCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\ProductStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\PurchaseCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\SummaryMemberPurchaseCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\SummaryProductCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VdSynonymMemberCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VdSynonymMemberLoginCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VdSynonymMemberWithdrawalCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VdSynonymProductCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VdSynonymProductStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VdSynonymVendorExceptCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VdSynonymVendorRefExceptCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VdSynonymVendorRefTargetCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VdSynonymVendorTargetCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VendorCheckCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VendorExceptCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VendorLargeName901234567890CQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VendorLargeName90123456RefCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VendorRefExceptCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VendorRefTargetCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VendorSynonymMemberCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\VendorTargetCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\CQ\WithdrawalReasonCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\MemberAddressCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\MemberCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\MemberLoginCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\MemberSecurityCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\MemberStatusCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\MemberVendorSynonymCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\MemberWithdrawalCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\MemberAddressNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\MemberLoginNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\MemberNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\MemberSecurityNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\MemberStatusNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\MemberVendorSynonymNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\MemberWithdrawalNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\ProductNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\ProductStatusNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\PurchaseNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\SummaryMemberPurchaseNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\SummaryProductNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VdSynonymMemberLoginNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VdSynonymMemberNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VdSynonymMemberWithdrawalNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VdSynonymProductNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VdSynonymProductStatusNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VdSynonymVendorExceptNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VdSynonymVendorRefExceptNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VdSynonymVendorRefTargetNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VdSynonymVendorTargetNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VendorCheckNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VendorExceptNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VendorLargeName901234567890Nss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VendorLargeName90123456RefNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VendorRefExceptNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VendorRefTargetNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VendorSynonymMemberNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\VendorTargetNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\Nss\WithdrawalReasonNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\ProductCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\ProductStatusCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\PurchaseCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\SummaryMemberPurchaseCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\SummaryProductCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VdSynonymMemberCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VdSynonymMemberLoginCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VdSynonymMemberWithdrawalCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VdSynonymProductCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VdSynonymProductStatusCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VdSynonymVendorExceptCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VdSynonymVendorRefExceptCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VdSynonymVendorRefTargetCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VdSynonymVendorTargetCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VendorCheckCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VendorExceptCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VendorLargeName901234567890CB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VendorLargeName90123456RefCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VendorRefExceptCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VendorRefTargetCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VendorSynonymMemberCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\VendorTargetCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\CBean\WithdrawalReasonCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\MemberAddressBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\MemberBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\MemberLoginBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\MemberSecurityBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\MemberStatusBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\MemberVendorSynonymBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\MemberWithdrawalBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\ProductBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\ProductStatusBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\PurchaseBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\SummaryMemberPurchaseBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\SummaryProductBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VdSynonymMemberBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VdSynonymMemberLoginBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VdSynonymMemberWithdrawalBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VdSynonymProductBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VdSynonymProductStatusBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VdSynonymVendorExceptBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VdSynonymVendorRefExceptBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VdSynonymVendorRefTargetBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VdSynonymVendorTargetBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VendorCheckBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VendorExceptBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VendorLargeName901234567890Bhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VendorLargeName90123456RefBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VendorRefExceptBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VendorRefTargetBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VendorSynonymMemberBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\VendorTargetBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExBhv\WithdrawalReasonBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\Cursor\PurchaseSummaryMemberCursor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\Cursor\PurchaseSummaryMemberCursorHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\MemberAddressDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\MemberDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\MemberLoginDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\MemberSecurityDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\MemberStatusDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\MemberVendorSynonymDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\MemberWithdrawalDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\FnInOutParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\FnNoParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\MainPkgSpPkgInOutParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\MainPkgSpPkgNoParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\OptionMemberPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\OverloadPkgSpOverloadParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\PurchaseMaxPriceMemberPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\PurchaseSummaryMemberPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\ResolvedPackageNamePmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SamePkgSpPkgInOutParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SamePkgSpPkgNoParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SimpleMemberPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpInOutParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpNoParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpNullOutParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpOracleCharInoutParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpResultSetParameterMorePmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpResultSetParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpResultSetParameterWithPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpStructBasicParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpStructListParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpStructNestedParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpStructNextParameterPmb.cs" />
+    <Compile Include="DBFlute\ExDao\PmBean\SpStructSynonymParameterPmb.cs" />
+    <Compile Include="DBFlute\ExDao\PmBean\SpTableManualParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpTableNestedParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpTableNextParameterPmb.cs" />
+    <Compile Include="DBFlute\ExDao\PmBean\SpTablePackedParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpTableSynonymParameterPmb.cs" />
+    <Compile Include="DBFlute\ExDao\PmBean\SpTableVariousParameterPmb.cs" />
+    <Compile Include="DBFlute\ExDao\PmBean\SpTransactionInheritPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpVariousTypeParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\SpVarrayManualParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PmBean\UnpaidSummaryMemberPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\ProductDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\ProductStatusDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\PurchaseDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\SummaryMemberPurchaseDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\SummaryProductDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VdSynonymMemberDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VdSynonymMemberLoginDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VdSynonymMemberWithdrawalDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VdSynonymProductDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VdSynonymProductStatusDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VdSynonymVendorExceptDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VdSynonymVendorRefExceptDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VdSynonymVendorRefTargetDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VdSynonymVendorTargetDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VendorCheckDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VendorExceptDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VendorLargeName901234567890Dao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VendorLargeName90123456RefDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VendorRefExceptDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VendorRefTargetDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VendorSynonymMemberDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\VendorTargetDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExDao\WithdrawalReasonDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\Customize\OptionMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\Customize\PurchaseMaxPriceMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\Customize\SimpleMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\Customize\UnpaidSummaryMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\Member.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\MemberAddress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\MemberLogin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\MemberSecurity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\MemberStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\MemberVendorSynonym.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\MemberWithdrawal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\Product.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\ProductStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\Purchase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\SummaryMemberPurchase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\SummaryProduct.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VdSynonymMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VdSynonymMemberLogin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VdSynonymMemberWithdrawal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VdSynonymProduct.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VdSynonymProductStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VdSynonymVendorExcept.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VdSynonymVendorRefExcept.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VdSynonymVendorRefTarget.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VdSynonymVendorTarget.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VendorCheck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VendorExcept.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VendorLargeName901234567890.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VendorLargeName90123456Ref.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VendorRefExcept.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VendorRefTarget.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VendorSynonymMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\VendorTarget.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\ExEntity\WithdrawalReason.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="DBFlute\ExBhv\Various\NotEmbedded\MemberBhv_selectNotEmbedded.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DBFlute\ExBhv\MemberBhv_selectLatestFormalizedDatetime.sql" />
+    <EmbeddedResource Include="DBFlute\ExBhv\MemberBhv_selectMemberName.sql" />
+    <EmbeddedResource Include="DBFlute\ExBhv\MemberBhv_selectOptionMember.sql" />
+    <EmbeddedResource Include="DBFlute\ExBhv\MemberBhv_selectPurchaseMaxPriceMember.sql" />
+    <EmbeddedResource Include="DBFlute\ExBhv\MemberBhv_selectPurchaseSummaryMember.sql" />
+    <EmbeddedResource Include="DBFlute\ExBhv\MemberBhv_selectSimpleMember.sql" />
+    <EmbeddedResource Include="DBFlute\ExBhv\MemberBhv_selectUnpaidSummaryMember.sql" />
+    <EmbeddedResource Include="DBFlute\ExBhv\MemberBhv_selectUnpaidSummaryMemberUsingParameterMap.sql" />
+    <EmbeddedResource Include="DBFlute\ExBhv\MemberBhv_updateForcedWithdrawal.sql" />
+    <EmbeddedResource Include="DBFlute\ExBhv\SubDirectory\MemberBhv_selectSubDirectoryCheck.sql" />
+    <EmbeddedResource Include="DBFlute\ExBhv\Various\PmbCheck\MemberBhv_selectResolvedPackageName.sql" />
+    <EmbeddedResource Include="DBFlute\ExBhv\Various\WrongExample\MemberBhv_selectBindVariableNotFoundProperty.sql" />
+    <EmbeddedResource Include="DBFlute\ExBhv\Various\WrongExample\MemberBhv_selectIfCommentNotBooleanResult.sql" />
+    <EmbeddedResource Include="DBFlute\ExBhv\Various\WrongExample\MemberBhv_selectIfCommentWrongExpression.sql" />
+    <EmbeddedResource Include="DBFlute\TestDir\Dot.Dot\testfile.sql" />
+    <EmbeddedResource Include="DBFlute\TestDir\NonDot\testfile.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

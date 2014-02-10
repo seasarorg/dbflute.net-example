@@ -1,0 +1,22 @@
+# /---------------------------------------------------------------------------
+# [Database Information]
+#   databaseInfoMap: 
+#     driver   -- The class name of JDBC-Driver.
+#     url      -- The url for connecting database.
+#     schema   -- The schema name.
+#     user     -- The database user name.
+#     password -- The database password.
+#
+# @FirstProperty
+map:{
+    ; driver        = oracle.jdbc.OracleDriver
+    ; url           = jdbc:oracle:thin:@localhost:1521:XE
+    ; schema        = DFNETEXDB
+    ; user          = dfnetexdb
+    ; password      = dfnetexdb
+    ; propertiesMap = map:{includeSynonyms=true}
+    ; variousMap = map:{
+        ; objectTypeTargetList=list:{TABLE;VIEW;SYNONYM}
+    }
+}
+# ----------------/

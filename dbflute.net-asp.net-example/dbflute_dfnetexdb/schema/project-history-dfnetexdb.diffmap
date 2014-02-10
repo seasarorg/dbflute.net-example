@@ -1,0 +1,69 @@
+map:{
+    ; 2013/03/30 17:59:27 = map:{
+        ; diffDate = 2013/03/30 17:59:27
+        ; tableDiff = map:{
+            ; SUMMARY_MEMBER_PURCHASE = map:{
+                ; tableName = SUMMARY_MEMBER_PURCHASE
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; ALLSUM_PURCHASE_PRICE = map:{
+                        ; columnName = ALLSUM_PURCHASE_PRICE
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = null
+                            ; previous = 22
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ; 2012/08/05 16:49:57 = map:{
+        ; diffDate = 2012/08/05 16:49:57
+        ; tableCount = map:{
+            ; next = 30
+            ; previous = 30
+        }
+        ; tableDiff = map:{
+            ; VENDOR_CHECK = map:{
+                ; tableName = VENDOR_CHECK
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; TYPE_OF_NCHAR = map:{
+                        ; columnName = TYPE_OF_NCHAR
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 3
+                            ; previous = 6
+                        }
+                    }
+                    ; TYPE_OF_NVARCHAR2 = map:{
+                        ; columnName = TYPE_OF_NVARCHAR2
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 32
+                            ; previous = 64
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ; 2010/06/14 17:09:45 = map:{
+        ; diffDate = 2010/06/14 17:09:45
+        ; tableCount = map:{
+            ; next = 30
+            ; previous = 28
+        }
+        ; tableDiff = map:{
+            ; VENDOR_LARGE_NAME_901234567890 = map:{
+                ; tableName = VENDOR_LARGE_NAME_901234567890
+                ; diffType = ADD
+            }
+            ; VENDOR_LARGE_NAME_90123456_REF = map:{
+                ; tableName = VENDOR_LARGE_NAME_90123456_REF
+                ; diffType = ADD
+            }
+        }
+    }
+}

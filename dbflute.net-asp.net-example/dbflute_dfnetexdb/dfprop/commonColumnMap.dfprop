@@ -1,0 +1,53 @@
+# /---------------------------------------------------------------------------
+# [Common Column]
+#   commonColumnMap: (Default 'map:{}')
+#     The map of common column.
+#     Default value is empty-map.
+#     For example, The date you registered the record, The user who updated the record and so on...
+#
+map:{
+    ; commonColumnMap = map:{
+        ; REGISTER_DATETIME=TIMESTAMP ; REGISTER_USER=VARCHAR ; REGISTER_PROCESS=VARCHAR
+        ; UPDATE_DATETIME=TIMESTAMP   ; UPDATE_USER=VARCHAR   ; UPDATE_PROCESS=VARCHAR
+    }
+    ; beforeInsertMap = map:{
+        ; REGISTER_DATETIME = $$AccessContext$$.GetAccessTimestampOnThread()
+        ; REGISTER_USER     = $$AccessContext$$.GetAccessUserOnThread()
+        ; REGISTER_PROCESS  = $$AccessContext$$.GetAccessProcessOnThread()
+        ; UPDATE_DATETIME   = entity.RegisterDatetime
+        ; UPDATE_USER       = entity.RegisterUser
+        ; UPDATE_PROCESS    = entity.RegisterProcess
+    }
+    ; beforeUpdateMap = map:{
+        ; UPDATE_DATETIME   = $$AccessContext$$.GetAccessTimestampOnThread()
+        ; UPDATE_USER       = $$AccessContext$$.GetAccessUserOnThread()
+        ; UPDATE_PROCESS    = $$AccessContext$$.GetAccessProcessOnThread()
+    }
+}
+# ----------------/
+
+# 
+# {Reference for Column Type of CommonColumn}
+# 
+# * ----------------------------------------------------
+# * DBFlute Type  | Java Type            | CSharp Type |
+# * ----------------------------------------------------
+# * CHAR          | java.lang.String     | String      |
+# * VARCHAR       | java.lang.String     | String      |
+# * LONGVARCHAR   | java.lang.String     | String      |
+# * NUMERIC       | java.math.BigDecimal | decimal?    |
+# * DECIMAL       | java.math.BigDecimal | decimal?    |
+# * BIT           | java.lang.Boolean    | bool?       |
+# * TINYINT       | java.math.BigDecimal | int?        |
+# * SMALLINT      | java.math.BigDecimal | int?        |
+# * INTEGER       | java.math.BigDecimal | int?        |
+# * BIGINT        | java.math.BigDecimal | long?       |
+# * REAL          | java.math.BigDecimal | decimal?    |
+# * FLOAT         | java.math.BigDecimal | decimal?    |
+# * DOUBLE        | java.math.BigDecimal | decimal?    |
+# * BINARY        | byte[]               | byte[]      |
+# * VARBINARY     | byte[]               | byte[]      |
+# * LONGVARBINARY | byte[]               | byte[]      |
+# * DATE          | java.util.Date       | DateTime?   |
+# * TIME          | java.sql.Time        | DateTime?   |
+# * TIMESTAMP     | java.sql.Timestamp   | DateTime?   |

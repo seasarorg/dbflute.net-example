@@ -1,0 +1,14 @@
+# /---------------------------------------------------------------------------
+# [Behavior Filter]
+#   behaviorFilterMap: (Default 'map:{}')
+#     The map of behavior filter.
+#     Default value is empty-map.
+#
+map:{
+    ; beforeInsertMap = map:{
+        ; WITHDRAWAL_DATETIME = $$AccessContext$$.GetAccessTimestampOnThread()
+    }
+    ; beforeUpdateMap = map:{
+    }
+}
+# ----------------/

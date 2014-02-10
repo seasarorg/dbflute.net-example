@@ -1,0 +1,12 @@
+# /---------------------------------------------------------------------------
+# [OutsideSql Definition]
+#
+map:{
+    ; isGenerateProcedureParameterBean = true
+    #; isGenerateProcedureCustomizeEntity = true
+
+    # ; defaultPackage = Abc
+    # ; omitResourcePathPackage = DBFlute
+}
+# ----------------/
+

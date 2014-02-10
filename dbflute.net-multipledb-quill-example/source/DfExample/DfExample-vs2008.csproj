@@ -1,0 +1,2526 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8D0EB8AD-5D0F-48F1-9E66-ED97B158343C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DfExample</RootNamespace>
+    <AssemblyName>DfExample</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\net2.0\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\net2.0\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.DynamicProxy, Version=1.1.5.0, Culture=neutral, PublicKeyToken=f362209d9bee91d8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\Castle.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreLab.MySql, Version=4.30.24.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\CoreLab.MySql.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MbUnit.Framework, Version=2.4.2.355, Culture=neutral, PublicKeyToken=5e72ecd30bc408d5">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\MbUnit.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=1.0.10.1, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.2.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Seasar, Version=1.3.18.0, Culture=neutral, PublicKeyToken=1d0d0c484d50ca62, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\Seasar.dll</HintPath>
+    </Reference>
+    <Reference Include="Seasar.Dao, Version=1.3.18.0, Culture=neutral, PublicKeyToken=73a7c921d802e17e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\Seasar.Dao.dll</HintPath>
+    </Reference>
+    <Reference Include="Seasar.DynamicProxy, Version=1.3.18.0, Culture=neutral, PublicKeyToken=1d0d0c484d50ca62, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\Seasar.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Seasar.Quill, Version=1.3.18.0, Culture=neutral, PublicKeyToken=1d0d0c484d50ca62, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\Seasar.Quill.dll</HintPath>
+    </Reference>
+    <Reference Include="Seasar.Unit, Version=1.3.18.0, Culture=neutral, PublicKeyToken=1d0d0c484d50ca62, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\net2.0\Seasar.Unit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Ado\LdCursorHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Ado\LdLatestSqlProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Ado\LdSqlLogHandler.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Ado\LdSqlResultHandler.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Ado\LdSqlResultInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Ado\LdStatementConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Annotation\OutsideSql.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Bhv\LdAbstractBehaviorReadable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Bhv\LdAbstractBehaviorWritable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Bhv\LdBehaviorReadable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Bhv\LdBehaviorWritable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Bhv\Load\LdLoadReferrerOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Bhv\Setup\LdConditionBeanSetupper.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Bhv\Setup\LdEntityListSetupper.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CHelper\LdHpFixedConditionQueryResolver.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKey.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyEqual.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyGreaterEqual.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyGreaterThan.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyInScope.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyIsNotNull.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyIsNull.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyLessEqual.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyLessThan.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyLikeSearch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyNotEqual.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyNotEqualStandard.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyNotEqualTradition.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyNotInScope.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyNotLikeSearch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CKey\LdConditionKeyPrefixSearch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\COption\LdConditionOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\COption\LdDateFromToOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\COption\LdFromToOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\COption\LdLikeSearchOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\COption\LdSimpleStringOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\CValue\LdConditionValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\Grouping\LdGroupingOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\Grouping\LdGroupingRowEndDeterminer.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\Grouping\LdGroupingRowResource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\Grouping\LdGroupingRowSetupper.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdAbstractConditionBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdAbstractConditionQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdConditionBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdConditionBeanContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdConditionQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdFetchNarrowingBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdFetchNarrowingBeanContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdListResultBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdMapParameterBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdOrderByBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdOrQuery.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdPagingBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdPagingHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdPagingInvoker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdPagingResultBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdResultBeanBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdScalarQuery.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdSelectResource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdSimplePagingBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdSpecifyQuery.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdSubQuery.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\LdUnionQuery.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\Mapping\LdEntityDtoMapper.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\OutsideSql\Executor\LdOutsideSqlBasicExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\OutsideSql\Executor\LdOutsideSqlCursorExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\OutsideSql\Executor\LdOutsideSqlEntityExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\OutsideSql\Executor\LdOutsideSqlPagingExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\OutsideSql\LdOutsideSqlContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\OutsideSql\LdOutsideSqlDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\OutsideSql\LdOutsideSqlOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\OutsideSql\LdProcedurePmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\PageNavi\Group\LdPageGroupBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\PageNavi\Group\LdPageGroupOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\PageNavi\LdPageNumberLink.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\PageNavi\LdPageNumberLinkSetupper.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\PageNavi\Range\LdPageRangeBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\PageNavi\Range\LdPageRangeOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdAbstractSqlClause.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdOrderByClause.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdOrderByElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdSqlClause.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdSqlClauseDb2.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdSqlClauseDefault.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdSqlClauseDerby.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdSqlClauseFirebird.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdSqlClauseH2.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdSqlClauseInterbase.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdSqlClauseMsAccess.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdSqlClauseMySql.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdSqlClauseOracle.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdSqlClausePostgreSql.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdSqlClauseSqlite.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\CBean\SClause\LdSqlClauseSqlServer.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Dbm\Info\LdColumnInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Dbm\Info\LdForeignInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Dbm\Info\LdReferrerInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Dbm\Info\LdRelationInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Dbm\Info\LdUniqueInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Dbm\LdAbstractDBMeta.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Dbm\LdDBMeta.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Dbm\LdDBMetaInstanceHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdBatchEntityAlreadyUpdatedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdBindVariableCommentNotFoundPropertyException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdBindVariableParameterNullValueException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdDangerousResultSizeException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdEmbeddedValueCommentNotFoundPropertyException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdEmbeddedValueParameterNullValueException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdEndCommentNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdEntityAlreadyDeletedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdEntityAlreadyExistsException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdEntityAlreadyUpdatedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdEntityDuplicatedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdIfCommentConditionNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdIfCommentNotBooleanResultException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdIfCommentWrongExpressionException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdInvalidQueryRegisteredException.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdOutsideSqlNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdRequiredOptionNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdSelectEntityConditionNotFoundException.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Exp\LdSQLFailureException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Helper\LdMapListString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Helper\LdMapListStringImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Helper\LdMapStringBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Helper\LdMapStringBuilderImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\JavaLike\LdJavaBasic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\JavaLike\LdJavaCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\JavaLike\LdJavaException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\JavaLike\LdJavaReflection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdAccessContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdBehaviorSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdCacheBehaviorSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdCacheDaoSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdCallbackContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdCDef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdDaoReadable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdDaoSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdDaoWritable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdDBFluteConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdEntityDefinedCommonColumn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdInternalMapContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdQLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\LdXLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\RsHandler\LdInternalAbstractBeanMetaDataResultSetHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\RsHandler\LdInternalBeanArrayMetaDataResultSetHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\RsHandler\LdInternalBeanGenericListMetaDataResultSetHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\RsHandler\LdInternalBeanListMetaDataResultSetHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlCommand\LdInternalAbstractAutoStaticCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlCommand\LdInternalDeleteAutoStaticCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlCommand\LdInternalDeleteQueryAutoDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlCommand\LdInternalInsertAutoDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlCommand\LdInternalProcedureCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlCommand\LdInternalUpdateAutoDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlCommand\LdInternalUpdateDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlCommand\LdInternalUpdateModifiedOnlyCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlCommand\LdInternalUpdateQueryAutoDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlHandler\LdInternalAbstractAutoHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlHandler\LdInternalBasicHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlHandler\LdInternalBasicSelectHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlHandler\LdInternalBasicUpdateHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlHandler\LdInternalCommandContextHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlHandler\LdInternalDeleteAutoHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlHandler\LdInternalInsertAutoHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlHandler\LdInternalProcedureHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlHandler\LdInternalUpdateAutoHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlLog\LdInternalSqlLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlLog\LdInternalSqlLogRegistry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlLog\LdInternalSqlLogRegistryLocator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlParser\LdInternalCommandContextCreator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlParser\LdInternalSqlParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\SqlParser\LdInternalSqlTokenizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\Internal\Util\LdInternalBindVariableUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\LdContextStack.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\LdFetchNarrowingResultSetFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\LdFetchNarrowingResultSetWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\LdS2DaoInterceptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\LdS2DaoMetaDataExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\LdS2DaoMetaDataFactoryImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\LdS2DaoSelectDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\LdS2DaoSetting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\LdSqlLogRegistryLatestSqlProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\S2Dao\LdTxSetting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Util\LdDfCollectionUtil.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Util\LdDfStringUtil.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Util\LdDfSystemUtil.cs" />
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Util\LdSimpleAssertUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Util\LdSimpleStringUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Util\LdSimpleSystemUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\AllCommon\Util\LdTraceViewUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsAuthorBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsBlackActionBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsBlackActionLookupBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsBlackListBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsBookBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsCollectionBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsCollectionStatusBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsCollectionStatusLookupBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsGarbageBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsGarbagePlusBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsGenreBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsLbUserBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsLendingBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsLendingCollectionBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsLibraryBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsLibraryTypeLookupBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsLibraryUserBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsMyselfBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsMyselfCheckBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsNextLibraryBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsBhv\LdBsPublisherBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsAuthorDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsBlackActionDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsBlackActionLookupDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsBlackListDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsBookDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsCollectionDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsCollectionStatusDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsCollectionStatusLookupDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsGarbageDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsGarbagePlusDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsGenreDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsLbUserDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsLendingCollectionDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsLendingDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsLibraryDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsLibraryTypeLookupDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsLibraryUserDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsMyselfCheckDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsMyselfDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsNextLibraryDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsDao\LdBsPublisherDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdAuthorDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdBlackActionDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdBlackActionLookupDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdBlackListDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdBookDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdCollectionDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdCollectionStatusDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdCollectionStatusLookupDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdGarbageDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdGarbagePlusDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdGenreDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdLbUserDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdLendingCollectionDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdLendingDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdLibraryDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdLibraryTypeLookupDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdLibraryUserDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdMyselfCheckDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdMyselfDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdNextLibraryDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\Dbm\LdPublisherDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsAuthor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsBlackAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsBlackActionLookup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsBlackList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsBook.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsCollectionStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsCollectionStatusLookup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsGarbage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsGarbagePlus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsGenre.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsLbUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsLending.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsLendingCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsLibrary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsLibraryTypeLookup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsLibraryUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsMyself.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsMyselfCheck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsNextLibrary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\BsEntity\LdBsPublisher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsAuthorCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsBlackActionCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsBlackActionLookupCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsBlackListCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsBookCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsCollectionCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsCollectionStatusCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsCollectionStatusLookupCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsGarbageCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsGarbagePlusCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsGenreCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsLbUserCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsLendingCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsLendingCollectionCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsLibraryCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsLibraryTypeLookupCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsLibraryUserCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsMyselfCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsMyselfCheckCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsNextLibraryCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\BS\LdBsPublisherCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsAuthorCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsBlackActionCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsBlackActionLookupCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsBlackListCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsBookCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsCollectionCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsCollectionStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsCollectionStatusLookupCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsGarbageCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsGarbagePlusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsGenreCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsLbUserCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsLendingCollectionCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsLendingCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsLibraryCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsLibraryTypeLookupCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsLibraryUserCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsMyselfCheckCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsMyselfCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsNextLibraryCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdAbstractBsPublisherCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsAuthorCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsBlackActionCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsBlackActionLookupCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsBlackListCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsBookCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsCollectionCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsCollectionStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsCollectionStatusLookupCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsGarbageCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsGarbagePlusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsGenreCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsLbUserCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsLendingCollectionCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsLendingCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsLibraryCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsLibraryTypeLookupCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsLibraryUserCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsMyselfCheckCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsMyselfCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsNextLibraryCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\BS\LdBsPublisherCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdAuthorCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdBlackActionCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdBlackActionLookupCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdBlackListCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdBookCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdCollectionCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdCollectionStatusCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdCollectionStatusLookupCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdGarbageCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdGarbagePlusCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdGenreCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdLbUserCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdLendingCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdLendingCollectionCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdLibraryCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdLibraryTypeLookupCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdLibraryUserCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdMyselfCheckCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdMyselfCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdNextLibraryCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\Ciq\LdPublisherCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdAuthorCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdBlackActionCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdBlackActionLookupCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdBlackListCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdBookCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdCollectionCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdCollectionStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdCollectionStatusLookupCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdGarbageCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdGarbagePlusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdGenreCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdLbUserCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdLendingCollectionCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdLendingCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdLibraryCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdLibraryTypeLookupCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdLibraryUserCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdMyselfCheckCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdMyselfCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdNextLibraryCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\CQ\LdPublisherCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdAuthorCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdBlackActionCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdBlackActionLookupCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdBlackListCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdBookCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdCollectionCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdCollectionStatusCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdCollectionStatusLookupCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdGarbageCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdGarbagePlusCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdGenreCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdLbUserCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdLendingCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdLendingCollectionCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdLibraryCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdLibraryTypeLookupCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdLibraryUserCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdMyselfCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdMyselfCheckCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdNextLibraryCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\LdPublisherCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdAuthorNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdBlackActionLookupNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdBlackActionNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdBlackListNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdBookNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdCollectionNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdCollectionStatusLookupNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdCollectionStatusNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdGarbageNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdGarbagePlusNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdGenreNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdLbUserNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdLendingCollectionNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdLendingNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdLibraryNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdLibraryTypeLookupNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdLibraryUserNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdMyselfCheckNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdMyselfNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdNextLibraryNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\CBean\Nss\LdPublisherNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdAuthorBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdBlackActionBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdBlackActionLookupBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdBlackListBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdBookBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdCollectionBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdCollectionStatusBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdCollectionStatusLookupBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdGarbageBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdGarbagePlusBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdGenreBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdLbUserBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdLendingBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdLendingCollectionBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdLibraryBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdLibraryTypeLookupBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdLibraryUserBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdMyselfBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdMyselfCheckBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdNextLibraryBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExBhv\LdPublisherBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdAuthorDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdBlackActionDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdBlackActionLookupDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdBlackListDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdBookDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdCollectionDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdCollectionStatusDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdCollectionStatusLookupDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdGarbageDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdGarbagePlusDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdGenreDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdLbUserDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdLendingCollectionDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdLendingDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdLibraryDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdLibraryTypeLookupDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdLibraryUserDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdMyselfCheckDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdMyselfDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdNextLibraryDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExDao\LdPublisherDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdAuthor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdBlackAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdBlackActionLookup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdBlackList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdBook.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdCollectionStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdCollectionStatusLookup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdGarbage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdGarbagePlus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdGenre.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdLbUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdLending.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdLendingCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdLibrary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdLibraryTypeLookup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdLibraryUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdMyself.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdMyselfCheck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdNextLibrary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\LibraryDb\ExEntity\LdPublisher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Ado\MbCursorHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Ado\MbLatestSqlProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Ado\MbSqlLogHandler.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\Ado\MbSqlResultHandler.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\Ado\MbSqlResultInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Ado\MbStatementConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Annotation\OutsideSql.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Bhv\Load\MbLoadReferrerOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Bhv\MbAbstractBehaviorReadable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Bhv\MbAbstractBehaviorWritable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Bhv\MbBehaviorReadable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Bhv\MbBehaviorWritable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Bhv\Setup\MbConditionBeanSetupper.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\Bhv\Setup\MbEntityListSetupper.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CHelper\MbHpFixedConditionQueryResolver.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKey.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyEqual.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyGreaterEqual.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyGreaterThan.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyInScope.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyIsNotNull.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyIsNull.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyLessEqual.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyLessThan.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyLikeSearch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyNotEqual.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyNotEqualStandard.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyNotEqualTradition.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyNotInScope.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyNotLikeSearch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CKey\MbConditionKeyPrefixSearch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\COption\MbConditionOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\COption\MbDateFromToOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\COption\MbFromToOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\COption\MbLikeSearchOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\COption\MbSimpleStringOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\CValue\MbConditionValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\Grouping\MbGroupingOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\Grouping\MbGroupingRowEndDeterminer.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\Grouping\MbGroupingRowResource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\Grouping\MbGroupingRowSetupper.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\Mapping\MbEntityDtoMapper.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbAbstractConditionBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbAbstractConditionQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbConditionBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbConditionBeanContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbConditionQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbFetchNarrowingBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbFetchNarrowingBeanContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbListResultBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbMapParameterBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbOrderByBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbOrQuery.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbPagingBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbPagingHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbPagingInvoker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbPagingResultBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbResultBeanBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbScalarQuery.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbSelectResource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbSimplePagingBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbSpecifyQuery.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbSubQuery.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\MbUnionQuery.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\OutsideSql\Executor\MbOutsideSqlBasicExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\OutsideSql\Executor\MbOutsideSqlCursorExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\OutsideSql\Executor\MbOutsideSqlEntityExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\OutsideSql\Executor\MbOutsideSqlPagingExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\OutsideSql\MbOutsideSqlContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\OutsideSql\MbOutsideSqlDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\OutsideSql\MbOutsideSqlOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\OutsideSql\MbProcedurePmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\PageNavi\Group\MbPageGroupBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\PageNavi\Group\MbPageGroupOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\PageNavi\MbPageNumberLink.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\PageNavi\MbPageNumberLinkSetupper.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\PageNavi\Range\MbPageRangeBean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\PageNavi\Range\MbPageRangeOption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbAbstractSqlClause.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbOrderByClause.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbOrderByElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbSqlClause.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbSqlClauseDb2.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbSqlClauseDefault.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbSqlClauseDerby.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbSqlClauseFirebird.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbSqlClauseH2.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbSqlClauseInterbase.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbSqlClauseMsAccess.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbSqlClauseMySql.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbSqlClauseOracle.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbSqlClausePostgreSql.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbSqlClauseSqlite.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\CBean\SClause\MbSqlClauseSqlServer.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\Dbm\Info\MbColumnInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Dbm\Info\MbForeignInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Dbm\Info\MbReferrerInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Dbm\Info\MbRelationInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Dbm\Info\MbUniqueInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Dbm\MbAbstractDBMeta.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Dbm\MbDBMeta.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Dbm\MbDBMetaInstanceHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbBatchEntityAlreadyUpdatedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbBindVariableCommentNotFoundPropertyException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbBindVariableParameterNullValueException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbDangerousResultSizeException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbEmbeddedValueCommentNotFoundPropertyException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbEmbeddedValueParameterNullValueException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbEndCommentNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbEntityAlreadyDeletedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbEntityAlreadyExistsException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbEntityAlreadyUpdatedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbEntityDuplicatedException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbIfCommentConditionNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbIfCommentNotBooleanResultException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbIfCommentWrongExpressionException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbInvalidQueryRegisteredException.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbOutsideSqlNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbRequiredOptionNotFoundException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbSelectEntityConditionNotFoundException.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\Exp\MbSQLFailureException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Helper\MbMapListString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Helper\MbMapListStringImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Helper\MbMapStringBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Helper\MbMapStringBuilderImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\JavaLike\MbJavaBasic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\JavaLike\MbJavaCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\JavaLike\MbJavaException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\JavaLike\MbJavaReflection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbAccessContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbBehaviorSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbCacheBehaviorSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbCacheDaoSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbCallbackContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbCDef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbDaoReadable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbDaoSelector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbDaoWritable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbDBFluteConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbEntityDefinedCommonColumn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbInternalMapContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbQLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\MbXLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\RsHandler\MbInternalAbstractBeanMetaDataResultSetHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\RsHandler\MbInternalBeanArrayMetaDataResultSetHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\RsHandler\MbInternalBeanGenericListMetaDataResultSetHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\RsHandler\MbInternalBeanListMetaDataResultSetHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlCommand\MbInternalAbstractAutoStaticCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlCommand\MbInternalDeleteAutoStaticCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlCommand\MbInternalDeleteQueryAutoDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlCommand\MbInternalInsertAutoDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlCommand\MbInternalProcedureCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlCommand\MbInternalUpdateAutoDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlCommand\MbInternalUpdateDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlCommand\MbInternalUpdateModifiedOnlyCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlCommand\MbInternalUpdateQueryAutoDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlHandler\MbInternalAbstractAutoHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlHandler\MbInternalBasicHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlHandler\MbInternalBasicSelectHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlHandler\MbInternalBasicUpdateHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlHandler\MbInternalCommandContextHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlHandler\MbInternalDeleteAutoHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlHandler\MbInternalInsertAutoHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlHandler\MbInternalProcedureHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlHandler\MbInternalUpdateAutoHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlLog\MbInternalSqlLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlLog\MbInternalSqlLogRegistry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlLog\MbInternalSqlLogRegistryLocator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlParser\MbInternalCommandContextCreator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlParser\MbInternalSqlParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\SqlParser\MbInternalSqlTokenizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\Internal\Util\MbInternalBindVariableUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\MbContextStack.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\MbFetchNarrowingResultSetFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\MbFetchNarrowingResultSetWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\MbS2DaoInterceptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\MbS2DaoMetaDataExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\MbS2DaoMetaDataFactoryImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\MbS2DaoSelectDynamicCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\MbS2DaoSetting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\MbSqlLogRegistryLatestSqlProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\S2Dao\MbTxSetting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Util\MbDfCollectionUtil.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\Util\MbDfStringUtil.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\Util\MbDfSystemUtil.cs" />
+    <Compile Include="DBFlute\MemberDb\AllCommon\Util\MbSimpleAssertUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Util\MbSimpleStringUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Util\MbSimpleSystemUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\AllCommon\Util\MbTraceViewUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsBhv\MbBsMemberAddressBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsBhv\MbBsMemberBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsBhv\MbBsMemberLoginBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsBhv\MbBsMemberSecurityBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsBhv\MbBsMemberStatusBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsBhv\MbBsMemberWithdrawalBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsBhv\MbBsProductBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsBhv\MbBsProductStatusBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsBhv\MbBsPurchaseBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsBhv\MbBsVendorCheckBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsBhv\MbBsVendorSelfReferenceBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsBhv\MbBsWithdrawalReasonBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\MbBsMemberAddressDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\MbBsMemberDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\MbBsMemberLoginDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\MbBsMemberSecurityDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\MbBsMemberStatusDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\MbBsMemberWithdrawalDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\MbBsProductDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\MbBsProductStatusDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\MbBsPurchaseDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\MbBsVendorCheckDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\MbBsVendorSelfReferenceDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\MbBsWithdrawalReasonDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\PmBean\MbBsSpInOutParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\PmBean\MbBsSpNoParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\PmBean\MbBsSpReturnResultSetPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsDao\PmBean\MbBsSpVariousTypeParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\Dbm\MbMemberAddressDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\Dbm\MbMemberDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\Dbm\MbMemberLoginDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\Dbm\MbMemberSecurityDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\Dbm\MbMemberStatusDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\Dbm\MbMemberWithdrawalDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\Dbm\MbProductDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\Dbm\MbProductStatusDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\Dbm\MbPurchaseDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\Dbm\MbVendorCheckDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\Dbm\MbVendorSelfReferenceDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\Dbm\MbWithdrawalReasonDbm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\MbBsMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\MbBsMemberAddress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\MbBsMemberLogin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\MbBsMemberSecurity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\MbBsMemberStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\MbBsMemberWithdrawal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\MbBsProduct.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\MbBsProductStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\MbBsPurchase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\MbBsVendorCheck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\MbBsVendorSelfReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\BsEntity\MbBsWithdrawalReason.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\BS\MbBsMemberAddressCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\BS\MbBsMemberCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\BS\MbBsMemberLoginCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\BS\MbBsMemberSecurityCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\BS\MbBsMemberStatusCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\BS\MbBsMemberWithdrawalCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\BS\MbBsProductCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\BS\MbBsProductStatusCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\BS\MbBsPurchaseCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\BS\MbBsVendorCheckCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\BS\MbBsVendorSelfReferenceCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\BS\MbBsWithdrawalReasonCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbAbstractBsMemberAddressCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbAbstractBsMemberCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbAbstractBsMemberLoginCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbAbstractBsMemberSecurityCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbAbstractBsMemberStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbAbstractBsMemberWithdrawalCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbAbstractBsProductCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbAbstractBsProductStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbAbstractBsPurchaseCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbAbstractBsVendorCheckCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbAbstractBsVendorSelfReferenceCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbAbstractBsWithdrawalReasonCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbBsMemberAddressCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbBsMemberCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbBsMemberLoginCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbBsMemberSecurityCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbBsMemberStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbBsMemberWithdrawalCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbBsProductCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbBsProductStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbBsPurchaseCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbBsVendorCheckCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbBsVendorSelfReferenceCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\BS\MbBsWithdrawalReasonCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\Ciq\MbMemberAddressCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\Ciq\MbMemberCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\Ciq\MbMemberLoginCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\Ciq\MbMemberSecurityCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\Ciq\MbMemberStatusCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\Ciq\MbMemberWithdrawalCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\Ciq\MbProductCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\Ciq\MbProductStatusCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\Ciq\MbPurchaseCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\Ciq\MbVendorCheckCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\Ciq\MbVendorSelfReferenceCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\Ciq\MbWithdrawalReasonCIQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\MbMemberAddressCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\MbMemberCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\MbMemberLoginCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\MbMemberSecurityCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\MbMemberStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\MbMemberWithdrawalCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\MbProductCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\MbProductStatusCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\MbPurchaseCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\MbVendorCheckCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\MbVendorSelfReferenceCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\CQ\MbWithdrawalReasonCQ.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\MbMemberAddressCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\MbMemberCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\MbMemberLoginCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\MbMemberSecurityCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\MbMemberStatusCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\MbMemberWithdrawalCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\MbProductCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\MbProductStatusCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\MbPurchaseCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\MbVendorCheckCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\MbVendorSelfReferenceCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\MbWithdrawalReasonCB.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\Nss\MbMemberAddressNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\Nss\MbMemberLoginNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\Nss\MbMemberNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\Nss\MbMemberSecurityNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\Nss\MbMemberStatusNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\Nss\MbMemberWithdrawalNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\Nss\MbProductNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\Nss\MbProductStatusNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\Nss\MbPurchaseNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\Nss\MbVendorCheckNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\Nss\MbVendorSelfReferenceNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\CBean\Nss\MbWithdrawalReasonNss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExBhv\MbMemberAddressBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExBhv\MbMemberBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExBhv\MbMemberLoginBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExBhv\MbMemberSecurityBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExBhv\MbMemberStatusBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExBhv\MbMemberWithdrawalBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExBhv\MbProductBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExBhv\MbProductStatusBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExBhv\MbPurchaseBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExBhv\MbVendorCheckBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExBhv\MbVendorSelfReferenceBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExBhv\MbWithdrawalReasonBhv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\MbMemberAddressDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\MbMemberDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\MbMemberLoginDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\MbMemberSecurityDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\MbMemberStatusDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\MbMemberWithdrawalDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\MbProductDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\MbProductStatusDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\MbPurchaseDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\MbVendorCheckDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\MbVendorSelfReferenceDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\MbWithdrawalReasonDao.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\PmBean\MbSpInOutParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\PmBean\MbSpNoParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\PmBean\MbSpReturnResultSetPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExDao\PmBean\MbSpVariousTypeParameterPmb.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExEntity\MbMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExEntity\MbMemberAddress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExEntity\MbMemberLogin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExEntity\MbMemberSecurity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExEntity\MbMemberStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExEntity\MbMemberWithdrawal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExEntity\MbProduct.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExEntity\MbProductStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExEntity\MbPurchase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExEntity\MbVendorCheck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExEntity\MbVendorSelfReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBFlute\MemberDb\ExEntity\MbWithdrawalReason.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DBFlute\LibraryDb\BsEntity\Customize\Dbm\" />
+    <Folder Include="DBFlute\LibraryDb\ExEntity\Customize\" />
+    <Folder Include="DBFlute\MemberDb\BsEntity\Customize\Dbm\" />
+    <Folder Include="DBFlute\MemberDb\ExEntity\Customize\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

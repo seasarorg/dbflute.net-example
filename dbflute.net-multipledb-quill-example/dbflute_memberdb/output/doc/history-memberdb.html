@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>memberdb history</title>
+	<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: Verdana, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Meiryo, "メイリオ", "MS P Gothic", "MS Pゴシック", sans-serif;
+	font-size: 80%;
+	margin: 1em 1.5em;
+	background-color: #ffffee;
+}
+
+/* heading */
+h1 {
+	font-size: 1.5em;
+	border-bottom: 2px solid #af0000;
+	border-top: 2px solid #af0000;
+}
+h2 {
+	margin-top: 2em;
+	border-bottom: 2px solid #af0000;
+	border-left: 10px solid #af0000;
+	text-indent: 1em;
+	font-size: 1.6em;
+}
+h3 {
+	width: 14em;
+	margin: 0.8em 0;
+	padding-left: 1.8em;
+	border-bottom: solid 1px #333;
+	color: #555;
+	font-size: 1.2em;
+}
+h4 {
+	margin: 1em 0em;
+	font-size: 1em;
+	font-weight: normal;
+	display: list-item;
+}
+h5 {
+	width: 11em;
+	font-size: 80%;
+	border-bottom: solid 1px #333;
+	text-indent: 0.3em;
+	color: #555;
+}
+
+.table-content {
+	margin: 0 6em;
+}
+.column-content {
+	margin: 0.5em 1em 0.5em 3em;
+	line-height: 1.4em;
+}
+
+div.change-table-content {
+	margin-left: 3em;
+}
+
+dl.column-content dt {
+	display: list-item;
+}
+dl.column-content dd {
+	margin: 0 4em;
+}
+dl.column-content dd span {
+	display: block;
+	float: left;
+	width: 6em;
+	margin-right: 1.5em;
+	border-right: dotted 2px #333;
+	font-weight: bold;
+	font-size: 80%;
+	color: #555;
+}
+
+span.dt {
+	font-size: 80%;
+}
+p.comment {
+	margin-left: 23em;
+}
+p.tablecount {
+	margin-left: 23em;
+}
+	</style>
+</head>
+
+<body>
+<h1>History for memberdb (mysql)</h1>
+
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2012/08/04 23:04:19</h2>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4><a href="./schema-memberdb.html#member">member</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>MEMBER_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>MEMBER_ACCOUNT</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>MEMBER_STATUS_CODE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_USER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_PROCESS</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_USER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_PROCESS</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>VERSION_NO</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-memberdb.html#member_address">member_address</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>MEMBER_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>VALID_BEGIN_DATE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>VALID_END_DATE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>ADDRESS</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_PROCESS</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_USER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_PROCESS</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_USER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>VERSION_NO</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-memberdb.html#member_login">member_login</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>MEMBER_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>LOGIN_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>MOBILE_LOGIN_FLG</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>LOGIN_MEMBER_STATUS_CODE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-memberdb.html#member_security">member_security</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>MEMBER_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>LOGIN_PASSWORD</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REMINDER_QUESTION</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REMINDER_ANSWER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_PROCESS</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_USER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_PROCESS</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_USER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>VERSION_NO</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-memberdb.html#member_status">member_status</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>MEMBER_STATUS_CODE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>MEMBER_STATUS_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>DISPLAY_ORDER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-memberdb.html#member_withdrawal">member_withdrawal</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>MEMBER_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>WITHDRAWAL_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_PROCESS</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_USER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_PROCESS</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_USER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>VERSION_NO</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-memberdb.html#product">product</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>PRODUCT_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>PRODUCT_HANDLE_CODE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>PRODUCT_STATUS_CODE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_USER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_PROCESS</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_USER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_PROCESS</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>VERSION_NO</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-memberdb.html#product_status">product_status</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>PRODUCT_STATUS_CODE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>PRODUCT_STATUS_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-memberdb.html#purchase">purchase</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>MEMBER_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>PRODUCT_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>PURCHASE_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>PURCHASE_COUNT</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>PURCHASE_PRICE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>PAYMENT_COMPLETE_FLG</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_USER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>REGISTER_PROCESS</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_DATETIME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_USER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>UPDATE_PROCESS</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>VERSION_NO</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-memberdb.html#vendor_check">vendor_check</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>VENDOR_CHECK_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>DECIMAL_DIGIT</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>INTEGER_NON_DIGIT</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>TYPE_OF_BOOLEAN</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-memberdb.html#vendor_self_reference">vendor_self_reference</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>SELF_REFERENCE_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>SELF_REFERENCE_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-memberdb.html#withdrawal_reason">withdrawal_reason</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>WITHDRAWAL_REASON_CODE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>WITHDRAWAL_REASON_TEXT</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>DISPLAY_ORDER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2010/06/09 05:32:24</h2>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4>member_login</h4>
+		<div class="change-table-content">
+			<h5>Add Column</h5>
+			<ul class="column-content">
+				<li>MOBILE_LOGIN_FLG</li>
+			</ul>
+			<h5>Delete Column</h5>
+			<ul class="column-content">
+				<li>LOGIN_MOBILE_FLG</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

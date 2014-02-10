@@ -1,0 +1,8 @@
+map:{
+; R_USER      = replace-schema
+; R_MODULE    = replace-schema
+; R_TIMESTAMP = sysdate
+; U_USER      = replace-schema
+; U_MODULE    = replace-schema
+; U_TIMESTAMP = sysdate
+}

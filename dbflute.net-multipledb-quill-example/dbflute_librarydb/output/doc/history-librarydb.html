@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>librarydb history</title>
+	<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: Verdana, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", Meiryo, "メイリオ", "MS P Gothic", "MS Pゴシック", sans-serif;
+	font-size: 80%;
+	margin: 1em 1.5em;
+	background-color: #ffffee;
+}
+
+/* heading */
+h1 {
+	font-size: 1.5em;
+	border-bottom: 2px solid #af0000;
+	border-top: 2px solid #af0000;
+}
+h2 {
+	margin-top: 2em;
+	border-bottom: 2px solid #af0000;
+	border-left: 10px solid #af0000;
+	text-indent: 1em;
+	font-size: 1.6em;
+}
+h3 {
+	width: 14em;
+	margin: 0.8em 0;
+	padding-left: 1.8em;
+	border-bottom: solid 1px #333;
+	color: #555;
+	font-size: 1.2em;
+}
+h4 {
+	margin: 1em 0em;
+	font-size: 1em;
+	font-weight: normal;
+	display: list-item;
+}
+h5 {
+	width: 11em;
+	font-size: 80%;
+	border-bottom: solid 1px #333;
+	text-indent: 0.3em;
+	color: #555;
+}
+
+.table-content {
+	margin: 0 6em;
+}
+.column-content {
+	margin: 0.5em 1em 0.5em 3em;
+	line-height: 1.4em;
+}
+
+div.change-table-content {
+	margin-left: 3em;
+}
+
+dl.column-content dt {
+	display: list-item;
+}
+dl.column-content dd {
+	margin: 0 4em;
+}
+dl.column-content dd span {
+	display: block;
+	float: left;
+	width: 6em;
+	margin-right: 1.5em;
+	border-right: dotted 2px #333;
+	font-weight: bold;
+	font-size: 80%;
+	color: #555;
+}
+
+span.dt {
+	font-size: 80%;
+}
+p.comment {
+	margin-left: 23em;
+}
+p.tablecount {
+	margin-left: 23em;
+}
+	</style>
+</head>
+
+<body>
+<h1>History for librarydb (mysql)</h1>
+
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2012/08/04 23:03:36</h2>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4><a href="./schema-librarydb.html#author">author</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>AUTHOR_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#black_action">black_action</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>BLACK_LIST_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>BLACK_ACTION_CODE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>BLACK_LEVEL</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#black_action_lookup">black_action_lookup</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>BLACK_ACTION_CODE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>BLACK_ACTION_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#black_list">black_list</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>LB_USER_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>BLACK_RANK</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#book">book</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>ISBN</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>BOOK_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>AUTHOR_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>PUBLISHER_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>MAX_LENDING_DATE_COUNT</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>OUT_OF_USER_SELECT_YN</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#collection">collection</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>LIBRARY_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>BOOK_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>ARRIVAL_DATE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#collection_status">collection_status</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>COLLECTION_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>COLLECTION_STATUS_CODE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#collection_status_lookup">collection_status_lookup</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>COLLECTION_STATUS_CODE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>COLLECTION_STATUS_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#garbage_plus">garbage_plus</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#genre">genre</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>GENRE_CODE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>GENRE_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>HIERARCHY_LEVEL</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>HIERARCHY_ORDER</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#lb_user">lb_user</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>LB_USER_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>USER_PASSWORD</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#lending">lending</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>LIBRARY_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>LB_USER_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>LENDING_DATE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#lending_collection">lending_collection</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>LIBRARY_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>LB_USER_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>LENDING_DATE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>COLLECTION_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>RETURN_LIMIT_DATE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#library">library</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>LIBRARY_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>LIBRARY_TYPE_CODE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#library_type_lookup">library_type_lookup</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>LIBRARY_TYPE_CODE</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>LIBRARY_TYPE_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#library_user">library_user</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>LIBRARY_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>LB_USER_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#myself">myself</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>MYSELF_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>MYSELF_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#myself_check">myself_check</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>MYSELF_CHECK_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>MYSELF_CHECK_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#next_library">next_library</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>LIBRARY_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>NEXT_LIBRARY_ID</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>DISTANCE_KM</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+		<h4><a href="./schema-librarydb.html#publisher">publisher</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>PUBLISHER_NAME</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>R_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+				<dt>U_TIMESTAMP</dt>
+				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

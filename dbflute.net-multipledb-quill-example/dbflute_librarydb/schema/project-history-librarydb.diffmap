@@ -1,0 +1,811 @@
+map:{
+    ; 2012/08/04 23:03:36 = map:{
+        ; diffDate = 2012/08/04 23:03:36
+        ; tableCount = map:{
+            ; next = 21
+            ; previous = 21
+        }
+        ; tableDiff = map:{
+            ; author = map:{
+                ; tableName = author
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; AUTHOR_NAME = map:{
+                        ; columnName = AUTHOR_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; black_action = map:{
+                ; tableName = black_action
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; BLACK_LIST_ID = map:{
+                        ; columnName = BLACK_LIST_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; BLACK_ACTION_CODE = map:{
+                        ; columnName = BLACK_ACTION_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; BLACK_LEVEL = map:{
+                        ; columnName = BLACK_LEVEL
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; black_action_lookup = map:{
+                ; tableName = black_action_lookup
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; BLACK_ACTION_CODE = map:{
+                        ; columnName = BLACK_ACTION_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; BLACK_ACTION_NAME = map:{
+                        ; columnName = BLACK_ACTION_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; black_list = map:{
+                ; tableName = black_list
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; LB_USER_ID = map:{
+                        ; columnName = LB_USER_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; BLACK_RANK = map:{
+                        ; columnName = BLACK_RANK
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; book = map:{
+                ; tableName = book
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; ISBN = map:{
+                        ; columnName = ISBN
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; BOOK_NAME = map:{
+                        ; columnName = BOOK_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; AUTHOR_ID = map:{
+                        ; columnName = AUTHOR_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; PUBLISHER_ID = map:{
+                        ; columnName = PUBLISHER_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; MAX_LENDING_DATE_COUNT = map:{
+                        ; columnName = MAX_LENDING_DATE_COUNT
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; OUT_OF_USER_SELECT_YN = map:{
+                        ; columnName = OUT_OF_USER_SELECT_YN
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; collection = map:{
+                ; tableName = collection
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; LIBRARY_ID = map:{
+                        ; columnName = LIBRARY_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; BOOK_ID = map:{
+                        ; columnName = BOOK_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; ARRIVAL_DATE = map:{
+                        ; columnName = ARRIVAL_DATE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; collection_status = map:{
+                ; tableName = collection_status
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; COLLECTION_ID = map:{
+                        ; columnName = COLLECTION_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; COLLECTION_STATUS_CODE = map:{
+                        ; columnName = COLLECTION_STATUS_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; collection_status_lookup = map:{
+                ; tableName = collection_status_lookup
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; COLLECTION_STATUS_CODE = map:{
+                        ; columnName = COLLECTION_STATUS_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; COLLECTION_STATUS_NAME = map:{
+                        ; columnName = COLLECTION_STATUS_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; garbage_plus = map:{
+                ; tableName = garbage_plus
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; genre = map:{
+                ; tableName = genre
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; GENRE_CODE = map:{
+                        ; columnName = GENRE_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; GENRE_NAME = map:{
+                        ; columnName = GENRE_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; HIERARCHY_LEVEL = map:{
+                        ; columnName = HIERARCHY_LEVEL
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; HIERARCHY_ORDER = map:{
+                        ; columnName = HIERARCHY_ORDER
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; lb_user = map:{
+                ; tableName = lb_user
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; LB_USER_NAME = map:{
+                        ; columnName = LB_USER_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; USER_PASSWORD = map:{
+                        ; columnName = USER_PASSWORD
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; lending = map:{
+                ; tableName = lending
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; LIBRARY_ID = map:{
+                        ; columnName = LIBRARY_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; LB_USER_ID = map:{
+                        ; columnName = LB_USER_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; LENDING_DATE = map:{
+                        ; columnName = LENDING_DATE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; lending_collection = map:{
+                ; tableName = lending_collection
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; LIBRARY_ID = map:{
+                        ; columnName = LIBRARY_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; LB_USER_ID = map:{
+                        ; columnName = LB_USER_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; LENDING_DATE = map:{
+                        ; columnName = LENDING_DATE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; COLLECTION_ID = map:{
+                        ; columnName = COLLECTION_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; RETURN_LIMIT_DATE = map:{
+                        ; columnName = RETURN_LIMIT_DATE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; library = map:{
+                ; tableName = library
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; LIBRARY_NAME = map:{
+                        ; columnName = LIBRARY_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; LIBRARY_TYPE_CODE = map:{
+                        ; columnName = LIBRARY_TYPE_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; library_type_lookup = map:{
+                ; tableName = library_type_lookup
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; LIBRARY_TYPE_CODE = map:{
+                        ; columnName = LIBRARY_TYPE_CODE
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; LIBRARY_TYPE_NAME = map:{
+                        ; columnName = LIBRARY_TYPE_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; library_user = map:{
+                ; tableName = library_user
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; LIBRARY_ID = map:{
+                        ; columnName = LIBRARY_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; LB_USER_ID = map:{
+                        ; columnName = LB_USER_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; myself = map:{
+                ; tableName = myself
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MYSELF_ID = map:{
+                        ; columnName = MYSELF_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; MYSELF_NAME = map:{
+                        ; columnName = MYSELF_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; myself_check = map:{
+                ; tableName = myself_check
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MYSELF_CHECK_ID = map:{
+                        ; columnName = MYSELF_CHECK_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; MYSELF_CHECK_NAME = map:{
+                        ; columnName = MYSELF_CHECK_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; next_library = map:{
+                ; tableName = next_library
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; LIBRARY_ID = map:{
+                        ; columnName = LIBRARY_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; NEXT_LIBRARY_ID = map:{
+                        ; columnName = NEXT_LIBRARY_ID
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; DISTANCE_KM = map:{
+                        ; columnName = DISTANCE_KM
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+            ; publisher = map:{
+                ; tableName = publisher
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; PUBLISHER_NAME = map:{
+                        ; columnName = PUBLISHER_NAME
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; R_TIMESTAMP = map:{
+                        ; columnName = R_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                    ; U_TIMESTAMP = map:{
+                        ; columnName = U_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "null"
+                            ; previous = ""
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

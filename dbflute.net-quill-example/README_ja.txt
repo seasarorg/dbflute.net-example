@@ -3,9 +3,9 @@
 
 1. MySQLの準備
 
-MySQL本体は「dfnet-basic-example/mysql」に配置されることを前提とする。
+MySQL本体は「dfnet-basic-example/localdb/mysql」に配置されることを前提とする。
 
-  ex) MySQL本体の配置
+  e.g. MySQL本体の配置
 
     |- workspace
         |- dbflute.net-quill-example
