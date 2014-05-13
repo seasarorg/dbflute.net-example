@@ -172,15 +172,15 @@ namespace DfExample.DBFlute.CBean.BS {
             ColumnWithdrawalReasonCode(); // PK
         }
         protected override String getTableDbName() { return "WITHDRAWAL_REASON"; }
-        public RAFunction<VdSynonymMemberWithdrawalCB, WithdrawalReasonCQ> DerivedVdSynonymMemberWithdrawalList() {
-            if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return new RAFunction<VdSynonymMemberWithdrawalCB, WithdrawalReasonCQ>(_baseCB, _qyCall.qy(), delegate(String function, SubQuery<VdSynonymMemberWithdrawalCB> subQuery, WithdrawalReasonCQ cq, String aliasName)
-                { cq.xsderiveVdSynonymMemberWithdrawalList(function, subQuery, aliasName); });
-        }
         public RAFunction<MemberWithdrawalCB, WithdrawalReasonCQ> DerivedMemberWithdrawalList() {
             if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return new RAFunction<MemberWithdrawalCB, WithdrawalReasonCQ>(_baseCB, _qyCall.qy(), delegate(String function, SubQuery<MemberWithdrawalCB> subQuery, WithdrawalReasonCQ cq, String aliasName)
                 { cq.xsderiveMemberWithdrawalList(function, subQuery, aliasName); });
+        }
+        public RAFunction<VdSynonymMemberWithdrawalCB, WithdrawalReasonCQ> DerivedVdSynonymMemberWithdrawalList() {
+            if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
+            return new RAFunction<VdSynonymMemberWithdrawalCB, WithdrawalReasonCQ>(_baseCB, _qyCall.qy(), delegate(String function, SubQuery<VdSynonymMemberWithdrawalCB> subQuery, WithdrawalReasonCQ cq, String aliasName)
+                { cq.xsderiveVdSynonymMemberWithdrawalList(function, subQuery, aliasName); });
         }
     }
 }

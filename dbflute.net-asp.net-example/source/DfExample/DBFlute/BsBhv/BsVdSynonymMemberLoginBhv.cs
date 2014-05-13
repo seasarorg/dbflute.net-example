@@ -174,17 +174,17 @@ namespace DfExample.DBFlute.ExBhv {
         //                                                                Pull out Foreign
         //                                                                ================
         #region Pullout Foreign
-        public IList<MemberVendorSynonym> PulloutMemberVendorSynonym(IList<VdSynonymMemberLogin> vdSynonymMemberLoginList) {
-            return HelpPulloutInternally<VdSynonymMemberLogin, MemberVendorSynonym>(vdSynonymMemberLoginList, new MyInternalPulloutMemberVendorSynonymCallback());
-        }
-        protected class MyInternalPulloutMemberVendorSynonymCallback : InternalPulloutCallback<VdSynonymMemberLogin, MemberVendorSynonym> {
-            public MemberVendorSynonym getFr(VdSynonymMemberLogin entity) { return entity.MemberVendorSynonym; }
-        }
         public IList<MemberStatus> PulloutMemberStatus(IList<VdSynonymMemberLogin> vdSynonymMemberLoginList) {
             return HelpPulloutInternally<VdSynonymMemberLogin, MemberStatus>(vdSynonymMemberLoginList, new MyInternalPulloutMemberStatusCallback());
         }
         protected class MyInternalPulloutMemberStatusCallback : InternalPulloutCallback<VdSynonymMemberLogin, MemberStatus> {
             public MemberStatus getFr(VdSynonymMemberLogin entity) { return entity.MemberStatus; }
+        }
+        public IList<MemberVendorSynonym> PulloutMemberVendorSynonym(IList<VdSynonymMemberLogin> vdSynonymMemberLoginList) {
+            return HelpPulloutInternally<VdSynonymMemberLogin, MemberVendorSynonym>(vdSynonymMemberLoginList, new MyInternalPulloutMemberVendorSynonymCallback());
+        }
+        protected class MyInternalPulloutMemberVendorSynonymCallback : InternalPulloutCallback<VdSynonymMemberLogin, MemberVendorSynonym> {
+            public MemberVendorSynonym getFr(VdSynonymMemberLogin entity) { return entity.MemberVendorSynonym; }
         }
         public IList<VdSynonymMember> PulloutVdSynonymMember(IList<VdSynonymMemberLogin> vdSynonymMemberLoginList) {
             return HelpPulloutInternally<VdSynonymMemberLogin, VdSynonymMember>(vdSynonymMemberLoginList, new MyInternalPulloutVdSynonymMemberCallback());

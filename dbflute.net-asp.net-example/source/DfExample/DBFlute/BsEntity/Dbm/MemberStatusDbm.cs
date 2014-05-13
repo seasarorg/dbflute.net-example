@@ -49,7 +49,7 @@ namespace DfExample.DBFlute.BsEntity.Dbm {
         public ColumnInfo ColumnDisplayOrder { get { return _columnDisplayOrder; } }
 
         protected void InitializeColumnInfo() {
-            _columnMemberStatusCode = cci("MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", null, null, true, "MemberStatusCode", typeof(String), true, "CHAR", 3, 0, false, OptimisticLockType.NONE, null, null, "memberVendorSynonymList,vdSynonymMemberList,vdSynonymMemberLoginList,vendorSynonymMemberList,memberList,memberLoginList");
+            _columnMemberStatusCode = cci("MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", null, null, true, "MemberStatusCode", typeof(String), true, "CHAR", 3, 0, false, OptimisticLockType.NONE, null, null, "memberList,memberLoginList,memberVendorSynonymList,vdSynonymMemberList,vdSynonymMemberLoginList,vendorSynonymMemberList");
             _columnMemberStatusName = cci("MEMBER_STATUS_NAME", "MEMBER_STATUS_NAME", null, null, true, "MemberStatusName", typeof(String), false, "VARCHAR2", 50, 0, false, OptimisticLockType.NONE, null, null, null);
             _columnDisplayOrder = cci("DISPLAY_ORDER", "DISPLAY_ORDER", null, null, true, "DisplayOrder", typeof(long?), false, "NUMBER", 16, 0, false, OptimisticLockType.NONE, null, null, null);
         }
@@ -85,6 +85,16 @@ namespace DfExample.DBFlute.BsEntity.Dbm {
         // -------------------------------------------------
         //                                  Referrer Element
         //                                  ----------------
+        public ReferrerInfo ReferrerMemberList { get {
+            Map<ColumnInfo, ColumnInfo> map = new LinkedHashMap<ColumnInfo, ColumnInfo>();
+            map.put(ColumnMemberStatusCode, MemberDbm.GetInstance().ColumnMemberStatusCode);
+            return cri("MemberList", this, MemberDbm.GetInstance(), map, false);
+        }}
+        public ReferrerInfo ReferrerMemberLoginList { get {
+            Map<ColumnInfo, ColumnInfo> map = new LinkedHashMap<ColumnInfo, ColumnInfo>();
+            map.put(ColumnMemberStatusCode, MemberLoginDbm.GetInstance().ColumnLoginMemberStatusCode);
+            return cri("MemberLoginList", this, MemberLoginDbm.GetInstance(), map, false);
+        }}
         public ReferrerInfo ReferrerMemberVendorSynonymList { get {
             Map<ColumnInfo, ColumnInfo> map = new LinkedHashMap<ColumnInfo, ColumnInfo>();
             map.put(ColumnMemberStatusCode, MemberVendorSynonymDbm.GetInstance().ColumnMemberStatusCode);
@@ -104,16 +114,6 @@ namespace DfExample.DBFlute.BsEntity.Dbm {
             Map<ColumnInfo, ColumnInfo> map = new LinkedHashMap<ColumnInfo, ColumnInfo>();
             map.put(ColumnMemberStatusCode, VendorSynonymMemberDbm.GetInstance().ColumnMemberStatusCode);
             return cri("VendorSynonymMemberList", this, VendorSynonymMemberDbm.GetInstance(), map, false);
-        }}
-        public ReferrerInfo ReferrerMemberList { get {
-            Map<ColumnInfo, ColumnInfo> map = new LinkedHashMap<ColumnInfo, ColumnInfo>();
-            map.put(ColumnMemberStatusCode, MemberDbm.GetInstance().ColumnMemberStatusCode);
-            return cri("MemberList", this, MemberDbm.GetInstance(), map, false);
-        }}
-        public ReferrerInfo ReferrerMemberLoginList { get {
-            Map<ColumnInfo, ColumnInfo> map = new LinkedHashMap<ColumnInfo, ColumnInfo>();
-            map.put(ColumnMemberStatusCode, MemberLoginDbm.GetInstance().ColumnLoginMemberStatusCode);
-            return cri("MemberLoginList", this, MemberLoginDbm.GetInstance(), map, false);
         }}
 
         // ===============================================================================
@@ -152,12 +152,12 @@ namespace DfExample.DBFlute.BsEntity.Dbm {
         // -------------------------------------------------
         //                                     Referrer Name
         //                                     -------------
+        public static readonly String REFERRER_PROPERTY_NAME_MemberList = "MemberList";
+        public static readonly String REFERRER_PROPERTY_NAME_MemberLoginList = "MemberLoginList";
         public static readonly String REFERRER_PROPERTY_NAME_MemberVendorSynonymList = "MemberVendorSynonymList";
         public static readonly String REFERRER_PROPERTY_NAME_VdSynonymMemberList = "VdSynonymMemberList";
         public static readonly String REFERRER_PROPERTY_NAME_VdSynonymMemberLoginList = "VdSynonymMemberLoginList";
         public static readonly String REFERRER_PROPERTY_NAME_VendorSynonymMemberList = "VendorSynonymMemberList";
-        public static readonly String REFERRER_PROPERTY_NAME_MemberList = "MemberList";
-        public static readonly String REFERRER_PROPERTY_NAME_MemberLoginList = "MemberLoginList";
 
         // -------------------------------------------------
         //                               DB-Property Mapping

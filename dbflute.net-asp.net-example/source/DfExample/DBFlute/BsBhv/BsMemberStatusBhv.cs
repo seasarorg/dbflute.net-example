@@ -168,6 +168,70 @@ namespace DfExample.DBFlute.ExBhv {
         //                                                                   Load Referrer
         //                                                                   =============
         #region Load Referrer
+        public virtual void LoadMemberList(MemberStatus memberStatus, ConditionBeanSetupper<MemberCB> conditionBeanSetupper) {
+            AssertObjectNotNull("memberStatus", memberStatus); AssertObjectNotNull("conditionBeanSetupper", conditionBeanSetupper);
+            LoadMemberList(xnewLRLs<MemberStatus>(memberStatus), conditionBeanSetupper);
+        }
+        public virtual void LoadMemberList(IList<MemberStatus> memberStatusList, ConditionBeanSetupper<MemberCB> conditionBeanSetupper) {
+            AssertObjectNotNull("memberStatusList", memberStatusList); AssertObjectNotNull("conditionBeanSetupper", conditionBeanSetupper);
+            LoadMemberList(memberStatusList, new LoadReferrerOption<MemberCB, Member>().xinit(conditionBeanSetupper));
+        }
+        public virtual void LoadMemberList(MemberStatus memberStatus, LoadReferrerOption<MemberCB, Member> loadReferrerOption) {
+            AssertObjectNotNull("memberStatus", memberStatus); AssertObjectNotNull("loadReferrerOption", loadReferrerOption);
+            LoadMemberList(xnewLRLs<MemberStatus>(memberStatus), loadReferrerOption);
+        }
+        public virtual void LoadMemberList(IList<MemberStatus> memberStatusList, LoadReferrerOption<MemberCB, Member> loadReferrerOption) {
+            AssertObjectNotNull("memberStatusList", memberStatusList); AssertObjectNotNull("loadReferrerOption", loadReferrerOption);
+            if (memberStatusList.Count == 0) { return; }
+            MemberBhv referrerBhv = xgetBSFLR().Select<MemberBhv>();
+            HelpLoadReferrerInternally<MemberStatus, String, MemberCB, Member>
+                    (memberStatusList, loadReferrerOption, new MyInternalLoadMemberListCallback(referrerBhv));
+        }
+        protected class MyInternalLoadMemberListCallback : InternalLoadReferrerCallback<MemberStatus, String, MemberCB, Member> {
+            protected MemberBhv referrerBhv;
+            public MyInternalLoadMemberListCallback(MemberBhv referrerBhv) { this.referrerBhv = referrerBhv; }
+            public String getPKVal(MemberStatus e) { return e.MemberStatusCode; }
+            public void setRfLs(MemberStatus e, IList<Member> ls) { e.MemberList = ls; }
+            public MemberCB newMyCB() { return referrerBhv.NewMyConditionBean(); }
+            public void qyFKIn(MemberCB cb, IList<String> ls) { cb.Query().SetMemberStatusCode_InScope(ls); }
+            public void qyOdFKAsc(MemberCB cb) { cb.Query().AddOrderBy_MemberStatusCode_Asc(); }
+            public void spFKCol(MemberCB cb) { cb.Specify().ColumnMemberStatusCode(); }
+            public IList<Member> selRfLs(MemberCB cb) { return referrerBhv.SelectList(cb); }
+            public String getFKVal(Member e) { return e.MemberStatusCode; }
+            public void setlcEt(Member re, MemberStatus be) { re.MemberStatus = be; }
+        }
+        public virtual void LoadMemberLoginList(MemberStatus memberStatus, ConditionBeanSetupper<MemberLoginCB> conditionBeanSetupper) {
+            AssertObjectNotNull("memberStatus", memberStatus); AssertObjectNotNull("conditionBeanSetupper", conditionBeanSetupper);
+            LoadMemberLoginList(xnewLRLs<MemberStatus>(memberStatus), conditionBeanSetupper);
+        }
+        public virtual void LoadMemberLoginList(IList<MemberStatus> memberStatusList, ConditionBeanSetupper<MemberLoginCB> conditionBeanSetupper) {
+            AssertObjectNotNull("memberStatusList", memberStatusList); AssertObjectNotNull("conditionBeanSetupper", conditionBeanSetupper);
+            LoadMemberLoginList(memberStatusList, new LoadReferrerOption<MemberLoginCB, MemberLogin>().xinit(conditionBeanSetupper));
+        }
+        public virtual void LoadMemberLoginList(MemberStatus memberStatus, LoadReferrerOption<MemberLoginCB, MemberLogin> loadReferrerOption) {
+            AssertObjectNotNull("memberStatus", memberStatus); AssertObjectNotNull("loadReferrerOption", loadReferrerOption);
+            LoadMemberLoginList(xnewLRLs<MemberStatus>(memberStatus), loadReferrerOption);
+        }
+        public virtual void LoadMemberLoginList(IList<MemberStatus> memberStatusList, LoadReferrerOption<MemberLoginCB, MemberLogin> loadReferrerOption) {
+            AssertObjectNotNull("memberStatusList", memberStatusList); AssertObjectNotNull("loadReferrerOption", loadReferrerOption);
+            if (memberStatusList.Count == 0) { return; }
+            MemberLoginBhv referrerBhv = xgetBSFLR().Select<MemberLoginBhv>();
+            HelpLoadReferrerInternally<MemberStatus, String, MemberLoginCB, MemberLogin>
+                    (memberStatusList, loadReferrerOption, new MyInternalLoadMemberLoginListCallback(referrerBhv));
+        }
+        protected class MyInternalLoadMemberLoginListCallback : InternalLoadReferrerCallback<MemberStatus, String, MemberLoginCB, MemberLogin> {
+            protected MemberLoginBhv referrerBhv;
+            public MyInternalLoadMemberLoginListCallback(MemberLoginBhv referrerBhv) { this.referrerBhv = referrerBhv; }
+            public String getPKVal(MemberStatus e) { return e.MemberStatusCode; }
+            public void setRfLs(MemberStatus e, IList<MemberLogin> ls) { e.MemberLoginList = ls; }
+            public MemberLoginCB newMyCB() { return referrerBhv.NewMyConditionBean(); }
+            public void qyFKIn(MemberLoginCB cb, IList<String> ls) { cb.Query().SetLoginMemberStatusCode_InScope(ls); }
+            public void qyOdFKAsc(MemberLoginCB cb) { cb.Query().AddOrderBy_LoginMemberStatusCode_Asc(); }
+            public void spFKCol(MemberLoginCB cb) { cb.Specify().ColumnLoginMemberStatusCode(); }
+            public IList<MemberLogin> selRfLs(MemberLoginCB cb) { return referrerBhv.SelectList(cb); }
+            public String getFKVal(MemberLogin e) { return e.LoginMemberStatusCode; }
+            public void setlcEt(MemberLogin re, MemberStatus be) { re.MemberStatus = be; }
+        }
         public virtual void LoadMemberVendorSynonymList(MemberStatus memberStatus, ConditionBeanSetupper<MemberVendorSynonymCB> conditionBeanSetupper) {
             AssertObjectNotNull("memberStatus", memberStatus); AssertObjectNotNull("conditionBeanSetupper", conditionBeanSetupper);
             LoadMemberVendorSynonymList(xnewLRLs<MemberStatus>(memberStatus), conditionBeanSetupper);
@@ -295,70 +359,6 @@ namespace DfExample.DBFlute.ExBhv {
             public IList<VendorSynonymMember> selRfLs(VendorSynonymMemberCB cb) { return referrerBhv.SelectList(cb); }
             public String getFKVal(VendorSynonymMember e) { return e.MemberStatusCode; }
             public void setlcEt(VendorSynonymMember re, MemberStatus be) { re.MemberStatus = be; }
-        }
-        public virtual void LoadMemberList(MemberStatus memberStatus, ConditionBeanSetupper<MemberCB> conditionBeanSetupper) {
-            AssertObjectNotNull("memberStatus", memberStatus); AssertObjectNotNull("conditionBeanSetupper", conditionBeanSetupper);
-            LoadMemberList(xnewLRLs<MemberStatus>(memberStatus), conditionBeanSetupper);
-        }
-        public virtual void LoadMemberList(IList<MemberStatus> memberStatusList, ConditionBeanSetupper<MemberCB> conditionBeanSetupper) {
-            AssertObjectNotNull("memberStatusList", memberStatusList); AssertObjectNotNull("conditionBeanSetupper", conditionBeanSetupper);
-            LoadMemberList(memberStatusList, new LoadReferrerOption<MemberCB, Member>().xinit(conditionBeanSetupper));
-        }
-        public virtual void LoadMemberList(MemberStatus memberStatus, LoadReferrerOption<MemberCB, Member> loadReferrerOption) {
-            AssertObjectNotNull("memberStatus", memberStatus); AssertObjectNotNull("loadReferrerOption", loadReferrerOption);
-            LoadMemberList(xnewLRLs<MemberStatus>(memberStatus), loadReferrerOption);
-        }
-        public virtual void LoadMemberList(IList<MemberStatus> memberStatusList, LoadReferrerOption<MemberCB, Member> loadReferrerOption) {
-            AssertObjectNotNull("memberStatusList", memberStatusList); AssertObjectNotNull("loadReferrerOption", loadReferrerOption);
-            if (memberStatusList.Count == 0) { return; }
-            MemberBhv referrerBhv = xgetBSFLR().Select<MemberBhv>();
-            HelpLoadReferrerInternally<MemberStatus, String, MemberCB, Member>
-                    (memberStatusList, loadReferrerOption, new MyInternalLoadMemberListCallback(referrerBhv));
-        }
-        protected class MyInternalLoadMemberListCallback : InternalLoadReferrerCallback<MemberStatus, String, MemberCB, Member> {
-            protected MemberBhv referrerBhv;
-            public MyInternalLoadMemberListCallback(MemberBhv referrerBhv) { this.referrerBhv = referrerBhv; }
-            public String getPKVal(MemberStatus e) { return e.MemberStatusCode; }
-            public void setRfLs(MemberStatus e, IList<Member> ls) { e.MemberList = ls; }
-            public MemberCB newMyCB() { return referrerBhv.NewMyConditionBean(); }
-            public void qyFKIn(MemberCB cb, IList<String> ls) { cb.Query().SetMemberStatusCode_InScope(ls); }
-            public void qyOdFKAsc(MemberCB cb) { cb.Query().AddOrderBy_MemberStatusCode_Asc(); }
-            public void spFKCol(MemberCB cb) { cb.Specify().ColumnMemberStatusCode(); }
-            public IList<Member> selRfLs(MemberCB cb) { return referrerBhv.SelectList(cb); }
-            public String getFKVal(Member e) { return e.MemberStatusCode; }
-            public void setlcEt(Member re, MemberStatus be) { re.MemberStatus = be; }
-        }
-        public virtual void LoadMemberLoginList(MemberStatus memberStatus, ConditionBeanSetupper<MemberLoginCB> conditionBeanSetupper) {
-            AssertObjectNotNull("memberStatus", memberStatus); AssertObjectNotNull("conditionBeanSetupper", conditionBeanSetupper);
-            LoadMemberLoginList(xnewLRLs<MemberStatus>(memberStatus), conditionBeanSetupper);
-        }
-        public virtual void LoadMemberLoginList(IList<MemberStatus> memberStatusList, ConditionBeanSetupper<MemberLoginCB> conditionBeanSetupper) {
-            AssertObjectNotNull("memberStatusList", memberStatusList); AssertObjectNotNull("conditionBeanSetupper", conditionBeanSetupper);
-            LoadMemberLoginList(memberStatusList, new LoadReferrerOption<MemberLoginCB, MemberLogin>().xinit(conditionBeanSetupper));
-        }
-        public virtual void LoadMemberLoginList(MemberStatus memberStatus, LoadReferrerOption<MemberLoginCB, MemberLogin> loadReferrerOption) {
-            AssertObjectNotNull("memberStatus", memberStatus); AssertObjectNotNull("loadReferrerOption", loadReferrerOption);
-            LoadMemberLoginList(xnewLRLs<MemberStatus>(memberStatus), loadReferrerOption);
-        }
-        public virtual void LoadMemberLoginList(IList<MemberStatus> memberStatusList, LoadReferrerOption<MemberLoginCB, MemberLogin> loadReferrerOption) {
-            AssertObjectNotNull("memberStatusList", memberStatusList); AssertObjectNotNull("loadReferrerOption", loadReferrerOption);
-            if (memberStatusList.Count == 0) { return; }
-            MemberLoginBhv referrerBhv = xgetBSFLR().Select<MemberLoginBhv>();
-            HelpLoadReferrerInternally<MemberStatus, String, MemberLoginCB, MemberLogin>
-                    (memberStatusList, loadReferrerOption, new MyInternalLoadMemberLoginListCallback(referrerBhv));
-        }
-        protected class MyInternalLoadMemberLoginListCallback : InternalLoadReferrerCallback<MemberStatus, String, MemberLoginCB, MemberLogin> {
-            protected MemberLoginBhv referrerBhv;
-            public MyInternalLoadMemberLoginListCallback(MemberLoginBhv referrerBhv) { this.referrerBhv = referrerBhv; }
-            public String getPKVal(MemberStatus e) { return e.MemberStatusCode; }
-            public void setRfLs(MemberStatus e, IList<MemberLogin> ls) { e.MemberLoginList = ls; }
-            public MemberLoginCB newMyCB() { return referrerBhv.NewMyConditionBean(); }
-            public void qyFKIn(MemberLoginCB cb, IList<String> ls) { cb.Query().SetLoginMemberStatusCode_InScope(ls); }
-            public void qyOdFKAsc(MemberLoginCB cb) { cb.Query().AddOrderBy_LoginMemberStatusCode_Asc(); }
-            public void spFKCol(MemberLoginCB cb) { cb.Specify().ColumnLoginMemberStatusCode(); }
-            public IList<MemberLogin> selRfLs(MemberLoginCB cb) { return referrerBhv.SelectList(cb); }
-            public String getFKVal(MemberLogin e) { return e.LoginMemberStatusCode; }
-            public void setlcEt(MemberLogin re, MemberStatus be) { re.MemberStatus = be; }
         }
         #endregion
 

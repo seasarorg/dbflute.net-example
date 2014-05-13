@@ -34,6 +34,7 @@ namespace DfExample.DBFlute.BsEntity.Dbm {
         public override String TableDbName { get { return "SUMMARY_MEMBER_PURCHASE"; } }
         public override String TablePropertyName { get { return "SummaryMemberPurchase"; } }
         public override String TableSqlName { get { return "SUMMARY_MEMBER_PURCHASE"; } }
+        public override String TableComment { get { return "snapshot table for snapshot DFNETEXDB.SUMMARY_MEMBER_PURCHASE"; } }
 
         // ===============================================================================
         //                                                                     Column Info
@@ -48,7 +49,7 @@ namespace DfExample.DBFlute.BsEntity.Dbm {
 
         protected void InitializeColumnInfo() {
             _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, null, true, "MemberId", typeof(long?), false, "NUMBER", 16, 0, false, OptimisticLockType.NONE, null, null, null);
-            _columnAllsumPurchasePrice = cci("ALLSUM_PURCHASE_PRICE", "ALLSUM_PURCHASE_PRICE", null, null, false, "AllsumPurchasePrice", typeof(decimal?), false, "NUMBER", null, null, false, OptimisticLockType.NONE, null, null, null);
+            _columnAllsumPurchasePrice = cci("ALLSUM_PURCHASE_PRICE", "ALLSUM_PURCHASE_PRICE", null, null, false, "AllsumPurchasePrice", typeof(decimal?), false, "NUMBER", 22, 0, false, OptimisticLockType.NONE, null, null, null);
             _columnLatestPurchaseDatetime = cci("LATEST_PURCHASE_DATETIME", "LATEST_PURCHASE_DATETIME", null, null, false, "LatestPurchaseDatetime", typeof(DateTime?), false, "DATE", 7, 0, false, OptimisticLockType.NONE, null, null, null);
         }
 

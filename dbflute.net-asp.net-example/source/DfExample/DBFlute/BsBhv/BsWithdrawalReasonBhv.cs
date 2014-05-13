@@ -168,38 +168,6 @@ namespace DfExample.DBFlute.ExBhv {
         //                                                                   Load Referrer
         //                                                                   =============
         #region Load Referrer
-        public virtual void LoadVdSynonymMemberWithdrawalList(WithdrawalReason withdrawalReason, ConditionBeanSetupper<VdSynonymMemberWithdrawalCB> conditionBeanSetupper) {
-            AssertObjectNotNull("withdrawalReason", withdrawalReason); AssertObjectNotNull("conditionBeanSetupper", conditionBeanSetupper);
-            LoadVdSynonymMemberWithdrawalList(xnewLRLs<WithdrawalReason>(withdrawalReason), conditionBeanSetupper);
-        }
-        public virtual void LoadVdSynonymMemberWithdrawalList(IList<WithdrawalReason> withdrawalReasonList, ConditionBeanSetupper<VdSynonymMemberWithdrawalCB> conditionBeanSetupper) {
-            AssertObjectNotNull("withdrawalReasonList", withdrawalReasonList); AssertObjectNotNull("conditionBeanSetupper", conditionBeanSetupper);
-            LoadVdSynonymMemberWithdrawalList(withdrawalReasonList, new LoadReferrerOption<VdSynonymMemberWithdrawalCB, VdSynonymMemberWithdrawal>().xinit(conditionBeanSetupper));
-        }
-        public virtual void LoadVdSynonymMemberWithdrawalList(WithdrawalReason withdrawalReason, LoadReferrerOption<VdSynonymMemberWithdrawalCB, VdSynonymMemberWithdrawal> loadReferrerOption) {
-            AssertObjectNotNull("withdrawalReason", withdrawalReason); AssertObjectNotNull("loadReferrerOption", loadReferrerOption);
-            LoadVdSynonymMemberWithdrawalList(xnewLRLs<WithdrawalReason>(withdrawalReason), loadReferrerOption);
-        }
-        public virtual void LoadVdSynonymMemberWithdrawalList(IList<WithdrawalReason> withdrawalReasonList, LoadReferrerOption<VdSynonymMemberWithdrawalCB, VdSynonymMemberWithdrawal> loadReferrerOption) {
-            AssertObjectNotNull("withdrawalReasonList", withdrawalReasonList); AssertObjectNotNull("loadReferrerOption", loadReferrerOption);
-            if (withdrawalReasonList.Count == 0) { return; }
-            VdSynonymMemberWithdrawalBhv referrerBhv = xgetBSFLR().Select<VdSynonymMemberWithdrawalBhv>();
-            HelpLoadReferrerInternally<WithdrawalReason, String, VdSynonymMemberWithdrawalCB, VdSynonymMemberWithdrawal>
-                    (withdrawalReasonList, loadReferrerOption, new MyInternalLoadVdSynonymMemberWithdrawalListCallback(referrerBhv));
-        }
-        protected class MyInternalLoadVdSynonymMemberWithdrawalListCallback : InternalLoadReferrerCallback<WithdrawalReason, String, VdSynonymMemberWithdrawalCB, VdSynonymMemberWithdrawal> {
-            protected VdSynonymMemberWithdrawalBhv referrerBhv;
-            public MyInternalLoadVdSynonymMemberWithdrawalListCallback(VdSynonymMemberWithdrawalBhv referrerBhv) { this.referrerBhv = referrerBhv; }
-            public String getPKVal(WithdrawalReason e) { return e.WithdrawalReasonCode; }
-            public void setRfLs(WithdrawalReason e, IList<VdSynonymMemberWithdrawal> ls) { e.VdSynonymMemberWithdrawalList = ls; }
-            public VdSynonymMemberWithdrawalCB newMyCB() { return referrerBhv.NewMyConditionBean(); }
-            public void qyFKIn(VdSynonymMemberWithdrawalCB cb, IList<String> ls) { cb.Query().SetWithdrawalReasonCode_InScope(ls); }
-            public void qyOdFKAsc(VdSynonymMemberWithdrawalCB cb) { cb.Query().AddOrderBy_WithdrawalReasonCode_Asc(); }
-            public void spFKCol(VdSynonymMemberWithdrawalCB cb) { cb.Specify().ColumnWithdrawalReasonCode(); }
-            public IList<VdSynonymMemberWithdrawal> selRfLs(VdSynonymMemberWithdrawalCB cb) { return referrerBhv.SelectList(cb); }
-            public String getFKVal(VdSynonymMemberWithdrawal e) { return e.WithdrawalReasonCode; }
-            public void setlcEt(VdSynonymMemberWithdrawal re, WithdrawalReason be) { re.WithdrawalReason = be; }
-        }
         public virtual void LoadMemberWithdrawalList(WithdrawalReason withdrawalReason, ConditionBeanSetupper<MemberWithdrawalCB> conditionBeanSetupper) {
             AssertObjectNotNull("withdrawalReason", withdrawalReason); AssertObjectNotNull("conditionBeanSetupper", conditionBeanSetupper);
             LoadMemberWithdrawalList(xnewLRLs<WithdrawalReason>(withdrawalReason), conditionBeanSetupper);
@@ -231,6 +199,38 @@ namespace DfExample.DBFlute.ExBhv {
             public IList<MemberWithdrawal> selRfLs(MemberWithdrawalCB cb) { return referrerBhv.SelectList(cb); }
             public String getFKVal(MemberWithdrawal e) { return e.WithdrawalReasonCode; }
             public void setlcEt(MemberWithdrawal re, WithdrawalReason be) { re.WithdrawalReason = be; }
+        }
+        public virtual void LoadVdSynonymMemberWithdrawalList(WithdrawalReason withdrawalReason, ConditionBeanSetupper<VdSynonymMemberWithdrawalCB> conditionBeanSetupper) {
+            AssertObjectNotNull("withdrawalReason", withdrawalReason); AssertObjectNotNull("conditionBeanSetupper", conditionBeanSetupper);
+            LoadVdSynonymMemberWithdrawalList(xnewLRLs<WithdrawalReason>(withdrawalReason), conditionBeanSetupper);
+        }
+        public virtual void LoadVdSynonymMemberWithdrawalList(IList<WithdrawalReason> withdrawalReasonList, ConditionBeanSetupper<VdSynonymMemberWithdrawalCB> conditionBeanSetupper) {
+            AssertObjectNotNull("withdrawalReasonList", withdrawalReasonList); AssertObjectNotNull("conditionBeanSetupper", conditionBeanSetupper);
+            LoadVdSynonymMemberWithdrawalList(withdrawalReasonList, new LoadReferrerOption<VdSynonymMemberWithdrawalCB, VdSynonymMemberWithdrawal>().xinit(conditionBeanSetupper));
+        }
+        public virtual void LoadVdSynonymMemberWithdrawalList(WithdrawalReason withdrawalReason, LoadReferrerOption<VdSynonymMemberWithdrawalCB, VdSynonymMemberWithdrawal> loadReferrerOption) {
+            AssertObjectNotNull("withdrawalReason", withdrawalReason); AssertObjectNotNull("loadReferrerOption", loadReferrerOption);
+            LoadVdSynonymMemberWithdrawalList(xnewLRLs<WithdrawalReason>(withdrawalReason), loadReferrerOption);
+        }
+        public virtual void LoadVdSynonymMemberWithdrawalList(IList<WithdrawalReason> withdrawalReasonList, LoadReferrerOption<VdSynonymMemberWithdrawalCB, VdSynonymMemberWithdrawal> loadReferrerOption) {
+            AssertObjectNotNull("withdrawalReasonList", withdrawalReasonList); AssertObjectNotNull("loadReferrerOption", loadReferrerOption);
+            if (withdrawalReasonList.Count == 0) { return; }
+            VdSynonymMemberWithdrawalBhv referrerBhv = xgetBSFLR().Select<VdSynonymMemberWithdrawalBhv>();
+            HelpLoadReferrerInternally<WithdrawalReason, String, VdSynonymMemberWithdrawalCB, VdSynonymMemberWithdrawal>
+                    (withdrawalReasonList, loadReferrerOption, new MyInternalLoadVdSynonymMemberWithdrawalListCallback(referrerBhv));
+        }
+        protected class MyInternalLoadVdSynonymMemberWithdrawalListCallback : InternalLoadReferrerCallback<WithdrawalReason, String, VdSynonymMemberWithdrawalCB, VdSynonymMemberWithdrawal> {
+            protected VdSynonymMemberWithdrawalBhv referrerBhv;
+            public MyInternalLoadVdSynonymMemberWithdrawalListCallback(VdSynonymMemberWithdrawalBhv referrerBhv) { this.referrerBhv = referrerBhv; }
+            public String getPKVal(WithdrawalReason e) { return e.WithdrawalReasonCode; }
+            public void setRfLs(WithdrawalReason e, IList<VdSynonymMemberWithdrawal> ls) { e.VdSynonymMemberWithdrawalList = ls; }
+            public VdSynonymMemberWithdrawalCB newMyCB() { return referrerBhv.NewMyConditionBean(); }
+            public void qyFKIn(VdSynonymMemberWithdrawalCB cb, IList<String> ls) { cb.Query().SetWithdrawalReasonCode_InScope(ls); }
+            public void qyOdFKAsc(VdSynonymMemberWithdrawalCB cb) { cb.Query().AddOrderBy_WithdrawalReasonCode_Asc(); }
+            public void spFKCol(VdSynonymMemberWithdrawalCB cb) { cb.Specify().ColumnWithdrawalReasonCode(); }
+            public IList<VdSynonymMemberWithdrawal> selRfLs(VdSynonymMemberWithdrawalCB cb) { return referrerBhv.SelectList(cb); }
+            public String getFKVal(VdSynonymMemberWithdrawal e) { return e.WithdrawalReasonCode; }
+            public void setlcEt(VdSynonymMemberWithdrawal re, WithdrawalReason be) { re.WithdrawalReason = be; }
         }
         #endregion
 

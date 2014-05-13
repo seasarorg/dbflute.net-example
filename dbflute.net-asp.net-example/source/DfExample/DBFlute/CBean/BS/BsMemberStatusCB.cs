@@ -172,6 +172,16 @@ namespace DfExample.DBFlute.CBean.BS {
             ColumnMemberStatusCode(); // PK
         }
         protected override String getTableDbName() { return "MEMBER_STATUS"; }
+        public RAFunction<MemberCB, MemberStatusCQ> DerivedMemberList() {
+            if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
+            return new RAFunction<MemberCB, MemberStatusCQ>(_baseCB, _qyCall.qy(), delegate(String function, SubQuery<MemberCB> subQuery, MemberStatusCQ cq, String aliasName)
+                { cq.xsderiveMemberList(function, subQuery, aliasName); });
+        }
+        public RAFunction<MemberLoginCB, MemberStatusCQ> DerivedMemberLoginList() {
+            if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
+            return new RAFunction<MemberLoginCB, MemberStatusCQ>(_baseCB, _qyCall.qy(), delegate(String function, SubQuery<MemberLoginCB> subQuery, MemberStatusCQ cq, String aliasName)
+                { cq.xsderiveMemberLoginList(function, subQuery, aliasName); });
+        }
         public RAFunction<MemberVendorSynonymCB, MemberStatusCQ> DerivedMemberVendorSynonymList() {
             if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return new RAFunction<MemberVendorSynonymCB, MemberStatusCQ>(_baseCB, _qyCall.qy(), delegate(String function, SubQuery<MemberVendorSynonymCB> subQuery, MemberStatusCQ cq, String aliasName)
@@ -191,16 +201,6 @@ namespace DfExample.DBFlute.CBean.BS {
             if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return new RAFunction<VendorSynonymMemberCB, MemberStatusCQ>(_baseCB, _qyCall.qy(), delegate(String function, SubQuery<VendorSynonymMemberCB> subQuery, MemberStatusCQ cq, String aliasName)
                 { cq.xsderiveVendorSynonymMemberList(function, subQuery, aliasName); });
-        }
-        public RAFunction<MemberCB, MemberStatusCQ> DerivedMemberList() {
-            if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return new RAFunction<MemberCB, MemberStatusCQ>(_baseCB, _qyCall.qy(), delegate(String function, SubQuery<MemberCB> subQuery, MemberStatusCQ cq, String aliasName)
-                { cq.xsderiveMemberList(function, subQuery, aliasName); });
-        }
-        public RAFunction<MemberLoginCB, MemberStatusCQ> DerivedMemberLoginList() {
-            if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return new RAFunction<MemberLoginCB, MemberStatusCQ>(_baseCB, _qyCall.qy(), delegate(String function, SubQuery<MemberLoginCB> subQuery, MemberStatusCQ cq, String aliasName)
-                { cq.xsderiveMemberLoginList(function, subQuery, aliasName); });
         }
     }
 }

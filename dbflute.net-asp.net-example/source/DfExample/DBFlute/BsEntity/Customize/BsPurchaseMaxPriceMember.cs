@@ -61,13 +61,13 @@ namespace DfExample.DBFlute.ExEntity.Customize {
         /// <summary>MEMBER_NAME: {VARCHAR2(200)}</summary>
         protected String _memberName;
 
-        /// <summary>PURCHASE_MAX_PRICE: {NUMBER(39)}</summary>
+        /// <summary>PURCHASE_MAX_PRICE: {NUMBER(22)}</summary>
         protected decimal? _purchaseMaxPrice;
 
         /// <summary>MEMBER_STATUS_NAME: {VARCHAR2(50)}</summary>
         protected String _memberStatusName;
 
-        /// <summary>RN: {NUMBER(39)}</summary>
+        /// <summary>RN: {NUMBER(22)}</summary>
         protected decimal? _rn;
 
         protected EntityModifiedProperties __modifiedProperties = new EntityModifiedProperties();
@@ -208,7 +208,7 @@ namespace DfExample.DBFlute.ExEntity.Customize {
             }
         }
 
-        /// <summary>PURCHASE_MAX_PRICE: {NUMBER(39)}</summary>
+        /// <summary>PURCHASE_MAX_PRICE: {NUMBER(22)}</summary>
         [Seasar.Dao.Attrs.Column("PURCHASE_MAX_PRICE")]
         public decimal? PurchaseMaxPrice {
             get { return _purchaseMaxPrice; }
@@ -228,7 +228,7 @@ namespace DfExample.DBFlute.ExEntity.Customize {
             }
         }
 
-        /// <summary>RN: {NUMBER(39)}</summary>
+        /// <summary>RN: {NUMBER(22)}</summary>
         [Seasar.Dao.Attrs.Column("RN")]
         public decimal? Rn {
             get { return _rn; }

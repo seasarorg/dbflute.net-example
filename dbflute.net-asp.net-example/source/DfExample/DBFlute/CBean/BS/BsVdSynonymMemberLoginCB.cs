@@ -95,20 +95,6 @@ namespace DfExample.DBFlute.CBean.BS {
         // ===============================================================================
         //                                                                    Setup Select
         //                                                                    ============
-        protected MemberVendorSynonymNss _nssMemberVendorSynonym;
-        public MemberVendorSynonymNss NssMemberVendorSynonym { get {
-            if (_nssMemberVendorSynonym == null) { _nssMemberVendorSynonym = new MemberVendorSynonymNss(null); }
-            return _nssMemberVendorSynonym;
-        }}
-        public MemberVendorSynonymNss SetupSelect_MemberVendorSynonym() {
-            if (HasSpecifiedColumn) { // if reverse call
-                Specify().ColumnMemberId();
-            }
-            doSetupSelect(delegate { return Query().QueryMemberVendorSynonym(); });
-            if (_nssMemberVendorSynonym == null || !_nssMemberVendorSynonym.HasConditionQuery)
-            { _nssMemberVendorSynonym = new MemberVendorSynonymNss(Query().QueryMemberVendorSynonym()); }
-            return _nssMemberVendorSynonym;
-        }
         protected MemberStatusNss _nssMemberStatus;
         public MemberStatusNss NssMemberStatus { get {
             if (_nssMemberStatus == null) { _nssMemberStatus = new MemberStatusNss(null); }
@@ -122,6 +108,20 @@ namespace DfExample.DBFlute.CBean.BS {
             if (_nssMemberStatus == null || !_nssMemberStatus.HasConditionQuery)
             { _nssMemberStatus = new MemberStatusNss(Query().QueryMemberStatus()); }
             return _nssMemberStatus;
+        }
+        protected MemberVendorSynonymNss _nssMemberVendorSynonym;
+        public MemberVendorSynonymNss NssMemberVendorSynonym { get {
+            if (_nssMemberVendorSynonym == null) { _nssMemberVendorSynonym = new MemberVendorSynonymNss(null); }
+            return _nssMemberVendorSynonym;
+        }}
+        public MemberVendorSynonymNss SetupSelect_MemberVendorSynonym() {
+            if (HasSpecifiedColumn) { // if reverse call
+                Specify().ColumnMemberId();
+            }
+            doSetupSelect(delegate { return Query().QueryMemberVendorSynonym(); });
+            if (_nssMemberVendorSynonym == null || !_nssMemberVendorSynonym.HasConditionQuery)
+            { _nssMemberVendorSynonym = new MemberVendorSynonymNss(Query().QueryMemberVendorSynonym()); }
+            return _nssMemberVendorSynonym;
         }
         protected VdSynonymMemberNss _nssVdSynonymMember;
         public VdSynonymMemberNss NssVdSynonymMember { get {
@@ -218,8 +218,8 @@ namespace DfExample.DBFlute.CBean.BS {
     }
 
     public class VdSynonymMemberLoginCBSpecification : AbstractSpecification<VdSynonymMemberLoginCQ> {
-        protected MemberVendorSynonymCBSpecification _memberVendorSynonym;
         protected MemberStatusCBSpecification _memberStatus;
+        protected MemberVendorSynonymCBSpecification _memberVendorSynonym;
         protected VdSynonymMemberCBSpecification _vdSynonymMember;
         protected VendorSynonymMemberCBSpecification _vendorSynonymMember;
         public VdSynonymMemberLoginCBSpecification(ConditionBean baseCB, HpSpQyCall<VdSynonymMemberLoginCQ> qyCall
@@ -232,13 +232,13 @@ namespace DfExample.DBFlute.CBean.BS {
         public void ColumnLoginMemberStatusCode() { doColumn("LOGIN_MEMBER_STATUS_CODE"); }
         protected override void doSpecifyRequiredColumn() {
             ColumnMemberLoginId(); // PK
-            if (qyCall().qy().hasConditionQueryMemberVendorSynonym()
-                    || qyCall().qy().xgetReferrerQuery() is MemberVendorSynonymCQ) {
-                ColumnMemberId(); // FK or one-to-one referrer
-            }
             if (qyCall().qy().hasConditionQueryMemberStatus()
                     || qyCall().qy().xgetReferrerQuery() is MemberStatusCQ) {
                 ColumnLoginMemberStatusCode(); // FK or one-to-one referrer
+            }
+            if (qyCall().qy().hasConditionQueryMemberVendorSynonym()
+                    || qyCall().qy().xgetReferrerQuery() is MemberVendorSynonymCQ) {
+                ColumnMemberId(); // FK or one-to-one referrer
             }
             if (qyCall().qy().hasConditionQueryVdSynonymMember()
                     || qyCall().qy().xgetReferrerQuery() is VdSynonymMemberCQ) {
@@ -250,21 +250,6 @@ namespace DfExample.DBFlute.CBean.BS {
             }
         }
         protected override String getTableDbName() { return "VD_SYNONYM_MEMBER_LOGIN"; }
-        public MemberVendorSynonymCBSpecification SpecifyMemberVendorSynonym() {
-            assertForeign("memberVendorSynonym");
-            if (_memberVendorSynonym == null) {
-                _memberVendorSynonym = new MemberVendorSynonymCBSpecification(_baseCB, new MemberVendorSynonymSpQyCall(_qyCall), _forDerivedReferrer, _forScalarSelect, _forScalarCondition, _forColumnQuery);
-                if (xhasSyncQyCall()) // inherits it
-                { _memberVendorSynonym.xsetSyncQyCall(new MemberVendorSynonymSpQyCall(xsyncQyCall())); }
-            }
-            return _memberVendorSynonym;
-        }
-		public class MemberVendorSynonymSpQyCall : HpSpQyCall<MemberVendorSynonymCQ> {
-		    protected HpSpQyCall<VdSynonymMemberLoginCQ> _qyCall;
-		    public MemberVendorSynonymSpQyCall(HpSpQyCall<VdSynonymMemberLoginCQ> myQyCall) { _qyCall = myQyCall; }
-		    public bool has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberVendorSynonym(); }
-			public MemberVendorSynonymCQ qy() { return _qyCall.qy().QueryMemberVendorSynonym(); }
-		}
         public MemberStatusCBSpecification SpecifyMemberStatus() {
             assertForeign("memberStatus");
             if (_memberStatus == null) {
@@ -279,6 +264,21 @@ namespace DfExample.DBFlute.CBean.BS {
 		    public MemberStatusSpQyCall(HpSpQyCall<VdSynonymMemberLoginCQ> myQyCall) { _qyCall = myQyCall; }
 		    public bool has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberStatus(); }
 			public MemberStatusCQ qy() { return _qyCall.qy().QueryMemberStatus(); }
+		}
+        public MemberVendorSynonymCBSpecification SpecifyMemberVendorSynonym() {
+            assertForeign("memberVendorSynonym");
+            if (_memberVendorSynonym == null) {
+                _memberVendorSynonym = new MemberVendorSynonymCBSpecification(_baseCB, new MemberVendorSynonymSpQyCall(_qyCall), _forDerivedReferrer, _forScalarSelect, _forScalarCondition, _forColumnQuery);
+                if (xhasSyncQyCall()) // inherits it
+                { _memberVendorSynonym.xsetSyncQyCall(new MemberVendorSynonymSpQyCall(xsyncQyCall())); }
+            }
+            return _memberVendorSynonym;
+        }
+		public class MemberVendorSynonymSpQyCall : HpSpQyCall<MemberVendorSynonymCQ> {
+		    protected HpSpQyCall<VdSynonymMemberLoginCQ> _qyCall;
+		    public MemberVendorSynonymSpQyCall(HpSpQyCall<VdSynonymMemberLoginCQ> myQyCall) { _qyCall = myQyCall; }
+		    public bool has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryMemberVendorSynonym(); }
+			public MemberVendorSynonymCQ qy() { return _qyCall.qy().QueryMemberVendorSynonym(); }
 		}
         public VdSynonymMemberCBSpecification SpecifyVdSynonymMember() {
             assertForeign("vdSynonymMember");

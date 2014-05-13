@@ -13,14 +13,14 @@ namespace DfExample.DBFlute.CBean.Nss {
         // ===============================================================================
         //                                                       With Nested Foreign Table
         //                                                       =========================
-        public MemberVendorSynonymNss WithMemberVendorSynonym() {
-            _query.doNss(delegate() { return _query.QueryMemberVendorSynonym(); });
-            return new MemberVendorSynonymNss(_query.QueryMemberVendorSynonym());
-        }
-
         public MemberStatusNss WithMemberStatus() {
             _query.doNss(delegate() { return _query.QueryMemberStatus(); });
             return new MemberStatusNss(_query.QueryMemberStatus());
+        }
+
+        public MemberVendorSynonymNss WithMemberVendorSynonym() {
+            _query.doNss(delegate() { return _query.QueryMemberVendorSynonym(); });
+            return new MemberVendorSynonymNss(_query.QueryMemberVendorSynonym());
         }
 
         public VdSynonymMemberNss WithVdSynonymMember() {

@@ -68,6 +68,20 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
         protected void DoSetMemberStatusCode_NotEqual(String v) { regMemberStatusCode(CK_NES, v); }
         public void SetMemberStatusCode_InScope(IList<String> ls) { regINS<String>(CK_INS, cTL<String>(ls), getCValueMemberStatusCode(), "MEMBER_STATUS_CODE"); }
         public void SetMemberStatusCode_NotInScope(IList<String> ls) { regINS<String>(CK_NINS, cTL<String>(ls), getCValueMemberStatusCode(), "MEMBER_STATUS_CODE"); }
+        public void ExistsMemberList(SubQuery<MemberCB> subQuery) {
+            assertObjectNotNull("subQuery<MemberCB>", subQuery);
+            MemberCB cb = new MemberCB(); cb.xsetupForExistsReferrer(this); subQuery.Invoke(cb);
+            String subQueryPropertyName = keepMemberStatusCode_ExistsSubQuery_MemberList(cb.Query());
+            registerExistsSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName);
+        }
+        public abstract String keepMemberStatusCode_ExistsSubQuery_MemberList(MemberCQ subQuery);
+        public void ExistsMemberLoginList(SubQuery<MemberLoginCB> subQuery) {
+            assertObjectNotNull("subQuery<MemberLoginCB>", subQuery);
+            MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForExistsReferrer(this); subQuery.Invoke(cb);
+            String subQueryPropertyName = keepMemberStatusCode_ExistsSubQuery_MemberLoginList(cb.Query());
+            registerExistsSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", subQueryPropertyName);
+        }
+        public abstract String keepMemberStatusCode_ExistsSubQuery_MemberLoginList(MemberLoginCQ subQuery);
         public void ExistsMemberVendorSynonymList(SubQuery<MemberVendorSynonymCB> subQuery) {
             assertObjectNotNull("subQuery<MemberVendorSynonymCB>", subQuery);
             MemberVendorSynonymCB cb = new MemberVendorSynonymCB(); cb.xsetupForExistsReferrer(this); subQuery.Invoke(cb);
@@ -96,20 +110,20 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
             registerExistsSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName);
         }
         public abstract String keepMemberStatusCode_ExistsSubQuery_VendorSynonymMemberList(VendorSynonymMemberCQ subQuery);
-        public void ExistsMemberList(SubQuery<MemberCB> subQuery) {
+        public void NotExistsMemberList(SubQuery<MemberCB> subQuery) {
             assertObjectNotNull("subQuery<MemberCB>", subQuery);
             MemberCB cb = new MemberCB(); cb.xsetupForExistsReferrer(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepMemberStatusCode_ExistsSubQuery_MemberList(cb.Query());
-            registerExistsSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName);
+            String subQueryPropertyName = keepMemberStatusCode_NotExistsSubQuery_MemberList(cb.Query());
+            registerNotExistsSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName);
         }
-        public abstract String keepMemberStatusCode_ExistsSubQuery_MemberList(MemberCQ subQuery);
-        public void ExistsMemberLoginList(SubQuery<MemberLoginCB> subQuery) {
+        public abstract String keepMemberStatusCode_NotExistsSubQuery_MemberList(MemberCQ subQuery);
+        public void NotExistsMemberLoginList(SubQuery<MemberLoginCB> subQuery) {
             assertObjectNotNull("subQuery<MemberLoginCB>", subQuery);
             MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForExistsReferrer(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepMemberStatusCode_ExistsSubQuery_MemberLoginList(cb.Query());
-            registerExistsSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", subQueryPropertyName);
+            String subQueryPropertyName = keepMemberStatusCode_NotExistsSubQuery_MemberLoginList(cb.Query());
+            registerNotExistsSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", subQueryPropertyName);
         }
-        public abstract String keepMemberStatusCode_ExistsSubQuery_MemberLoginList(MemberLoginCQ subQuery);
+        public abstract String keepMemberStatusCode_NotExistsSubQuery_MemberLoginList(MemberLoginCQ subQuery);
         public void NotExistsMemberVendorSynonymList(SubQuery<MemberVendorSynonymCB> subQuery) {
             assertObjectNotNull("subQuery<MemberVendorSynonymCB>", subQuery);
             MemberVendorSynonymCB cb = new MemberVendorSynonymCB(); cb.xsetupForExistsReferrer(this); subQuery.Invoke(cb);
@@ -138,20 +152,20 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
             registerNotExistsSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName);
         }
         public abstract String keepMemberStatusCode_NotExistsSubQuery_VendorSynonymMemberList(VendorSynonymMemberCQ subQuery);
-        public void NotExistsMemberList(SubQuery<MemberCB> subQuery) {
+        public void InScopeMemberList(SubQuery<MemberCB> subQuery) {
             assertObjectNotNull("subQuery<MemberCB>", subQuery);
-            MemberCB cb = new MemberCB(); cb.xsetupForExistsReferrer(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepMemberStatusCode_NotExistsSubQuery_MemberList(cb.Query());
-            registerNotExistsSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName);
+            MemberCB cb = new MemberCB(); cb.xsetupForInScopeRelation(this); subQuery.Invoke(cb);
+            String subQueryPropertyName = keepMemberStatusCode_InScopeSubQuery_MemberList(cb.Query());
+            registerInScopeSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName);
         }
-        public abstract String keepMemberStatusCode_NotExistsSubQuery_MemberList(MemberCQ subQuery);
-        public void NotExistsMemberLoginList(SubQuery<MemberLoginCB> subQuery) {
+        public abstract String keepMemberStatusCode_InScopeSubQuery_MemberList(MemberCQ subQuery);
+        public void InScopeMemberLoginList(SubQuery<MemberLoginCB> subQuery) {
             assertObjectNotNull("subQuery<MemberLoginCB>", subQuery);
-            MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForExistsReferrer(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepMemberStatusCode_NotExistsSubQuery_MemberLoginList(cb.Query());
-            registerNotExistsSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", subQueryPropertyName);
+            MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForInScopeRelation(this); subQuery.Invoke(cb);
+            String subQueryPropertyName = keepMemberStatusCode_InScopeSubQuery_MemberLoginList(cb.Query());
+            registerInScopeSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", subQueryPropertyName);
         }
-        public abstract String keepMemberStatusCode_NotExistsSubQuery_MemberLoginList(MemberLoginCQ subQuery);
+        public abstract String keepMemberStatusCode_InScopeSubQuery_MemberLoginList(MemberLoginCQ subQuery);
         public void InScopeMemberVendorSynonymList(SubQuery<MemberVendorSynonymCB> subQuery) {
             assertObjectNotNull("subQuery<MemberVendorSynonymCB>", subQuery);
             MemberVendorSynonymCB cb = new MemberVendorSynonymCB(); cb.xsetupForInScopeRelation(this); subQuery.Invoke(cb);
@@ -180,20 +194,20 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
             registerInScopeSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName);
         }
         public abstract String keepMemberStatusCode_InScopeSubQuery_VendorSynonymMemberList(VendorSynonymMemberCQ subQuery);
-        public void InScopeMemberList(SubQuery<MemberCB> subQuery) {
+        public void NotInScopeMemberList(SubQuery<MemberCB> subQuery) {
             assertObjectNotNull("subQuery<MemberCB>", subQuery);
             MemberCB cb = new MemberCB(); cb.xsetupForInScopeRelation(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepMemberStatusCode_InScopeSubQuery_MemberList(cb.Query());
-            registerInScopeSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName);
+            String subQueryPropertyName = keepMemberStatusCode_NotInScopeSubQuery_MemberList(cb.Query());
+            registerNotInScopeSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName);
         }
-        public abstract String keepMemberStatusCode_InScopeSubQuery_MemberList(MemberCQ subQuery);
-        public void InScopeMemberLoginList(SubQuery<MemberLoginCB> subQuery) {
+        public abstract String keepMemberStatusCode_NotInScopeSubQuery_MemberList(MemberCQ subQuery);
+        public void NotInScopeMemberLoginList(SubQuery<MemberLoginCB> subQuery) {
             assertObjectNotNull("subQuery<MemberLoginCB>", subQuery);
             MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForInScopeRelation(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepMemberStatusCode_InScopeSubQuery_MemberLoginList(cb.Query());
-            registerInScopeSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", subQueryPropertyName);
+            String subQueryPropertyName = keepMemberStatusCode_NotInScopeSubQuery_MemberLoginList(cb.Query());
+            registerNotInScopeSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", subQueryPropertyName);
         }
-        public abstract String keepMemberStatusCode_InScopeSubQuery_MemberLoginList(MemberLoginCQ subQuery);
+        public abstract String keepMemberStatusCode_NotInScopeSubQuery_MemberLoginList(MemberLoginCQ subQuery);
         public void NotInScopeMemberVendorSynonymList(SubQuery<MemberVendorSynonymCB> subQuery) {
             assertObjectNotNull("subQuery<MemberVendorSynonymCB>", subQuery);
             MemberVendorSynonymCB cb = new MemberVendorSynonymCB(); cb.xsetupForInScopeRelation(this); subQuery.Invoke(cb);
@@ -222,20 +236,20 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
             registerNotInScopeSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName);
         }
         public abstract String keepMemberStatusCode_NotInScopeSubQuery_VendorSynonymMemberList(VendorSynonymMemberCQ subQuery);
-        public void NotInScopeMemberList(SubQuery<MemberCB> subQuery) {
+        public void xsderiveMemberList(String function, SubQuery<MemberCB> subQuery, String aliasName) {
             assertObjectNotNull("subQuery<MemberCB>", subQuery);
-            MemberCB cb = new MemberCB(); cb.xsetupForInScopeRelation(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepMemberStatusCode_NotInScopeSubQuery_MemberList(cb.Query());
-            registerNotInScopeSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName);
+            MemberCB cb = new MemberCB(); cb.xsetupForDerivedReferrer(this); subQuery.Invoke(cb);
+            String subQueryPropertyName = keepMemberStatusCode_SpecifyDerivedReferrer_MemberList(cb.Query());
+            registerSpecifyDerivedReferrer(function, cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName, aliasName);
         }
-        public abstract String keepMemberStatusCode_NotInScopeSubQuery_MemberList(MemberCQ subQuery);
-        public void NotInScopeMemberLoginList(SubQuery<MemberLoginCB> subQuery) {
+        abstract public String keepMemberStatusCode_SpecifyDerivedReferrer_MemberList(MemberCQ subQuery);
+        public void xsderiveMemberLoginList(String function, SubQuery<MemberLoginCB> subQuery, String aliasName) {
             assertObjectNotNull("subQuery<MemberLoginCB>", subQuery);
-            MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForInScopeRelation(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepMemberStatusCode_NotInScopeSubQuery_MemberLoginList(cb.Query());
-            registerNotInScopeSubQuery(cb.Query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", subQueryPropertyName);
+            MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForDerivedReferrer(this); subQuery.Invoke(cb);
+            String subQueryPropertyName = keepMemberStatusCode_SpecifyDerivedReferrer_MemberLoginList(cb.Query());
+            registerSpecifyDerivedReferrer(function, cb.Query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", subQueryPropertyName, aliasName);
         }
-        public abstract String keepMemberStatusCode_NotInScopeSubQuery_MemberLoginList(MemberLoginCQ subQuery);
+        abstract public String keepMemberStatusCode_SpecifyDerivedReferrer_MemberLoginList(MemberLoginCQ subQuery);
         public void xsderiveMemberVendorSynonymList(String function, SubQuery<MemberVendorSynonymCB> subQuery, String aliasName) {
             assertObjectNotNull("subQuery<MemberVendorSynonymCB>", subQuery);
             MemberVendorSynonymCB cb = new MemberVendorSynonymCB(); cb.xsetupForDerivedReferrer(this); subQuery.Invoke(cb);
@@ -264,20 +278,42 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
             registerSpecifyDerivedReferrer(function, cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName, aliasName);
         }
         abstract public String keepMemberStatusCode_SpecifyDerivedReferrer_VendorSynonymMemberList(VendorSynonymMemberCQ subQuery);
-        public void xsderiveMemberList(String function, SubQuery<MemberCB> subQuery, String aliasName) {
+
+        public QDRFunction<MemberCB> DerivedMemberList() {
+            return xcreateQDRFunctionMemberList();
+        }
+        protected QDRFunction<MemberCB> xcreateQDRFunctionMemberList() {
+            return new QDRFunction<MemberCB>(delegate(String function, SubQuery<MemberCB> subQuery, String operand, Object value) {
+                xqderiveMemberList(function, subQuery, operand, value);
+            });
+        }
+        public void xqderiveMemberList(String function, SubQuery<MemberCB> subQuery, String operand, Object value) {
             assertObjectNotNull("subQuery<MemberCB>", subQuery);
             MemberCB cb = new MemberCB(); cb.xsetupForDerivedReferrer(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepMemberStatusCode_SpecifyDerivedReferrer_MemberList(cb.Query());
-            registerSpecifyDerivedReferrer(function, cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName, aliasName);
+            String subQueryPropertyName = keepMemberStatusCode_QueryDerivedReferrer_MemberList(cb.Query()); // for saving query-value.
+            String parameterPropertyName = keepMemberStatusCode_QueryDerivedReferrer_MemberListParameter(value);
+            registerQueryDerivedReferrer(function, cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName, operand, value, parameterPropertyName);
         }
-        abstract public String keepMemberStatusCode_SpecifyDerivedReferrer_MemberList(MemberCQ subQuery);
-        public void xsderiveMemberLoginList(String function, SubQuery<MemberLoginCB> subQuery, String aliasName) {
+        public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberList(MemberCQ subQuery);
+        public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberListParameter(Object parameterValue);
+
+        public QDRFunction<MemberLoginCB> DerivedMemberLoginList() {
+            return xcreateQDRFunctionMemberLoginList();
+        }
+        protected QDRFunction<MemberLoginCB> xcreateQDRFunctionMemberLoginList() {
+            return new QDRFunction<MemberLoginCB>(delegate(String function, SubQuery<MemberLoginCB> subQuery, String operand, Object value) {
+                xqderiveMemberLoginList(function, subQuery, operand, value);
+            });
+        }
+        public void xqderiveMemberLoginList(String function, SubQuery<MemberLoginCB> subQuery, String operand, Object value) {
             assertObjectNotNull("subQuery<MemberLoginCB>", subQuery);
             MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForDerivedReferrer(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepMemberStatusCode_SpecifyDerivedReferrer_MemberLoginList(cb.Query());
-            registerSpecifyDerivedReferrer(function, cb.Query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", subQueryPropertyName, aliasName);
+            String subQueryPropertyName = keepMemberStatusCode_QueryDerivedReferrer_MemberLoginList(cb.Query()); // for saving query-value.
+            String parameterPropertyName = keepMemberStatusCode_QueryDerivedReferrer_MemberLoginListParameter(value);
+            registerQueryDerivedReferrer(function, cb.Query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", subQueryPropertyName, operand, value, parameterPropertyName);
         }
-        abstract public String keepMemberStatusCode_SpecifyDerivedReferrer_MemberLoginList(MemberLoginCQ subQuery);
+        public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginList(MemberLoginCQ subQuery);
+        public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginListParameter(Object parameterValue);
 
         public QDRFunction<MemberVendorSynonymCB> DerivedMemberVendorSynonymList() {
             return xcreateQDRFunctionMemberVendorSynonymList();
@@ -350,42 +386,6 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
         }
         public abstract String keepMemberStatusCode_QueryDerivedReferrer_VendorSynonymMemberList(VendorSynonymMemberCQ subQuery);
         public abstract String keepMemberStatusCode_QueryDerivedReferrer_VendorSynonymMemberListParameter(Object parameterValue);
-
-        public QDRFunction<MemberCB> DerivedMemberList() {
-            return xcreateQDRFunctionMemberList();
-        }
-        protected QDRFunction<MemberCB> xcreateQDRFunctionMemberList() {
-            return new QDRFunction<MemberCB>(delegate(String function, SubQuery<MemberCB> subQuery, String operand, Object value) {
-                xqderiveMemberList(function, subQuery, operand, value);
-            });
-        }
-        public void xqderiveMemberList(String function, SubQuery<MemberCB> subQuery, String operand, Object value) {
-            assertObjectNotNull("subQuery<MemberCB>", subQuery);
-            MemberCB cb = new MemberCB(); cb.xsetupForDerivedReferrer(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepMemberStatusCode_QueryDerivedReferrer_MemberList(cb.Query()); // for saving query-value.
-            String parameterPropertyName = keepMemberStatusCode_QueryDerivedReferrer_MemberListParameter(value);
-            registerQueryDerivedReferrer(function, cb.Query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", subQueryPropertyName, operand, value, parameterPropertyName);
-        }
-        public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberList(MemberCQ subQuery);
-        public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberListParameter(Object parameterValue);
-
-        public QDRFunction<MemberLoginCB> DerivedMemberLoginList() {
-            return xcreateQDRFunctionMemberLoginList();
-        }
-        protected QDRFunction<MemberLoginCB> xcreateQDRFunctionMemberLoginList() {
-            return new QDRFunction<MemberLoginCB>(delegate(String function, SubQuery<MemberLoginCB> subQuery, String operand, Object value) {
-                xqderiveMemberLoginList(function, subQuery, operand, value);
-            });
-        }
-        public void xqderiveMemberLoginList(String function, SubQuery<MemberLoginCB> subQuery, String operand, Object value) {
-            assertObjectNotNull("subQuery<MemberLoginCB>", subQuery);
-            MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForDerivedReferrer(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepMemberStatusCode_QueryDerivedReferrer_MemberLoginList(cb.Query()); // for saving query-value.
-            String parameterPropertyName = keepMemberStatusCode_QueryDerivedReferrer_MemberLoginListParameter(value);
-            registerQueryDerivedReferrer(function, cb.Query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", subQueryPropertyName, operand, value, parameterPropertyName);
-        }
-        public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginList(MemberLoginCQ subQuery);
-        public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginListParameter(Object parameterValue);
         public void SetMemberStatusCode_IsNull() { regMemberStatusCode(CK_ISN, DUMMY_OBJECT); }
         public void SetMemberStatusCode_IsNotNull() { regMemberStatusCode(CK_ISNN, DUMMY_OBJECT); }
         protected void regMemberStatusCode(ConditionKey k, Object v) { regQ(k, v, getCValueMemberStatusCode(), "MEMBER_STATUS_CODE"); }

@@ -68,6 +68,16 @@ namespace DfExample.DBFlute.CBean.CQ.Ciq {
         }
 
 
+        public override String keepMemberStatusCode_ExistsSubQuery_MemberList(MemberCQ subQuery) {
+            throw new SystemException("ExistsSubQuery at inline() is unsupported! Sorry!");
+            // _myCQ.keepMemberStatusCode_ExistsSubQuery_MemberList(subQuery);
+        }
+
+        public override String keepMemberStatusCode_ExistsSubQuery_MemberLoginList(MemberLoginCQ subQuery) {
+            throw new SystemException("ExistsSubQuery at inline() is unsupported! Sorry!");
+            // _myCQ.keepMemberStatusCode_ExistsSubQuery_MemberLoginList(subQuery);
+        }
+
         public override String keepMemberStatusCode_ExistsSubQuery_MemberVendorSynonymList(MemberVendorSynonymCQ subQuery) {
             throw new SystemException("ExistsSubQuery at inline() is unsupported! Sorry!");
             // _myCQ.keepMemberStatusCode_ExistsSubQuery_MemberVendorSynonymList(subQuery);
@@ -88,14 +98,14 @@ namespace DfExample.DBFlute.CBean.CQ.Ciq {
             // _myCQ.keepMemberStatusCode_ExistsSubQuery_VendorSynonymMemberList(subQuery);
         }
 
-        public override String keepMemberStatusCode_ExistsSubQuery_MemberList(MemberCQ subQuery) {
-            throw new SystemException("ExistsSubQuery at inline() is unsupported! Sorry!");
-            // _myCQ.keepMemberStatusCode_ExistsSubQuery_MemberList(subQuery);
+        public override String keepMemberStatusCode_NotExistsSubQuery_MemberList(MemberCQ subQuery) {
+            throw new SystemException("NotExistsSubQuery at inline() is unsupported! Sorry!");
+            // _myCQ.keepMemberStatusCode_NotExistsSubQuery_MemberList(subQuery);
         }
 
-        public override String keepMemberStatusCode_ExistsSubQuery_MemberLoginList(MemberLoginCQ subQuery) {
-            throw new SystemException("ExistsSubQuery at inline() is unsupported! Sorry!");
-            // _myCQ.keepMemberStatusCode_ExistsSubQuery_MemberLoginList(subQuery);
+        public override String keepMemberStatusCode_NotExistsSubQuery_MemberLoginList(MemberLoginCQ subQuery) {
+            throw new SystemException("NotExistsSubQuery at inline() is unsupported! Sorry!");
+            // _myCQ.keepMemberStatusCode_NotExistsSubQuery_MemberLoginList(subQuery);
         }
 
         public override String keepMemberStatusCode_NotExistsSubQuery_MemberVendorSynonymList(MemberVendorSynonymCQ subQuery) {
@@ -118,14 +128,12 @@ namespace DfExample.DBFlute.CBean.CQ.Ciq {
             // _myCQ.keepMemberStatusCode_NotExistsSubQuery_VendorSynonymMemberList(subQuery);
         }
 
-        public override String keepMemberStatusCode_NotExistsSubQuery_MemberList(MemberCQ subQuery) {
-            throw new SystemException("NotExistsSubQuery at inline() is unsupported! Sorry!");
-            // _myCQ.keepMemberStatusCode_NotExistsSubQuery_MemberList(subQuery);
+        public override String keepMemberStatusCode_InScopeSubQuery_MemberList(MemberCQ subQuery) {
+            return _myCQ.keepMemberStatusCode_InScopeSubQuery_MemberList(subQuery);
         }
 
-        public override String keepMemberStatusCode_NotExistsSubQuery_MemberLoginList(MemberLoginCQ subQuery) {
-            throw new SystemException("NotExistsSubQuery at inline() is unsupported! Sorry!");
-            // _myCQ.keepMemberStatusCode_NotExistsSubQuery_MemberLoginList(subQuery);
+        public override String keepMemberStatusCode_InScopeSubQuery_MemberLoginList(MemberLoginCQ subQuery) {
+            return _myCQ.keepMemberStatusCode_InScopeSubQuery_MemberLoginList(subQuery);
         }
 
         public override String keepMemberStatusCode_InScopeSubQuery_MemberVendorSynonymList(MemberVendorSynonymCQ subQuery) {
@@ -144,12 +152,12 @@ namespace DfExample.DBFlute.CBean.CQ.Ciq {
             return _myCQ.keepMemberStatusCode_InScopeSubQuery_VendorSynonymMemberList(subQuery);
         }
 
-        public override String keepMemberStatusCode_InScopeSubQuery_MemberList(MemberCQ subQuery) {
-            return _myCQ.keepMemberStatusCode_InScopeSubQuery_MemberList(subQuery);
+        public override String keepMemberStatusCode_NotInScopeSubQuery_MemberList(MemberCQ subQuery) {
+            return _myCQ.keepMemberStatusCode_NotInScopeSubQuery_MemberList(subQuery);
         }
 
-        public override String keepMemberStatusCode_InScopeSubQuery_MemberLoginList(MemberLoginCQ subQuery) {
-            return _myCQ.keepMemberStatusCode_InScopeSubQuery_MemberLoginList(subQuery);
+        public override String keepMemberStatusCode_NotInScopeSubQuery_MemberLoginList(MemberLoginCQ subQuery) {
+            return _myCQ.keepMemberStatusCode_NotInScopeSubQuery_MemberLoginList(subQuery);
         }
 
         public override String keepMemberStatusCode_NotInScopeSubQuery_MemberVendorSynonymList(MemberVendorSynonymCQ subQuery) {
@@ -167,13 +175,11 @@ namespace DfExample.DBFlute.CBean.CQ.Ciq {
         public override String keepMemberStatusCode_NotInScopeSubQuery_VendorSynonymMemberList(VendorSynonymMemberCQ subQuery) {
             return _myCQ.keepMemberStatusCode_NotInScopeSubQuery_VendorSynonymMemberList(subQuery);
         }
-
-        public override String keepMemberStatusCode_NotInScopeSubQuery_MemberList(MemberCQ subQuery) {
-            return _myCQ.keepMemberStatusCode_NotInScopeSubQuery_MemberList(subQuery);
+        public override String keepMemberStatusCode_SpecifyDerivedReferrer_MemberList(MemberCQ subQuery) {
+            throw new UnsupportedOperationException("(Specify)DerivedReferrer at inline() is unsupported! Sorry!");
         }
-
-        public override String keepMemberStatusCode_NotInScopeSubQuery_MemberLoginList(MemberLoginCQ subQuery) {
-            return _myCQ.keepMemberStatusCode_NotInScopeSubQuery_MemberLoginList(subQuery);
+        public override String keepMemberStatusCode_SpecifyDerivedReferrer_MemberLoginList(MemberLoginCQ subQuery) {
+            throw new UnsupportedOperationException("(Specify)DerivedReferrer at inline() is unsupported! Sorry!");
         }
         public override String keepMemberStatusCode_SpecifyDerivedReferrer_MemberVendorSynonymList(MemberVendorSynonymCQ subQuery) {
             throw new UnsupportedOperationException("(Specify)DerivedReferrer at inline() is unsupported! Sorry!");
@@ -187,11 +193,17 @@ namespace DfExample.DBFlute.CBean.CQ.Ciq {
         public override String keepMemberStatusCode_SpecifyDerivedReferrer_VendorSynonymMemberList(VendorSynonymMemberCQ subQuery) {
             throw new UnsupportedOperationException("(Specify)DerivedReferrer at inline() is unsupported! Sorry!");
         }
-        public override String keepMemberStatusCode_SpecifyDerivedReferrer_MemberList(MemberCQ subQuery) {
-            throw new UnsupportedOperationException("(Specify)DerivedReferrer at inline() is unsupported! Sorry!");
+        public override String keepMemberStatusCode_QueryDerivedReferrer_MemberList(MemberCQ subQuery) {
+            throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
         }
-        public override String keepMemberStatusCode_SpecifyDerivedReferrer_MemberLoginList(MemberLoginCQ subQuery) {
-            throw new UnsupportedOperationException("(Specify)DerivedReferrer at inline() is unsupported! Sorry!");
+        public override String keepMemberStatusCode_QueryDerivedReferrer_MemberListParameter(Object parameterValue) {
+            throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+        }
+        public override String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginList(MemberLoginCQ subQuery) {
+            throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
+        }
+        public override String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginListParameter(Object parameterValue) {
+            throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
         }
         public override String keepMemberStatusCode_QueryDerivedReferrer_MemberVendorSynonymList(MemberVendorSynonymCQ subQuery) {
             throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
@@ -215,18 +227,6 @@ namespace DfExample.DBFlute.CBean.CQ.Ciq {
             throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
         }
         public override String keepMemberStatusCode_QueryDerivedReferrer_VendorSynonymMemberListParameter(Object parameterValue) {
-            throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
-        }
-        public override String keepMemberStatusCode_QueryDerivedReferrer_MemberList(MemberCQ subQuery) {
-            throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
-        }
-        public override String keepMemberStatusCode_QueryDerivedReferrer_MemberListParameter(Object parameterValue) {
-            throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
-        }
-        public override String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginList(MemberLoginCQ subQuery) {
-            throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
-        }
-        public override String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginListParameter(Object parameterValue) {
             throw new UnsupportedOperationException("(Query)DerivedReferrer at inline() is unsupported! Sorry!");
         }
 

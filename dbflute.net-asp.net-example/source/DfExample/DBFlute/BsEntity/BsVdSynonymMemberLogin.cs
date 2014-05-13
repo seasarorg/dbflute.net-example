@@ -36,13 +36,13 @@ namespace DfExample.DBFlute.ExEntity {
     ///     
     /// 
     /// [foreign-table]
-    ///     MEMBER_VENDOR_SYNONYM, MEMBER_STATUS, VD_SYNONYM_MEMBER, VENDOR_SYNONYM_MEMBER
+    ///     MEMBER_STATUS, MEMBER_VENDOR_SYNONYM, VD_SYNONYM_MEMBER, VENDOR_SYNONYM_MEMBER
     /// 
     /// [referrer-table]
     ///     
     /// 
     /// [foreign-property]
-    ///     memberVendorSynonym, memberStatus, vdSynonymMember, vendorSynonymMember
+    ///     memberStatus, memberVendorSynonym, vdSynonymMember, vendorSynonymMember
     /// 
     /// [referrer-property]
     ///     
@@ -176,22 +176,22 @@ namespace DfExample.DBFlute.ExEntity {
         //                                                                Foreign Property
         //                                                                ================
         #region Foreign Property
-        protected MemberVendorSynonym _memberVendorSynonym;
-
-        /// <summary>(会員)MEMBER_VENDOR_SYNONYM as 'MemberVendorSynonym'.</summary>
-        [Seasar.Dao.Attrs.Relno(0), Seasar.Dao.Attrs.Relkeys("MEMBER_ID:MEMBER_ID")]
-        public MemberVendorSynonym MemberVendorSynonym {
-            get { return _memberVendorSynonym; }
-            set { _memberVendorSynonym = value; }
-        }
-
         protected MemberStatus _memberStatus;
 
         /// <summary>(会員ステータス)MEMBER_STATUS as 'MemberStatus'.</summary>
-        [Seasar.Dao.Attrs.Relno(1), Seasar.Dao.Attrs.Relkeys("LOGIN_MEMBER_STATUS_CODE:MEMBER_STATUS_CODE")]
+        [Seasar.Dao.Attrs.Relno(0), Seasar.Dao.Attrs.Relkeys("LOGIN_MEMBER_STATUS_CODE:MEMBER_STATUS_CODE")]
         public MemberStatus MemberStatus {
             get { return _memberStatus; }
             set { _memberStatus = value; }
+        }
+
+        protected MemberVendorSynonym _memberVendorSynonym;
+
+        /// <summary>(会員)MEMBER_VENDOR_SYNONYM as 'MemberVendorSynonym'.</summary>
+        [Seasar.Dao.Attrs.Relno(1), Seasar.Dao.Attrs.Relkeys("MEMBER_ID:MEMBER_ID")]
+        public MemberVendorSynonym MemberVendorSynonym {
+            get { return _memberVendorSynonym; }
+            set { _memberVendorSynonym = value; }
         }
 
         protected VdSynonymMember _vdSynonymMember;
@@ -275,10 +275,10 @@ namespace DfExample.DBFlute.ExEntity {
             StringBuilder sb = new StringBuilder();
             sb.Append(ToString());
             String l = "\n  ";
-            if (_memberVendorSynonym != null)
-            { sb.Append(l).Append(xbRDS(_memberVendorSynonym, "MemberVendorSynonym")); }
             if (_memberStatus != null)
             { sb.Append(l).Append(xbRDS(_memberStatus, "MemberStatus")); }
+            if (_memberVendorSynonym != null)
+            { sb.Append(l).Append(xbRDS(_memberVendorSynonym, "MemberVendorSynonym")); }
             if (_vdSynonymMember != null)
             { sb.Append(l).Append(xbRDS(_vdSynonymMember, "VdSynonymMember")); }
             if (_vendorSynonymMember != null)
@@ -311,8 +311,8 @@ namespace DfExample.DBFlute.ExEntity {
         protected virtual String BuildRelationString() {
             StringBuilder sb = new StringBuilder();
             String c = ",";
-            if (_memberVendorSynonym != null) { sb.Append(c).Append("MemberVendorSynonym"); }
             if (_memberStatus != null) { sb.Append(c).Append("MemberStatus"); }
+            if (_memberVendorSynonym != null) { sb.Append(c).Append("MemberVendorSynonym"); }
             if (_vdSynonymMember != null) { sb.Append(c).Append("VdSynonymMember"); }
             if (_vendorSynonymMember != null) { sb.Append(c).Append("VendorSynonymMember"); }
             if (sb.Length > 0) { sb.Remove(0, c.Length).Insert(0, "(").Append(")"); }

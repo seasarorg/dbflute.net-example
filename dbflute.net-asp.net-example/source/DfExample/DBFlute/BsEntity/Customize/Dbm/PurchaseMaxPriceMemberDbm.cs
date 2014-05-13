@@ -49,9 +49,9 @@ namespace DfExample.DBFlute.BsEntity.Customize.Dbm {
         protected void InitializeColumnInfo() {
             _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, null, false, "MemberId", typeof(long?), false, "NUMBER", 16, 0, false, OptimisticLockType.NONE, null, null, null);
             _columnMemberName = cci("MEMBER_NAME", "MEMBER_NAME", null, null, false, "MemberName", typeof(String), false, "VARCHAR2", 200, 0, false, OptimisticLockType.NONE, null, null, null);
-            _columnPurchaseMaxPrice = cci("PURCHASE_MAX_PRICE", "PURCHASE_MAX_PRICE", null, null, false, "PurchaseMaxPrice", typeof(decimal?), false, "NUMBER", 39, 0, false, OptimisticLockType.NONE, null, null, null);
+            _columnPurchaseMaxPrice = cci("PURCHASE_MAX_PRICE", "PURCHASE_MAX_PRICE", null, null, false, "PurchaseMaxPrice", typeof(decimal?), false, "NUMBER", 22, 0, false, OptimisticLockType.NONE, null, null, null);
             _columnMemberStatusName = cci("MEMBER_STATUS_NAME", "MEMBER_STATUS_NAME", null, null, false, "MemberStatusName", typeof(String), false, "VARCHAR2", 50, 0, false, OptimisticLockType.NONE, null, null, null);
-            _columnRn = cci("RN", "RN", null, null, false, "Rn", typeof(decimal?), false, "NUMBER", 39, 0, false, OptimisticLockType.NONE, null, null, null);
+            _columnRn = cci("RN", "RN", null, null, false, "Rn", typeof(decimal?), false, "NUMBER", 22, 0, false, OptimisticLockType.NONE, null, null, null);
         }
 
         protected void InitializeColumnInfoList() {

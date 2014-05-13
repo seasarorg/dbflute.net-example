@@ -39,13 +39,13 @@ namespace DfExample.DBFlute.ExEntity {
     ///     
     /// 
     /// [referrer-table]
-    ///     MEMBER_VENDOR_SYNONYM, VD_SYNONYM_MEMBER, VD_SYNONYM_MEMBER_LOGIN, VENDOR_SYNONYM_MEMBER, MEMBER, MEMBER_LOGIN
+    ///     MEMBER, MEMBER_LOGIN, MEMBER_VENDOR_SYNONYM, VD_SYNONYM_MEMBER, VD_SYNONYM_MEMBER_LOGIN, VENDOR_SYNONYM_MEMBER
     /// 
     /// [foreign-property]
     ///     
     /// 
     /// [referrer-property]
-    ///     memberVendorSynonymList, vdSynonymMemberList, vdSynonymMemberLoginList, vendorSynonymMemberList, memberList, memberLoginList
+    ///     memberList, memberLoginList, memberVendorSynonymList, vdSynonymMemberList, vdSynonymMemberLoginList, vendorSynonymMemberList
     /// ]]>
     /// Author: DBFlute(AutoGenerator)
     /// </summary>
@@ -201,6 +201,22 @@ namespace DfExample.DBFlute.ExEntity {
         //                                                               Referrer Property
         //                                                               =================
         #region Referrer Property
+        protected IList<Member> _memberList;
+
+        /// <summary>(会員)MEMBER as 'MemberList'.</summary>
+        public IList<Member> MemberList {
+            get { if (_memberList == null) { _memberList = new List<Member>(); } return _memberList; }
+            set { _memberList = value; }
+        }
+
+        protected IList<MemberLogin> _memberLoginList;
+
+        /// <summary>(会員ログイン)MEMBER_LOGIN as 'MemberLoginList'.</summary>
+        public IList<MemberLogin> MemberLoginList {
+            get { if (_memberLoginList == null) { _memberLoginList = new List<MemberLogin>(); } return _memberLoginList; }
+            set { _memberLoginList = value; }
+        }
+
         protected IList<MemberVendorSynonym> _memberVendorSynonymList;
 
         /// <summary>(会員)MEMBER_VENDOR_SYNONYM as 'MemberVendorSynonymList'.</summary>
@@ -231,22 +247,6 @@ namespace DfExample.DBFlute.ExEntity {
         public IList<VendorSynonymMember> VendorSynonymMemberList {
             get { if (_vendorSynonymMemberList == null) { _vendorSynonymMemberList = new List<VendorSynonymMember>(); } return _vendorSynonymMemberList; }
             set { _vendorSynonymMemberList = value; }
-        }
-
-        protected IList<Member> _memberList;
-
-        /// <summary>(会員)MEMBER as 'MemberList'.</summary>
-        public IList<Member> MemberList {
-            get { if (_memberList == null) { _memberList = new List<Member>(); } return _memberList; }
-            set { _memberList = value; }
-        }
-
-        protected IList<MemberLogin> _memberLoginList;
-
-        /// <summary>(会員ログイン)MEMBER_LOGIN as 'MemberLoginList'.</summary>
-        public IList<MemberLogin> MemberLoginList {
-            get { if (_memberLoginList == null) { _memberLoginList = new List<MemberLogin>(); } return _memberLoginList; }
-            set { _memberLoginList = value; }
         }
 
         #endregion
@@ -306,6 +306,10 @@ namespace DfExample.DBFlute.ExEntity {
             StringBuilder sb = new StringBuilder();
             sb.Append(ToString());
             String l = "\n  ";
+            if (_memberList != null) { foreach (Entity e in _memberList)
+            { if (e != null) { sb.Append(l).Append(xbRDS(e, "MemberList")); } } }
+            if (_memberLoginList != null) { foreach (Entity e in _memberLoginList)
+            { if (e != null) { sb.Append(l).Append(xbRDS(e, "MemberLoginList")); } } }
             if (_memberVendorSynonymList != null) { foreach (Entity e in _memberVendorSynonymList)
             { if (e != null) { sb.Append(l).Append(xbRDS(e, "MemberVendorSynonymList")); } } }
             if (_vdSynonymMemberList != null) { foreach (Entity e in _vdSynonymMemberList)
@@ -314,10 +318,6 @@ namespace DfExample.DBFlute.ExEntity {
             { if (e != null) { sb.Append(l).Append(xbRDS(e, "VdSynonymMemberLoginList")); } } }
             if (_vendorSynonymMemberList != null) { foreach (Entity e in _vendorSynonymMemberList)
             { if (e != null) { sb.Append(l).Append(xbRDS(e, "VendorSynonymMemberList")); } } }
-            if (_memberList != null) { foreach (Entity e in _memberList)
-            { if (e != null) { sb.Append(l).Append(xbRDS(e, "MemberList")); } } }
-            if (_memberLoginList != null) { foreach (Entity e in _memberLoginList)
-            { if (e != null) { sb.Append(l).Append(xbRDS(e, "MemberLoginList")); } } }
             return sb.ToString();
         }
         protected String xbRDS(Entity e, String name) { // buildRelationDisplayString()
@@ -344,6 +344,10 @@ namespace DfExample.DBFlute.ExEntity {
         protected virtual String BuildRelationString() {
             StringBuilder sb = new StringBuilder();
             String c = ",";
+            if (_memberList != null && _memberList.Count > 0)
+            { sb.Append(c).Append("MemberList"); }
+            if (_memberLoginList != null && _memberLoginList.Count > 0)
+            { sb.Append(c).Append("MemberLoginList"); }
             if (_memberVendorSynonymList != null && _memberVendorSynonymList.Count > 0)
             { sb.Append(c).Append("MemberVendorSynonymList"); }
             if (_vdSynonymMemberList != null && _vdSynonymMemberList.Count > 0)
@@ -352,10 +356,6 @@ namespace DfExample.DBFlute.ExEntity {
             { sb.Append(c).Append("VdSynonymMemberLoginList"); }
             if (_vendorSynonymMemberList != null && _vendorSynonymMemberList.Count > 0)
             { sb.Append(c).Append("VendorSynonymMemberList"); }
-            if (_memberList != null && _memberList.Count > 0)
-            { sb.Append(c).Append("MemberList"); }
-            if (_memberLoginList != null && _memberLoginList.Count > 0)
-            { sb.Append(c).Append("MemberLoginList"); }
             if (sb.Length > 0) { sb.Remove(0, c.Length).Insert(0, "(").Append(")"); }
             return sb.ToString();
         }

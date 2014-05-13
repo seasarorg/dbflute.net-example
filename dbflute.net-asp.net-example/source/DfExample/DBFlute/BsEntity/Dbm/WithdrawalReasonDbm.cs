@@ -47,7 +47,7 @@ namespace DfExample.DBFlute.BsEntity.Dbm {
         public ColumnInfo ColumnDisplayOrder { get { return _columnDisplayOrder; } }
 
         protected void InitializeColumnInfo() {
-            _columnWithdrawalReasonCode = cci("WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", null, null, true, "WithdrawalReasonCode", typeof(String), true, "CHAR", 3, 0, false, OptimisticLockType.NONE, null, null, "vdSynonymMemberWithdrawalList,memberWithdrawalList");
+            _columnWithdrawalReasonCode = cci("WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", null, null, true, "WithdrawalReasonCode", typeof(String), true, "CHAR", 3, 0, false, OptimisticLockType.NONE, null, null, "memberWithdrawalList,vdSynonymMemberWithdrawalList");
             _columnWithdrawalReasonText = cci("WITHDRAWAL_REASON_TEXT", "WITHDRAWAL_REASON_TEXT", null, null, true, "WithdrawalReasonText", typeof(String), false, "CLOB", 4000, 0, false, OptimisticLockType.NONE, null, null, null);
             _columnDisplayOrder = cci("DISPLAY_ORDER", "DISPLAY_ORDER", null, null, true, "DisplayOrder", typeof(long?), false, "NUMBER", 16, 0, false, OptimisticLockType.NONE, null, null, null);
         }
@@ -83,15 +83,15 @@ namespace DfExample.DBFlute.BsEntity.Dbm {
         // -------------------------------------------------
         //                                  Referrer Element
         //                                  ----------------
-        public ReferrerInfo ReferrerVdSynonymMemberWithdrawalList { get {
-            Map<ColumnInfo, ColumnInfo> map = new LinkedHashMap<ColumnInfo, ColumnInfo>();
-            map.put(ColumnWithdrawalReasonCode, VdSynonymMemberWithdrawalDbm.GetInstance().ColumnWithdrawalReasonCode);
-            return cri("VdSynonymMemberWithdrawalList", this, VdSynonymMemberWithdrawalDbm.GetInstance(), map, false);
-        }}
         public ReferrerInfo ReferrerMemberWithdrawalList { get {
             Map<ColumnInfo, ColumnInfo> map = new LinkedHashMap<ColumnInfo, ColumnInfo>();
             map.put(ColumnWithdrawalReasonCode, MemberWithdrawalDbm.GetInstance().ColumnWithdrawalReasonCode);
             return cri("MemberWithdrawalList", this, MemberWithdrawalDbm.GetInstance(), map, false);
+        }}
+        public ReferrerInfo ReferrerVdSynonymMemberWithdrawalList { get {
+            Map<ColumnInfo, ColumnInfo> map = new LinkedHashMap<ColumnInfo, ColumnInfo>();
+            map.put(ColumnWithdrawalReasonCode, VdSynonymMemberWithdrawalDbm.GetInstance().ColumnWithdrawalReasonCode);
+            return cri("VdSynonymMemberWithdrawalList", this, VdSynonymMemberWithdrawalDbm.GetInstance(), map, false);
         }}
 
         // ===============================================================================
@@ -130,8 +130,8 @@ namespace DfExample.DBFlute.BsEntity.Dbm {
         // -------------------------------------------------
         //                                     Referrer Name
         //                                     -------------
-        public static readonly String REFERRER_PROPERTY_NAME_VdSynonymMemberWithdrawalList = "VdSynonymMemberWithdrawalList";
         public static readonly String REFERRER_PROPERTY_NAME_MemberWithdrawalList = "MemberWithdrawalList";
+        public static readonly String REFERRER_PROPERTY_NAME_VdSynonymMemberWithdrawalList = "VdSynonymMemberWithdrawalList";
 
         // -------------------------------------------------
         //                               DB-Property Mapping

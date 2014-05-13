@@ -31,13 +31,6 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
         { regLSQ(CK_LS, fRES(v), getCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE", option); }
         public void SetWithdrawalReasonCode_NotLikeSearch(String v, LikeSearchOption option)
         { regLSQ(CK_NLS, fRES(v), getCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE", option); }
-        public void ExistsVdSynonymMemberWithdrawalList(SubQuery<VdSynonymMemberWithdrawalCB> subQuery) {
-            assertObjectNotNull("subQuery<VdSynonymMemberWithdrawalCB>", subQuery);
-            VdSynonymMemberWithdrawalCB cb = new VdSynonymMemberWithdrawalCB(); cb.xsetupForExistsReferrer(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepWithdrawalReasonCode_ExistsSubQuery_VdSynonymMemberWithdrawalList(cb.Query());
-            registerExistsSubQuery(cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName);
-        }
-        public abstract String keepWithdrawalReasonCode_ExistsSubQuery_VdSynonymMemberWithdrawalList(VdSynonymMemberWithdrawalCQ subQuery);
         public void ExistsMemberWithdrawalList(SubQuery<MemberWithdrawalCB> subQuery) {
             assertObjectNotNull("subQuery<MemberWithdrawalCB>", subQuery);
             MemberWithdrawalCB cb = new MemberWithdrawalCB(); cb.xsetupForExistsReferrer(this); subQuery.Invoke(cb);
@@ -45,13 +38,13 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
             registerExistsSubQuery(cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName);
         }
         public abstract String keepWithdrawalReasonCode_ExistsSubQuery_MemberWithdrawalList(MemberWithdrawalCQ subQuery);
-        public void NotExistsVdSynonymMemberWithdrawalList(SubQuery<VdSynonymMemberWithdrawalCB> subQuery) {
+        public void ExistsVdSynonymMemberWithdrawalList(SubQuery<VdSynonymMemberWithdrawalCB> subQuery) {
             assertObjectNotNull("subQuery<VdSynonymMemberWithdrawalCB>", subQuery);
             VdSynonymMemberWithdrawalCB cb = new VdSynonymMemberWithdrawalCB(); cb.xsetupForExistsReferrer(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepWithdrawalReasonCode_NotExistsSubQuery_VdSynonymMemberWithdrawalList(cb.Query());
-            registerNotExistsSubQuery(cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName);
+            String subQueryPropertyName = keepWithdrawalReasonCode_ExistsSubQuery_VdSynonymMemberWithdrawalList(cb.Query());
+            registerExistsSubQuery(cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName);
         }
-        public abstract String keepWithdrawalReasonCode_NotExistsSubQuery_VdSynonymMemberWithdrawalList(VdSynonymMemberWithdrawalCQ subQuery);
+        public abstract String keepWithdrawalReasonCode_ExistsSubQuery_VdSynonymMemberWithdrawalList(VdSynonymMemberWithdrawalCQ subQuery);
         public void NotExistsMemberWithdrawalList(SubQuery<MemberWithdrawalCB> subQuery) {
             assertObjectNotNull("subQuery<MemberWithdrawalCB>", subQuery);
             MemberWithdrawalCB cb = new MemberWithdrawalCB(); cb.xsetupForExistsReferrer(this); subQuery.Invoke(cb);
@@ -59,13 +52,13 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
             registerNotExistsSubQuery(cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName);
         }
         public abstract String keepWithdrawalReasonCode_NotExistsSubQuery_MemberWithdrawalList(MemberWithdrawalCQ subQuery);
-        public void InScopeVdSynonymMemberWithdrawalList(SubQuery<VdSynonymMemberWithdrawalCB> subQuery) {
+        public void NotExistsVdSynonymMemberWithdrawalList(SubQuery<VdSynonymMemberWithdrawalCB> subQuery) {
             assertObjectNotNull("subQuery<VdSynonymMemberWithdrawalCB>", subQuery);
-            VdSynonymMemberWithdrawalCB cb = new VdSynonymMemberWithdrawalCB(); cb.xsetupForInScopeRelation(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepWithdrawalReasonCode_InScopeSubQuery_VdSynonymMemberWithdrawalList(cb.Query());
-            registerInScopeSubQuery(cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName);
+            VdSynonymMemberWithdrawalCB cb = new VdSynonymMemberWithdrawalCB(); cb.xsetupForExistsReferrer(this); subQuery.Invoke(cb);
+            String subQueryPropertyName = keepWithdrawalReasonCode_NotExistsSubQuery_VdSynonymMemberWithdrawalList(cb.Query());
+            registerNotExistsSubQuery(cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName);
         }
-        public abstract String keepWithdrawalReasonCode_InScopeSubQuery_VdSynonymMemberWithdrawalList(VdSynonymMemberWithdrawalCQ subQuery);
+        public abstract String keepWithdrawalReasonCode_NotExistsSubQuery_VdSynonymMemberWithdrawalList(VdSynonymMemberWithdrawalCQ subQuery);
         public void InScopeMemberWithdrawalList(SubQuery<MemberWithdrawalCB> subQuery) {
             assertObjectNotNull("subQuery<MemberWithdrawalCB>", subQuery);
             MemberWithdrawalCB cb = new MemberWithdrawalCB(); cb.xsetupForInScopeRelation(this); subQuery.Invoke(cb);
@@ -73,13 +66,13 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
             registerInScopeSubQuery(cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName);
         }
         public abstract String keepWithdrawalReasonCode_InScopeSubQuery_MemberWithdrawalList(MemberWithdrawalCQ subQuery);
-        public void NotInScopeVdSynonymMemberWithdrawalList(SubQuery<VdSynonymMemberWithdrawalCB> subQuery) {
+        public void InScopeVdSynonymMemberWithdrawalList(SubQuery<VdSynonymMemberWithdrawalCB> subQuery) {
             assertObjectNotNull("subQuery<VdSynonymMemberWithdrawalCB>", subQuery);
             VdSynonymMemberWithdrawalCB cb = new VdSynonymMemberWithdrawalCB(); cb.xsetupForInScopeRelation(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepWithdrawalReasonCode_NotInScopeSubQuery_VdSynonymMemberWithdrawalList(cb.Query());
-            registerNotInScopeSubQuery(cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName);
+            String subQueryPropertyName = keepWithdrawalReasonCode_InScopeSubQuery_VdSynonymMemberWithdrawalList(cb.Query());
+            registerInScopeSubQuery(cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName);
         }
-        public abstract String keepWithdrawalReasonCode_NotInScopeSubQuery_VdSynonymMemberWithdrawalList(VdSynonymMemberWithdrawalCQ subQuery);
+        public abstract String keepWithdrawalReasonCode_InScopeSubQuery_VdSynonymMemberWithdrawalList(VdSynonymMemberWithdrawalCQ subQuery);
         public void NotInScopeMemberWithdrawalList(SubQuery<MemberWithdrawalCB> subQuery) {
             assertObjectNotNull("subQuery<MemberWithdrawalCB>", subQuery);
             MemberWithdrawalCB cb = new MemberWithdrawalCB(); cb.xsetupForInScopeRelation(this); subQuery.Invoke(cb);
@@ -87,13 +80,13 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
             registerNotInScopeSubQuery(cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName);
         }
         public abstract String keepWithdrawalReasonCode_NotInScopeSubQuery_MemberWithdrawalList(MemberWithdrawalCQ subQuery);
-        public void xsderiveVdSynonymMemberWithdrawalList(String function, SubQuery<VdSynonymMemberWithdrawalCB> subQuery, String aliasName) {
+        public void NotInScopeVdSynonymMemberWithdrawalList(SubQuery<VdSynonymMemberWithdrawalCB> subQuery) {
             assertObjectNotNull("subQuery<VdSynonymMemberWithdrawalCB>", subQuery);
-            VdSynonymMemberWithdrawalCB cb = new VdSynonymMemberWithdrawalCB(); cb.xsetupForDerivedReferrer(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepWithdrawalReasonCode_SpecifyDerivedReferrer_VdSynonymMemberWithdrawalList(cb.Query());
-            registerSpecifyDerivedReferrer(function, cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName, aliasName);
+            VdSynonymMemberWithdrawalCB cb = new VdSynonymMemberWithdrawalCB(); cb.xsetupForInScopeRelation(this); subQuery.Invoke(cb);
+            String subQueryPropertyName = keepWithdrawalReasonCode_NotInScopeSubQuery_VdSynonymMemberWithdrawalList(cb.Query());
+            registerNotInScopeSubQuery(cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName);
         }
-        abstract public String keepWithdrawalReasonCode_SpecifyDerivedReferrer_VdSynonymMemberWithdrawalList(VdSynonymMemberWithdrawalCQ subQuery);
+        public abstract String keepWithdrawalReasonCode_NotInScopeSubQuery_VdSynonymMemberWithdrawalList(VdSynonymMemberWithdrawalCQ subQuery);
         public void xsderiveMemberWithdrawalList(String function, SubQuery<MemberWithdrawalCB> subQuery, String aliasName) {
             assertObjectNotNull("subQuery<MemberWithdrawalCB>", subQuery);
             MemberWithdrawalCB cb = new MemberWithdrawalCB(); cb.xsetupForDerivedReferrer(this); subQuery.Invoke(cb);
@@ -101,24 +94,13 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
             registerSpecifyDerivedReferrer(function, cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName, aliasName);
         }
         abstract public String keepWithdrawalReasonCode_SpecifyDerivedReferrer_MemberWithdrawalList(MemberWithdrawalCQ subQuery);
-
-        public QDRFunction<VdSynonymMemberWithdrawalCB> DerivedVdSynonymMemberWithdrawalList() {
-            return xcreateQDRFunctionVdSynonymMemberWithdrawalList();
-        }
-        protected QDRFunction<VdSynonymMemberWithdrawalCB> xcreateQDRFunctionVdSynonymMemberWithdrawalList() {
-            return new QDRFunction<VdSynonymMemberWithdrawalCB>(delegate(String function, SubQuery<VdSynonymMemberWithdrawalCB> subQuery, String operand, Object value) {
-                xqderiveVdSynonymMemberWithdrawalList(function, subQuery, operand, value);
-            });
-        }
-        public void xqderiveVdSynonymMemberWithdrawalList(String function, SubQuery<VdSynonymMemberWithdrawalCB> subQuery, String operand, Object value) {
+        public void xsderiveVdSynonymMemberWithdrawalList(String function, SubQuery<VdSynonymMemberWithdrawalCB> subQuery, String aliasName) {
             assertObjectNotNull("subQuery<VdSynonymMemberWithdrawalCB>", subQuery);
             VdSynonymMemberWithdrawalCB cb = new VdSynonymMemberWithdrawalCB(); cb.xsetupForDerivedReferrer(this); subQuery.Invoke(cb);
-            String subQueryPropertyName = keepWithdrawalReasonCode_QueryDerivedReferrer_VdSynonymMemberWithdrawalList(cb.Query()); // for saving query-value.
-            String parameterPropertyName = keepWithdrawalReasonCode_QueryDerivedReferrer_VdSynonymMemberWithdrawalListParameter(value);
-            registerQueryDerivedReferrer(function, cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName, operand, value, parameterPropertyName);
+            String subQueryPropertyName = keepWithdrawalReasonCode_SpecifyDerivedReferrer_VdSynonymMemberWithdrawalList(cb.Query());
+            registerSpecifyDerivedReferrer(function, cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName, aliasName);
         }
-        public abstract String keepWithdrawalReasonCode_QueryDerivedReferrer_VdSynonymMemberWithdrawalList(VdSynonymMemberWithdrawalCQ subQuery);
-        public abstract String keepWithdrawalReasonCode_QueryDerivedReferrer_VdSynonymMemberWithdrawalListParameter(Object parameterValue);
+        abstract public String keepWithdrawalReasonCode_SpecifyDerivedReferrer_VdSynonymMemberWithdrawalList(VdSynonymMemberWithdrawalCQ subQuery);
 
         public QDRFunction<MemberWithdrawalCB> DerivedMemberWithdrawalList() {
             return xcreateQDRFunctionMemberWithdrawalList();
@@ -137,6 +119,24 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
         }
         public abstract String keepWithdrawalReasonCode_QueryDerivedReferrer_MemberWithdrawalList(MemberWithdrawalCQ subQuery);
         public abstract String keepWithdrawalReasonCode_QueryDerivedReferrer_MemberWithdrawalListParameter(Object parameterValue);
+
+        public QDRFunction<VdSynonymMemberWithdrawalCB> DerivedVdSynonymMemberWithdrawalList() {
+            return xcreateQDRFunctionVdSynonymMemberWithdrawalList();
+        }
+        protected QDRFunction<VdSynonymMemberWithdrawalCB> xcreateQDRFunctionVdSynonymMemberWithdrawalList() {
+            return new QDRFunction<VdSynonymMemberWithdrawalCB>(delegate(String function, SubQuery<VdSynonymMemberWithdrawalCB> subQuery, String operand, Object value) {
+                xqderiveVdSynonymMemberWithdrawalList(function, subQuery, operand, value);
+            });
+        }
+        public void xqderiveVdSynonymMemberWithdrawalList(String function, SubQuery<VdSynonymMemberWithdrawalCB> subQuery, String operand, Object value) {
+            assertObjectNotNull("subQuery<VdSynonymMemberWithdrawalCB>", subQuery);
+            VdSynonymMemberWithdrawalCB cb = new VdSynonymMemberWithdrawalCB(); cb.xsetupForDerivedReferrer(this); subQuery.Invoke(cb);
+            String subQueryPropertyName = keepWithdrawalReasonCode_QueryDerivedReferrer_VdSynonymMemberWithdrawalList(cb.Query()); // for saving query-value.
+            String parameterPropertyName = keepWithdrawalReasonCode_QueryDerivedReferrer_VdSynonymMemberWithdrawalListParameter(value);
+            registerQueryDerivedReferrer(function, cb.Query(), "WITHDRAWAL_REASON_CODE", "WITHDRAWAL_REASON_CODE", subQueryPropertyName, operand, value, parameterPropertyName);
+        }
+        public abstract String keepWithdrawalReasonCode_QueryDerivedReferrer_VdSynonymMemberWithdrawalList(VdSynonymMemberWithdrawalCQ subQuery);
+        public abstract String keepWithdrawalReasonCode_QueryDerivedReferrer_VdSynonymMemberWithdrawalListParameter(Object parameterValue);
         public void SetWithdrawalReasonCode_IsNull() { regWithdrawalReasonCode(CK_ISN, DUMMY_OBJECT); }
         public void SetWithdrawalReasonCode_IsNotNull() { regWithdrawalReasonCode(CK_ISNN, DUMMY_OBJECT); }
         protected void regWithdrawalReasonCode(ConditionKey k, Object v) { regQ(k, v, getCValueWithdrawalReasonCode(), "WITHDRAWAL_REASON_CODE"); }

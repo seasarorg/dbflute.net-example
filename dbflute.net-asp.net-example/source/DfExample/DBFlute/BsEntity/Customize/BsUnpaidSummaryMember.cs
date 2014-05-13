@@ -61,7 +61,7 @@ namespace DfExample.DBFlute.ExEntity.Customize {
         /// <summary>MEMBER_NAME: {VARCHAR2(200)}</summary>
         protected String _memberName;
 
-        /// <summary>UNPAID_PRICE_SUMMARY: {NUMBER(39)}</summary>
+        /// <summary>UNPAID_PRICE_SUMMARY: {NUMBER(22)}</summary>
         protected decimal? _unpaidPriceSummary;
 
         /// <summary>MEMBER_STATUS_NAME: {VARCHAR2(50)}</summary>
@@ -202,7 +202,7 @@ namespace DfExample.DBFlute.ExEntity.Customize {
             }
         }
 
-        /// <summary>UNPAID_PRICE_SUMMARY: {NUMBER(39)}</summary>
+        /// <summary>UNPAID_PRICE_SUMMARY: {NUMBER(22)}</summary>
         [Seasar.Dao.Attrs.Column("UNPAID_PRICE_SUMMARY")]
         public decimal? UnpaidPriceSummary {
             get { return _unpaidPriceSummary; }

@@ -52,8 +52,39 @@ h4 {
 .mainschema {
 	text-align: right;
 }
-.sublink {
+.navilinkarea {
 	text-align: right;
+}
+.sublink {
+	margin-top: 0.1em;
+}
+.sisterlink {
+	margin-top: 0.6em;
+	font-size: 110%;
+}
+.sistersublink {
+	margin-top: 0.6em;
+	font-size: 80%;
+}
+
+/* keyword search */
+.keywordsearch {
+	padding: 0.7em 0 0.7em 0;
+}
+.searchmemo {
+	font-size: 0.9em;
+	color: #114488;
+}
+.suggestionarea {
+	padding: 0 0.2em 0.2em 0.2em;
+	margin: 0;
+	position: absolute;
+	zindex: 100;
+	background-color: #DDFFDD;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CCCCCC;
+	list-style-type: none;
 }
 
 /* table */
@@ -71,6 +102,11 @@ td {
 	border-bottom: 1px dotted #aaa;
 	border-left: 1px solid #555;
 	padding:2px;
+}
+.tablecomment {
+	font-size: 0.8em;
+	color: #3F7E5E;
+	padding:0 0 0.2em 1em;
 }
 .rownumhead {
 	text-align: center;
@@ -106,10 +142,11 @@ td {
 	font-size: 0.6em;
 }
 .relcell {
-	font-size: 0.6em;
+	font-size: 0.7em;
 }
 .commentcell {
 	font-size: 0.7em;
+	color: #3F7E5E;
 }
 .subcell {
 	font-size: 0.6em;
@@ -130,6 +167,9 @@ td {
 	text-align: center;
 	font-size: 0.8em;
 }
+.commentdesc {
+	color: #3F7E5E;
+}
 
 /* inner table */
 table.child {
@@ -143,6 +183,11 @@ table.child, table.child td, table.child th {
 	border-left: none;
 	border-bottom: 1px solid #aaa;
 	border-right: 1px solid #aaa;
+}
+.clsgroup {
+	font-size: 1.2em;
+	padding-left: 4px;
+	padding-right: 4px;
 }
 
 /* table supplementary info */
@@ -222,10 +267,19 @@ dl.procedurelist dd.column pre {
 <body>
 <h1>Schema for dfnetexdb (oracle)</h1>
 <p class="mainschema">generated from <strong>DFNETEXDB</strong></p>
+<div class="navilinkarea">
 <p class="sublink"><a href="#cdef">Classification Definition</a></p>
 <p class="sublink"><a href="#outsidesql">OutsideSql List</a></p>
+<p class="sublink"><a href="#procedure">Procedure List</a></p>
+<p class="sisterlink"><a href="./history-dfnetexdb.html">to HistoryHTML</a></p>
+</div>
 
 <h2>Table List</h2>
+<div class="keywordsearch">
+	<input type="text" id="incremental-search-field" tabindex=1 value="" placeholder="Table Search" />
+	<ul id="suggestion-list" class="suggestionarea"></ul>
+	<span class="searchmemo">*Push 'tab' (primary tab order)</span>
+</div>
 <table summary="Tables in the Schema">
 	<thead>
 	<tr>
@@ -239,7 +293,7 @@ dl.procedurelist dd.column pre {
 		<th>EntityName</th>
 	</tr>
 	</thead>
-	<tbody>
+	<tbody id="table-list-body">
 	<tr>
 		<td class="rownumcell">1</td>
 		<td class="aliascell">会員</td>
@@ -286,7 +340,7 @@ dl.procedurelist dd.column pre {
 		<td><a href="#member_status" title="type=TABLE, primaryKey={MEMBER_STATUS_CODE}, nameLength=13, columnCount=3">MEMBER_STATUS</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell">&nbsp;</td>
-		<td class="relcell"><a href="#member_vendor_synonym" title="FK_MEMBER_MEMBER_STATUS">MEMBER_VENDOR_SYNONYM</a>, <a href="#vd_synonym_member" title="FK_MEMBER_MEMBER_STATUS">VD_SYNONYM_MEMBER</a>, <a href="#vd_synonym_member_login" title="FK_MEMBER_LOGIN_MEMBER_STATUS">VD_SYNONYM_MEMBER_LOGIN</a>, <a href="#vendor_synonym_member" title="FK_MEMBER_MEMBER_STATUS">VENDOR_SYNONYM_MEMBER</a>, <a href="#member" title="FK_MEMBER_MEMBER_STATUS">MEMBER</a>, <a href="#member_login" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_LOGIN</a></td>
+		<td class="relcell"><a href="#member" title="FK_MEMBER_MEMBER_STATUS">MEMBER</a>, <a href="#member_login" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_LOGIN</a>, <a href="#member_vendor_synonym" title="FK_MEMBER_MEMBER_STATUS">MEMBER_VENDOR_SYNONYM</a>, <a href="#vd_synonym_member" title="FK_MEMBER_MEMBER_STATUS">VD_SYNONYM_MEMBER</a>, <a href="#vd_synonym_member_login" title="FK_MEMBER_LOGIN_MEMBER_STATUS">VD_SYNONYM_MEMBER_LOGIN</a>, <a href="#vendor_synonym_member" title="FK_MEMBER_MEMBER_STATUS">VENDOR_SYNONYM_MEMBER</a></td>
 		<td class="commentcell"> 固定の区分値</td>
 		<td class="subcell">MemberStatus</td>
 	</tr>
@@ -337,7 +391,7 @@ dl.procedurelist dd.column pre {
 		<td class="typecell">TABLE</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
-		<td class="commentcell"> &nbsp;</td>
+		<td class="commentcell"> snapshot&nbsp;table&nbsp;for&nbsp;snapshot&nbsp;DFNETEXDB.SUMMARY_MEMBER_PURCHASE</td>
 		<td class="subcell">SummaryMemberPurchase</td>
 	</tr>
 	<tr>
@@ -416,7 +470,7 @@ dl.procedurelist dd.column pre {
 		<td><a href="#withdrawal_reason" title="type=TABLE, primaryKey={WITHDRAWAL_REASON_CODE}, nameLength=17, columnCount=3">WITHDRAWAL_REASON</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell">&nbsp;</td>
-		<td class="relcell"><a href="#vd_synonym_member_withdrawal" title="FK_MEMBER_WITHDRAWAL_REASON">VD_SYNONYM_MEMBER_WITHDRAWAL</a>, <a href="#member_withdrawal" title="FK_MEMBER_WITHDRAWAL_REASON">MEMBER_WITHDRAWAL</a></td>
+		<td class="relcell"><a href="#member_withdrawal" title="FK_MEMBER_WITHDRAWAL_REASON">MEMBER_WITHDRAWAL</a>, <a href="#vd_synonym_member_withdrawal" title="FK_MEMBER_WITHDRAWAL_REASON">VD_SYNONYM_MEMBER_WITHDRAWAL</a></td>
 		<td class="commentcell"> &nbsp;</td>
 		<td class="subcell">WithdrawalReason</td>
 	</tr>
@@ -445,7 +499,7 @@ dl.procedurelist dd.column pre {
 		<td class="aliascell">会員ログイン</td>
 		<td><a href="#vd_synonym_member_login" title="type=SYNONYM, primaryKey={MEMBER_LOGIN_ID}, nameLength=23, columnCount=5">VD_SYNONYM_MEMBER_LOGIN</a></td>
 		<td class="typecell">SYNONYM</td>
-		<td class="relcell"><a href="#member_vendor_synonym" title="FK_MEMBER_LOGIN_MEMBER_SYNONYM1">MEMBER_VENDOR_SYNONYM</a>, <a href="#member_status" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_STATUS</a>, <a href="#vd_synonym_member" title="FK_MEMBER_LOGIN_MEMBER_SYNONYM2">VD_SYNONYM_MEMBER</a>, <a href="#vendor_synonym_member" title="FK_MEMBER_LOGIN_MEMBER_SYNONYM3">VENDOR_SYNONYM_MEMBER</a></td>
+		<td class="relcell"><a href="#member_status" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_STATUS</a>, <a href="#member_vendor_synonym" title="FK_MEMBER_LOGIN_MEMBER_SYNONYM1">MEMBER_VENDOR_SYNONYM</a>, <a href="#vd_synonym_member" title="FK_MEMBER_LOGIN_MEMBER_SYNONYM2">VD_SYNONYM_MEMBER</a>, <a href="#vendor_synonym_member" title="FK_MEMBER_LOGIN_MEMBER_SYNONYM3">VENDOR_SYNONYM_MEMBER</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell"> ログインの度にInsertされる</td>
 		<td class="subcell">VdSynonymMemberLogin</td>
@@ -545,8 +599,9 @@ dl.procedurelist dd.column pre {
 
   <h2 id="member" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=6, columnCount=13">
 (会員)MEMBER
-&nbsp;<span class="bqpcount"><a href="#MemberSql">(outsideSql=15)</a></span>
+&nbsp;<span class="bqpcount"><a href="#member_sql">(outsideSql=15)</a></span>
 </h2>
+<p class="tablecomment">会員登録時にInsertされる。<br />物理削除されることはない</p>
 <table summary="Columns in MEMBER">
 	<thead>
 	<tr>
@@ -570,13 +625,13 @@ dl.procedurelist dd.column pre {
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008431 :: sequence=SEQ_MEMBER:minimum(1),maximum(9999999999999999999999999999),increment(1)">o</td>
+		<td class="flgcell" title="SYS_C007134 :: sequence=SEQ_MEMBER:minimum(1),maximum(9999999999999999999999999999),increment(1)">o</td>
 		<td class="flgcell">o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員ID</td>
-		<td id="MEMBERMEMBER_ID">MEMBER_ID</td>
+		<td id="member_member_id">MEMBER_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell"><a href="#member_login" class="additionalfk" title="FK_MEMBER_MEMBER_LOGIN_LATEST: fixedCondition=&quot;$$foreignAlias$$.LOGIN_DATETIME = (select max(LOGIN_DATETIME) from MEMBER_LOGIN where MEMBER_ID = $$localAlias$$.MEMBER_ID)&quot;">MEMBER_LOGIN(AsLatest)</a>&nbsp;</td>
@@ -594,7 +649,7 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell" title="IX_MEMBER_MEMBER_NAME(MEMBER_NAME)">o</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員名称</td>
-		<td id="MEMBERMEMBER_NAME">MEMBER_NAME</td>
+		<td id="member_member_name">MEMBER_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -612,7 +667,7 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員アカウント</td>
-		<td id="MEMBERMEMBER_ACCOUNT">MEMBER_ACCOUNT</td>
+		<td id="member_member_account">MEMBER_ACCOUNT</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -630,7 +685,7 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員ステータスコード</td>
-		<td id="MEMBERMEMBER_STATUS_CODE">MEMBER_STATUS_CODE</td>
+		<td id="member_member_status_code">MEMBER_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell"><a href="#member_status" title="FK_MEMBER_MEMBER_STATUS">MEMBER_STATUS</a>&nbsp;</td>
@@ -648,7 +703,7 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell" title="IX_MEMBER_FORMALIZED_DATETIME(FORMALIZED_DATETIME)">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell">正式会員日時</td>
-		<td id="MEMBERFORMALIZED_DATETIME">FORMALIZED_DATETIME</td>
+		<td id="member_formalized_datetime">FORMALIZED_DATETIME</td>
 		<td class="typecell">TIMESTAMP(3)</td>
 		<td class="sizecell"> 11, 3 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -666,7 +721,7 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell">生年月日</td>
-		<td id="MEMBERBIRTHDATE">BIRTHDATE</td>
+		<td id="member_birthdate">BIRTHDATE</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -684,7 +739,7 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">登録日時</td>
-		<td class="comcolcell" id="MEMBERREGISTER_DATETIME">REGISTER_DATETIME</td>
+		<td class="comcolcell" id="member_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -702,7 +757,7 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">登録ユーザ</td>
-		<td class="comcolcell" id="MEMBERREGISTER_USER">REGISTER_USER</td>
+		<td class="comcolcell" id="member_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -720,7 +775,7 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">登録プロセス</td>
-		<td class="comcolcell" id="MEMBERREGISTER_PROCESS">REGISTER_PROCESS</td>
+		<td class="comcolcell" id="member_register_process">REGISTER_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -738,7 +793,7 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">更新日時</td>
-		<td class="comcolcell" id="MEMBERUPDATE_DATETIME">UPDATE_DATETIME</td>
+		<td class="comcolcell" id="member_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -756,7 +811,7 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">更新ユーザ</td>
-		<td class="comcolcell" id="MEMBERUPDATE_USER">UPDATE_USER</td>
+		<td class="comcolcell" id="member_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -774,7 +829,7 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">更新プロセス</td>
-		<td class="comcolcell" id="MEMBERUPDATE_PROCESS">UPDATE_PROCESS</td>
+		<td class="comcolcell" id="member_update_process">UPDATE_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -792,7 +847,7 @@ dl.procedurelist dd.column pre {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell optcell">バージョンNO</td>
-		<td class="optcell" id="MEMBERVERSION_NO">VERSION_NO</td>
+		<td class="optcell" id="member_version_no">VERSION_NO</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -828,13 +883,13 @@ MEMBER_ADDRESS
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008444">o</td>
+		<td class="flgcell" title="SYS_C007147">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_ADDRESSMEMBER_ADDRESS_ID">MEMBER_ADDRESS_ID</td>
+		<td id="member_address_member_address_id">MEMBER_ADDRESS_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -851,7 +906,7 @@ MEMBER_ADDRESS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_ADDRESSMEMBER_ID">MEMBER_ID</td>
+		<td id="member_address_member_id">MEMBER_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell"><a href="#member" title="FK_MEMBER_ADDRESS_MEMBER">MEMBER</a>&nbsp;</td>
@@ -868,7 +923,7 @@ MEMBER_ADDRESS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_ADDRESSVALID_BEGIN_DATE">VALID_BEGIN_DATE</td>
+		<td id="member_address_valid_begin_date">VALID_BEGIN_DATE</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -885,7 +940,7 @@ MEMBER_ADDRESS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_ADDRESSVALID_END_DATE">VALID_END_DATE</td>
+		<td id="member_address_valid_end_date">VALID_END_DATE</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -902,7 +957,7 @@ MEMBER_ADDRESS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_ADDRESSADDRESS">ADDRESS</td>
+		<td id="member_address_address">ADDRESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -919,7 +974,7 @@ MEMBER_ADDRESS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_ADDRESSREGISTER_DATETIME">REGISTER_DATETIME</td>
+		<td class="comcolcell" id="member_address_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -936,7 +991,7 @@ MEMBER_ADDRESS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_ADDRESSREGISTER_PROCESS">REGISTER_PROCESS</td>
+		<td class="comcolcell" id="member_address_register_process">REGISTER_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -953,7 +1008,7 @@ MEMBER_ADDRESS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_ADDRESSREGISTER_USER">REGISTER_USER</td>
+		<td class="comcolcell" id="member_address_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -970,7 +1025,7 @@ MEMBER_ADDRESS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_ADDRESSUPDATE_DATETIME">UPDATE_DATETIME</td>
+		<td class="comcolcell" id="member_address_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -987,7 +1042,7 @@ MEMBER_ADDRESS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_ADDRESSUPDATE_PROCESS">UPDATE_PROCESS</td>
+		<td class="comcolcell" id="member_address_update_process">UPDATE_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1004,7 +1059,7 @@ MEMBER_ADDRESS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_ADDRESSUPDATE_USER">UPDATE_USER</td>
+		<td class="comcolcell" id="member_address_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1021,7 +1076,7 @@ MEMBER_ADDRESS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell optcell"></td>
-		<td class="optcell" id="MEMBER_ADDRESSVERSION_NO">VERSION_NO</td>
+		<td class="optcell" id="member_address_version_no">VERSION_NO</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1034,6 +1089,7 @@ MEMBER_ADDRESS
   <h2 id="member_login" title="type=TABLE, primaryKey={MEMBER_LOGIN_ID}, nameLength=12, columnCount=5">
 (会員ログイン)MEMBER_LOGIN
 </h2>
+<p class="tablecomment">ログインの度にInsertされる</p>
 <table summary="Columns in MEMBER_LOGIN">
 	<thead>
 	<tr>
@@ -1056,13 +1112,13 @@ MEMBER_ADDRESS
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008450 :: sequence=SEQ_MEMBER_LOGIN:minimum(1),maximum(9999999999999999999999999999),increment(1)">o</td>
+		<td class="flgcell" title="SYS_C007153 :: sequence=SEQ_MEMBER_LOGIN:minimum(1),maximum(9999999999999999999999999999),increment(1)">o</td>
 		<td class="flgcell">o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_LOGINMEMBER_LOGIN_ID">MEMBER_LOGIN_ID</td>
+		<td id="member_login_member_login_id">MEMBER_LOGIN_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1079,7 +1135,7 @@ MEMBER_ADDRESS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_LOGINMEMBER_ID">MEMBER_ID</td>
+		<td id="member_login_member_id">MEMBER_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell"><a href="#member" title="FK_MEMBER_LOGIN_MEMBER">MEMBER</a>&nbsp;</td>
@@ -1096,7 +1152,7 @@ MEMBER_ADDRESS
 		<td class="flgcell" title="IX_MEMBER_LOGIN_DATETIME(LOGIN_DATETIME)">o</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_LOGINLOGIN_DATETIME">LOGIN_DATETIME</td>
+		<td id="member_login_login_datetime">LOGIN_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1113,7 +1169,7 @@ MEMBER_ADDRESS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_LOGINMOBILE_LOGIN_FLG">MOBILE_LOGIN_FLG</td>
+		<td id="member_login_mobile_login_flg">MOBILE_LOGIN_FLG</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 1 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1130,7 +1186,7 @@ MEMBER_ADDRESS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_LOGINLOGIN_MEMBER_STATUS_CODE">LOGIN_MEMBER_STATUS_CODE</td>
+		<td id="member_login_login_member_status_code">LOGIN_MEMBER_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell"><a href="#member_status" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_STATUS</a>&nbsp;</td>
@@ -1165,13 +1221,13 @@ MEMBER_SECURITY
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008407">o</td>
+		<td class="flgcell" title="SYS_C007110">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_SECURITYMEMBER_ID">MEMBER_ID</td>
+		<td id="member_security_member_id">MEMBER_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell"><a href="#member" title="FK_MEMBER_SECURITY_MEMBER">MEMBER</a>&nbsp;</td>
@@ -1188,7 +1244,7 @@ MEMBER_SECURITY
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_SECURITYLOGIN_PASSWORD">LOGIN_PASSWORD</td>
+		<td id="member_security_login_password">LOGIN_PASSWORD</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1205,7 +1261,7 @@ MEMBER_SECURITY
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_SECURITYREMINDER_QUESTION">REMINDER_QUESTION</td>
+		<td id="member_security_reminder_question">REMINDER_QUESTION</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1222,7 +1278,7 @@ MEMBER_SECURITY
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_SECURITYREMINDER_ANSWER">REMINDER_ANSWER</td>
+		<td id="member_security_reminder_answer">REMINDER_ANSWER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1239,7 +1295,7 @@ MEMBER_SECURITY
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_SECURITYREGISTER_DATETIME">REGISTER_DATETIME</td>
+		<td class="comcolcell" id="member_security_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1256,7 +1312,7 @@ MEMBER_SECURITY
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_SECURITYREGISTER_PROCESS">REGISTER_PROCESS</td>
+		<td class="comcolcell" id="member_security_register_process">REGISTER_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1273,7 +1329,7 @@ MEMBER_SECURITY
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_SECURITYREGISTER_USER">REGISTER_USER</td>
+		<td class="comcolcell" id="member_security_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1290,7 +1346,7 @@ MEMBER_SECURITY
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_SECURITYUPDATE_DATETIME">UPDATE_DATETIME</td>
+		<td class="comcolcell" id="member_security_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1307,7 +1363,7 @@ MEMBER_SECURITY
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_SECURITYUPDATE_PROCESS">UPDATE_PROCESS</td>
+		<td class="comcolcell" id="member_security_update_process">UPDATE_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1324,7 +1380,7 @@ MEMBER_SECURITY
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_SECURITYUPDATE_USER">UPDATE_USER</td>
+		<td class="comcolcell" id="member_security_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1341,7 +1397,7 @@ MEMBER_SECURITY
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell optcell"></td>
-		<td class="optcell" id="MEMBER_SECURITYVERSION_NO">VERSION_NO</td>
+		<td class="optcell" id="member_security_version_no">VERSION_NO</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1354,6 +1410,7 @@ MEMBER_SECURITY
   <h2 id="member_status" title="type=TABLE, primaryKey={MEMBER_STATUS_CODE}, nameLength=13, columnCount=3">
 (会員ステータス)MEMBER_STATUS
 </h2>
+<p class="tablecomment">固定の区分値</p>
 <table summary="Columns in MEMBER_STATUS">
 	<thead>
 	<tr>
@@ -1376,17 +1433,17 @@ MEMBER_SECURITY
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008461">o</td>
+		<td class="flgcell" title="SYS_C007164">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_STATUSMEMBER_STATUS_CODE">MEMBER_STATUS_CODE</td>
+		<td id="member_status_member_status_code">MEMBER_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell"><a href="#member_vendor_synonym" title="FK_MEMBER_MEMBER_STATUS">MEMBER_VENDOR_SYNONYM</a>,<br /><a href="#vd_synonym_member" title="FK_MEMBER_MEMBER_STATUS">VD_SYNONYM_MEMBER</a>,<br /><a href="#vd_synonym_member_login" title="FK_MEMBER_LOGIN_MEMBER_STATUS">VD_SYNONYM_MEMBER_LOGIN</a>,<br /><a href="#vendor_synonym_member" title="FK_MEMBER_MEMBER_STATUS">VENDOR_SYNONYM_MEMBER</a>,<br /><a href="#member" title="FK_MEMBER_MEMBER_STATUS">MEMBER</a>,<br /><a href="#member_login" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_LOGIN</a>&nbsp;</td>
+		<td class="relcell"><a href="#member" title="FK_MEMBER_MEMBER_STATUS">MEMBER</a>,<br /><a href="#member_login" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_LOGIN</a>,<br /><a href="#member_vendor_synonym" title="FK_MEMBER_MEMBER_STATUS">MEMBER_VENDOR_SYNONYM</a>,<br /><a href="#vd_synonym_member" title="FK_MEMBER_MEMBER_STATUS">VD_SYNONYM_MEMBER</a>,<br /><a href="#vd_synonym_member_login" title="FK_MEMBER_LOGIN_MEMBER_STATUS">VD_SYNONYM_MEMBER_LOGIN</a>,<br /><a href="#vendor_synonym_member" title="FK_MEMBER_MEMBER_STATUS">VENDOR_SYNONYM_MEMBER</a>&nbsp;</td>
 		<td class="relcell"><a href="#MemberStatusCls">MemberStatus</a></td>
 		<td class="subcell">memberStatusCode</td>
 		<td class="subcell">String</td>
@@ -1399,7 +1456,7 @@ MEMBER_SECURITY
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_STATUSMEMBER_STATUS_NAME">MEMBER_STATUS_NAME</td>
+		<td id="member_status_member_status_name">MEMBER_STATUS_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1416,7 +1473,7 @@ MEMBER_SECURITY
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_STATUSDISPLAY_ORDER">DISPLAY_ORDER</td>
+		<td id="member_status_display_order">DISPLAY_ORDER</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1429,6 +1486,7 @@ MEMBER_SECURITY
   <h2 id="member_withdrawal" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=17, columnCount=11">
 MEMBER_WITHDRAWAL
 </h2>
+<p class="tablecomment">退会するとInsertされる</p>
 <table summary="Columns in MEMBER_WITHDRAWAL">
 	<thead>
 	<tr>
@@ -1451,13 +1509,13 @@ MEMBER_WITHDRAWAL
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008395">o</td>
+		<td class="flgcell" title="SYS_C007098">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_WITHDRAWALMEMBER_ID">MEMBER_ID</td>
+		<td id="member_withdrawal_member_id">MEMBER_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell"><a href="#member" title="FK_MEMBER_WITHDRAWAL_MEMBER">MEMBER</a>&nbsp;</td>
@@ -1474,7 +1532,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_WITHDRAWALWITHDRAWAL_REASON_CODE">WITHDRAWAL_REASON_CODE</td>
+		<td id="member_withdrawal_withdrawal_reason_code">WITHDRAWAL_REASON_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell"><a href="#withdrawal_reason" title="FK_MEMBER_WITHDRAWAL_REASON">WITHDRAWAL_REASON</a>&nbsp;</td>
@@ -1491,7 +1549,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_WITHDRAWALWITHDRAWAL_REASON_INPUT_TEXT">WITHDRAWAL_REASON_INPUT_TEXT</td>
+		<td id="member_withdrawal_withdrawal_reason_input_text">WITHDRAWAL_REASON_INPUT_TEXT</td>
 		<td class="typecell">CLOB</td>
 		<td class="sizecell"> 4000 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1508,7 +1566,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="MEMBER_WITHDRAWALWITHDRAWAL_DATETIME">WITHDRAWAL_DATETIME</td>
+		<td id="member_withdrawal_withdrawal_datetime">WITHDRAWAL_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1525,7 +1583,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_WITHDRAWALREGISTER_DATETIME">REGISTER_DATETIME</td>
+		<td class="comcolcell" id="member_withdrawal_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1542,7 +1600,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_WITHDRAWALREGISTER_PROCESS">REGISTER_PROCESS</td>
+		<td class="comcolcell" id="member_withdrawal_register_process">REGISTER_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1559,7 +1617,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_WITHDRAWALREGISTER_USER">REGISTER_USER</td>
+		<td class="comcolcell" id="member_withdrawal_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1576,7 +1634,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_WITHDRAWALUPDATE_DATETIME">UPDATE_DATETIME</td>
+		<td class="comcolcell" id="member_withdrawal_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1593,7 +1651,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_WITHDRAWALUPDATE_PROCESS">UPDATE_PROCESS</td>
+		<td class="comcolcell" id="member_withdrawal_update_process">UPDATE_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1610,7 +1668,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="MEMBER_WITHDRAWALUPDATE_USER">UPDATE_USER</td>
+		<td class="comcolcell" id="member_withdrawal_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1627,7 +1685,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell optcell"></td>
-		<td class="optcell" id="MEMBER_WITHDRAWALVERSION_NO">VERSION_NO</td>
+		<td class="optcell" id="member_withdrawal_version_no">VERSION_NO</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1662,13 +1720,13 @@ MEMBER_WITHDRAWAL
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008419 :: sequence=SEQ_PRODUCT:minimum(1),maximum(9999999999999999999999999999),increment(1)">o</td>
+		<td class="flgcell" title="SYS_C007122 :: sequence=SEQ_PRODUCT:minimum(1),maximum(9999999999999999999999999999),increment(1)">o</td>
 		<td class="flgcell">o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="PRODUCTPRODUCT_ID">PRODUCT_ID</td>
+		<td id="product_product_id">PRODUCT_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1685,7 +1743,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell" title="IX_PRODUCT_PRODUCT_NAME(PRODUCT_NAME)">o</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="PRODUCTPRODUCT_NAME">PRODUCT_NAME</td>
+		<td id="product_product_name">PRODUCT_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1702,7 +1760,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="PRODUCTPRODUCT_HANDLE_CODE">PRODUCT_HANDLE_CODE</td>
+		<td id="product_product_handle_code">PRODUCT_HANDLE_CODE</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 100 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1719,7 +1777,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="PRODUCTPRODUCT_STATUS_CODE">PRODUCT_STATUS_CODE</td>
+		<td id="product_product_status_code">PRODUCT_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell"><a href="#product_status" title="FK_PRODUCT_PRODUCT_STATUS">PRODUCT_STATUS</a>&nbsp;</td>
@@ -1736,7 +1794,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="PRODUCTREGISTER_DATETIME">REGISTER_DATETIME</td>
+		<td class="comcolcell" id="product_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1753,7 +1811,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="PRODUCTREGISTER_USER">REGISTER_USER</td>
+		<td class="comcolcell" id="product_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1770,7 +1828,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="PRODUCTREGISTER_PROCESS">REGISTER_PROCESS</td>
+		<td class="comcolcell" id="product_register_process">REGISTER_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1787,7 +1845,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="PRODUCTUPDATE_DATETIME">UPDATE_DATETIME</td>
+		<td class="comcolcell" id="product_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1804,7 +1862,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="PRODUCTUPDATE_USER">UPDATE_USER</td>
+		<td class="comcolcell" id="product_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1821,7 +1879,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="PRODUCTUPDATE_PROCESS">UPDATE_PROCESS</td>
+		<td class="comcolcell" id="product_update_process">UPDATE_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1838,7 +1896,7 @@ MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell optcell"></td>
-		<td class="optcell" id="PRODUCTVERSION_NO">VERSION_NO</td>
+		<td class="optcell" id="product_version_no">VERSION_NO</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1851,6 +1909,7 @@ MEMBER_WITHDRAWAL
   <h2 id="product_status" title="type=TABLE, primaryKey={PRODUCT_STATUS_CODE}, nameLength=14, columnCount=2">
 PRODUCT_STATUS
 </h2>
+<p class="tablecomment">商品ステータス</p>
 <table summary="Columns in PRODUCT_STATUS">
 	<thead>
 	<tr>
@@ -1873,13 +1932,13 @@ PRODUCT_STATUS
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008457">o</td>
+		<td class="flgcell" title="SYS_C007160">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="PRODUCT_STATUSPRODUCT_STATUS_CODE">PRODUCT_STATUS_CODE</td>
+		<td id="product_status_product_status_code">PRODUCT_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1896,7 +1955,7 @@ PRODUCT_STATUS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="PRODUCT_STATUSPRODUCT_STATUS_NAME">PRODUCT_STATUS_NAME</td>
+		<td id="product_status_product_status_name">PRODUCT_STATUS_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1909,6 +1968,7 @@ PRODUCT_STATUS
   <h2 id="purchase" title="type=TABLE, primaryKey={PURCHASE_ID}, nameLength=8, columnCount=14">
 (購入)PURCHASE
 </h2>
+<p class="tablecomment">購入の度ににInsertされる</p>
 <table summary="Columns in PURCHASE">
 	<thead>
 	<tr>
@@ -1931,13 +1991,13 @@ PRODUCT_STATUS
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008385 :: sequence=SEQ_PURCHASE:minimum(1),maximum(9999999999999999999999999999),increment(1)">o</td>
+		<td class="flgcell" title="SYS_C007088 :: sequence=SEQ_PURCHASE:minimum(1),maximum(9999999999999999999999999999),increment(1)">o</td>
 		<td class="flgcell">o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="PURCHASEPURCHASE_ID">PURCHASE_ID</td>
+		<td id="purchase_purchase_id">PURCHASE_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1954,7 +2014,7 @@ PRODUCT_STATUS
 		<td class="flgcell" title="IX_PURCHASE_DATETIME_MEMBER(PURCHASE_DATETIME, MEMBER_ID)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="PURCHASEMEMBER_ID">MEMBER_ID</td>
+		<td id="purchase_member_id">MEMBER_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell"><a href="#member" title="FK_PURCHASE_MEMBER">MEMBER</a>&nbsp;</td>
@@ -1971,7 +2031,7 @@ PRODUCT_STATUS
 		<td class="flgcell" title="IX_PURCHASE_PRODUCT_DATETIME(PRODUCT_ID, PURCHASE_DATETIME)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="PURCHASEPRODUCT_ID">PRODUCT_ID</td>
+		<td id="purchase_product_id">PRODUCT_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell"><a href="#product" title="FK_PURCHASE_PRODUCT">PRODUCT</a>&nbsp;</td>
@@ -1988,7 +2048,7 @@ PRODUCT_STATUS
 		<td class="flgcell" title="IX_PURCHASE_DATETIME_MEMBER(PURCHASE_DATETIME, MEMBER_ID), IX_PURCHASE_PRODUCT_DATETIME(PRODUCT_ID, PURCHASE_DATETIME)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="PURCHASEPURCHASE_DATETIME">PURCHASE_DATETIME</td>
+		<td id="purchase_purchase_datetime">PURCHASE_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2005,7 +2065,7 @@ PRODUCT_STATUS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="PURCHASEPURCHASE_COUNT">PURCHASE_COUNT</td>
+		<td id="purchase_purchase_count">PURCHASE_COUNT</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2022,7 +2082,7 @@ PRODUCT_STATUS
 		<td class="flgcell" title="IX_PURCHASE_PRICE(PURCHASE_PRICE)">o</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="PURCHASEPURCHASE_PRICE">PURCHASE_PRICE</td>
+		<td id="purchase_purchase_price">PURCHASE_PRICE</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2039,7 +2099,7 @@ PRODUCT_STATUS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="PURCHASEPAYMENT_COMPLETE_FLG">PAYMENT_COMPLETE_FLG</td>
+		<td id="purchase_payment_complete_flg">PAYMENT_COMPLETE_FLG</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 1 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2056,7 +2116,7 @@ PRODUCT_STATUS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="PURCHASEREGISTER_DATETIME">REGISTER_DATETIME</td>
+		<td class="comcolcell" id="purchase_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2073,7 +2133,7 @@ PRODUCT_STATUS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="PURCHASEREGISTER_USER">REGISTER_USER</td>
+		<td class="comcolcell" id="purchase_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2090,7 +2150,7 @@ PRODUCT_STATUS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="PURCHASEREGISTER_PROCESS">REGISTER_PROCESS</td>
+		<td class="comcolcell" id="purchase_register_process">REGISTER_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2107,7 +2167,7 @@ PRODUCT_STATUS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="PURCHASEUPDATE_DATETIME">UPDATE_DATETIME</td>
+		<td class="comcolcell" id="purchase_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2124,7 +2184,7 @@ PRODUCT_STATUS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="PURCHASEUPDATE_USER">UPDATE_USER</td>
+		<td class="comcolcell" id="purchase_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2141,7 +2201,7 @@ PRODUCT_STATUS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="PURCHASEUPDATE_PROCESS">UPDATE_PROCESS</td>
+		<td class="comcolcell" id="purchase_update_process">UPDATE_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2158,7 +2218,7 @@ PRODUCT_STATUS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell optcell"></td>
-		<td class="optcell" id="PURCHASEVERSION_NO">VERSION_NO</td>
+		<td class="optcell" id="purchase_version_no">VERSION_NO</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2171,6 +2231,7 @@ PRODUCT_STATUS
   <h2 id="summary_member_purchase" title="type=TABLE, primaryKey={}, nameLength=23, columnCount=3">
 SUMMARY_MEMBER_PURCHASE
 </h2>
+<p class="tablecomment">snapshot&nbsp;table&nbsp;for&nbsp;snapshot&nbsp;DFNETEXDB.SUMMARY_MEMBER_PURCHASE</p>
 <table summary="Columns in SUMMARY_MEMBER_PURCHASE">
 	<thead>
 	<tr>
@@ -2199,7 +2260,7 @@ SUMMARY_MEMBER_PURCHASE
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="SUMMARY_MEMBER_PURCHASEMEMBER_ID">MEMBER_ID</td>
+		<td id="summary_member_purchase_member_id">MEMBER_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2216,9 +2277,9 @@ SUMMARY_MEMBER_PURCHASE
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="SUMMARY_MEMBER_PURCHASEALLSUM_PURCHASE_PRICE">ALLSUM_PURCHASE_PRICE</td>
+		<td id="summary_member_purchase_allsum_purchase_price">ALLSUM_PURCHASE_PRICE</td>
 		<td class="typecell">NUMBER</td>
-		<td class="sizecell"> &nbsp;</td>
+		<td class="sizecell"> 22 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -2233,7 +2294,7 @@ SUMMARY_MEMBER_PURCHASE
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="SUMMARY_MEMBER_PURCHASELATEST_PURCHASE_DATETIME">LATEST_PURCHASE_DATETIME</td>
+		<td id="summary_member_purchase_latest_purchase_datetime">LATEST_PURCHASE_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2268,13 +2329,13 @@ VENDOR_CHECK
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008484">o</td>
+		<td class="flgcell" title="SYS_C007187">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKVENDOR_CHECK_ID">VENDOR_CHECK_ID</td>
+		<td id="vendor_check_vendor_check_id">VENDOR_CHECK_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2291,7 +2352,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKDECIMAL_DIGIT">DECIMAL_DIGIT</td>
+		<td id="vendor_check_decimal_digit">DECIMAL_DIGIT</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 5, 3 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2308,7 +2369,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKINTEGER_NON_DIGIT">INTEGER_NON_DIGIT</td>
+		<td id="vendor_check_integer_non_digit">INTEGER_NON_DIGIT</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 5 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2325,7 +2386,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKLARGE_CHARACTER">LARGE_CHARACTER</td>
+		<td id="vendor_check_large_character">LARGE_CHARACTER</td>
 		<td class="typecell">CLOB</td>
 		<td class="sizecell"> 4000 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2342,7 +2403,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKTYPE_OF_CHAR">TYPE_OF_CHAR</td>
+		<td id="vendor_check_type_of_char">TYPE_OF_CHAR</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2359,7 +2420,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKTYPE_OF_NCHAR">TYPE_OF_NCHAR</td>
+		<td id="vendor_check_type_of_nchar">TYPE_OF_NCHAR</td>
 		<td class="typecell">NCHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2376,7 +2437,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKTYPE_OF_VARCHAR2">TYPE_OF_VARCHAR2</td>
+		<td id="vendor_check_type_of_varchar2">TYPE_OF_VARCHAR2</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 32 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2393,7 +2454,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKTYPE_OF_VARCHAR2_MAX">TYPE_OF_VARCHAR2_MAX</td>
+		<td id="vendor_check_type_of_varchar2_max">TYPE_OF_VARCHAR2_MAX</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 4000 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2410,7 +2471,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKTYPE_OF_NVARCHAR2">TYPE_OF_NVARCHAR2</td>
+		<td id="vendor_check_type_of_nvarchar2">TYPE_OF_NVARCHAR2</td>
 		<td class="typecell">NVARCHAR2</td>
 		<td class="sizecell"> 32 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2427,7 +2488,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKTYPE_OF_CLOB">TYPE_OF_CLOB</td>
+		<td id="vendor_check_type_of_clob">TYPE_OF_CLOB</td>
 		<td class="typecell">CLOB</td>
 		<td class="sizecell"> 4000 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2444,7 +2505,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKTYPE_OF_NCLOB">TYPE_OF_NCLOB</td>
+		<td id="vendor_check_type_of_nclob">TYPE_OF_NCLOB</td>
 		<td class="typecell">NCLOB</td>
 		<td class="sizecell"> 4000 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2461,7 +2522,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKTYPE_OF_DATE">TYPE_OF_DATE</td>
+		<td id="vendor_check_type_of_date">TYPE_OF_DATE</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2478,7 +2539,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKTYPE_OF_TIMESTAMP">TYPE_OF_TIMESTAMP</td>
+		<td id="vendor_check_type_of_timestamp">TYPE_OF_TIMESTAMP</td>
 		<td class="typecell">TIMESTAMP(6)</td>
 		<td class="sizecell"> 11, 6 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2495,7 +2556,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKTYPE_OF_BLOB">TYPE_OF_BLOB</td>
+		<td id="vendor_check_type_of_blob">TYPE_OF_BLOB</td>
 		<td class="typecell">BLOB</td>
 		<td class="sizecell"> 4000 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2512,7 +2573,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKTYPE_OF_RAW">TYPE_OF_RAW</td>
+		<td id="vendor_check_type_of_raw">TYPE_OF_RAW</td>
 		<td class="typecell">RAW</td>
 		<td class="sizecell"> 512 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2529,7 +2590,7 @@ VENDOR_CHECK
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_CHECKTYPE_OF_BFILE">TYPE_OF_BFILE</td>
+		<td id="vendor_check_type_of_bfile">TYPE_OF_BFILE</td>
 		<td class="typecell">BFILE</td>
 		<td class="sizecell"> 530 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2564,13 +2625,13 @@ VENDOR_EXCEPT
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008493">o</td>
+		<td class="flgcell" title="SYS_C007196">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_EXCEPTVENDOR_EXCEPT_ID">VENDOR_EXCEPT_ID</td>
+		<td id="vendor_except_vendor_except_id">VENDOR_EXCEPT_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2587,7 +2648,7 @@ VENDOR_EXCEPT
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_EXCEPTVANDOR_EXCEPT_NAME">VANDOR_EXCEPT_NAME</td>
+		<td id="vendor_except_vandor_except_name">VANDOR_EXCEPT_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 256 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2622,13 +2683,13 @@ VENDOR_LARGE_NAME_901234567890
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008487">o</td>
+		<td class="flgcell" title="SYS_C007190">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_LARGE_NAME_901234567890VENDOR_LARGE_NAME_901234567_ID">VENDOR_LARGE_NAME_901234567_ID</td>
+		<td id="vendor_large_name_901234567890_vendor_large_name_901234567_id">VENDOR_LARGE_NAME_901234567_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2645,7 +2706,7 @@ VENDOR_LARGE_NAME_901234567890
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_LARGE_NAME_901234567890VENDOR_LARGE_NAME_9012345_NAME">VENDOR_LARGE_NAME_9012345_NAME</td>
+		<td id="vendor_large_name_901234567890_vendor_large_name_9012345_name">VENDOR_LARGE_NAME_9012345_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 32 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2680,13 +2741,13 @@ VENDOR_LARGE_NAME_90123456_REF
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008490">o</td>
+		<td class="flgcell" title="SYS_C007193">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_LARGE_NAME_90123456_REFVENDOR_LARGE_NAME_90123_REF_ID">VENDOR_LARGE_NAME_90123_REF_ID</td>
+		<td id="vendor_large_name_90123456_ref_vendor_large_name_90123_ref_id">VENDOR_LARGE_NAME_90123_REF_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2703,7 +2764,7 @@ VENDOR_LARGE_NAME_90123456_REF
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_LARGE_NAME_90123456_REFVENDOR_LARGE_NAME_901_REF_NAME">VENDOR_LARGE_NAME_901_REF_NAME</td>
+		<td id="vendor_large_name_90123456_ref_vendor_large_name_901_ref_name">VENDOR_LARGE_NAME_901_REF_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 32 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2720,7 +2781,7 @@ VENDOR_LARGE_NAME_90123456_REF
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_LARGE_NAME_90123456_REFVENDOR_LARGE_NAME_901234567_ID">VENDOR_LARGE_NAME_901234567_ID</td>
+		<td id="vendor_large_name_90123456_ref_vendor_large_name_901234567_id">VENDOR_LARGE_NAME_901234567_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell"><a href="#vendor_large_name_901234567890" title="FK_VENDOR_LARGE_NAME_$$$_REF">VENDOR_LARGE_NAME_901234567890</a>&nbsp;</td>
@@ -2755,13 +2816,13 @@ VENDOR_REF_EXCEPT
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008496">o</td>
+		<td class="flgcell" title="SYS_C007199">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_REF_EXCEPTVENDOR_REF_EXCEPT_ID">VENDOR_REF_EXCEPT_ID</td>
+		<td id="vendor_ref_except_vendor_ref_except_id">VENDOR_REF_EXCEPT_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2778,7 +2839,7 @@ VENDOR_REF_EXCEPT
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_REF_EXCEPTVENDOR_EXCEPT_ID">VENDOR_EXCEPT_ID</td>
+		<td id="vendor_ref_except_vendor_except_id">VENDOR_EXCEPT_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell"><a href="#vendor_except" title="FK_VENDOR_REF_EXCEPT">VENDOR_EXCEPT</a>&nbsp;</td>
@@ -2813,13 +2874,13 @@ VENDOR_REF_TARGET
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008501">o</td>
+		<td class="flgcell" title="SYS_C007204">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_REF_TARGETVENDOR_REF_TARGET_ID">VENDOR_REF_TARGET_ID</td>
+		<td id="vendor_ref_target_vendor_ref_target_id">VENDOR_REF_TARGET_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2836,7 +2897,7 @@ VENDOR_REF_TARGET
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_REF_TARGETVENDOR_TARGET_ID">VENDOR_TARGET_ID</td>
+		<td id="vendor_ref_target_vendor_target_id">VENDOR_TARGET_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell"><a href="#vendor_target" title="FK_VENDOR_REF_TARGET">VENDOR_TARGET</a>&nbsp;</td>
@@ -2871,13 +2932,13 @@ VENDOR_TARGET
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008498">o</td>
+		<td class="flgcell" title="SYS_C007201">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_TARGETVENDOR_TARGET_ID">VENDOR_TARGET_ID</td>
+		<td id="vendor_target_vendor_target_id">VENDOR_TARGET_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2894,7 +2955,7 @@ VENDOR_TARGET
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VENDOR_TARGETVANDOR_TARGET_NAME">VANDOR_TARGET_NAME</td>
+		<td id="vendor_target_vandor_target_name">VANDOR_TARGET_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 256 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2929,17 +2990,17 @@ WITHDRAWAL_REASON
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008454">o</td>
+		<td class="flgcell" title="SYS_C007157">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="WITHDRAWAL_REASONWITHDRAWAL_REASON_CODE">WITHDRAWAL_REASON_CODE</td>
+		<td id="withdrawal_reason_withdrawal_reason_code">WITHDRAWAL_REASON_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell"><a href="#vd_synonym_member_withdrawal" title="FK_MEMBER_WITHDRAWAL_REASON">VD_SYNONYM_MEMBER_WITHDRAWAL</a>,<br /><a href="#member_withdrawal" title="FK_MEMBER_WITHDRAWAL_REASON">MEMBER_WITHDRAWAL</a>&nbsp;</td>
+		<td class="relcell"><a href="#member_withdrawal" title="FK_MEMBER_WITHDRAWAL_REASON">MEMBER_WITHDRAWAL</a>,<br /><a href="#vd_synonym_member_withdrawal" title="FK_MEMBER_WITHDRAWAL_REASON">VD_SYNONYM_MEMBER_WITHDRAWAL</a>&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="subcell">withdrawalReasonCode</td>
 		<td class="subcell">String</td>
@@ -2952,7 +3013,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="WITHDRAWAL_REASONWITHDRAWAL_REASON_TEXT">WITHDRAWAL_REASON_TEXT</td>
+		<td id="withdrawal_reason_withdrawal_reason_text">WITHDRAWAL_REASON_TEXT</td>
 		<td class="typecell">CLOB</td>
 		<td class="sizecell"> 4000 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2969,7 +3030,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="WITHDRAWAL_REASONDISPLAY_ORDER">DISPLAY_ORDER</td>
+		<td id="withdrawal_reason_display_order">DISPLAY_ORDER</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2982,6 +3043,7 @@ WITHDRAWAL_REASON
   <h2 id="member_vendor_synonym" title="type=SYNONYM, primaryKey={MEMBER_ID}, nameLength=21, columnCount=13">
 (会員)MEMBER_VENDOR_SYNONYM
 </h2>
+<p class="tablecomment">会員登録時にInsertされる。<br />物理削除されることはない</p>
 <table summary="Columns in MEMBER_VENDOR_SYNONYM">
 	<thead>
 	<tr>
@@ -3005,13 +3067,13 @@ WITHDRAWAL_REASON
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008431">o</td>
+		<td class="flgcell" title="SYS_C007134">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員ID</td>
-		<td id="MEMBER_VENDOR_SYNONYMMEMBER_ID">MEMBER_ID</td>
+		<td id="member_vendor_synonym_member_id">MEMBER_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3029,7 +3091,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell" title="IX_MEMBER_MEMBER_NAME(MEMBER_NAME)">o</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員名称</td>
-		<td id="MEMBER_VENDOR_SYNONYMMEMBER_NAME">MEMBER_NAME</td>
+		<td id="member_vendor_synonym_member_name">MEMBER_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3047,7 +3109,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員アカウント</td>
-		<td id="MEMBER_VENDOR_SYNONYMMEMBER_ACCOUNT">MEMBER_ACCOUNT</td>
+		<td id="member_vendor_synonym_member_account">MEMBER_ACCOUNT</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3065,7 +3127,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員ステータスコード</td>
-		<td id="MEMBER_VENDOR_SYNONYMMEMBER_STATUS_CODE">MEMBER_STATUS_CODE</td>
+		<td id="member_vendor_synonym_member_status_code">MEMBER_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell"><a href="#member_status" title="FK_MEMBER_MEMBER_STATUS">MEMBER_STATUS</a>&nbsp;</td>
@@ -3083,7 +3145,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell" title="IX_MEMBER_FORMALIZED_DATETIME(FORMALIZED_DATETIME)">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell">正式会員日時</td>
-		<td id="MEMBER_VENDOR_SYNONYMFORMALIZED_DATETIME">FORMALIZED_DATETIME</td>
+		<td id="member_vendor_synonym_formalized_datetime">FORMALIZED_DATETIME</td>
 		<td class="typecell">TIMESTAMP(3)</td>
 		<td class="sizecell"> 11, 3 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3101,7 +3163,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell">生年月日</td>
-		<td id="MEMBER_VENDOR_SYNONYMBIRTHDATE">BIRTHDATE</td>
+		<td id="member_vendor_synonym_birthdate">BIRTHDATE</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3119,7 +3181,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">登録日時</td>
-		<td class="comcolcell" id="MEMBER_VENDOR_SYNONYMREGISTER_DATETIME">REGISTER_DATETIME</td>
+		<td class="comcolcell" id="member_vendor_synonym_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3137,7 +3199,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">登録ユーザ</td>
-		<td class="comcolcell" id="MEMBER_VENDOR_SYNONYMREGISTER_USER">REGISTER_USER</td>
+		<td class="comcolcell" id="member_vendor_synonym_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3155,7 +3217,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">登録プロセス</td>
-		<td class="comcolcell" id="MEMBER_VENDOR_SYNONYMREGISTER_PROCESS">REGISTER_PROCESS</td>
+		<td class="comcolcell" id="member_vendor_synonym_register_process">REGISTER_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3173,7 +3235,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">更新日時</td>
-		<td class="comcolcell" id="MEMBER_VENDOR_SYNONYMUPDATE_DATETIME">UPDATE_DATETIME</td>
+		<td class="comcolcell" id="member_vendor_synonym_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3191,7 +3253,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">更新ユーザ</td>
-		<td class="comcolcell" id="MEMBER_VENDOR_SYNONYMUPDATE_USER">UPDATE_USER</td>
+		<td class="comcolcell" id="member_vendor_synonym_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3209,7 +3271,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">更新プロセス</td>
-		<td class="comcolcell" id="MEMBER_VENDOR_SYNONYMUPDATE_PROCESS">UPDATE_PROCESS</td>
+		<td class="comcolcell" id="member_vendor_synonym_update_process">UPDATE_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3227,7 +3289,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell optcell">バージョンNO</td>
-		<td class="optcell" id="MEMBER_VENDOR_SYNONYMVERSION_NO">VERSION_NO</td>
+		<td class="optcell" id="member_vendor_synonym_version_no">VERSION_NO</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3241,6 +3303,7 @@ WITHDRAWAL_REASON
   <h2 id="vd_synonym_member" title="type=SYNONYM, primaryKey={MEMBER_ID}, nameLength=17, columnCount=13">
 (会員)VD_SYNONYM_MEMBER
 </h2>
+<p class="tablecomment">会員登録時にInsertされる。<br />物理削除されることはない</p>
 <table summary="Columns in VD_SYNONYM_MEMBER">
 	<thead>
 	<tr>
@@ -3264,13 +3327,13 @@ WITHDRAWAL_REASON
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008431">o</td>
+		<td class="flgcell" title="SYS_C007134">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員ID</td>
-		<td id="VD_SYNONYM_MEMBERMEMBER_ID">MEMBER_ID</td>
+		<td id="vd_synonym_member_member_id">MEMBER_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3288,7 +3351,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell" title="IX_MEMBER_MEMBER_NAME(MEMBER_NAME)">o</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員名称</td>
-		<td id="VD_SYNONYM_MEMBERMEMBER_NAME">MEMBER_NAME</td>
+		<td id="vd_synonym_member_member_name">MEMBER_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3306,7 +3369,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員アカウント</td>
-		<td id="VD_SYNONYM_MEMBERMEMBER_ACCOUNT">MEMBER_ACCOUNT</td>
+		<td id="vd_synonym_member_member_account">MEMBER_ACCOUNT</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3324,7 +3387,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員ステータスコード</td>
-		<td id="VD_SYNONYM_MEMBERMEMBER_STATUS_CODE">MEMBER_STATUS_CODE</td>
+		<td id="vd_synonym_member_member_status_code">MEMBER_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell"><a href="#member_status" title="FK_MEMBER_MEMBER_STATUS">MEMBER_STATUS</a>&nbsp;</td>
@@ -3342,7 +3405,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell" title="IX_MEMBER_FORMALIZED_DATETIME(FORMALIZED_DATETIME)">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell">正式会員日時</td>
-		<td id="VD_SYNONYM_MEMBERFORMALIZED_DATETIME">FORMALIZED_DATETIME</td>
+		<td id="vd_synonym_member_formalized_datetime">FORMALIZED_DATETIME</td>
 		<td class="typecell">TIMESTAMP(3)</td>
 		<td class="sizecell"> 11, 3 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3360,7 +3423,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell">生年月日</td>
-		<td id="VD_SYNONYM_MEMBERBIRTHDATE">BIRTHDATE</td>
+		<td id="vd_synonym_member_birthdate">BIRTHDATE</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3378,7 +3441,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">登録日時</td>
-		<td class="comcolcell" id="VD_SYNONYM_MEMBERREGISTER_DATETIME">REGISTER_DATETIME</td>
+		<td class="comcolcell" id="vd_synonym_member_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3396,7 +3459,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">登録ユーザ</td>
-		<td class="comcolcell" id="VD_SYNONYM_MEMBERREGISTER_USER">REGISTER_USER</td>
+		<td class="comcolcell" id="vd_synonym_member_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3414,7 +3477,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">登録プロセス</td>
-		<td class="comcolcell" id="VD_SYNONYM_MEMBERREGISTER_PROCESS">REGISTER_PROCESS</td>
+		<td class="comcolcell" id="vd_synonym_member_register_process">REGISTER_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3432,7 +3495,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">更新日時</td>
-		<td class="comcolcell" id="VD_SYNONYM_MEMBERUPDATE_DATETIME">UPDATE_DATETIME</td>
+		<td class="comcolcell" id="vd_synonym_member_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3450,7 +3513,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">更新ユーザ</td>
-		<td class="comcolcell" id="VD_SYNONYM_MEMBERUPDATE_USER">UPDATE_USER</td>
+		<td class="comcolcell" id="vd_synonym_member_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3468,7 +3531,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">更新プロセス</td>
-		<td class="comcolcell" id="VD_SYNONYM_MEMBERUPDATE_PROCESS">UPDATE_PROCESS</td>
+		<td class="comcolcell" id="vd_synonym_member_update_process">UPDATE_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3486,7 +3549,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell optcell">バージョンNO</td>
-		<td class="optcell" id="VD_SYNONYM_MEMBERVERSION_NO">VERSION_NO</td>
+		<td class="optcell" id="vd_synonym_member_version_no">VERSION_NO</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3500,6 +3563,7 @@ WITHDRAWAL_REASON
   <h2 id="vd_synonym_member_login" title="type=SYNONYM, primaryKey={MEMBER_LOGIN_ID}, nameLength=23, columnCount=5">
 (会員ログイン)VD_SYNONYM_MEMBER_LOGIN
 </h2>
+<p class="tablecomment">ログインの度にInsertされる</p>
 <table summary="Columns in VD_SYNONYM_MEMBER_LOGIN">
 	<thead>
 	<tr>
@@ -3522,13 +3586,13 @@ WITHDRAWAL_REASON
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008450">o</td>
+		<td class="flgcell" title="SYS_C007153">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_MEMBER_LOGINMEMBER_LOGIN_ID">MEMBER_LOGIN_ID</td>
+		<td id="vd_synonym_member_login_member_login_id">MEMBER_LOGIN_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3545,7 +3609,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_MEMBER_LOGINMEMBER_ID">MEMBER_ID</td>
+		<td id="vd_synonym_member_login_member_id">MEMBER_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell"><a href="#member_vendor_synonym" title="FK_MEMBER_LOGIN_MEMBER_SYNONYM1">MEMBER_VENDOR_SYNONYM</a>,<br /><a href="#vd_synonym_member" title="FK_MEMBER_LOGIN_MEMBER_SYNONYM2">VD_SYNONYM_MEMBER</a>,<br /><a href="#vendor_synonym_member" title="FK_MEMBER_LOGIN_MEMBER_SYNONYM3">VENDOR_SYNONYM_MEMBER</a>&nbsp;</td>
@@ -3562,7 +3626,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell" title="IX_MEMBER_LOGIN_DATETIME(LOGIN_DATETIME)">o</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_MEMBER_LOGINLOGIN_DATETIME">LOGIN_DATETIME</td>
+		<td id="vd_synonym_member_login_login_datetime">LOGIN_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3579,7 +3643,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_MEMBER_LOGINMOBILE_LOGIN_FLG">MOBILE_LOGIN_FLG</td>
+		<td id="vd_synonym_member_login_mobile_login_flg">MOBILE_LOGIN_FLG</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 1 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3596,7 +3660,7 @@ WITHDRAWAL_REASON
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_MEMBER_LOGINLOGIN_MEMBER_STATUS_CODE">LOGIN_MEMBER_STATUS_CODE</td>
+		<td id="vd_synonym_member_login_login_member_status_code">LOGIN_MEMBER_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell"><a href="#member_status" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_STATUS</a>&nbsp;</td>
@@ -3609,6 +3673,7 @@ WITHDRAWAL_REASON
   <h2 id="vd_synonym_member_withdrawal" title="type=SYNONYM, primaryKey={MEMBER_ID}, nameLength=28, columnCount=11">
 VD_SYNONYM_MEMBER_WITHDRAWAL
 </h2>
+<p class="tablecomment">退会するとInsertされる</p>
 <table summary="Columns in VD_SYNONYM_MEMBER_WITHDRAWAL">
 	<thead>
 	<tr>
@@ -3631,13 +3696,13 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008395">o</td>
+		<td class="flgcell" title="SYS_C007098">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_MEMBER_WITHDRAWALMEMBER_ID">MEMBER_ID</td>
+		<td id="vd_synonym_member_withdrawal_member_id">MEMBER_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell"><a href="#member_vendor_synonym" title="FK_MEMBER_WITHDRAWAL_MEMBER_SYNONYM1">MEMBER_VENDOR_SYNONYM</a>,<br /><a href="#vd_synonym_member" title="FK_MEMBER_WITHDRAWAL_MEMBER_SYNONYM2">VD_SYNONYM_MEMBER</a>,<br /><a href="#vendor_synonym_member" title="FK_MEMBER_WITHDRAWAL_MEMBER_SYNONYM3">VENDOR_SYNONYM_MEMBER</a>&nbsp;</td>
@@ -3654,7 +3719,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_MEMBER_WITHDRAWALWITHDRAWAL_REASON_CODE">WITHDRAWAL_REASON_CODE</td>
+		<td id="vd_synonym_member_withdrawal_withdrawal_reason_code">WITHDRAWAL_REASON_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell"><a href="#withdrawal_reason" title="FK_MEMBER_WITHDRAWAL_REASON">WITHDRAWAL_REASON</a>&nbsp;</td>
@@ -3671,7 +3736,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_MEMBER_WITHDRAWALWITHDRAWAL_REASON_INPUT_TEXT">WITHDRAWAL_REASON_INPUT_TEXT</td>
+		<td id="vd_synonym_member_withdrawal_withdrawal_reason_input_text">WITHDRAWAL_REASON_INPUT_TEXT</td>
 		<td class="typecell">CLOB</td>
 		<td class="sizecell"> 4000 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3688,7 +3753,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_MEMBER_WITHDRAWALWITHDRAWAL_DATETIME">WITHDRAWAL_DATETIME</td>
+		<td id="vd_synonym_member_withdrawal_withdrawal_datetime">WITHDRAWAL_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3705,7 +3770,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="VD_SYNONYM_MEMBER_WITHDRAWALREGISTER_DATETIME">REGISTER_DATETIME</td>
+		<td class="comcolcell" id="vd_synonym_member_withdrawal_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3722,7 +3787,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="VD_SYNONYM_MEMBER_WITHDRAWALREGISTER_PROCESS">REGISTER_PROCESS</td>
+		<td class="comcolcell" id="vd_synonym_member_withdrawal_register_process">REGISTER_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3739,7 +3804,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="VD_SYNONYM_MEMBER_WITHDRAWALREGISTER_USER">REGISTER_USER</td>
+		<td class="comcolcell" id="vd_synonym_member_withdrawal_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3756,7 +3821,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="VD_SYNONYM_MEMBER_WITHDRAWALUPDATE_DATETIME">UPDATE_DATETIME</td>
+		<td class="comcolcell" id="vd_synonym_member_withdrawal_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3773,7 +3838,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="VD_SYNONYM_MEMBER_WITHDRAWALUPDATE_PROCESS">UPDATE_PROCESS</td>
+		<td class="comcolcell" id="vd_synonym_member_withdrawal_update_process">UPDATE_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3790,7 +3855,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="VD_SYNONYM_MEMBER_WITHDRAWALUPDATE_USER">UPDATE_USER</td>
+		<td class="comcolcell" id="vd_synonym_member_withdrawal_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3807,7 +3872,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell optcell"></td>
-		<td class="optcell" id="VD_SYNONYM_MEMBER_WITHDRAWALVERSION_NO">VERSION_NO</td>
+		<td class="optcell" id="vd_synonym_member_withdrawal_version_no">VERSION_NO</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3842,13 +3907,13 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008419">o</td>
+		<td class="flgcell" title="SYS_C007122">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_PRODUCTPRODUCT_ID">PRODUCT_ID</td>
+		<td id="vd_synonym_product_product_id">PRODUCT_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3865,7 +3930,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell" title="IX_PRODUCT_PRODUCT_NAME(PRODUCT_NAME)">o</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_PRODUCTPRODUCT_NAME">PRODUCT_NAME</td>
+		<td id="vd_synonym_product_product_name">PRODUCT_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3882,7 +3947,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_PRODUCTPRODUCT_HANDLE_CODE">PRODUCT_HANDLE_CODE</td>
+		<td id="vd_synonym_product_product_handle_code">PRODUCT_HANDLE_CODE</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 100 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3899,7 +3964,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_PRODUCTPRODUCT_STATUS_CODE">PRODUCT_STATUS_CODE</td>
+		<td id="vd_synonym_product_product_status_code">PRODUCT_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell"><a href="#vd_synonym_product_status" title="FK_PRODUCT_PRODUCT_STATUS_SYNONYM1">VD_SYNONYM_PRODUCT_STATUS</a>&nbsp;</td>
@@ -3916,7 +3981,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="VD_SYNONYM_PRODUCTREGISTER_DATETIME">REGISTER_DATETIME</td>
+		<td class="comcolcell" id="vd_synonym_product_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3933,7 +3998,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="VD_SYNONYM_PRODUCTREGISTER_USER">REGISTER_USER</td>
+		<td class="comcolcell" id="vd_synonym_product_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3950,7 +4015,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="VD_SYNONYM_PRODUCTREGISTER_PROCESS">REGISTER_PROCESS</td>
+		<td class="comcolcell" id="vd_synonym_product_register_process">REGISTER_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3967,7 +4032,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="VD_SYNONYM_PRODUCTUPDATE_DATETIME">UPDATE_DATETIME</td>
+		<td class="comcolcell" id="vd_synonym_product_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3984,7 +4049,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="VD_SYNONYM_PRODUCTUPDATE_USER">UPDATE_USER</td>
+		<td class="comcolcell" id="vd_synonym_product_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4001,7 +4066,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell" id="VD_SYNONYM_PRODUCTUPDATE_PROCESS">UPDATE_PROCESS</td>
+		<td class="comcolcell" id="vd_synonym_product_update_process">UPDATE_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4018,7 +4083,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell optcell"></td>
-		<td class="optcell" id="VD_SYNONYM_PRODUCTVERSION_NO">VERSION_NO</td>
+		<td class="optcell" id="vd_synonym_product_version_no">VERSION_NO</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4031,6 +4096,7 @@ VD_SYNONYM_MEMBER_WITHDRAWAL
   <h2 id="vd_synonym_product_status" title="type=SYNONYM, primaryKey={PRODUCT_STATUS_CODE}, nameLength=25, columnCount=2">
 VD_SYNONYM_PRODUCT_STATUS
 </h2>
+<p class="tablecomment">商品ステータス</p>
 <table summary="Columns in VD_SYNONYM_PRODUCT_STATUS">
 	<thead>
 	<tr>
@@ -4053,13 +4119,13 @@ VD_SYNONYM_PRODUCT_STATUS
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008457">o</td>
+		<td class="flgcell" title="SYS_C007160">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_PRODUCT_STATUSPRODUCT_STATUS_CODE">PRODUCT_STATUS_CODE</td>
+		<td id="vd_synonym_product_status_product_status_code">PRODUCT_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4076,7 +4142,7 @@ VD_SYNONYM_PRODUCT_STATUS
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_PRODUCT_STATUSPRODUCT_STATUS_NAME">PRODUCT_STATUS_NAME</td>
+		<td id="vd_synonym_product_status_product_status_name">PRODUCT_STATUS_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4111,13 +4177,13 @@ VD_SYNONYM_VENDOR_EXCEPT
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008493">o</td>
+		<td class="flgcell" title="SYS_C007196">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_VENDOR_EXCEPTVENDOR_EXCEPT_ID">VENDOR_EXCEPT_ID</td>
+		<td id="vd_synonym_vendor_except_vendor_except_id">VENDOR_EXCEPT_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4134,7 +4200,7 @@ VD_SYNONYM_VENDOR_EXCEPT
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_VENDOR_EXCEPTVANDOR_EXCEPT_NAME">VANDOR_EXCEPT_NAME</td>
+		<td id="vd_synonym_vendor_except_vandor_except_name">VANDOR_EXCEPT_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 256 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4169,13 +4235,13 @@ VD_SYNONYM_VENDOR_REF_EXCEPT
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008496">o</td>
+		<td class="flgcell" title="SYS_C007199">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_VENDOR_REF_EXCEPTVENDOR_REF_EXCEPT_ID">VENDOR_REF_EXCEPT_ID</td>
+		<td id="vd_synonym_vendor_ref_except_vendor_ref_except_id">VENDOR_REF_EXCEPT_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4192,7 +4258,7 @@ VD_SYNONYM_VENDOR_REF_EXCEPT
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_VENDOR_REF_EXCEPTVENDOR_EXCEPT_ID">VENDOR_EXCEPT_ID</td>
+		<td id="vd_synonym_vendor_ref_except_vendor_except_id">VENDOR_EXCEPT_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell"><a href="#vd_synonym_vendor_except" title="FK_VENDOR_REF_EXCEPT_SYNONYM1">VD_SYNONYM_VENDOR_EXCEPT</a>&nbsp;</td>
@@ -4227,13 +4293,13 @@ VD_SYNONYM_VENDOR_REF_TARGET
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008501">o</td>
+		<td class="flgcell" title="SYS_C007204">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_VENDOR_REF_TARGETVENDOR_REF_TARGET_ID">VENDOR_REF_TARGET_ID</td>
+		<td id="vd_synonym_vendor_ref_target_vendor_ref_target_id">VENDOR_REF_TARGET_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4250,7 +4316,7 @@ VD_SYNONYM_VENDOR_REF_TARGET
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_VENDOR_REF_TARGETVENDOR_TARGET_ID">VENDOR_TARGET_ID</td>
+		<td id="vd_synonym_vendor_ref_target_vendor_target_id">VENDOR_TARGET_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell"><a href="#vd_synonym_vendor_target" title="FK_VENDOR_REF_TARGET_SYNONYM1">VD_SYNONYM_VENDOR_TARGET</a>&nbsp;</td>
@@ -4285,13 +4351,13 @@ VD_SYNONYM_VENDOR_TARGET
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008498">o</td>
+		<td class="flgcell" title="SYS_C007201">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_VENDOR_TARGETVENDOR_TARGET_ID">VENDOR_TARGET_ID</td>
+		<td id="vd_synonym_vendor_target_vendor_target_id">VENDOR_TARGET_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4308,7 +4374,7 @@ VD_SYNONYM_VENDOR_TARGET
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="VD_SYNONYM_VENDOR_TARGETVANDOR_TARGET_NAME">VANDOR_TARGET_NAME</td>
+		<td id="vd_synonym_vendor_target_vandor_target_name">VANDOR_TARGET_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 256 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4321,6 +4387,7 @@ VD_SYNONYM_VENDOR_TARGET
   <h2 id="vendor_synonym_member" title="type=SYNONYM, primaryKey={MEMBER_ID}, nameLength=21, columnCount=13">
 (会員)VENDOR_SYNONYM_MEMBER
 </h2>
+<p class="tablecomment">会員登録時にInsertされる。<br />物理削除されることはない</p>
 <table summary="Columns in VENDOR_SYNONYM_MEMBER">
 	<thead>
 	<tr>
@@ -4344,13 +4411,13 @@ VD_SYNONYM_VENDOR_TARGET
 	</thead>
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="flgcell" title="SYS_C008431">o</td>
+		<td class="flgcell" title="SYS_C007134">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員ID</td>
-		<td id="VENDOR_SYNONYM_MEMBERMEMBER_ID">MEMBER_ID</td>
+		<td id="vendor_synonym_member_member_id">MEMBER_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4368,7 +4435,7 @@ VD_SYNONYM_VENDOR_TARGET
 		<td class="flgcell" title="IX_MEMBER_MEMBER_NAME(MEMBER_NAME)">o</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員名称</td>
-		<td id="VENDOR_SYNONYM_MEMBERMEMBER_NAME">MEMBER_NAME</td>
+		<td id="vendor_synonym_member_member_name">MEMBER_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4386,7 +4453,7 @@ VD_SYNONYM_VENDOR_TARGET
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員アカウント</td>
-		<td id="VENDOR_SYNONYM_MEMBERMEMBER_ACCOUNT">MEMBER_ACCOUNT</td>
+		<td id="vendor_synonym_member_member_account">MEMBER_ACCOUNT</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4404,7 +4471,7 @@ VD_SYNONYM_VENDOR_TARGET
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員ステータスコード</td>
-		<td id="VENDOR_SYNONYM_MEMBERMEMBER_STATUS_CODE">MEMBER_STATUS_CODE</td>
+		<td id="vendor_synonym_member_member_status_code">MEMBER_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell"><a href="#member_status" title="FK_MEMBER_MEMBER_STATUS">MEMBER_STATUS</a>&nbsp;</td>
@@ -4422,7 +4489,7 @@ VD_SYNONYM_VENDOR_TARGET
 		<td class="flgcell" title="IX_MEMBER_FORMALIZED_DATETIME(FORMALIZED_DATETIME)">o</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell">正式会員日時</td>
-		<td id="VENDOR_SYNONYM_MEMBERFORMALIZED_DATETIME">FORMALIZED_DATETIME</td>
+		<td id="vendor_synonym_member_formalized_datetime">FORMALIZED_DATETIME</td>
 		<td class="typecell">TIMESTAMP(3)</td>
 		<td class="sizecell"> 11, 3 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4440,7 +4507,7 @@ VD_SYNONYM_VENDOR_TARGET
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell">生年月日</td>
-		<td id="VENDOR_SYNONYM_MEMBERBIRTHDATE">BIRTHDATE</td>
+		<td id="vendor_synonym_member_birthdate">BIRTHDATE</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4458,7 +4525,7 @@ VD_SYNONYM_VENDOR_TARGET
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">登録日時</td>
-		<td class="comcolcell" id="VENDOR_SYNONYM_MEMBERREGISTER_DATETIME">REGISTER_DATETIME</td>
+		<td class="comcolcell" id="vendor_synonym_member_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4476,7 +4543,7 @@ VD_SYNONYM_VENDOR_TARGET
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">登録ユーザ</td>
-		<td class="comcolcell" id="VENDOR_SYNONYM_MEMBERREGISTER_USER">REGISTER_USER</td>
+		<td class="comcolcell" id="vendor_synonym_member_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4494,7 +4561,7 @@ VD_SYNONYM_VENDOR_TARGET
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">登録プロセス</td>
-		<td class="comcolcell" id="VENDOR_SYNONYM_MEMBERREGISTER_PROCESS">REGISTER_PROCESS</td>
+		<td class="comcolcell" id="vendor_synonym_member_register_process">REGISTER_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4512,7 +4579,7 @@ VD_SYNONYM_VENDOR_TARGET
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">更新日時</td>
-		<td class="comcolcell" id="VENDOR_SYNONYM_MEMBERUPDATE_DATETIME">UPDATE_DATETIME</td>
+		<td class="comcolcell" id="vendor_synonym_member_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4530,7 +4597,7 @@ VD_SYNONYM_VENDOR_TARGET
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">更新ユーザ</td>
-		<td class="comcolcell" id="VENDOR_SYNONYM_MEMBERUPDATE_USER">UPDATE_USER</td>
+		<td class="comcolcell" id="vendor_synonym_member_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4548,7 +4615,7 @@ VD_SYNONYM_VENDOR_TARGET
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell comcolcell">更新プロセス</td>
-		<td class="comcolcell" id="VENDOR_SYNONYM_MEMBERUPDATE_PROCESS">UPDATE_PROCESS</td>
+		<td class="comcolcell" id="vendor_synonym_member_update_process">UPDATE_PROCESS</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4566,7 +4633,7 @@ VD_SYNONYM_VENDOR_TARGET
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell optcell">バージョンNO</td>
-		<td class="optcell" id="VENDOR_SYNONYM_MEMBERVERSION_NO">VERSION_NO</td>
+		<td class="optcell" id="vendor_synonym_member_version_no">VERSION_NO</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4608,7 +4675,7 @@ SUMMARY_PRODUCT
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="SUMMARY_PRODUCTPRODUCT_ID">PRODUCT_ID</td>
+		<td id="summary_product_product_id">PRODUCT_ID</td>
 		<td class="typecell">NUMBER</td>
 		<td class="sizecell"> 16 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4625,7 +4692,7 @@ SUMMARY_PRODUCT
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="SUMMARY_PRODUCTPRODUCT_NAME">PRODUCT_NAME</td>
+		<td id="summary_product_product_name">PRODUCT_NAME</td>
 		<td class="typecell">VARCHAR2</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4642,7 +4709,7 @@ SUMMARY_PRODUCT
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell"></td>
-		<td id="SUMMARY_PRODUCTPRODUCT_STATUS_CODE">PRODUCT_STATUS_CODE</td>
+		<td id="summary_product_product_status_code">PRODUCT_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4659,7 +4726,7 @@ SUMMARY_PRODUCT
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="aliascell"></td>
-		<td id="SUMMARY_PRODUCTLATEST_PURCHASE_DATETIME">LATEST_PURCHASE_DATETIME</td>
+		<td id="summary_product_latest_purchase_datetime">LATEST_PURCHASE_DATETIME</td>
 		<td class="typecell">DATE</td>
 		<td class="sizecell"> 7 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -4695,12 +4762,12 @@ SUMMARY_PRODUCT
 			<tr>
 				<td>1</td>
 				<td>True</td>
-				<td>有効を示す</td>
+				<td class="commentcell">有効を示す</td>
 			</tr>
 			<tr>
 				<td>0</td>
 				<td>False</td>
-				<td>無効を示す</td>
+				<td class="commentcell">無効を示す</td>
 			</tr>
 			</table>
 		</td>
@@ -4719,17 +4786,17 @@ SUMMARY_PRODUCT
 			<tr>
 				<td>PRV</td>
 				<td>Provisional</td>
-				<td>仮会員を示す</td>
+				<td class="commentcell">仮会員を示す</td>
 			</tr>
 			<tr>
 				<td>FML</td>
 				<td>Formalized</td>
-				<td>正式会員を示す</td>
+				<td class="commentcell">正式会員を示す</td>
 			</tr>
 			<tr>
 				<td>WDL</td>
 				<td>Withdrawal</td>
-				<td>退会会員を示す</td>
+				<td class="commentcell">退会会員を示す</td>
 			</tr>
 			</table>
 		</td>
@@ -4738,7 +4805,7 @@ SUMMARY_PRODUCT
 </table>
 
 <h2 id="outsidesql">OutsideSql List</h2>
-<h3 id="MemberSql"><a href="#member">MEMBER</a></h3>
+<h3 id="member_sql"><a href="#member">MEMBER</a></h3>
 <dl class="bqplist">
 	<dt>&nbsp;selectLatestFormalizedDatetime</dt>
 	<dd class="subinfo">
@@ -4812,11 +4879,11 @@ SUMMARY_PRODUCT
 		<span class="file">MemberBhv_selectIfCommentWrongExpression.sql</span>
 	</dd>
 </dl>
-<h3 id="procedure">Procedure</h3>
+<h2 id="procedure">Procedure</h2>
 <dl class="procedurelist">
 	<dt>FN_IN_OUT_PARAMETER <span class="type">(ReturnsResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		(return) - VARCHAR2 <span class="type">(Return)</span>
@@ -4832,14 +4899,14 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>FN_NO_PARAMETER <span class="type">(ReturnsResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		(return) - VARCHAR2 <span class="type">(Return)</span>
 	</dd>
 	<dt>SP_IN_OUT_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		V_IN_VARCHAR - VARCHAR2 <span class="type">(In)</span>
@@ -4852,12 +4919,12 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SP_NO_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">*no arguments</dd>
 	<dt>SP_NULL_OUT_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		V_OUT_VARCHAR - VARCHAR2 <span class="type">(Out)</span>
@@ -4873,14 +4940,14 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SP_ORACLE_CHAR_INOUT_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		V_INOUT_CHAR - CHAR <span class="type">(InOut)</span>
 	</dd>
 	<dt>OVERLOAD_PKG.SP_OVERLOAD_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Packaged procedure</pre>
+		<pre class="commentcell">Packaged procedure</pre>
 	</dd>
 	<dd class="column">
 		V_IN_VARCHAR - VARCHAR2 <span class="type">(In)</span>
@@ -4899,7 +4966,7 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SAME_PKG.SP_PKG_IN_OUT_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Packaged procedure</pre>
+		<pre class="commentcell">Packaged procedure</pre>
 	</dd>
 	<dd class="column">
 		V_IN_VARCHAR - VARCHAR2 <span class="type">(In)</span>
@@ -4912,7 +4979,7 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>MAIN_PKG.SP_PKG_IN_OUT_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Packaged procedure</pre>
+		<pre class="commentcell">Packaged procedure</pre>
 	</dd>
 	<dd class="column">
 		V_IN_VARCHAR - VARCHAR2 <span class="type">(In)</span>
@@ -4925,24 +4992,24 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SAME_PKG.SP_PKG_NO_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Packaged procedure</pre>
+		<pre class="commentcell">Packaged procedure</pre>
 	</dd>
 	<dd class="column">*no arguments</dd>
 	<dt>MAIN_PKG.SP_PKG_NO_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Packaged procedure</pre>
+		<pre class="commentcell">Packaged procedure</pre>
 	</dd>
 	<dd class="column">*no arguments</dd>
 	<dt>SP_RESULT_SET_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		CUR_MEMBER - REF CURSOR <span class="type">(Out)</span>
 	</dd>
 	<dt>SP_RESULT_SET_PARAMETER_MORE <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		CUR_MEMBER - REF CURSOR <span class="type">(Out)</span>
@@ -4952,7 +5019,7 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SP_RESULT_SET_PARAMETER_WITH <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		CUR_MEMBER - REF CURSOR <span class="type">(Out)</span>
@@ -4980,7 +5047,7 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SP_STRUCT_BASIC_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		V_IN_FOO_BEAN - DFNETEXDB.FOO_BEAN <span class="attrs">{FOO_ID, FOO_NAME, FOO_DECIMAL, FOO_DATE, FOO_TIMESTAMP, FOO_CLOB}</span> <span class="type">(In)</span>
@@ -4990,7 +5057,7 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SP_STRUCT_LIST_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		V_IN_FOO_LIST - TABLE <span class="attrs">{DFNETEXDB.FOO_TABLE&lt;DFNETEXDB.FOO_BEAN(6)&gt;}</span> <span class="type">(In)</span>
@@ -5000,7 +5067,7 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SP_STRUCT_NESTED_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		V_IN_FOO_BEAN - DFNETEXDB.NESTED_FOO_BEAN <span class="attrs">{FOO_ID, FOO_NAME, FOO_DATE, BAR_BEAN(DFNETEXDB.NESTED_BAR_BEAN(8)), QUX_LIST(DFNETEXDB.QUX_TABLE&lt;NUMBER&gt;), QUUX_LIST(DFNETEXDB.QUUX_TABLE&lt;NUMBER&gt;), CORGE_LIST(DFNETEXDB.CORGE_TABLE&lt;DFNETEXDB.CORGE_BEAN(6)&gt;)}</span> <span class="type">(In)</span>
@@ -5010,12 +5077,12 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SP_STRUCT_NEXT_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">*no arguments</dd>
 	<dt>SP_STRUCT_SYNONYM_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		V_IN_FOO_BEAN - DFNETEXDB.SYNONYM_FOO_BEAN <span class="type">(In)</span>
@@ -5025,7 +5092,7 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SP_TABLE_MANUAL_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		V_IN_VARCHAR_ARRAY - TABLE <span class="attrs">{DFNETEXDB.VARCHAR2_TABLE&lt;VARCHAR2&gt;}</span> <span class="type">(In)</span>
@@ -5035,7 +5102,7 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SP_TABLE_NESTED_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		V_IN_VARCHAR_ARRAY_ARRAY - TABLE <span class="attrs">{DFNETEXDB.VARCHAR2_NESTED_TABLE&lt;DFNETEXDB.VARCHAR2_TABLE&lt;VARCHAR2&gt;&gt;}</span> <span class="type">(In)</span>
@@ -5045,12 +5112,12 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SP_TABLE_NEXT_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">*no arguments</dd>
 	<dt>SP_TABLE_PACKED_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		V_IN_DATE_ARRAY - PL/SQL TABLE <span class="type">(In)</span>
@@ -5060,7 +5127,7 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SP_TABLE_SYNONYM_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		V_IN_VARCHAR_ARRAY - TABLE <span class="type">(In)</span>
@@ -5070,7 +5137,7 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SP_TABLE_VARIOUS_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		V_IN_CLOB_ARRAY - TABLE <span class="attrs">{DFNETEXDB.CLOB_TABLE&lt;CLOB&gt;}</span> <span class="type">(In)</span>
@@ -5080,12 +5147,12 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SP_TRANSACTION_INHERIT <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">*no arguments</dd>
 	<dt>SP_VARIOUS_TYPE_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		V_IN_VARCHAR - VARCHAR2 <span class="type">(In)</span>
@@ -5128,7 +5195,7 @@ SUMMARY_PRODUCT
 	</dd>
 	<dt>SP_VARRAY_MANUAL_PARAMETER <span class="type">(NoResult)</span></dt>
 	<dd>
-		<pre>Standalone procedure or function</pre>
+		<pre class="commentcell">Standalone procedure or function</pre>
 	</dd>
 	<dd class="column">
 		V_IN_NUMBER_ARRAY - VARRAY <span class="attrs">{DFNETEXDB.NUMBER_VARRAY&lt;NUMBER&gt;}</span> <span class="type">(In)</span>
@@ -5137,5 +5204,355 @@ SUMMARY_PRODUCT
 		V_OUT_NUMBER_ARRAY - VARRAY <span class="attrs">{DFNETEXDB.NUMBER_VARRAY&lt;NUMBER&gt;}</span> <span class="type">(Out)</span>
 	</dd>
 </dl>
+<script>
+/**
+ * Incremental Search contributed by makotot (Thanks!)
+ *
+ * and extended by jflute:
+ *  o style adjustment
+ *  o varying name index
+ *  o prefix search priority
+ */
+
+// this index value depends on DBFlute settings
+// so defines it here as global for easy-to-understand
+var NAME_INDEX = 2; // number, alias, name
+
+function Incremental (targetInput, dist) {
+	this.targetInput = targetInput;
+	this.dist = dist;
+	this.query = '';
+	this.suggestionIdx = 0;
+	this.currentSuggestion = '';
+}
+
+Incremental.prototype = {
+
+	/**
+	 * @method init
+	 */
+	init: function () {
+		var dataList = this.getDataList();
+
+		this.distDataList = dataList.distList;
+		this.sectionList = dataList.sectionList;
+		this.buildSuggestList();
+		this.attachEvent();
+	},
+
+	/**
+	 * @method buildSuggetList
+	 */
+	buildSuggestList: function () {
+		var fragment = document.createDocumentFragment(),
+			ul = document.getElementById('suggestion-list');
+
+		this.ul = ul;
+		this.setupLinkElement(fragment); // for prefix area
+		this.setupLinkElement(fragment); // for contain area
+		ul.appendChild(fragment);
+
+		this.attachSuggestionEvent();
+	},
+
+	/**
+	 * @method setupLinkElement
+	 */
+	setupLinkElement: function (fragment) {
+		var li, anchor;
+		for (var i = 0, max = this.distDataList.length; i < max; i++) {
+			li = document.createElement('li');
+			li.style.display = 'none';
+			anchor = document.createElement('a');
+			anchor.href = this.sectionList[i];
+
+			var distData = this.distDataList[i];
+			if (document.body.dataset) {
+				anchor.dataset.name = distData;
+			} else {
+				anchor.setAttribute('data-name', distData); // for searching
+			}
+
+			this.util.setElemTxt(anchor, distData); // for display
+
+			li.appendChild(anchor);
+			fragment.appendChild(li);
+		}
+	},
+
+	/**
+	 * @method attachEvent
+	 */
+	attachEvent: function () {
+		var self = this,
+			eventHandler = function () {
+				self.displaySuggestion();
+			},
+			eventName = ('oninput' in window) ? 'input' : 'propertychange';
+
+		this.util.addEvent(this.targetInput, eventName, eventHandler);
+	},
+
+	/**
+	 * @method displaySuggestion
+	 */
+	displaySuggestion: function () {
+		this.query = (this.util.trim(this.targetInput.value)).toLowerCase();
+
+		var i, j, max;
+
+		this.resetSuggestion();
+
+		var visibleList;
+
+		if (this.query.length) {
+			var alreadyCheckedData = {}; // to suppress duplicate check (key only used)
+			var distDataCount = this.distDataList.length; // to determine prefix or contain area
+			var hitCount = 0; // to suppress large result (primitive counter just in case)
+			for (i = 0, max = this.ul.childNodes.length; i < max && hitCount <= 100; i++) {
+				var childNode = this.ul.childNodes[i];
+				var anchor = childNode.getElementsByTagName('a')[0]; // always only one
+				var dataName = anchor.getAttribute('data-name'); // e.g. table name
+				if (alreadyCheckedData[dataName] != null) { // to suppress duplicate check
+					continue;
+				}
+				if (i < distDataCount && dataName.lastIndexOf(this.query, 0) > -1) { // prefix hit
+					childNode.searchDirection = 'prefix';
+					alreadyCheckedData[dataName] = 'dummy';
+					++hitCount;
+				} else if (i >= distDataCount && dataName.indexOf(this.query) > -1) { // contain hit
+					childNode.searchDirection = 'contain';
+					alreadyCheckedData[dataName] = 'dummy';
+					++hitCount;
+				} else {
+					childNode.searchDirection = 'none';
+				}
+			}
+
+			visibleList = this.filterVisibleChild();
+
+			if (visibleList.length) {
+				visibleList[0].style.backgroundColor = '#CCCCCC';
+			}
+		} else {
+			for (i = 0, max = this.ul.childNodes.length; i < max; i++) {
+				var childNode = this.ul.childNodes[i];
+				childNode.searchDirection = null; // clear
+				childNode.style.display = 'none'; // all none
+			}
+		}
+	},
+
+	/**
+	 * @method getDataList
+	 */
+	getDataList: function () {
+		var tr = this.dist.getElementsByTagName('tr'),
+			distDataList = [],
+			sectionIdList = [];
+
+		for (var i = 0, max = tr.length; i < max; i++) {
+			distDataList.push(this.util.getElemTxt(tr[i].getElementsByTagName('td')[NAME_INDEX]).toLowerCase());
+			sectionIdList.push(tr[i].getElementsByTagName('td')[NAME_INDEX].getElementsByTagName('a')[0].getAttribute('href'));
+		}
+
+		return {
+			distList: distDataList,
+			sectionList: sectionIdList
+		};
+	},
+
+	/**
+	 * @method attachSuggestionEvent
+	 */
+	attachSuggestionEvent: function () {
+		var self = this;
+
+		this.util.addEvent(this.targetInput, 'keyup', function (e) {
+			self.selectSuggestion(e);
+			self.setInputValue(e);
+		});
+		this.util.addEvent(this.targetInput, 'blur', function () {
+			setTimeout(function () {
+				self.resetSuggestion();
+			}, 100);
+		});
+	},
+
+	/**
+	 * @method selectSuggestion
+	 */
+	selectSuggestion: function (ev) {
+		var keyCode = ev.keyCode,
+			visibleChildNodes = this.filterVisibleChild(),
+			prevIdx;
+
+		if (keyCode === 38 || keyCode === 40) {
+
+			if (visibleChildNodes.length) {
+				prevIdx = this.suggestionIdx;
+
+				if (keyCode === 40 && this.suggestionIdx < visibleChildNodes.length - 1) {
+					this.suggestionIdx++;
+				}
+
+				if (keyCode === 38 && this.suggestionIdx > 0) {
+					this.suggestionIdx--;
+				}
+
+				if (prevIdx > -1) {
+					visibleChildNodes[prevIdx].style.backgroundColor = '';
+				}
+
+				visibleChildNodes[this.suggestionIdx].style.backgroundColor = '#CCCCCC';
+				this.currentSuggestion = this.util.getElemTxt(visibleChildNodes[this.suggestionIdx]);
+
+			} else if (this.query.length) {
+
+				this.displaySuggestion();
+			}
+		}
+
+		if (!this.query.length) {
+			this.resetSuggestion();
+		}
+	},
+
+	/**
+	 * @method setInputValue
+	 * @param ev {Object}
+	 */
+	setInputValue: function (ev) {
+		var keyCode = ev.keyCode,
+			visibleChildNodes = this.filterVisibleChild(),
+			currentSuggestionTxt,
+			selectedSection;
+
+		if (visibleChildNodes.length) {
+			currentSuggestionTxt = this.util.getElemTxt(visibleChildNodes[this.suggestionIdx]);
+
+			if (keyCode === 13) {
+				this.targetInput.value = currentSuggestionTxt;
+				selectedSection = this.getSelectedSection(visibleChildNodes[this.suggestionIdx]);
+				this.clearSuggestion();
+				this.scrollToSelectedSection(selectedSection);
+				this.setHash(selectedSection);
+			}
+		}
+	},
+
+	/**
+	 * @method filterVisibleChild
+	 */
+	filterVisibleChild: function () {
+		var visibleChildNodes = [];
+
+		// ordered by prefix, contain
+		for (var i = 0, max = this.ul.childNodes.length; i < max; i++) {
+			var childNode = this.ul.childNodes[i];
+			if (childNode.searchDirection === 'prefix') {
+				visibleChildNodes.push(childNode);
+				childNode.style.display = 'block';
+			} else if (childNode.searchDirection === 'contain') {
+				visibleChildNodes.push(childNode);
+				childNode.style.display = 'block';
+			} else {
+				childNode.style.display = 'none';
+			}
+		}
+
+		return visibleChildNodes;
+	},
+
+	/**
+	 * @method clearSuggestion
+	 */
+	clearSuggestion: function () {
+		for (var i = 0, max = this.ul.childNodes.length; i < max; i++) {
+			var childNode = this.ul.childNodes[i];
+			childNode.searchDirection = null;
+			childNode.style.display = 'none';
+			childNode.style.backgroundColor = '';
+		}
+	},
+
+	/**
+	 * @method resetSuggestion
+	 */
+	resetSuggestion: function () {
+		this.clearSuggestion();
+
+		this.suggestionIdx = 0;
+	},
+
+	/**
+	 * @method getSelectedSection
+	 * @param suggestionNode {Object}
+	 * @return selectedIdx {Number}
+	 */
+	getSelectedSection: function (suggestionNode) {
+		var selectedIdx;
+
+		for (var i = 0, max = this.ul.childNodes.length; i < max; i++) {
+			if (this.ul.childNodes[i] === suggestionNode) {
+				selectedIdx = i;
+				break;
+			}
+		}
+
+		return selectedIdx;
+	},
+
+	/**
+	 * @method scrollToSelectedSection
+	 * @param idx {Number}
+	 */
+	scrollToSelectedSection: function (idx) {
+		var selectedId = this.ul.childNodes[idx].getElementsByTagName('a')[0].href.split('#')[1],
+			targetSection = document.getElementById(selectedId);
+
+		window.scrollTo(0, targetSection.offsetTop);
+		this.targetInput.blur();
+	},
+
+	/**
+	 * @method setHash
+	 */
+	setHash: function (idx) {
+		var selectedId = this.ul.childNodes[idx].getElementsByTagName('a')[0].href.split('#')[1];
+
+		window.location.hash = selectedId;
+	}
+};
+
+
+Incremental.prototype.util = {
+
+	addEvent: function (elem, ev, fn) {
+		if (elem.addEventListener) {
+			elem.addEventListener(ev, fn, false);
+		} else if (elem.attachEvent) {
+			elem.attachEvent('on' + ev, fn);
+		} else {
+			elem['on' + ev] = fn;
+		}
+	},
+
+	trim: function (txt) {
+		return (String.prototype.trim) ? txt.trim() : txt.replace(/^\s+|\s+$/g, '');
+	},
+
+	getElemTxt: function (elem) {
+		return (elem.innerText !== undefined) ? elem.innerText : elem.textContent;
+	},
+
+	setElemTxt: function (elem, data) {
+		return (elem.innerText !== undefined) ? (elem.innerText = data) : (elem.textContent = data);
+	}
+};
+
+var searcher = new Incremental(document.getElementById('incremental-search-field'), document.getElementById('table-list-body'));
+searcher.init();
+</script>
 </body>
 </html>

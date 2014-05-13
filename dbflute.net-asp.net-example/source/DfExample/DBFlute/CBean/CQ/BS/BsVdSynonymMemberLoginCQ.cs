@@ -122,11 +122,11 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
         public override void reflectRelationOnUnionQuery(ConditionQuery baseQueryAsSuper, ConditionQuery unionQueryAsSuper) {
             VdSynonymMemberLoginCQ baseQuery = (VdSynonymMemberLoginCQ)baseQueryAsSuper;
             VdSynonymMemberLoginCQ unionQuery = (VdSynonymMemberLoginCQ)unionQueryAsSuper;
-            if (baseQuery.hasConditionQueryMemberVendorSynonym()) {
-                unionQuery.QueryMemberVendorSynonym().reflectRelationOnUnionQuery(baseQuery.QueryMemberVendorSynonym(), unionQuery.QueryMemberVendorSynonym());
-            }
             if (baseQuery.hasConditionQueryMemberStatus()) {
                 unionQuery.QueryMemberStatus().reflectRelationOnUnionQuery(baseQuery.QueryMemberStatus(), unionQuery.QueryMemberStatus());
+            }
+            if (baseQuery.hasConditionQueryMemberVendorSynonym()) {
+                unionQuery.QueryMemberVendorSynonym().reflectRelationOnUnionQuery(baseQuery.QueryMemberVendorSynonym(), unionQuery.QueryMemberVendorSynonym());
             }
             if (baseQuery.hasConditionQueryVdSynonymMember()) {
                 unionQuery.QueryVdSynonymMember().reflectRelationOnUnionQuery(baseQuery.QueryVdSynonymMember(), unionQuery.QueryVdSynonymMember());
@@ -137,37 +137,6 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
 
         }
     
-        protected MemberVendorSynonymCQ _conditionQueryMemberVendorSynonym;
-        public MemberVendorSynonymCQ QueryMemberVendorSynonym() {
-            return this.ConditionQueryMemberVendorSynonym;
-        }
-        public MemberVendorSynonymCQ ConditionQueryMemberVendorSynonym {
-            get {
-                if (_conditionQueryMemberVendorSynonym == null) {
-                    _conditionQueryMemberVendorSynonym = xcreateQueryMemberVendorSynonym();
-                    xsetupOuterJoin_MemberVendorSynonym();
-                }
-                return _conditionQueryMemberVendorSynonym;
-            }
-        }
-        protected MemberVendorSynonymCQ xcreateQueryMemberVendorSynonym() {
-            String nrp = resolveNextRelationPathMemberVendorSynonym();
-            String jan = resolveJoinAliasName(nrp, xgetNextNestLevel());
-            MemberVendorSynonymCQ cq = new MemberVendorSynonymCQ(this, xgetSqlClause(), jan, xgetNextNestLevel());
-            cq.xsetForeignPropertyName("memberVendorSynonym"); cq.xsetRelationPath(nrp); return cq;
-        }
-        public void xsetupOuterJoin_MemberVendorSynonym() {
-            MemberVendorSynonymCQ cq = ConditionQueryMemberVendorSynonym;
-            Map<String, String> joinOnMap = new LinkedHashMap<String, String>();
-            joinOnMap.put("MEMBER_ID", "MEMBER_ID");
-            registerOuterJoin(cq, joinOnMap);
-        }
-        protected String resolveNextRelationPathMemberVendorSynonym() {
-            return resolveNextRelationPath("VD_SYNONYM_MEMBER_LOGIN", "memberVendorSynonym");
-        }
-        public bool hasConditionQueryMemberVendorSynonym() {
-            return _conditionQueryMemberVendorSynonym != null;
-        }
         protected MemberStatusCQ _conditionQueryMemberStatus;
         public MemberStatusCQ QueryMemberStatus() {
             return this.ConditionQueryMemberStatus;
@@ -198,6 +167,37 @@ namespace DfExample.DBFlute.CBean.CQ.BS {
         }
         public bool hasConditionQueryMemberStatus() {
             return _conditionQueryMemberStatus != null;
+        }
+        protected MemberVendorSynonymCQ _conditionQueryMemberVendorSynonym;
+        public MemberVendorSynonymCQ QueryMemberVendorSynonym() {
+            return this.ConditionQueryMemberVendorSynonym;
+        }
+        public MemberVendorSynonymCQ ConditionQueryMemberVendorSynonym {
+            get {
+                if (_conditionQueryMemberVendorSynonym == null) {
+                    _conditionQueryMemberVendorSynonym = xcreateQueryMemberVendorSynonym();
+                    xsetupOuterJoin_MemberVendorSynonym();
+                }
+                return _conditionQueryMemberVendorSynonym;
+            }
+        }
+        protected MemberVendorSynonymCQ xcreateQueryMemberVendorSynonym() {
+            String nrp = resolveNextRelationPathMemberVendorSynonym();
+            String jan = resolveJoinAliasName(nrp, xgetNextNestLevel());
+            MemberVendorSynonymCQ cq = new MemberVendorSynonymCQ(this, xgetSqlClause(), jan, xgetNextNestLevel());
+            cq.xsetForeignPropertyName("memberVendorSynonym"); cq.xsetRelationPath(nrp); return cq;
+        }
+        public void xsetupOuterJoin_MemberVendorSynonym() {
+            MemberVendorSynonymCQ cq = ConditionQueryMemberVendorSynonym;
+            Map<String, String> joinOnMap = new LinkedHashMap<String, String>();
+            joinOnMap.put("MEMBER_ID", "MEMBER_ID");
+            registerOuterJoin(cq, joinOnMap);
+        }
+        protected String resolveNextRelationPathMemberVendorSynonym() {
+            return resolveNextRelationPath("VD_SYNONYM_MEMBER_LOGIN", "memberVendorSynonym");
+        }
+        public bool hasConditionQueryMemberVendorSynonym() {
+            return _conditionQueryMemberVendorSynonym != null;
         }
         protected VdSynonymMemberCQ _conditionQueryVdSynonymMember;
         public VdSynonymMemberCQ QueryVdSynonymMember() {

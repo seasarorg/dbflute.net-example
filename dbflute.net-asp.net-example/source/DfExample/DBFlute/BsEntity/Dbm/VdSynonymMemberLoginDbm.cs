@@ -88,15 +88,15 @@ namespace DfExample.DBFlute.BsEntity.Dbm {
         // -------------------------------------------------
         //                                   Foreign Element
         //                                   ---------------
-        public ForeignInfo ForeignMemberVendorSynonym { get {
-            Map<ColumnInfo, ColumnInfo> map = new LinkedHashMap<ColumnInfo, ColumnInfo>();
-            map.put(ColumnMemberId, MemberVendorSynonymDbm.GetInstance().ColumnMemberId);
-            return cfi("MemberVendorSynonym", this, MemberVendorSynonymDbm.GetInstance(), map, 0, false, false);
-        }}
         public ForeignInfo ForeignMemberStatus { get {
             Map<ColumnInfo, ColumnInfo> map = new LinkedHashMap<ColumnInfo, ColumnInfo>();
             map.put(ColumnLoginMemberStatusCode, MemberStatusDbm.GetInstance().ColumnMemberStatusCode);
-            return cfi("MemberStatus", this, MemberStatusDbm.GetInstance(), map, 1, false, false);
+            return cfi("MemberStatus", this, MemberStatusDbm.GetInstance(), map, 0, false, false);
+        }}
+        public ForeignInfo ForeignMemberVendorSynonym { get {
+            Map<ColumnInfo, ColumnInfo> map = new LinkedHashMap<ColumnInfo, ColumnInfo>();
+            map.put(ColumnMemberId, MemberVendorSynonymDbm.GetInstance().ColumnMemberId);
+            return cfi("MemberVendorSynonym", this, MemberVendorSynonymDbm.GetInstance(), map, 1, false, false);
         }}
         public ForeignInfo ForeignVdSynonymMember { get {
             Map<ColumnInfo, ColumnInfo> map = new LinkedHashMap<ColumnInfo, ColumnInfo>();
@@ -151,8 +151,8 @@ namespace DfExample.DBFlute.BsEntity.Dbm {
         // -------------------------------------------------
         //                                      Foreign Name
         //                                      ------------
-        public static readonly String FOREIGN_PROPERTY_NAME_MemberVendorSynonym = "MemberVendorSynonym";
         public static readonly String FOREIGN_PROPERTY_NAME_MemberStatus = "MemberStatus";
+        public static readonly String FOREIGN_PROPERTY_NAME_MemberVendorSynonym = "MemberVendorSynonym";
         public static readonly String FOREIGN_PROPERTY_NAME_VdSynonymMember = "VdSynonymMember";
         public static readonly String FOREIGN_PROPERTY_NAME_VendorSynonymMember = "VendorSynonymMember";
         // -------------------------------------------------

@@ -37,13 +37,13 @@ namespace DfExample.DBFlute.ExEntity {
     ///     
     /// 
     /// [referrer-table]
-    ///     VD_SYNONYM_MEMBER_WITHDRAWAL, MEMBER_WITHDRAWAL
+    ///     MEMBER_WITHDRAWAL, VD_SYNONYM_MEMBER_WITHDRAWAL
     /// 
     /// [foreign-property]
     ///     
     /// 
     /// [referrer-property]
-    ///     vdSynonymMemberWithdrawalList, memberWithdrawalList
+    ///     memberWithdrawalList, vdSynonymMemberWithdrawalList
     /// ]]>
     /// Author: DBFlute(AutoGenerator)
     /// </summary>
@@ -88,20 +88,20 @@ namespace DfExample.DBFlute.ExEntity {
         //                                                               Referrer Property
         //                                                               =================
         #region Referrer Property
-        protected IList<VdSynonymMemberWithdrawal> _vdSynonymMemberWithdrawalList;
-
-        /// <summary>VD_SYNONYM_MEMBER_WITHDRAWAL as 'VdSynonymMemberWithdrawalList'.</summary>
-        public IList<VdSynonymMemberWithdrawal> VdSynonymMemberWithdrawalList {
-            get { if (_vdSynonymMemberWithdrawalList == null) { _vdSynonymMemberWithdrawalList = new List<VdSynonymMemberWithdrawal>(); } return _vdSynonymMemberWithdrawalList; }
-            set { _vdSynonymMemberWithdrawalList = value; }
-        }
-
         protected IList<MemberWithdrawal> _memberWithdrawalList;
 
         /// <summary>MEMBER_WITHDRAWAL as 'MemberWithdrawalList'.</summary>
         public IList<MemberWithdrawal> MemberWithdrawalList {
             get { if (_memberWithdrawalList == null) { _memberWithdrawalList = new List<MemberWithdrawal>(); } return _memberWithdrawalList; }
             set { _memberWithdrawalList = value; }
+        }
+
+        protected IList<VdSynonymMemberWithdrawal> _vdSynonymMemberWithdrawalList;
+
+        /// <summary>VD_SYNONYM_MEMBER_WITHDRAWAL as 'VdSynonymMemberWithdrawalList'.</summary>
+        public IList<VdSynonymMemberWithdrawal> VdSynonymMemberWithdrawalList {
+            get { if (_vdSynonymMemberWithdrawalList == null) { _vdSynonymMemberWithdrawalList = new List<VdSynonymMemberWithdrawal>(); } return _vdSynonymMemberWithdrawalList; }
+            set { _vdSynonymMemberWithdrawalList = value; }
         }
 
         #endregion
@@ -161,10 +161,10 @@ namespace DfExample.DBFlute.ExEntity {
             StringBuilder sb = new StringBuilder();
             sb.Append(ToString());
             String l = "\n  ";
-            if (_vdSynonymMemberWithdrawalList != null) { foreach (Entity e in _vdSynonymMemberWithdrawalList)
-            { if (e != null) { sb.Append(l).Append(xbRDS(e, "VdSynonymMemberWithdrawalList")); } } }
             if (_memberWithdrawalList != null) { foreach (Entity e in _memberWithdrawalList)
             { if (e != null) { sb.Append(l).Append(xbRDS(e, "MemberWithdrawalList")); } } }
+            if (_vdSynonymMemberWithdrawalList != null) { foreach (Entity e in _vdSynonymMemberWithdrawalList)
+            { if (e != null) { sb.Append(l).Append(xbRDS(e, "VdSynonymMemberWithdrawalList")); } } }
             return sb.ToString();
         }
         protected String xbRDS(Entity e, String name) { // buildRelationDisplayString()
@@ -191,10 +191,10 @@ namespace DfExample.DBFlute.ExEntity {
         protected virtual String BuildRelationString() {
             StringBuilder sb = new StringBuilder();
             String c = ",";
-            if (_vdSynonymMemberWithdrawalList != null && _vdSynonymMemberWithdrawalList.Count > 0)
-            { sb.Append(c).Append("VdSynonymMemberWithdrawalList"); }
             if (_memberWithdrawalList != null && _memberWithdrawalList.Count > 0)
             { sb.Append(c).Append("MemberWithdrawalList"); }
+            if (_vdSynonymMemberWithdrawalList != null && _vdSynonymMemberWithdrawalList.Count > 0)
+            { sb.Append(c).Append("VdSynonymMemberWithdrawalList"); }
             if (sb.Length > 0) { sb.Remove(0, c.Length).Insert(0, "(").Append(")"); }
             return sb.ToString();
         }

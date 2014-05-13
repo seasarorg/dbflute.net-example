@@ -18,6 +18,8 @@ namespace DfExample.DBFlute.ExEntity {
     /// <summary>
     /// The entity of SUMMARY_MEMBER_PURCHASE as TABLE. (partial class for auto-generation)
     /// <![CDATA[
+    /// snapshot table for snapshot DFNETEXDB.SUMMARY_MEMBER_PURCHASE
+    /// 
     /// [primary-key]
     ///     
     /// 
@@ -58,7 +60,7 @@ namespace DfExample.DBFlute.ExEntity {
         /// <summary>MEMBER_ID: {NotNull, NUMBER(16)}</summary>
         protected long? _memberId;
 
-        /// <summary>ALLSUM_PURCHASE_PRICE: {NUMBER}</summary>
+        /// <summary>ALLSUM_PURCHASE_PRICE: {NUMBER(22)}</summary>
         protected decimal? _allsumPurchasePrice;
 
         /// <summary>LATEST_PURCHASE_DATETIME: {DATE(7)}</summary>
@@ -186,7 +188,7 @@ namespace DfExample.DBFlute.ExEntity {
             }
         }
 
-        /// <summary>ALLSUM_PURCHASE_PRICE: {NUMBER}</summary>
+        /// <summary>ALLSUM_PURCHASE_PRICE: {NUMBER(22)}</summary>
         [Seasar.Dao.Attrs.Column("ALLSUM_PURCHASE_PRICE")]
         public decimal? AllsumPurchasePrice {
             get { return _allsumPurchasePrice; }
