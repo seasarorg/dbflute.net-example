@@ -50,6 +50,26 @@ h5 {
 	color: #555;
 }
 
+/* total info */
+.updatedate {
+	text-align: right;
+}
+.mainschema {
+	text-align: right;
+}
+.navilinkarea {
+	text-align: right;
+}
+.sisterlink {
+	margin-top: 0.6em;
+	font-size: 110%;
+}
+.sistersublink {
+	margin-top: 0.6em;
+	font-size: 80%;
+}
+
+/* history info */
 .table-content {
 	margin: 0 6em;
 }
@@ -93,13 +113,234 @@ p.tablecount {
 
 <body>
 <h1>History for exampledb (mysql)</h1>
+<div class="navilinkarea">
+<p class="sisterlink"><a href="./schema-exampledb.html">to SchemaHTML</a></p>
+</div>
 
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2014/02/15 21:25:47</h2>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4><a href="./schema-exampledb.html#member">member</a></h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_MEMBER_MEMBER_STATUS</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-exampledb.html#member_address">member_address</a></h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_MEMBER_ADDRESS_MEMBER</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-exampledb.html#member_login">member_login</a></h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_MEMBER_LOGIN_MEMBER</li>
+				<li>FK_MEMBER_LOGIN_MEMBER_STATUS</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-exampledb.html#member_security">member_security</a></h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_MEMBER_SC_INFO_MEMBER</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-exampledb.html#member_withdrawal">member_withdrawal</a></h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_MEMBER_WITHDRAWAL_INFO_MEMBER</li>
+				<li>FK_MEMBER_WITHDRAWAL_INFO_WITHDRAWAL_REASON</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-exampledb.html#myself_check">myself_check</a></h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_MYSELF_CHECK_SELF</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-exampledb.html#product">product</a></h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_PRODUCT_PRODUCT_STATUS</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-exampledb.html#purchase">purchase</a></h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_PURCHASE_MEMBER</li>
+				<li>FK_PURCHASE_PRODUCT</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-exampledb.html#vendor_self_reference">vendor_self_reference</a></h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_VENDOR_SELF_REFERENCE_PARENT</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-exampledb.html#white_compound_pk_ref">white_compound_pk_ref</a></h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_WHITE_COMPOUND_PK_REF</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-exampledb.html#white_compound_pk_ref_nest">white_compound_pk_ref_nest</a></h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_WHITE_COMPOUND_PK_REF_NEST_BAR_QUX</li>
+				<li>FK_WHITE_COMPOUND_PK_REF_NEST_FOO_BAR</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-exampledb.html#white_myself_check">white_myself_check</a></h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_WHITE_MYSELF_CHECK_SELF</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-exampledb.html#white_pg_reserv_ref">white_pg_reserv_ref</a></h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_WHITE_PG_RESERV_REF_CLASS</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-exampledb.html#white_self_reference">white_self_reference</a></h4>
+		<div class="change-table-content">
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_WHITE_SELF_REFERENCE_PARENT</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2014/02/15 21:00:24</h2>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4>member</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_MEMBER_MEMBER_STATUS</li>
+			</ul>
+		</div>
+		<h4>member_address</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_MEMBER_ADDRESS_MEMBER</li>
+			</ul>
+		</div>
+		<h4>member_login</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_MEMBER_LOGIN_MEMBER</li>
+				<li>FK_MEMBER_LOGIN_MEMBER_STATUS</li>
+			</ul>
+		</div>
+		<h4>member_security</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_MEMBER_SC_INFO_MEMBER</li>
+			</ul>
+		</div>
+		<h4>member_withdrawal</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_MEMBER_WITHDRAWAL_INFO_MEMBER</li>
+				<li>FK_MEMBER_WITHDRAWAL_INFO_WITHDRAWAL_REASON</li>
+			</ul>
+		</div>
+		<h4>myself_check</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_MYSELF_CHECK_SELF</li>
+			</ul>
+		</div>
+		<h4>product</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_PRODUCT_PRODUCT_STATUS</li>
+			</ul>
+		</div>
+		<h4>purchase</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_PURCHASE_MEMBER</li>
+				<li>FK_PURCHASE_PRODUCT</li>
+			</ul>
+		</div>
+		<h4>vendor_self_reference</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_VENDOR_SELF_REFERENCE_PARENT</li>
+			</ul>
+		</div>
+		<h4>white_compound_pk_ref</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_WHITE_COMPOUND_PK_REF</li>
+			</ul>
+		</div>
+		<h4>white_compound_pk_ref_nest</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_WHITE_COMPOUND_PK_REF_NEST_BAR_QUX</li>
+				<li>FK_WHITE_COMPOUND_PK_REF_NEST_FOO_BAR</li>
+			</ul>
+		</div>
+		<h4>white_myself_check</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_WHITE_MYSELF_CHECK_SELF</li>
+			</ul>
+		</div>
+		<h4>white_pg_reserv_ref</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_WHITE_PG_RESERV_REF_CLASS</li>
+			</ul>
+		</div>
+		<h4>white_self_reference</h4>
+		<div class="change-table-content">
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_WHITE_SELF_REFERENCE_PARENT</li>
+			</ul>
+		</div>
+	</div>
+</div>
 <div class="section">
 	<h2><span class="dt">Diff Date: </span>2012/08/04 21:40:29</h2>
 
 	<h3>Change Table</h3>
 	<div class="table-content">
-		<h4><a href="./schema-exampledb.html#member">member</a></h4>
+		<h4>member</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -125,7 +366,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#member_address">member_address</a></h4>
+		<h4>member_address</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -153,7 +394,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#member_login">member_login</a></h4>
+		<h4>member_login</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -167,7 +408,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#member_security">member_security</a></h4>
+		<h4>member_security</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -195,7 +436,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#member_status">member_status</a></h4>
+		<h4>member_status</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -207,7 +448,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#member_withdrawal">member_withdrawal</a></h4>
+		<h4>member_withdrawal</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -231,7 +472,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#myself">myself</a></h4>
+		<h4>myself</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -241,7 +482,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#myself_check">myself_check</a></h4>
+		<h4>myself_check</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -251,7 +492,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#product">product</a></h4>
+		<h4>product</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -277,7 +518,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#product_status">product_status</a></h4>
+		<h4>product_status</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -287,7 +528,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#purchase">purchase</a></h4>
+		<h4>purchase</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -319,7 +560,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#vendor_check">vendor_check</a></h4>
+		<h4>vendor_check</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -329,7 +570,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#vendor_self_reference">vendor_self_reference</a></h4>
+		<h4>vendor_self_reference</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -339,7 +580,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#vendor_token">vendor_token</a></h4>
+		<h4>vendor_token</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -347,7 +588,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#white_all_in_one_cls">white_all_in_one_cls</a></h4>
+		<h4>white_all_in_one_cls</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -359,7 +600,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#white_all_in_one_cls_ref">white_all_in_one_cls_ref</a></h4>
+		<h4>white_all_in_one_cls_ref</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -373,7 +614,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#white_column_except">white_column_except</a></h4>
+		<h4>white_column_except</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -381,7 +622,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#white_compound_pk">white_compound_pk</a></h4>
+		<h4>white_compound_pk</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -393,7 +634,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#white_compound_pk_ref">white_compound_pk_ref</a></h4>
+		<h4>white_compound_pk_ref</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -407,7 +648,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#white_compound_pk_ref_nest">white_compound_pk_ref_nest</a></h4>
+		<h4>white_compound_pk_ref_nest</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -421,7 +662,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#white_delimiter">white_delimiter</a></h4>
+		<h4>white_delimiter</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -433,7 +674,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#white_myself">white_myself</a></h4>
+		<h4>white_myself</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -443,7 +684,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#white_myself_check">white_myself_check</a></h4>
+		<h4>white_myself_check</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -453,7 +694,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#white_no_pk">white_no_pk</a></h4>
+		<h4>white_no_pk</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -461,7 +702,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#white_pg_reserv">white_pg_reserv</a></h4>
+		<h4>white_pg_reserv</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -471,7 +712,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#white_pg_reserv_ref">white_pg_reserv_ref</a></h4>
+		<h4>white_pg_reserv_ref</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -479,7 +720,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#white_quoted">white_quoted</a></h4>
+		<h4>white_quoted</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -487,7 +728,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#white_self_reference">white_self_reference</a></h4>
+		<h4>white_self_reference</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -497,7 +738,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#withdrawal_reason">withdrawal_reason</a></h4>
+		<h4>withdrawal_reason</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -509,7 +750,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-exampledb.html#summary_product">summary_product</a></h4>
+		<h4>summary_product</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">

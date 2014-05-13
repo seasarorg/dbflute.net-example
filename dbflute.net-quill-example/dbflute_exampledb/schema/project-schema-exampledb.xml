@@ -338,6 +338,19 @@
             <index-column name="PRODUCT_ID" position="1"/>
         </index>
     </table>
+    <table comment="VIEW" name="summary_product"
+        schema="exampledb.$$NoNameSchema$$" type="VIEW">
+        <column comment="" dbType="INT" default="0" javaType="int?"
+            name="PRODUCT_ID" required="true" size="10" type="INTEGER"/>
+        <column comment="" dbType="VARCHAR" javaType="String"
+            name="PRODUCT_NAME" required="true" size="50" type="VARCHAR"/>
+        <column comment="" dbType="VARCHAR" javaType="String"
+            name="PRODUCT_HANDLE_CODE" required="true" size="100" type="VARCHAR"/>
+        <column comment="" dbType="CHAR" javaType="String"
+            name="PRODUCT_STATUS_CODE" required="true" size="3" type="CHAR"/>
+        <column comment="" dbType="DATETIME" javaType="DateTime?"
+            name="LATEST_PURCHASE_DATETIME" size="19" type="TIMESTAMP"/>
+    </table>
     <table name="vendor_check" schema="exampledb.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="DECIMAL" javaType="long?"
             name="VENDOR_CHECK_ID" pkName="PRIMARY" primaryKey="true"
@@ -652,18 +665,5 @@
         <unique name="DISPLAY_ORDER">
             <unique-column name="DISPLAY_ORDER" position="1"/>
         </unique>
-    </table>
-    <table comment="VIEW" name="summary_product"
-        schema="exampledb.$$NoNameSchema$$" type="VIEW">
-        <column comment="" dbType="INT" default="0" javaType="int?"
-            name="PRODUCT_ID" required="true" size="10" type="INTEGER"/>
-        <column comment="" dbType="VARCHAR" javaType="String"
-            name="PRODUCT_NAME" required="true" size="50" type="VARCHAR"/>
-        <column comment="" dbType="VARCHAR" javaType="String"
-            name="PRODUCT_HANDLE_CODE" required="true" size="100" type="VARCHAR"/>
-        <column comment="" dbType="CHAR" javaType="String"
-            name="PRODUCT_STATUS_CODE" required="true" size="3" type="CHAR"/>
-        <column comment="" dbType="DATETIME" javaType="DateTime?"
-            name="LATEST_PURCHASE_DATETIME" size="19" type="TIMESTAMP"/>
     </table>
 </database>

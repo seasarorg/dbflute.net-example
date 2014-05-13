@@ -148,6 +148,7 @@
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="DBFlute\Various\Seminar\Jp\Template\MemberBhv_selectExerciseOutsideSqlBasic.template" />
   </ItemGroup>

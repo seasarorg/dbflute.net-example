@@ -1,4 +1,326 @@
 map:{
+    ; 2014/02/15 21:25:47 = map:{
+        ; diffDate = 2014/02/15 21:25:47
+        ; tableDiff = map:{
+            ; member = map:{
+                ; tableName = member
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_MEMBER_STATUS = map:{
+                        ; constraintName = FK_MEMBER_MEMBER_STATUS
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; member_address = map:{
+                ; tableName = member_address
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_ADDRESS_MEMBER = map:{
+                        ; constraintName = FK_MEMBER_ADDRESS_MEMBER
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; member_login = map:{
+                ; tableName = member_login
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_LOGIN_MEMBER = map:{
+                        ; constraintName = FK_MEMBER_LOGIN_MEMBER
+                        ; diffType = ADD
+                    }
+                    ; FK_MEMBER_LOGIN_MEMBER_STATUS = map:{
+                        ; constraintName = FK_MEMBER_LOGIN_MEMBER_STATUS
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; member_security = map:{
+                ; tableName = member_security
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_SC_INFO_MEMBER = map:{
+                        ; constraintName = FK_MEMBER_SC_INFO_MEMBER
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; member_withdrawal = map:{
+                ; tableName = member_withdrawal
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_WITHDRAWAL_INFO_MEMBER = map:{
+                        ; constraintName = FK_MEMBER_WITHDRAWAL_INFO_MEMBER
+                        ; diffType = ADD
+                    }
+                    ; FK_MEMBER_WITHDRAWAL_INFO_WITHDRAWAL_REASON = map:{
+                        ; constraintName = FK_MEMBER_WITHDRAWAL_INFO_WITHDRAWAL_REASON
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; myself_check = map:{
+                ; tableName = myself_check
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_MYSELF_CHECK_SELF = map:{
+                        ; constraintName = FK_MYSELF_CHECK_SELF
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; product = map:{
+                ; tableName = product
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_PRODUCT_PRODUCT_STATUS = map:{
+                        ; constraintName = FK_PRODUCT_PRODUCT_STATUS
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; purchase = map:{
+                ; tableName = purchase
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_PURCHASE_MEMBER = map:{
+                        ; constraintName = FK_PURCHASE_MEMBER
+                        ; diffType = ADD
+                    }
+                    ; FK_PURCHASE_PRODUCT = map:{
+                        ; constraintName = FK_PURCHASE_PRODUCT
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; vendor_self_reference = map:{
+                ; tableName = vendor_self_reference
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_VENDOR_SELF_REFERENCE_PARENT = map:{
+                        ; constraintName = FK_VENDOR_SELF_REFERENCE_PARENT
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; white_compound_pk_ref = map:{
+                ; tableName = white_compound_pk_ref
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_COMPOUND_PK_REF = map:{
+                        ; constraintName = FK_WHITE_COMPOUND_PK_REF
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; white_compound_pk_ref_nest = map:{
+                ; tableName = white_compound_pk_ref_nest
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_COMPOUND_PK_REF_NEST_BAR_QUX = map:{
+                        ; constraintName = FK_WHITE_COMPOUND_PK_REF_NEST_BAR_QUX
+                        ; diffType = ADD
+                    }
+                    ; FK_WHITE_COMPOUND_PK_REF_NEST_FOO_BAR = map:{
+                        ; constraintName = FK_WHITE_COMPOUND_PK_REF_NEST_FOO_BAR
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; white_myself_check = map:{
+                ; tableName = white_myself_check
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_MYSELF_CHECK_SELF = map:{
+                        ; constraintName = FK_WHITE_MYSELF_CHECK_SELF
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; white_pg_reserv_ref = map:{
+                ; tableName = white_pg_reserv_ref
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_PG_RESERV_REF_CLASS = map:{
+                        ; constraintName = FK_WHITE_PG_RESERV_REF_CLASS
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; white_self_reference = map:{
+                ; tableName = white_self_reference
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_SELF_REFERENCE_PARENT = map:{
+                        ; constraintName = FK_WHITE_SELF_REFERENCE_PARENT
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+    ; 2014/02/15 21:00:24 = map:{
+        ; diffDate = 2014/02/15 21:00:24
+        ; tableDiff = map:{
+            ; member = map:{
+                ; tableName = member
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_MEMBER_STATUS = map:{
+                        ; constraintName = FK_MEMBER_MEMBER_STATUS
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; member_address = map:{
+                ; tableName = member_address
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_ADDRESS_MEMBER = map:{
+                        ; constraintName = FK_MEMBER_ADDRESS_MEMBER
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; member_login = map:{
+                ; tableName = member_login
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_LOGIN_MEMBER = map:{
+                        ; constraintName = FK_MEMBER_LOGIN_MEMBER
+                        ; diffType = DELETE
+                    }
+                    ; FK_MEMBER_LOGIN_MEMBER_STATUS = map:{
+                        ; constraintName = FK_MEMBER_LOGIN_MEMBER_STATUS
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; member_security = map:{
+                ; tableName = member_security
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_SC_INFO_MEMBER = map:{
+                        ; constraintName = FK_MEMBER_SC_INFO_MEMBER
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; member_withdrawal = map:{
+                ; tableName = member_withdrawal
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_WITHDRAWAL_INFO_MEMBER = map:{
+                        ; constraintName = FK_MEMBER_WITHDRAWAL_INFO_MEMBER
+                        ; diffType = DELETE
+                    }
+                    ; FK_MEMBER_WITHDRAWAL_INFO_WITHDRAWAL_REASON = map:{
+                        ; constraintName = FK_MEMBER_WITHDRAWAL_INFO_WITHDRAWAL_REASON
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; myself_check = map:{
+                ; tableName = myself_check
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_MYSELF_CHECK_SELF = map:{
+                        ; constraintName = FK_MYSELF_CHECK_SELF
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; product = map:{
+                ; tableName = product
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_PRODUCT_PRODUCT_STATUS = map:{
+                        ; constraintName = FK_PRODUCT_PRODUCT_STATUS
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; purchase = map:{
+                ; tableName = purchase
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_PURCHASE_MEMBER = map:{
+                        ; constraintName = FK_PURCHASE_MEMBER
+                        ; diffType = DELETE
+                    }
+                    ; FK_PURCHASE_PRODUCT = map:{
+                        ; constraintName = FK_PURCHASE_PRODUCT
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; vendor_self_reference = map:{
+                ; tableName = vendor_self_reference
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_VENDOR_SELF_REFERENCE_PARENT = map:{
+                        ; constraintName = FK_VENDOR_SELF_REFERENCE_PARENT
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; white_compound_pk_ref = map:{
+                ; tableName = white_compound_pk_ref
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_COMPOUND_PK_REF = map:{
+                        ; constraintName = FK_WHITE_COMPOUND_PK_REF
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; white_compound_pk_ref_nest = map:{
+                ; tableName = white_compound_pk_ref_nest
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_COMPOUND_PK_REF_NEST_BAR_QUX = map:{
+                        ; constraintName = FK_WHITE_COMPOUND_PK_REF_NEST_BAR_QUX
+                        ; diffType = DELETE
+                    }
+                    ; FK_WHITE_COMPOUND_PK_REF_NEST_FOO_BAR = map:{
+                        ; constraintName = FK_WHITE_COMPOUND_PK_REF_NEST_FOO_BAR
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; white_myself_check = map:{
+                ; tableName = white_myself_check
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_MYSELF_CHECK_SELF = map:{
+                        ; constraintName = FK_WHITE_MYSELF_CHECK_SELF
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; white_pg_reserv_ref = map:{
+                ; tableName = white_pg_reserv_ref
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_PG_RESERV_REF_CLASS = map:{
+                        ; constraintName = FK_WHITE_PG_RESERV_REF_CLASS
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; white_self_reference = map:{
+                ; tableName = white_self_reference
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_WHITE_SELF_REFERENCE_PARENT = map:{
+                        ; constraintName = FK_WHITE_SELF_REFERENCE_PARENT
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
     ; 2012/08/04 21:40:29 = map:{
         ; diffDate = 2012/08/04 21:40:29
         ; tableCount = map:{

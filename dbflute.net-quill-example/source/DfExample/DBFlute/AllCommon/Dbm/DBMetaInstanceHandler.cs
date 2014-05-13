@@ -36,6 +36,7 @@ namespace DfExample.DBFlute.AllCommon.Dbm {
                 tmpMap.put("product", "DfExample.DBFlute.BsEntity.Dbm.ProductDbm");
                 tmpMap.put("product_status", "DfExample.DBFlute.BsEntity.Dbm.ProductStatusDbm");
                 tmpMap.put("purchase", "DfExample.DBFlute.BsEntity.Dbm.PurchaseDbm");
+                tmpMap.put("summary_product", "DfExample.DBFlute.BsEntity.Dbm.SummaryProductDbm");
                 tmpMap.put("vendor_check", "DfExample.DBFlute.BsEntity.Dbm.VendorCheckDbm");
                 tmpMap.put("vendor_self_reference", "DfExample.DBFlute.BsEntity.Dbm.VendorSelfReferenceDbm");
                 tmpMap.put("vendor_token", "DfExample.DBFlute.BsEntity.Dbm.VendorTokenDbm");
@@ -54,7 +55,6 @@ namespace DfExample.DBFlute.AllCommon.Dbm {
                 tmpMap.put("white_quoted", "DfExample.DBFlute.BsEntity.Dbm.WhiteQuotedDbm");
                 tmpMap.put("white_self_reference", "DfExample.DBFlute.BsEntity.Dbm.WhiteSelfReferenceDbm");
                 tmpMap.put("withdrawal_reason", "DfExample.DBFlute.BsEntity.Dbm.WithdrawalReasonDbm");
-                tmpMap.put("summary_product", "DfExample.DBFlute.BsEntity.Dbm.SummaryProductDbm");
                 _tableDbNameClassNameMap = tmpMap;//java.util.Collections.unmodifiableMap(tmpMap);
             }
 
@@ -71,6 +71,7 @@ namespace DfExample.DBFlute.AllCommon.Dbm {
                 tmpMap.put("product".ToLower(), "product");
                 tmpMap.put("product_status".ToLower(), "productStatus");
                 tmpMap.put("purchase".ToLower(), "purchase");
+                tmpMap.put("summary_product".ToLower(), "summaryProduct");
                 tmpMap.put("vendor_check".ToLower(), "vendorCheck");
                 tmpMap.put("vendor_self_reference".ToLower(), "vendorSelfReference");
                 tmpMap.put("vendor_token".ToLower(), "vendorToken");
@@ -89,7 +90,6 @@ namespace DfExample.DBFlute.AllCommon.Dbm {
                 tmpMap.put("white_quoted".ToLower(), "whiteQuoted");
                 tmpMap.put("white_self_reference".ToLower(), "whiteSelfReference");
                 tmpMap.put("withdrawal_reason".ToLower(), "withdrawalReason");
-                tmpMap.put("summary_product".ToLower(), "summaryProduct");
                 _tableDbNamePropertyNameKeyToLowerMap = tmpMap;//java.util.Collections.unmodifiableMap(tmpMap);
             }
 
@@ -106,6 +106,7 @@ namespace DfExample.DBFlute.AllCommon.Dbm {
                 tmpMap.put("Product".ToLower(), "product");
                 tmpMap.put("ProductStatus".ToLower(), "product_status");
                 tmpMap.put("Purchase".ToLower(), "purchase");
+                tmpMap.put("SummaryProduct".ToLower(), "summary_product");
                 tmpMap.put("VendorCheck".ToLower(), "vendor_check");
                 tmpMap.put("VendorSelfReference".ToLower(), "vendor_self_reference");
                 tmpMap.put("VendorToken".ToLower(), "vendor_token");
@@ -124,7 +125,6 @@ namespace DfExample.DBFlute.AllCommon.Dbm {
                 tmpMap.put("WhiteQuoted".ToLower(), "white_quoted");
                 tmpMap.put("WhiteSelfReference".ToLower(), "white_self_reference");
                 tmpMap.put("WithdrawalReason".ToLower(), "withdrawal_reason");
-                tmpMap.put("SummaryProduct".ToLower(), "summary_product");
                 _tablePropertyNameDbNameKeyToLowerMap = tmpMap;//java.util.Collections.unmodifiableMap(tmpMap);
             }
         }

@@ -65,8 +65,8 @@ public class HpFixedConditionQueryResolver : FixedConditionResolver {
             }
 
             // analyze:
-            // - $$over($$localTable.memberStatus)$$
-            // - $$over($$foreignTable.memberStatus, DISPLAY_ORDER)$$
+            // - $$over($$localTable$$.memberStatus)$$
+            // - $$over($$foreignTable$$.memberStatus, DISPLAY_ORDER)$$
             // - $$over(PURCHASE.product.productStatus)$$
             String relationExp = relationEndIndex.substringFront();
             String pointTable;

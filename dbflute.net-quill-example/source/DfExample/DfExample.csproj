@@ -987,6 +987,7 @@
     <Compile Include="DBFlute\BsEntity\Customize\BsPurchaseMaxPriceMember.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DBFlute\BsEntity\Customize\BsPurchaseSummaryMember.cs" />
     <Compile Include="DBFlute\BsEntity\Customize\BsSimpleMember.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -1005,6 +1006,7 @@
     <Compile Include="DBFlute\BsEntity\Customize\Dbm\PurchaseMaxPriceMemberDbm.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DBFlute\BsEntity\Customize\Dbm\PurchaseSummaryMemberDbm.cs" />
     <Compile Include="DBFlute\BsEntity\Customize\Dbm\SimpleMemberDbm.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -1971,6 +1973,7 @@
     <Compile Include="DBFlute\ExEntity\Customize\PurchaseMaxPriceMember.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DBFlute\ExEntity\Customize\PurchaseSummaryMember.cs" />
     <Compile Include="DBFlute\ExEntity\Customize\SimpleMember.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -2074,9 +2077,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
-    <None Include="DBFlute\ExBhv\Various\NotEmbedded\MemberBhv_selectNotEmbedded.sql">
+    <EmbeddedResource Include="DBFlute\ExBhv\Various\NotEmbedded\MemberBhv_selectNotEmbedded.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DBFlute\ExBhv\MemberBhv_selectLatestFormalizedDatetime.sql" />
