@@ -52,8 +52,39 @@ h4 {
 .mainschema {
 	text-align: right;
 }
-.sublink {
+.navilinkarea {
 	text-align: right;
+}
+.sublink {
+	margin-top: 0.1em;
+}
+.sisterlink {
+	margin-top: 0.6em;
+	font-size: 110%;
+}
+.sistersublink {
+	margin-top: 0.6em;
+	font-size: 80%;
+}
+
+/* keyword search */
+.keywordsearch {
+	padding: 0.7em 0 0.7em 0;
+}
+.searchmemo {
+	font-size: 0.9em;
+	color: #114488;
+}
+.suggestionarea {
+	padding: 0 0.2em 0.2em 0.2em;
+	margin: 0;
+	position: absolute;
+	zindex: 100;
+	background-color: #DDFFDD;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CCCCCC;
+	list-style-type: none;
 }
 
 /* table */
@@ -71,6 +102,11 @@ td {
 	border-bottom: 1px dotted #aaa;
 	border-left: 1px solid #555;
 	padding:2px;
+}
+.tablecomment {
+	font-size: 0.8em;
+	color: #3F7E5E;
+	padding:0 0 0.2em 1em;
 }
 .rownumhead {
 	text-align: center;
@@ -106,10 +142,11 @@ td {
 	font-size: 0.6em;
 }
 .relcell {
-	font-size: 0.6em;
+	font-size: 0.7em;
 }
 .commentcell {
 	font-size: 0.7em;
+	color: #3F7E5E;
 }
 .subcell {
 	font-size: 0.6em;
@@ -130,6 +167,9 @@ td {
 	text-align: center;
 	font-size: 0.8em;
 }
+.commentdesc {
+	color: #3F7E5E;
+}
 
 /* inner table */
 table.child {
@@ -143,6 +183,11 @@ table.child, table.child td, table.child th {
 	border-left: none;
 	border-bottom: 1px solid #aaa;
 	border-right: 1px solid #aaa;
+}
+.clsgroup {
+	font-size: 1.2em;
+	padding-left: 4px;
+	padding-right: 4px;
 }
 
 /* table supplementary info */
@@ -222,9 +267,17 @@ dl.procedurelist dd.column pre {
 <body>
 <h1>Schema for librarydb (mysql)</h1>
 <p class="mainschema">generated from <strong>librarydb</strong></p>
+<div class="navilinkarea">
 <p class="sublink"><a href="#cdef">Classification Definition</a></p>
+<p class="sisterlink"><a href="./history-librarydb.html">to HistoryHTML</a></p>
+</div>
 
 <h2>Table List</h2>
+<div class="keywordsearch">
+	<input type="text" id="incremental-search-field" tabindex=1 value="" placeholder="Table Search" />
+	<ul id="suggestion-list" class="suggestionarea"></ul>
+	<span class="searchmemo">*Push 'tab' (primary tab order)</span>
+</div>
 <table summary="Tables in the Schema">
 	<thead>
 	<tr>
@@ -236,7 +289,7 @@ dl.procedurelist dd.column pre {
 		<th>EntityName</th>
 	</tr>
 	</thead>
-	<tbody>
+	<tbody id="table-list-body">
 	<tr>
 		<td class="rownumcell">1</td>
 		<td><a href="#author" title="type=TABLE, primaryKey={AUTHOR_ID}, nameLength=6, columnCount=9">author</a></td>
@@ -438,7 +491,7 @@ author
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="authorAUTHOR_ID">AUTHOR_ID</td>
+		<td id="author_author_id">AUTHOR_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -455,7 +508,7 @@ author
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="authorAUTHOR_NAME">AUTHOR_NAME</td>
+		<td id="author_author_name">AUTHOR_NAME</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 80 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -472,7 +525,7 @@ author
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="authorAUTHOR_AGE">AUTHOR_AGE</td>
+		<td id="author_author_age">AUTHOR_AGE</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -489,7 +542,7 @@ author
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="authorR_USER">R_USER</td>
+		<td class="comcolcell" id="author_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -506,7 +559,7 @@ author
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="authorR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="author_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -523,7 +576,7 @@ author
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="authorR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="author_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -540,7 +593,7 @@ author
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="authorU_USER">U_USER</td>
+		<td class="comcolcell" id="author_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -557,7 +610,7 @@ author
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="authorU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="author_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -574,7 +627,7 @@ author
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="authorU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="author_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -615,7 +668,7 @@ black_action
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="black_actionBLACK_ACTION_ID">BLACK_ACTION_ID</td>
+		<td id="black_action_black_action_id">BLACK_ACTION_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -632,7 +685,7 @@ black_action
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell" title="FK_BLACK_ACTION_BLACK_LIST(BLACK_LIST_ID)">o</td>
 		<td class="flgcell">*</td>
-		<td id="black_actionBLACK_LIST_ID">BLACK_LIST_ID</td>
+		<td id="black_action_black_list_id">BLACK_LIST_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -649,7 +702,7 @@ black_action
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell" title="FK_BLACK_ACTION_LOOKUP(BLACK_ACTION_CODE)">o</td>
 		<td class="flgcell">*</td>
-		<td id="black_actionBLACK_ACTION_CODE">BLACK_ACTION_CODE</td>
+		<td id="black_action_black_action_code">BLACK_ACTION_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -666,7 +719,7 @@ black_action
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="black_actionBLACK_LEVEL">BLACK_LEVEL</td>
+		<td id="black_action_black_level">BLACK_LEVEL</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -683,7 +736,7 @@ black_action
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="black_actionACTION_DATE">ACTION_DATE</td>
+		<td id="black_action_action_date">ACTION_DATE</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -700,7 +753,7 @@ black_action
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="black_actionEVIDENCE_PHOTOGRAPH">EVIDENCE_PHOTOGRAPH</td>
+		<td id="black_action_evidence_photograph">EVIDENCE_PHOTOGRAPH</td>
 		<td class="typecell">BLOB</td>
 		<td class="sizecell"> 65535 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -717,7 +770,7 @@ black_action
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_actionR_USER">R_USER</td>
+		<td class="comcolcell" id="black_action_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -734,7 +787,7 @@ black_action
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_actionR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="black_action_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -751,7 +804,7 @@ black_action
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_actionR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="black_action_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -768,7 +821,7 @@ black_action
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_actionU_USER">U_USER</td>
+		<td class="comcolcell" id="black_action_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -785,7 +838,7 @@ black_action
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_actionU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="black_action_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -802,7 +855,7 @@ black_action
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="black_actionU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="black_action_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -843,7 +896,7 @@ black_action_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="black_action_lookupBLACK_ACTION_CODE">BLACK_ACTION_CODE</td>
+		<td id="black_action_lookup_black_action_code">BLACK_ACTION_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -860,7 +913,7 @@ black_action_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="black_action_lookupBLACK_ACTION_NAME">BLACK_ACTION_NAME</td>
+		<td id="black_action_lookup_black_action_name">BLACK_ACTION_NAME</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 80 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -877,7 +930,7 @@ black_action_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_action_lookupR_USER">R_USER</td>
+		<td class="comcolcell" id="black_action_lookup_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -894,7 +947,7 @@ black_action_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_action_lookupR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="black_action_lookup_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -911,7 +964,7 @@ black_action_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_action_lookupR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="black_action_lookup_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -928,7 +981,7 @@ black_action_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_action_lookupU_USER">U_USER</td>
+		<td class="comcolcell" id="black_action_lookup_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -945,7 +998,7 @@ black_action_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_action_lookupU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="black_action_lookup_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -962,7 +1015,7 @@ black_action_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="black_action_lookupU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="black_action_lookup_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1003,7 +1056,7 @@ black_list
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="black_listBLACK_LIST_ID">BLACK_LIST_ID</td>
+		<td id="black_list_black_list_id">BLACK_LIST_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1020,7 +1073,7 @@ black_list
 		<td class="flgcell" title="LB_USER_ID(LB_USER_ID)">o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="black_listLB_USER_ID">LB_USER_ID</td>
+		<td id="black_list_lb_user_id">LB_USER_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1037,7 +1090,7 @@ black_list
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="black_listBLACK_RANK">BLACK_RANK</td>
+		<td id="black_list_black_rank">BLACK_RANK</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1054,7 +1107,7 @@ black_list
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_listR_USER">R_USER</td>
+		<td class="comcolcell" id="black_list_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -1071,7 +1124,7 @@ black_list
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_listR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="black_list_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -1088,7 +1141,7 @@ black_list
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_listR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="black_list_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1105,7 +1158,7 @@ black_list
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_listU_USER">U_USER</td>
+		<td class="comcolcell" id="black_list_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -1122,7 +1175,7 @@ black_list
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="black_listU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="black_list_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -1139,7 +1192,7 @@ black_list
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="black_listU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="black_list_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1180,7 +1233,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="bookBOOK_ID">BOOK_ID</td>
+		<td id="book_book_id">BOOK_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1197,7 +1250,7 @@ book
 		<td class="flgcell" title="ISBN(ISBN)">o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="bookISBN">ISBN</td>
+		<td id="book_isbn">ISBN</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 20 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1214,7 +1267,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="bookBOOK_NAME">BOOK_NAME</td>
+		<td id="book_book_name">BOOK_NAME</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 80 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1231,7 +1284,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell" title="FK_BOOK_AUTHOR(AUTHOR_ID)">o</td>
 		<td class="flgcell">*</td>
-		<td id="bookAUTHOR_ID">AUTHOR_ID</td>
+		<td id="book_author_id">AUTHOR_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1248,7 +1301,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell" title="FK_BOOK_PUBLISHER(PUBLISHER_ID)">o</td>
 		<td class="flgcell">*</td>
-		<td id="bookPUBLISHER_ID">PUBLISHER_ID</td>
+		<td id="book_publisher_id">PUBLISHER_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1265,7 +1318,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell" title="FK_BOOK_GENRE(GENRE_CODE)">o</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="bookGENRE_CODE">GENRE_CODE</td>
+		<td id="book_genre_code">GENRE_CODE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 24 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1282,7 +1335,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="bookOPENING_PART">OPENING_PART</td>
+		<td id="book_opening_part">OPENING_PART</td>
 		<td class="typecell">TEXT</td>
 		<td class="sizecell"> 65535 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1299,7 +1352,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="bookMAX_LENDING_DATE_COUNT">MAX_LENDING_DATE_COUNT</td>
+		<td id="book_max_lending_date_count">MAX_LENDING_DATE_COUNT</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1316,7 +1369,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="bookOUT_OF_USER_SELECT_YN">OUT_OF_USER_SELECT_YN</td>
+		<td id="book_out_of_user_select_yn">OUT_OF_USER_SELECT_YN</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 1 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1333,7 +1386,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="bookOUT_OF_USER_SELECT_REASON">OUT_OF_USER_SELECT_REASON</td>
+		<td id="book_out_of_user_select_reason">OUT_OF_USER_SELECT_REASON</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1350,7 +1403,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="bookR_USER">R_USER</td>
+		<td class="comcolcell" id="book_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -1367,7 +1420,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="bookR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="book_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -1384,7 +1437,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="bookR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="book_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1401,7 +1454,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="bookU_USER">U_USER</td>
+		<td class="comcolcell" id="book_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -1418,7 +1471,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="bookU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="book_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -1435,7 +1488,7 @@ book
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="bookU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="book_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1476,7 +1529,7 @@ collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="collectionCOLLECTION_ID">COLLECTION_ID</td>
+		<td id="collection_collection_id">COLLECTION_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1493,7 +1546,7 @@ collection
 		<td class="flgcell" title="LIBRARY_ID(LIBRARY_ID, BOOK_ID)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="collectionLIBRARY_ID">LIBRARY_ID</td>
+		<td id="collection_library_id">LIBRARY_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1510,7 +1563,7 @@ collection
 		<td class="flgcell" title="LIBRARY_ID(LIBRARY_ID, BOOK_ID)">o<span class="flgplus">+</span></td>
 		<td class="flgcell" title="FK_COLLECTION_BOOK(BOOK_ID)">o</td>
 		<td class="flgcell">*</td>
-		<td id="collectionBOOK_ID">BOOK_ID</td>
+		<td id="collection_book_id">BOOK_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1527,7 +1580,7 @@ collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="collectionARRIVAL_DATE">ARRIVAL_DATE</td>
+		<td id="collection_arrival_date">ARRIVAL_DATE</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1544,7 +1597,7 @@ collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collectionR_USER">R_USER</td>
+		<td class="comcolcell" id="collection_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -1561,7 +1614,7 @@ collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collectionR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="collection_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -1578,7 +1631,7 @@ collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collectionR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="collection_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1595,7 +1648,7 @@ collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collectionU_USER">U_USER</td>
+		<td class="comcolcell" id="collection_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -1612,7 +1665,7 @@ collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collectionU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="collection_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -1629,7 +1682,7 @@ collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="collectionU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="collection_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1670,7 +1723,7 @@ collection_status
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="collection_statusCOLLECTION_ID">COLLECTION_ID</td>
+		<td id="collection_status_collection_id">COLLECTION_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1687,7 +1740,7 @@ collection_status
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell" title="FK_COLLECTION_STATUS_LOOKUP(COLLECTION_STATUS_CODE)">o</td>
 		<td class="flgcell">*</td>
-		<td id="collection_statusCOLLECTION_STATUS_CODE">COLLECTION_STATUS_CODE</td>
+		<td id="collection_status_collection_status_code">COLLECTION_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1704,7 +1757,7 @@ collection_status
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collection_statusR_USER">R_USER</td>
+		<td class="comcolcell" id="collection_status_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -1721,7 +1774,7 @@ collection_status
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collection_statusR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="collection_status_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -1738,7 +1791,7 @@ collection_status
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collection_statusR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="collection_status_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1755,7 +1808,7 @@ collection_status
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collection_statusU_USER">U_USER</td>
+		<td class="comcolcell" id="collection_status_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -1772,7 +1825,7 @@ collection_status
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collection_statusU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="collection_status_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -1789,7 +1842,7 @@ collection_status
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="collection_statusU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="collection_status_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1830,7 +1883,7 @@ collection_status_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="collection_status_lookupCOLLECTION_STATUS_CODE">COLLECTION_STATUS_CODE</td>
+		<td id="collection_status_lookup_collection_status_code">COLLECTION_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1847,7 +1900,7 @@ collection_status_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="collection_status_lookupCOLLECTION_STATUS_NAME">COLLECTION_STATUS_NAME</td>
+		<td id="collection_status_lookup_collection_status_name">COLLECTION_STATUS_NAME</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 80 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1864,7 +1917,7 @@ collection_status_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collection_status_lookupR_USER">R_USER</td>
+		<td class="comcolcell" id="collection_status_lookup_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -1881,7 +1934,7 @@ collection_status_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collection_status_lookupR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="collection_status_lookup_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -1898,7 +1951,7 @@ collection_status_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collection_status_lookupR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="collection_status_lookup_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1915,7 +1968,7 @@ collection_status_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collection_status_lookupU_USER">U_USER</td>
+		<td class="comcolcell" id="collection_status_lookup_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -1932,7 +1985,7 @@ collection_status_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="collection_status_lookupU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="collection_status_lookup_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -1949,7 +2002,7 @@ collection_status_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="collection_status_lookupU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="collection_status_lookup_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -1989,7 +2042,7 @@ garbage
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="garbageGARBAGE_MEMO">GARBAGE_MEMO</td>
+		<td id="garbage_garbage_memo">GARBAGE_MEMO</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2005,7 +2058,7 @@ garbage
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="garbageGARBAGE_TIME">GARBAGE_TIME</td>
+		<td id="garbage_garbage_time">GARBAGE_TIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2021,7 +2074,7 @@ garbage
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="garbageGARBAGE_COUNT">GARBAGE_COUNT</td>
+		<td id="garbage_garbage_count">GARBAGE_COUNT</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2037,7 +2090,7 @@ garbage
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="garbageR_USER">R_USER</td>
+		<td id="garbage_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2053,7 +2106,7 @@ garbage
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="garbageR_TIMESTAMP">R_TIMESTAMP</td>
+		<td id="garbage_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2069,7 +2122,7 @@ garbage
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="garbageU_USER">U_USER</td>
+		<td id="garbage_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2085,7 +2138,7 @@ garbage
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="optcell" id="garbageU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="optcell" id="garbage_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2125,7 +2178,7 @@ garbage_plus
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="garbage_plusGARBAGE_MEMO">GARBAGE_MEMO</td>
+		<td id="garbage_plus_garbage_memo">GARBAGE_MEMO</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 50 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2142,7 +2195,7 @@ garbage_plus
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="garbage_plusGARBAGE_TIME">GARBAGE_TIME</td>
+		<td id="garbage_plus_garbage_time">GARBAGE_TIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2159,7 +2212,7 @@ garbage_plus
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="garbage_plusGARBAGE_COUNT">GARBAGE_COUNT</td>
+		<td id="garbage_plus_garbage_count">GARBAGE_COUNT</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2176,7 +2229,7 @@ garbage_plus
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="garbage_plusR_USER">R_USER</td>
+		<td id="garbage_plus_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -2193,7 +2246,7 @@ garbage_plus
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="garbage_plusR_MODULE">R_MODULE</td>
+		<td id="garbage_plus_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -2210,7 +2263,7 @@ garbage_plus
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="garbage_plusR_TIMESTAMP">R_TIMESTAMP</td>
+		<td id="garbage_plus_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2227,7 +2280,7 @@ garbage_plus
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="garbage_plusU_USER">U_USER</td>
+		<td id="garbage_plus_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -2244,7 +2297,7 @@ garbage_plus
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="garbage_plusU_MODULE">U_MODULE</td>
+		<td id="garbage_plus_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -2261,7 +2314,7 @@ garbage_plus
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="optcell" id="garbage_plusU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="optcell" id="garbage_plus_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2302,7 +2355,7 @@ genre
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="genreGENRE_CODE">GENRE_CODE</td>
+		<td id="genre_genre_code">GENRE_CODE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 24 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2319,7 +2372,7 @@ genre
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="genreGENRE_NAME">GENRE_NAME</td>
+		<td id="genre_genre_name">GENRE_NAME</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 80 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2336,7 +2389,7 @@ genre
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="genreHIERARCHY_LEVEL">HIERARCHY_LEVEL</td>
+		<td id="genre_hierarchy_level">HIERARCHY_LEVEL</td>
 		<td class="typecell">DECIMAL</td>
 		<td class="sizecell"> 9 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2353,7 +2406,7 @@ genre
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="genreHIERARCHY_ORDER">HIERARCHY_ORDER</td>
+		<td id="genre_hierarchy_order">HIERARCHY_ORDER</td>
 		<td class="typecell">DECIMAL</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2370,7 +2423,7 @@ genre
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell" title="FK_GENRE_GENRE(PARENT_GENRE_CODE)">o</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="genrePARENT_GENRE_CODE">PARENT_GENRE_CODE</td>
+		<td id="genre_parent_genre_code">PARENT_GENRE_CODE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 24 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2387,7 +2440,7 @@ genre
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="genreR_USER">R_USER</td>
+		<td class="comcolcell" id="genre_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -2404,7 +2457,7 @@ genre
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="genreR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="genre_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -2421,7 +2474,7 @@ genre
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="genreR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="genre_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2438,7 +2491,7 @@ genre
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="genreU_USER">U_USER</td>
+		<td class="comcolcell" id="genre_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -2455,7 +2508,7 @@ genre
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="genreU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="genre_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -2472,7 +2525,7 @@ genre
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="genreU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="genre_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2513,7 +2566,7 @@ lb_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="lb_userLB_USER_ID">LB_USER_ID</td>
+		<td id="lb_user_lb_user_id">LB_USER_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2530,7 +2583,7 @@ lb_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="lb_userLB_USER_NAME">LB_USER_NAME</td>
+		<td id="lb_user_lb_user_name">LB_USER_NAME</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 80 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2547,7 +2600,7 @@ lb_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="lb_userUSER_PASSWORD">USER_PASSWORD</td>
+		<td id="lb_user_user_password">USER_PASSWORD</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 50 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2564,7 +2617,7 @@ lb_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lb_userR_USER">R_USER</td>
+		<td class="comcolcell" id="lb_user_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -2581,7 +2634,7 @@ lb_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lb_userR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="lb_user_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -2598,7 +2651,7 @@ lb_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lb_userR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="lb_user_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2615,7 +2668,7 @@ lb_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lb_userU_USER">U_USER</td>
+		<td class="comcolcell" id="lb_user_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -2632,7 +2685,7 @@ lb_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lb_userU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="lb_user_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -2649,7 +2702,7 @@ lb_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="lb_userU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="lb_user_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2687,10 +2740,10 @@ lending
 		<td class="rownumcell">1</td>
 		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="PRIMARY(LIBRARY_ID, LB_USER_ID, LENDING_DATE)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="lendingLIBRARY_ID">LIBRARY_ID</td>
+		<td id="lending_library_id">LIBRARY_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2704,10 +2757,10 @@ lending
 		<td class="rownumcell">2</td>
 		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="PRIMARY(LIBRARY_ID, LB_USER_ID, LENDING_DATE)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="lendingLB_USER_ID">LB_USER_ID</td>
+		<td id="lending_lb_user_id">LB_USER_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2721,10 +2774,10 @@ lending
 		<td class="rownumcell">3</td>
 		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="PRIMARY(LIBRARY_ID, LB_USER_ID, LENDING_DATE)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="lendingLENDING_DATE">LENDING_DATE</td>
+		<td id="lending_lending_date">LENDING_DATE</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2741,7 +2794,7 @@ lending
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lendingR_USER">R_USER</td>
+		<td class="comcolcell" id="lending_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -2758,7 +2811,7 @@ lending
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lendingR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="lending_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -2775,7 +2828,7 @@ lending
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lendingR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="lending_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2792,7 +2845,7 @@ lending
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lendingU_USER">U_USER</td>
+		<td class="comcolcell" id="lending_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -2809,7 +2862,7 @@ lending
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lendingU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="lending_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -2826,7 +2879,7 @@ lending
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="lendingU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="lending_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2864,10 +2917,10 @@ lending_collection
 		<td class="rownumcell">1</td>
 		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="PRIMARY(LIBRARY_ID, LB_USER_ID, LENDING_DATE, COLLECTION_ID)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="lending_collectionLIBRARY_ID">LIBRARY_ID</td>
+		<td id="lending_collection_library_id">LIBRARY_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2881,10 +2934,10 @@ lending_collection
 		<td class="rownumcell">2</td>
 		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="PRIMARY(LIBRARY_ID, LB_USER_ID, LENDING_DATE, COLLECTION_ID)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="lending_collectionLB_USER_ID">LB_USER_ID</td>
+		<td id="lending_collection_lb_user_id">LB_USER_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2898,10 +2951,10 @@ lending_collection
 		<td class="rownumcell">3</td>
 		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="PRIMARY(LIBRARY_ID, LB_USER_ID, LENDING_DATE, COLLECTION_ID)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="lending_collectionLENDING_DATE">LENDING_DATE</td>
+		<td id="lending_collection_lending_date">LENDING_DATE</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2915,10 +2968,10 @@ lending_collection
 		<td class="rownumcell">4</td>
 		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="PRIMARY(LIBRARY_ID, LB_USER_ID, LENDING_DATE, COLLECTION_ID)">o<span class="flgplus">+</span></td>
 		<td class="flgcell" title="FK_LENDING_COLLECTION_COL(COLLECTION_ID)">o</td>
 		<td class="flgcell">*</td>
-		<td id="lending_collectionCOLLECTION_ID">COLLECTION_ID</td>
+		<td id="lending_collection_collection_id">COLLECTION_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2935,7 +2988,7 @@ lending_collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="lending_collectionRETURN_LIMIT_DATE">RETURN_LIMIT_DATE</td>
+		<td id="lending_collection_return_limit_date">RETURN_LIMIT_DATE</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -2952,7 +3005,7 @@ lending_collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lending_collectionR_USER">R_USER</td>
+		<td class="comcolcell" id="lending_collection_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -2969,7 +3022,7 @@ lending_collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lending_collectionR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="lending_collection_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -2986,7 +3039,7 @@ lending_collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lending_collectionR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="lending_collection_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3003,7 +3056,7 @@ lending_collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lending_collectionU_USER">U_USER</td>
+		<td class="comcolcell" id="lending_collection_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -3020,7 +3073,7 @@ lending_collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="lending_collectionU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="lending_collection_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -3037,7 +3090,7 @@ lending_collection
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="lending_collectionU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="lending_collection_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3078,7 +3131,7 @@ library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="libraryLIBRARY_ID">LIBRARY_ID</td>
+		<td id="library_library_id">LIBRARY_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3095,7 +3148,7 @@ library
 		<td class="flgcell" title="LIBRARY_NAME(LIBRARY_NAME)">o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="libraryLIBRARY_NAME">LIBRARY_NAME</td>
+		<td id="library_library_name">LIBRARY_NAME</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 80 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3112,7 +3165,7 @@ library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell" title="FK_LIBRARY_LIBRARY_TYPE_LOOKUP(LIBRARY_TYPE_CODE)">o</td>
 		<td class="flgcell">*</td>
-		<td id="libraryLIBRARY_TYPE_CODE">LIBRARY_TYPE_CODE</td>
+		<td id="library_library_type_code">LIBRARY_TYPE_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3129,7 +3182,7 @@ library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="libraryR_USER">R_USER</td>
+		<td class="comcolcell" id="library_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -3146,7 +3199,7 @@ library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="libraryR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="library_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -3163,7 +3216,7 @@ library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="libraryR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="library_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3180,7 +3233,7 @@ library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="libraryU_USER">U_USER</td>
+		<td class="comcolcell" id="library_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -3197,7 +3250,7 @@ library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="libraryU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="library_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -3214,7 +3267,7 @@ library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="libraryU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="library_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3255,7 +3308,7 @@ library_type_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="library_type_lookupLIBRARY_TYPE_CODE">LIBRARY_TYPE_CODE</td>
+		<td id="library_type_lookup_library_type_code">LIBRARY_TYPE_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3272,7 +3325,7 @@ library_type_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="library_type_lookupLIBRARY_TYPE_NAME">LIBRARY_TYPE_NAME</td>
+		<td id="library_type_lookup_library_type_name">LIBRARY_TYPE_NAME</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 80 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3289,7 +3342,7 @@ library_type_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="library_type_lookupR_USER">R_USER</td>
+		<td class="comcolcell" id="library_type_lookup_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -3306,7 +3359,7 @@ library_type_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="library_type_lookupR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="library_type_lookup_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -3323,7 +3376,7 @@ library_type_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="library_type_lookupR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="library_type_lookup_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3340,7 +3393,7 @@ library_type_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="library_type_lookupU_USER">U_USER</td>
+		<td class="comcolcell" id="library_type_lookup_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -3357,7 +3410,7 @@ library_type_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="library_type_lookupU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="library_type_lookup_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -3374,7 +3427,7 @@ library_type_lookup
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="library_type_lookupU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="library_type_lookup_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3412,10 +3465,10 @@ library_user
 		<td class="rownumcell">1</td>
 		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="PRIMARY(LIBRARY_ID, LB_USER_ID)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="library_userLIBRARY_ID">LIBRARY_ID</td>
+		<td id="library_user_library_id">LIBRARY_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3429,10 +3482,10 @@ library_user
 		<td class="rownumcell">2</td>
 		<td class="flgcell" title="PRIMARY">o<span class="flgplus">+</span></td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="PRIMARY(LIBRARY_ID, LB_USER_ID)">o<span class="flgplus">+</span></td>
 		<td class="flgcell" title="FK_LIBRARY_USER_LB_USER(LB_USER_ID)">o</td>
 		<td class="flgcell">*</td>
-		<td id="library_userLB_USER_ID">LB_USER_ID</td>
+		<td id="library_user_lb_user_id">LB_USER_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3449,7 +3502,7 @@ library_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="library_userR_USER">R_USER</td>
+		<td class="comcolcell" id="library_user_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -3466,7 +3519,7 @@ library_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="library_userR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="library_user_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -3483,7 +3536,7 @@ library_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="library_userR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="library_user_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3500,7 +3553,7 @@ library_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="library_userU_USER">U_USER</td>
+		<td class="comcolcell" id="library_user_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -3517,7 +3570,7 @@ library_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="library_userU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="library_user_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -3534,7 +3587,7 @@ library_user
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="library_userU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="library_user_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3574,7 +3627,7 @@ myself
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="myselfMYSELF_ID">MYSELF_ID</td>
+		<td id="myself_myself_id">MYSELF_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3590,7 +3643,7 @@ myself
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="myselfMYSELF_NAME">MYSELF_NAME</td>
+		<td id="myself_myself_name">MYSELF_NAME</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 80 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3629,7 +3682,7 @@ myself_check
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="myself_checkMYSELF_CHECK_ID">MYSELF_CHECK_ID</td>
+		<td id="myself_check_myself_check_id">MYSELF_CHECK_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3645,7 +3698,7 @@ myself_check
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="myself_checkMYSELF_CHECK_NAME">MYSELF_CHECK_NAME</td>
+		<td id="myself_check_myself_check_name">MYSELF_CHECK_NAME</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 80 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3661,7 +3714,7 @@ myself_check
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell" title="FK_MYSELF_CHECK_SELF(MYSELF_ID)">o</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td id="myself_checkMYSELF_ID">MYSELF_ID</td>
+		<td id="myself_check_myself_id">MYSELF_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell"><a href="#myself" title="FK_MYSELF_CHECK_SELF">myself</a>&nbsp;</td>
@@ -3701,7 +3754,7 @@ next_library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="next_libraryLIBRARY_ID">LIBRARY_ID</td>
+		<td id="next_library_library_id">LIBRARY_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3718,7 +3771,7 @@ next_library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell" title="FK_NEXT_LIBRARY_NEXT_LIBRARY_ID(NEXT_LIBRARY_ID)">o</td>
 		<td class="flgcell">*</td>
-		<td id="next_libraryNEXT_LIBRARY_ID">NEXT_LIBRARY_ID</td>
+		<td id="next_library_next_library_id">NEXT_LIBRARY_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3735,7 +3788,7 @@ next_library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="next_libraryDISTANCE_KM">DISTANCE_KM</td>
+		<td id="next_library_distance_km">DISTANCE_KM</td>
 		<td class="typecell">DECIMAL</td>
 		<td class="sizecell"> 4, 2 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3752,7 +3805,7 @@ next_library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="next_libraryR_USER">R_USER</td>
+		<td class="comcolcell" id="next_library_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -3769,7 +3822,7 @@ next_library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="next_libraryR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="next_library_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -3786,7 +3839,7 @@ next_library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="next_libraryR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="next_library_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3803,7 +3856,7 @@ next_library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="next_libraryU_USER">U_USER</td>
+		<td class="comcolcell" id="next_library_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -3820,7 +3873,7 @@ next_library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="next_libraryU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="next_library_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -3837,7 +3890,7 @@ next_library
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="next_libraryU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="next_library_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3878,7 +3931,7 @@ publisher
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="publisherPUBLISHER_ID">PUBLISHER_ID</td>
+		<td id="publisher_publisher_id">PUBLISHER_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3895,7 +3948,7 @@ publisher
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td id="publisherPUBLISHER_NAME">PUBLISHER_NAME</td>
+		<td id="publisher_publisher_name">PUBLISHER_NAME</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 80 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3912,7 +3965,7 @@ publisher
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="publisherR_USER">R_USER</td>
+		<td class="comcolcell" id="publisher_r_user">R_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -3929,7 +3982,7 @@ publisher
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="publisherR_MODULE">R_MODULE</td>
+		<td class="comcolcell" id="publisher_r_module">R_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -3946,7 +3999,7 @@ publisher
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="publisherR_TIMESTAMP">R_TIMESTAMP</td>
+		<td class="comcolcell" id="publisher_r_timestamp">R_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -3963,7 +4016,7 @@ publisher
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="publisherU_USER">U_USER</td>
+		<td class="comcolcell" id="publisher_u_user">U_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-user</td>
@@ -3980,7 +4033,7 @@ publisher
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell" id="publisherU_MODULE">U_MODULE</td>
+		<td class="comcolcell" id="publisher_u_module">U_MODULE</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 100 </td>
 		<td class="defvalcell"> default-module</td>
@@ -3997,7 +4050,7 @@ publisher
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="comcolcell optcell" id="publisherU_TIMESTAMP">U_TIMESTAMP</td>
+		<td class="comcolcell optcell" id="publisher_u_timestamp">U_TIMESTAMP</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="defvalcell"> &nbsp;</td>
@@ -4036,13 +4089,13 @@ publisher
 				<td>y</td>
 				<td>Yes</td>
 				<td>はい</td>
-				<td> &nbsp;</td>
+				<td class="commentcell"> &nbsp;</td>
 			</tr>
 			<tr>
 				<td>n</td>
 				<td>No</td>
 				<td>いいえ</td>
-				<td> &nbsp;</td>
+				<td class="commentcell"> &nbsp;</td>
 			</tr>
 			</table>
 		</td>
@@ -4061,17 +4114,17 @@ publisher
 			<tr>
 				<td>NOR</td>
 				<td>NOR</td>
-				<td>通常状態を示す</td>
+				<td class="commentcell">通常状態を示す</td>
 			</tr>
 			<tr>
 				<td>WAT</td>
 				<td>WAT</td>
-				<td>待ち状態を示す</td>
+				<td class="commentcell">待ち状態を示す</td>
 			</tr>
 			<tr>
 				<td>OUT</td>
 				<td>OUT</td>
-				<td>貸し出し中を示す</td>
+				<td class="commentcell">貸し出し中を示す</td>
 			</tr>
 			</table>
 		</td>
@@ -4079,5 +4132,355 @@ publisher
 	</tbody>
 </table>
 
+<script>
+/**
+ * Incremental Search contributed by makotot (Thanks!)
+ *
+ * and extended by jflute:
+ *  o style adjustment
+ *  o varying name index
+ *  o prefix search priority
+ */
+
+// this index value depends on DBFlute settings
+// so defines it here as global for easy-to-understand
+var NAME_INDEX = 1; // number, name
+
+function Incremental (targetInput, dist) {
+	this.targetInput = targetInput;
+	this.dist = dist;
+	this.query = '';
+	this.suggestionIdx = 0;
+	this.currentSuggestion = '';
+}
+
+Incremental.prototype = {
+
+	/**
+	 * @method init
+	 */
+	init: function () {
+		var dataList = this.getDataList();
+
+		this.distDataList = dataList.distList;
+		this.sectionList = dataList.sectionList;
+		this.buildSuggestList();
+		this.attachEvent();
+	},
+
+	/**
+	 * @method buildSuggetList
+	 */
+	buildSuggestList: function () {
+		var fragment = document.createDocumentFragment(),
+			ul = document.getElementById('suggestion-list');
+
+		this.ul = ul;
+		this.setupLinkElement(fragment); // for prefix area
+		this.setupLinkElement(fragment); // for contain area
+		ul.appendChild(fragment);
+
+		this.attachSuggestionEvent();
+	},
+
+	/**
+	 * @method setupLinkElement
+	 */
+	setupLinkElement: function (fragment) {
+		var li, anchor;
+		for (var i = 0, max = this.distDataList.length; i < max; i++) {
+			li = document.createElement('li');
+			li.style.display = 'none';
+			anchor = document.createElement('a');
+			anchor.href = this.sectionList[i];
+
+			var distData = this.distDataList[i];
+			if (document.body.dataset) {
+				anchor.dataset.name = distData;
+			} else {
+				anchor.setAttribute('data-name', distData); // for searching
+			}
+
+			this.util.setElemTxt(anchor, distData); // for display
+
+			li.appendChild(anchor);
+			fragment.appendChild(li);
+		}
+	},
+
+	/**
+	 * @method attachEvent
+	 */
+	attachEvent: function () {
+		var self = this,
+			eventHandler = function () {
+				self.displaySuggestion();
+			},
+			eventName = ('oninput' in window) ? 'input' : 'propertychange';
+
+		this.util.addEvent(this.targetInput, eventName, eventHandler);
+	},
+
+	/**
+	 * @method displaySuggestion
+	 */
+	displaySuggestion: function () {
+		this.query = (this.util.trim(this.targetInput.value)).toLowerCase();
+
+		var i, j, max;
+
+		this.resetSuggestion();
+
+		var visibleList;
+
+		if (this.query.length) {
+			var alreadyCheckedData = {}; // to suppress duplicate check (key only used)
+			var distDataCount = this.distDataList.length; // to determine prefix or contain area
+			var hitCount = 0; // to suppress large result (primitive counter just in case)
+			for (i = 0, max = this.ul.childNodes.length; i < max && hitCount <= 100; i++) {
+				var childNode = this.ul.childNodes[i];
+				var anchor = childNode.getElementsByTagName('a')[0]; // always only one
+				var dataName = anchor.getAttribute('data-name'); // e.g. table name
+				if (alreadyCheckedData[dataName] != null) { // to suppress duplicate check
+					continue;
+				}
+				if (i < distDataCount && dataName.lastIndexOf(this.query, 0) > -1) { // prefix hit
+					childNode.searchDirection = 'prefix';
+					alreadyCheckedData[dataName] = 'dummy';
+					++hitCount;
+				} else if (i >= distDataCount && dataName.indexOf(this.query) > -1) { // contain hit
+					childNode.searchDirection = 'contain';
+					alreadyCheckedData[dataName] = 'dummy';
+					++hitCount;
+				} else {
+					childNode.searchDirection = 'none';
+				}
+			}
+
+			visibleList = this.filterVisibleChild();
+
+			if (visibleList.length) {
+				visibleList[0].style.backgroundColor = '#CCCCCC';
+			}
+		} else {
+			for (i = 0, max = this.ul.childNodes.length; i < max; i++) {
+				var childNode = this.ul.childNodes[i];
+				childNode.searchDirection = null; // clear
+				childNode.style.display = 'none'; // all none
+			}
+		}
+	},
+
+	/**
+	 * @method getDataList
+	 */
+	getDataList: function () {
+		var tr = this.dist.getElementsByTagName('tr'),
+			distDataList = [],
+			sectionIdList = [];
+
+		for (var i = 0, max = tr.length; i < max; i++) {
+			distDataList.push(this.util.getElemTxt(tr[i].getElementsByTagName('td')[NAME_INDEX]).toLowerCase());
+			sectionIdList.push(tr[i].getElementsByTagName('td')[NAME_INDEX].getElementsByTagName('a')[0].getAttribute('href'));
+		}
+
+		return {
+			distList: distDataList,
+			sectionList: sectionIdList
+		};
+	},
+
+	/**
+	 * @method attachSuggestionEvent
+	 */
+	attachSuggestionEvent: function () {
+		var self = this;
+
+		this.util.addEvent(this.targetInput, 'keyup', function (e) {
+			self.selectSuggestion(e);
+			self.setInputValue(e);
+		});
+		this.util.addEvent(this.targetInput, 'blur', function () {
+			setTimeout(function () {
+				self.resetSuggestion();
+			}, 100);
+		});
+	},
+
+	/**
+	 * @method selectSuggestion
+	 */
+	selectSuggestion: function (ev) {
+		var keyCode = ev.keyCode,
+			visibleChildNodes = this.filterVisibleChild(),
+			prevIdx;
+
+		if (keyCode === 38 || keyCode === 40) {
+
+			if (visibleChildNodes.length) {
+				prevIdx = this.suggestionIdx;
+
+				if (keyCode === 40 && this.suggestionIdx < visibleChildNodes.length - 1) {
+					this.suggestionIdx++;
+				}
+
+				if (keyCode === 38 && this.suggestionIdx > 0) {
+					this.suggestionIdx--;
+				}
+
+				if (prevIdx > -1) {
+					visibleChildNodes[prevIdx].style.backgroundColor = '';
+				}
+
+				visibleChildNodes[this.suggestionIdx].style.backgroundColor = '#CCCCCC';
+				this.currentSuggestion = this.util.getElemTxt(visibleChildNodes[this.suggestionIdx]);
+
+			} else if (this.query.length) {
+
+				this.displaySuggestion();
+			}
+		}
+
+		if (!this.query.length) {
+			this.resetSuggestion();
+		}
+	},
+
+	/**
+	 * @method setInputValue
+	 * @param ev {Object}
+	 */
+	setInputValue: function (ev) {
+		var keyCode = ev.keyCode,
+			visibleChildNodes = this.filterVisibleChild(),
+			currentSuggestionTxt,
+			selectedSection;
+
+		if (visibleChildNodes.length) {
+			currentSuggestionTxt = this.util.getElemTxt(visibleChildNodes[this.suggestionIdx]);
+
+			if (keyCode === 13) {
+				this.targetInput.value = currentSuggestionTxt;
+				selectedSection = this.getSelectedSection(visibleChildNodes[this.suggestionIdx]);
+				this.clearSuggestion();
+				this.scrollToSelectedSection(selectedSection);
+				this.setHash(selectedSection);
+			}
+		}
+	},
+
+	/**
+	 * @method filterVisibleChild
+	 */
+	filterVisibleChild: function () {
+		var visibleChildNodes = [];
+
+		// ordered by prefix, contain
+		for (var i = 0, max = this.ul.childNodes.length; i < max; i++) {
+			var childNode = this.ul.childNodes[i];
+			if (childNode.searchDirection === 'prefix') {
+				visibleChildNodes.push(childNode);
+				childNode.style.display = 'block';
+			} else if (childNode.searchDirection === 'contain') {
+				visibleChildNodes.push(childNode);
+				childNode.style.display = 'block';
+			} else {
+				childNode.style.display = 'none';
+			}
+		}
+
+		return visibleChildNodes;
+	},
+
+	/**
+	 * @method clearSuggestion
+	 */
+	clearSuggestion: function () {
+		for (var i = 0, max = this.ul.childNodes.length; i < max; i++) {
+			var childNode = this.ul.childNodes[i];
+			childNode.searchDirection = null;
+			childNode.style.display = 'none';
+			childNode.style.backgroundColor = '';
+		}
+	},
+
+	/**
+	 * @method resetSuggestion
+	 */
+	resetSuggestion: function () {
+		this.clearSuggestion();
+
+		this.suggestionIdx = 0;
+	},
+
+	/**
+	 * @method getSelectedSection
+	 * @param suggestionNode {Object}
+	 * @return selectedIdx {Number}
+	 */
+	getSelectedSection: function (suggestionNode) {
+		var selectedIdx;
+
+		for (var i = 0, max = this.ul.childNodes.length; i < max; i++) {
+			if (this.ul.childNodes[i] === suggestionNode) {
+				selectedIdx = i;
+				break;
+			}
+		}
+
+		return selectedIdx;
+	},
+
+	/**
+	 * @method scrollToSelectedSection
+	 * @param idx {Number}
+	 */
+	scrollToSelectedSection: function (idx) {
+		var selectedId = this.ul.childNodes[idx].getElementsByTagName('a')[0].href.split('#')[1],
+			targetSection = document.getElementById(selectedId);
+
+		window.scrollTo(0, targetSection.offsetTop);
+		this.targetInput.blur();
+	},
+
+	/**
+	 * @method setHash
+	 */
+	setHash: function (idx) {
+		var selectedId = this.ul.childNodes[idx].getElementsByTagName('a')[0].href.split('#')[1];
+
+		window.location.hash = selectedId;
+	}
+};
+
+
+Incremental.prototype.util = {
+
+	addEvent: function (elem, ev, fn) {
+		if (elem.addEventListener) {
+			elem.addEventListener(ev, fn, false);
+		} else if (elem.attachEvent) {
+			elem.attachEvent('on' + ev, fn);
+		} else {
+			elem['on' + ev] = fn;
+		}
+	},
+
+	trim: function (txt) {
+		return (String.prototype.trim) ? txt.trim() : txt.replace(/^\s+|\s+$/g, '');
+	},
+
+	getElemTxt: function (elem) {
+		return (elem.innerText !== undefined) ? elem.innerText : elem.textContent;
+	},
+
+	setElemTxt: function (elem, data) {
+		return (elem.innerText !== undefined) ? (elem.innerText = data) : (elem.textContent = data);
+	}
+};
+
+var searcher = new Incremental(document.getElementById('incremental-search-field'), document.getElementById('table-list-body'));
+searcher.init();
+</script>
 </body>
 </html>

@@ -32,7 +32,7 @@ namespace DfExample.DBFlute.MemberDb.AllCommon.CBean {
 
         protected int _safetyMaxResultSize;
         protected MbStatementConfig _statementConfig;
-        protected bool _relationMappingCache;
+        protected bool _relationMappingCache = true;
 
         // ===============================================================================
         //                                                                     Constructor
@@ -267,7 +267,9 @@ namespace DfExample.DBFlute.MemberDb.AllCommon.CBean {
         // ===============================================================================
         //                                                                  Entity Mapping
         //                                                                  ==============
+        [System.Obsolete("You should not use this easily. It's a dangerous function.")]
         public virtual void DisableRelationMappingCache() {
+            // deprecated methods from the beginning are not defined as interface methods
             _relationMappingCache = false;
         }
 

@@ -531,7 +531,7 @@ namespace DfExample.DBFlute.MemberDb.CBean.CQ.BS {
             MbMemberAddressCQ cq = ConditionQueryMemberAddressAsValid;
             Map<String, String> joinOnMap = new LinkedHashMap<String, String>();
             joinOnMap.put("MEMBER_ID", "MEMBER_ID");
-            registerOuterJoin(cq, joinOnMap, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsValid.targetDate*/null\n and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapMemberAddressAsValid.targetDate*/null");
+            registerOuterJoin(cq, joinOnMap, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsValid.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapMemberAddressAsValid.targetDate*/null");
         }
         protected String resolveNextRelationPathMemberAddressAsValid() {
             return resolveNextRelationPath("member", "memberAddressAsValid");

@@ -50,6 +50,26 @@ h5 {
 	color: #555;
 }
 
+/* total info */
+.updatedate {
+	text-align: right;
+}
+.mainschema {
+	text-align: right;
+}
+.navilinkarea {
+	text-align: right;
+}
+.sisterlink {
+	margin-top: 0.6em;
+	font-size: 110%;
+}
+.sistersublink {
+	margin-top: 0.6em;
+	font-size: 80%;
+}
+
+/* history info */
 .table-content {
 	margin: 0 6em;
 }
@@ -93,13 +113,44 @@ p.tablecount {
 
 <body>
 <h1>History for librarydb (mysql)</h1>
+<div class="navilinkarea">
+<p class="sisterlink"><a href="./schema-librarydb.html">to SchemaHTML</a></p>
+</div>
 
+<div class="section">
+	<h2><span class="dt">Diff Date: </span>2014/05/14 06:35:37</h2>
+
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4><a href="./schema-librarydb.html#lending">lending</a></h4>
+		<div class="change-table-content">
+			<h5>Add UQ</h5>
+			<ul class="column-content">
+				<li>PRIMARY</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-librarydb.html#lending_collection">lending_collection</a></h4>
+		<div class="change-table-content">
+			<h5>Add UQ</h5>
+			<ul class="column-content">
+				<li>PRIMARY</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-librarydb.html#library_user">library_user</a></h4>
+		<div class="change-table-content">
+			<h5>Add UQ</h5>
+			<ul class="column-content">
+				<li>PRIMARY</li>
+			</ul>
+		</div>
+	</div>
+</div>
 <div class="section">
 	<h2><span class="dt">Diff Date: </span>2012/08/04 23:03:36</h2>
 
 	<h3>Change Table</h3>
 	<div class="table-content">
-		<h4><a href="./schema-librarydb.html#author">author</a></h4>
+		<h4>author</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -111,7 +162,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#black_action">black_action</a></h4>
+		<h4>black_action</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -127,7 +178,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#black_action_lookup">black_action_lookup</a></h4>
+		<h4>black_action_lookup</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -141,7 +192,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#black_list">black_list</a></h4>
+		<h4>black_list</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -155,7 +206,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#book">book</a></h4>
+		<h4>book</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -177,7 +228,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#collection">collection</a></h4>
+		<h4>collection</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -193,7 +244,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#collection_status">collection_status</a></h4>
+		<h4>collection_status</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -207,7 +258,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#collection_status_lookup">collection_status_lookup</a></h4>
+		<h4>collection_status_lookup</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -221,7 +272,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#garbage_plus">garbage_plus</a></h4>
+		<h4>garbage_plus</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -231,7 +282,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#genre">genre</a></h4>
+		<h4>genre</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -249,7 +300,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#lb_user">lb_user</a></h4>
+		<h4>lb_user</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -263,7 +314,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#lending">lending</a></h4>
+		<h4>lending</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -279,7 +330,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#lending_collection">lending_collection</a></h4>
+		<h4>lending_collection</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -299,7 +350,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#library">library</a></h4>
+		<h4>library</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -313,7 +364,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#library_type_lookup">library_type_lookup</a></h4>
+		<h4>library_type_lookup</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -327,7 +378,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#library_user">library_user</a></h4>
+		<h4>library_user</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -341,7 +392,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#myself">myself</a></h4>
+		<h4>myself</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -351,7 +402,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#myself_check">myself_check</a></h4>
+		<h4>myself_check</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -361,7 +412,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#next_library">next_library</a></h4>
+		<h4>next_library</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">
@@ -377,7 +428,7 @@ p.tablecount {
 				<dd><span>Default</span>""&nbsp;-&gt;&nbsp;"null"</dd>
 			</dl>
 		</div>
-		<h4><a href="./schema-librarydb.html#publisher">publisher</a></h4>
+		<h4>publisher</h4>
 		<div class="change-table-content">
 			<h5>Change Column</h5>
 			<dl class="column-content">

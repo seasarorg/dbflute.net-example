@@ -2,6 +2,6 @@
 
 set MY_PROJECT_NAME=librarydb
 
-set DBFLUTE_HOME=..\mydbflute\dbflute-0.8.9.55
+set DBFLUTE_HOME=..\mydbflute\dbflute-0.8.9.58
 
 if "%pause_at_end%"=="" set pause_at_end=y

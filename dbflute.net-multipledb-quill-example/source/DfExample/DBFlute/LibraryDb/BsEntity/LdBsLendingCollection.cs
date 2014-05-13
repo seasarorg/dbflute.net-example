@@ -56,16 +56,16 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
         //                                                                       Attribute
         //                                                                       =========
         #region Attribute
-        /// <summary>LIBRARY_ID: {PK, NotNull, INT(10), FK to lending}</summary>
+        /// <summary>LIBRARY_ID: {PK, UQ, NotNull, INT(10), FK to lending}</summary>
         protected int? _libraryId;
 
-        /// <summary>LB_USER_ID: {PK, NotNull, INT(10), FK to lending}</summary>
+        /// <summary>LB_USER_ID: {PK, UQ+, NotNull, INT(10), FK to lending}</summary>
         protected int? _lbUserId;
 
-        /// <summary>LENDING_DATE: {PK, NotNull, DATETIME(19), FK to lending}</summary>
+        /// <summary>LENDING_DATE: {PK, UQ+, NotNull, DATETIME(19), FK to lending}</summary>
         protected DateTime? _lendingDate;
 
-        /// <summary>COLLECTION_ID: {PK, IX, NotNull, INT(10), FK to collection}</summary>
+        /// <summary>COLLECTION_ID: {PK, UQ+, IX, NotNull, INT(10), FK to collection}</summary>
         protected int? _collectionId;
 
         /// <summary>RETURN_LIMIT_DATE: {NotNull, DATETIME(19)}</summary>
@@ -275,7 +275,7 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
         //                                                                        Accessor
         //                                                                        ========
         #region Accessor
-        /// <summary>LIBRARY_ID: {PK, NotNull, INT(10), FK to lending}</summary>
+        /// <summary>LIBRARY_ID: {PK, UQ, NotNull, INT(10), FK to lending}</summary>
         [Seasar.Dao.Attrs.Column("LIBRARY_ID")]
         public int? LibraryId {
             get { return _libraryId; }
@@ -285,7 +285,7 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
             }
         }
 
-        /// <summary>LB_USER_ID: {PK, NotNull, INT(10), FK to lending}</summary>
+        /// <summary>LB_USER_ID: {PK, UQ+, NotNull, INT(10), FK to lending}</summary>
         [Seasar.Dao.Attrs.Column("LB_USER_ID")]
         public int? LbUserId {
             get { return _lbUserId; }
@@ -295,7 +295,7 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
             }
         }
 
-        /// <summary>LENDING_DATE: {PK, NotNull, DATETIME(19), FK to lending}</summary>
+        /// <summary>LENDING_DATE: {PK, UQ+, NotNull, DATETIME(19), FK to lending}</summary>
         [Seasar.Dao.Attrs.Column("LENDING_DATE")]
         public DateTime? LendingDate {
             get { return _lendingDate; }
@@ -305,7 +305,7 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
             }
         }
 
-        /// <summary>COLLECTION_ID: {PK, IX, NotNull, INT(10), FK to collection}</summary>
+        /// <summary>COLLECTION_ID: {PK, UQ+, IX, NotNull, INT(10), FK to collection}</summary>
         [Seasar.Dao.Attrs.Column("COLLECTION_ID")]
         public int? CollectionId {
             get { return _collectionId; }

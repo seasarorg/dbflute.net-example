@@ -49,10 +49,12 @@
             javaType="String" name="U_MODULE" required="true" size="100" type="VARCHAR"/>
         <column comment="" dbType="DATETIME" javaType="DateTime?"
             name="U_TIMESTAMP" required="true" size="19" type="TIMESTAMP"/>
-        <foreign-key foreignTable="black_list" name="FK_BLACK_ACTION_BLACK_LIST">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="black_list" name="FK_BLACK_ACTION_BLACK_LIST">
             <reference foreign="BLACK_LIST_ID" local="BLACK_LIST_ID"/>
         </foreign-key>
-        <foreign-key foreignTable="black_action_lookup" name="FK_BLACK_ACTION_LOOKUP">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="black_action_lookup" name="FK_BLACK_ACTION_LOOKUP">
             <reference foreign="BLACK_ACTION_CODE" local="BLACK_ACTION_CODE"/>
         </foreign-key>
         <index name="FK_BLACK_ACTION_BLACK_LIST">
@@ -102,7 +104,8 @@
             javaType="String" name="U_MODULE" required="true" size="100" type="VARCHAR"/>
         <column comment="" dbType="DATETIME" javaType="DateTime?"
             name="U_TIMESTAMP" required="true" size="19" type="TIMESTAMP"/>
-        <foreign-key foreignTable="lb_user" name="FK_BLACK_LIST_LB_USER">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="lb_user" name="FK_BLACK_LIST_LB_USER">
             <reference foreign="LB_USER_ID" local="LB_USER_ID"/>
         </foreign-key>
         <unique name="LB_USER_ID">
@@ -143,13 +146,16 @@
             javaType="String" name="U_MODULE" required="true" size="100" type="VARCHAR"/>
         <column comment="" dbType="DATETIME" javaType="DateTime?"
             name="U_TIMESTAMP" required="true" size="19" type="TIMESTAMP"/>
-        <foreign-key foreignTable="author" name="FK_BOOK_AUTHOR">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="author" name="FK_BOOK_AUTHOR">
             <reference foreign="AUTHOR_ID" local="AUTHOR_ID"/>
         </foreign-key>
-        <foreign-key foreignTable="genre" name="FK_BOOK_GENRE">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="genre" name="FK_BOOK_GENRE">
             <reference foreign="GENRE_CODE" local="GENRE_CODE"/>
         </foreign-key>
-        <foreign-key foreignTable="publisher" name="FK_BOOK_PUBLISHER">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="publisher" name="FK_BOOK_PUBLISHER">
             <reference foreign="PUBLISHER_ID" local="PUBLISHER_ID"/>
         </foreign-key>
         <unique name="ISBN">
@@ -187,10 +193,12 @@
             javaType="String" name="U_MODULE" required="true" size="100" type="VARCHAR"/>
         <column comment="" dbType="DATETIME" javaType="DateTime?"
             name="U_TIMESTAMP" required="true" size="19" type="TIMESTAMP"/>
-        <foreign-key foreignTable="book" name="FK_COLLECTION_BOOK">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="book" name="FK_COLLECTION_BOOK">
             <reference foreign="BOOK_ID" local="BOOK_ID"/>
         </foreign-key>
-        <foreign-key foreignTable="library" name="FK_COLLECTION_LIBRARY">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="library" name="FK_COLLECTION_LIBRARY">
             <reference foreign="LIBRARY_ID" local="LIBRARY_ID"/>
         </foreign-key>
         <unique name="LIBRARY_ID">
@@ -219,10 +227,12 @@
             javaType="String" name="U_MODULE" required="true" size="100" type="VARCHAR"/>
         <column comment="" dbType="DATETIME" javaType="DateTime?"
             name="U_TIMESTAMP" required="true" size="19" type="TIMESTAMP"/>
-        <foreign-key foreignTable="collection" name="FK_COLLECTION_STATUS_COLLECTION">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="collection" name="FK_COLLECTION_STATUS_COLLECTION">
             <reference foreign="COLLECTION_ID" local="COLLECTION_ID"/>
         </foreign-key>
-        <foreign-key foreignTable="collection_status_lookup" name="FK_COLLECTION_STATUS_LOOKUP">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="collection_status_lookup" name="FK_COLLECTION_STATUS_LOOKUP">
             <reference foreign="COLLECTION_STATUS_CODE" local="COLLECTION_STATUS_CODE"/>
         </foreign-key>
         <index name="FK_COLLECTION_STATUS_LOOKUP">
@@ -309,7 +319,8 @@
             javaType="String" name="U_MODULE" required="true" size="100" type="VARCHAR"/>
         <column comment="" dbType="DATETIME" javaType="DateTime?"
             name="U_TIMESTAMP" required="true" size="19" type="TIMESTAMP"/>
-        <foreign-key foreignTable="genre" name="FK_GENRE_GENRE">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="genre" name="FK_GENRE_GENRE">
             <reference foreign="GENRE_CODE" local="PARENT_GENRE_CODE"/>
         </foreign-key>
         <index name="FK_GENRE_GENRE">
@@ -359,10 +370,16 @@
             javaType="String" name="U_MODULE" required="true" size="100" type="VARCHAR"/>
         <column comment="" dbType="DATETIME" javaType="DateTime?"
             name="U_TIMESTAMP" required="true" size="19" type="TIMESTAMP"/>
-        <foreign-key foreignTable="library_user" name="FK_LENDING_LIBRARY_USER">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="library_user" name="FK_LENDING_LIBRARY_USER">
             <reference foreign="LIBRARY_ID" local="LIBRARY_ID"/>
             <reference foreign="LB_USER_ID" local="LB_USER_ID"/>
         </foreign-key>
+        <unique name="PRIMARY">
+            <unique-column name="LIBRARY_ID" position="1"/>
+            <unique-column name="LB_USER_ID" position="2"/>
+            <unique-column name="LENDING_DATE" position="3"/>
+        </unique>
     </table>
     <table name="lending_collection" schema="librarydb.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="int?"
@@ -391,14 +408,22 @@
             javaType="String" name="U_MODULE" required="true" size="100" type="VARCHAR"/>
         <column comment="" dbType="DATETIME" javaType="DateTime?"
             name="U_TIMESTAMP" required="true" size="19" type="TIMESTAMP"/>
-        <foreign-key foreignTable="collection" name="FK_LENDING_COLLECTION_COL">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="collection" name="FK_LENDING_COLLECTION_COL">
             <reference foreign="COLLECTION_ID" local="COLLECTION_ID"/>
         </foreign-key>
-        <foreign-key foreignTable="lending" name="FK_LENDING_COLLECTION_LENDING">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="lending" name="FK_LENDING_COLLECTION_LENDING">
             <reference foreign="LIBRARY_ID" local="LIBRARY_ID"/>
             <reference foreign="LB_USER_ID" local="LB_USER_ID"/>
             <reference foreign="LENDING_DATE" local="LENDING_DATE"/>
         </foreign-key>
+        <unique name="PRIMARY">
+            <unique-column name="LIBRARY_ID" position="1"/>
+            <unique-column name="LB_USER_ID" position="2"/>
+            <unique-column name="LENDING_DATE" position="3"/>
+            <unique-column name="COLLECTION_ID" position="4"/>
+        </unique>
         <index name="FK_LENDING_COLLECTION_COL">
             <index-column name="COLLECTION_ID" position="1"/>
         </index>
@@ -423,7 +448,8 @@
             javaType="String" name="U_MODULE" required="true" size="100" type="VARCHAR"/>
         <column comment="" dbType="DATETIME" javaType="DateTime?"
             name="U_TIMESTAMP" required="true" size="19" type="TIMESTAMP"/>
-        <foreign-key foreignTable="library_type_lookup" name="FK_LIBRARY_LIBRARY_TYPE_LOOKUP">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="library_type_lookup" name="FK_LIBRARY_LIBRARY_TYPE_LOOKUP">
             <reference foreign="LIBRARY_TYPE_CODE" local="LIBRARY_TYPE_CODE"/>
         </foreign-key>
         <unique name="LIBRARY_NAME">
@@ -472,12 +498,18 @@
             javaType="String" name="U_MODULE" required="true" size="100" type="VARCHAR"/>
         <column comment="" dbType="DATETIME" javaType="DateTime?"
             name="U_TIMESTAMP" required="true" size="19" type="TIMESTAMP"/>
-        <foreign-key foreignTable="lb_user" name="FK_LIBRARY_USER_LB_USER">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="lb_user" name="FK_LIBRARY_USER_LB_USER">
             <reference foreign="LB_USER_ID" local="LB_USER_ID"/>
         </foreign-key>
-        <foreign-key foreignTable="library" name="FK_LIBRARY_USER_LIBRARY">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="library" name="FK_LIBRARY_USER_LIBRARY">
             <reference foreign="LIBRARY_ID" local="LIBRARY_ID"/>
         </foreign-key>
+        <unique name="PRIMARY">
+            <unique-column name="LIBRARY_ID" position="1"/>
+            <unique-column name="LB_USER_ID" position="2"/>
+        </unique>
         <index name="FK_LIBRARY_USER_LB_USER">
             <index-column name="LB_USER_ID" position="1"/>
         </index>
@@ -496,7 +528,8 @@
             name="MYSELF_CHECK_NAME" required="true" size="80" type="VARCHAR"/>
         <column comment="" dbType="INT" javaType="int?" name="MYSELF_ID"
             size="10" type="INTEGER"/>
-        <foreign-key foreignTable="myself" name="FK_MYSELF_CHECK_SELF">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="myself" name="FK_MYSELF_CHECK_SELF">
             <reference foreign="MYSELF_ID" local="MYSELF_ID"/>
         </foreign-key>
         <index name="FK_MYSELF_CHECK_SELF">
@@ -524,10 +557,12 @@
             javaType="String" name="U_MODULE" required="true" size="100" type="VARCHAR"/>
         <column comment="" dbType="DATETIME" javaType="DateTime?"
             name="U_TIMESTAMP" required="true" size="19" type="TIMESTAMP"/>
-        <foreign-key foreignTable="library" name="FK_NEXT_LIBRARY_LIBRARY_ID">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="library" name="FK_NEXT_LIBRARY_LIBRARY_ID">
             <reference foreign="LIBRARY_ID" local="LIBRARY_ID"/>
         </foreign-key>
-        <foreign-key foreignTable="library" name="FK_NEXT_LIBRARY_NEXT_LIBRARY_ID">
+        <foreign-key foreignSchema="librarydb.$$NoNameSchema$$"
+            foreignTable="library" name="FK_NEXT_LIBRARY_NEXT_LIBRARY_ID">
             <reference foreign="LIBRARY_ID" local="NEXT_LIBRARY_ID"/>
         </foreign-key>
         <index name="FK_NEXT_LIBRARY_NEXT_LIBRARY_ID">
