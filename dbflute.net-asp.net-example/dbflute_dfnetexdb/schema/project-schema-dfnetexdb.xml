@@ -5,7 +5,7 @@
     <table comment="会員: 会員登録時にInsertされる。&#xa;物理削除されることはない" name="MEMBER"
         schema="DFNETEXDB" type="TABLE">
         <column comment="会員ID: 連番" dbType="NUMBER" javaType="long?"
-            name="MEMBER_ID" pkName="SYS_C007134" primaryKey="true"
+            name="MEMBER_ID" pkName="SYS_C007402" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
         <column comment="会員名称: 会員検索の条件となる。" dbType="VARCHAR2"
             javaType="String" name="MEMBER_NAME" required="true"
@@ -49,7 +49,7 @@
     </table>
     <table name="MEMBER_ADDRESS" schema="DFNETEXDB" type="TABLE">
         <column dbType="NUMBER" javaType="long?"
-            name="MEMBER_ADDRESS_ID" pkName="SYS_C007147"
+            name="MEMBER_ADDRESS_ID" pkName="SYS_C007415"
             primaryKey="true" required="true" size="16" type="DECIMAL"/>
         <column dbType="NUMBER" javaType="long?" name="MEMBER_ID"
             required="true" size="16" type="DECIMAL"/>
@@ -84,7 +84,7 @@
     <table comment="会員ログイン: ログインの度にInsertされる" name="MEMBER_LOGIN"
         schema="DFNETEXDB" type="TABLE">
         <column dbType="NUMBER" javaType="long?" name="MEMBER_LOGIN_ID"
-            pkName="SYS_C007153" primaryKey="true" required="true"
+            pkName="SYS_C007421" primaryKey="true" required="true"
             size="16" type="DECIMAL"/>
         <column dbType="NUMBER" javaType="long?" name="MEMBER_ID"
             required="true" size="16" type="DECIMAL"/>
@@ -111,7 +111,7 @@
     </table>
     <table name="MEMBER_SECURITY" schema="DFNETEXDB" type="TABLE">
         <column dbType="NUMBER" javaType="long?" name="MEMBER_ID"
-            pkName="SYS_C007110" primaryKey="true" required="true"
+            pkName="SYS_C007378" primaryKey="true" required="true"
             size="16" type="DECIMAL"/>
         <column dbType="VARCHAR2" javaType="String"
             name="LOGIN_PASSWORD" required="true" size="50" type="VARCHAR"/>
@@ -140,7 +140,7 @@
     <table comment="会員ステータス: 固定の区分値" name="MEMBER_STATUS"
         schema="DFNETEXDB" type="TABLE">
         <column dbType="CHAR" javaType="String"
-            name="MEMBER_STATUS_CODE" pkName="SYS_C007164"
+            name="MEMBER_STATUS_CODE" pkName="SYS_C007432"
             primaryKey="true" required="true" size="3" type="CHAR"/>
         <column dbType="VARCHAR2" javaType="String"
             name="MEMBER_STATUS_NAME" required="true" size="50" type="VARCHAR"/>
@@ -156,7 +156,7 @@
     <table comment="会員: 会員登録時にInsertされる。&#xa;物理削除されることはない"
         name="MEMBER_VENDOR_SYNONYM" schema="DFNETEXDB" type="SYNONYM">
         <column comment="会員ID: 連番" dbType="NUMBER" javaType="long?"
-            name="MEMBER_ID" pkName="SYS_C007134" primaryKey="true"
+            name="MEMBER_ID" pkName="SYS_C007402" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
         <column comment="会員名称: 会員検索の条件となる。" dbType="VARCHAR2"
             javaType="String" name="MEMBER_NAME" required="true"
@@ -201,7 +201,7 @@
     <table comment="退会するとInsertされる" name="MEMBER_WITHDRAWAL"
         schema="DFNETEXDB" type="TABLE">
         <column dbType="NUMBER" javaType="long?" name="MEMBER_ID"
-            pkName="SYS_C007098" primaryKey="true" required="true"
+            pkName="SYS_C007366" primaryKey="true" required="true"
             size="16" type="DECIMAL"/>
         <column dbType="CHAR" javaType="String"
             name="WITHDRAWAL_REASON_CODE" size="3" type="CHAR"/>
@@ -233,7 +233,7 @@
     </table>
     <table comment="商品: " name="PRODUCT" schema="DFNETEXDB" type="TABLE">
         <column dbType="NUMBER" javaType="long?" name="PRODUCT_ID"
-            pkName="SYS_C007122" primaryKey="true" required="true"
+            pkName="SYS_C007390" primaryKey="true" required="true"
             size="16" type="DECIMAL"/>
         <column dbType="VARCHAR2" javaType="String" name="PRODUCT_NAME"
             required="true" size="50" type="VARCHAR"/>
@@ -268,7 +268,7 @@
     </table>
     <table comment=": 商品ステータス" name="PRODUCT_STATUS" schema="DFNETEXDB" type="TABLE">
         <column dbType="CHAR" javaType="String"
-            name="PRODUCT_STATUS_CODE" pkName="SYS_C007160"
+            name="PRODUCT_STATUS_CODE" pkName="SYS_C007428"
             primaryKey="true" required="true" size="3" type="CHAR"/>
         <column dbType="VARCHAR2" javaType="String"
             name="PRODUCT_STATUS_NAME" required="true" size="50" type="VARCHAR"/>
@@ -279,7 +279,7 @@
     <table comment="購入: 購入の度ににInsertされる" name="PURCHASE"
         schema="DFNETEXDB" type="TABLE">
         <column dbType="NUMBER" javaType="long?" name="PURCHASE_ID"
-            pkName="SYS_C007088" primaryKey="true" required="true"
+            pkName="SYS_C007356" primaryKey="true" required="true"
             size="16" type="DECIMAL"/>
         <column dbType="NUMBER" javaType="long?" name="MEMBER_ID"
             required="true" size="16" type="DECIMAL"/>
@@ -356,7 +356,7 @@
     <table comment="会員: 会員登録時にInsertされる。&#xa;物理削除されることはない"
         name="VD_SYNONYM_MEMBER" schema="DFNETEXDB" type="SYNONYM">
         <column comment="会員ID: 連番" dbType="NUMBER" javaType="long?"
-            name="MEMBER_ID" pkName="SYS_C007134" primaryKey="true"
+            name="MEMBER_ID" pkName="SYS_C007402" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
         <column comment="会員名称: 会員検索の条件となる。" dbType="VARCHAR2"
             javaType="String" name="MEMBER_NAME" required="true"
@@ -401,7 +401,7 @@
     <table comment="会員ログイン: ログインの度にInsertされる"
         name="VD_SYNONYM_MEMBER_LOGIN" schema="DFNETEXDB" type="SYNONYM">
         <column dbType="NUMBER" javaType="long?" name="MEMBER_LOGIN_ID"
-            pkName="SYS_C007153" primaryKey="true" required="true"
+            pkName="SYS_C007421" primaryKey="true" required="true"
             size="16" type="DECIMAL"/>
         <column dbType="NUMBER" javaType="long?" name="MEMBER_ID"
             required="true" size="16" type="DECIMAL"/>
@@ -438,7 +438,7 @@
     <table comment="退会するとInsertされる" name="VD_SYNONYM_MEMBER_WITHDRAWAL"
         schema="DFNETEXDB" type="SYNONYM">
         <column dbType="NUMBER" javaType="long?" name="MEMBER_ID"
-            pkName="SYS_C007098" primaryKey="true" required="true"
+            pkName="SYS_C007366" primaryKey="true" required="true"
             size="16" type="DECIMAL"/>
         <column dbType="CHAR" javaType="String"
             name="WITHDRAWAL_REASON_CODE" size="3" type="CHAR"/>
@@ -479,7 +479,7 @@
     </table>
     <table comment="商品: " name="VD_SYNONYM_PRODUCT" schema="DFNETEXDB" type="SYNONYM">
         <column dbType="NUMBER" javaType="long?" name="PRODUCT_ID"
-            pkName="SYS_C007122" primaryKey="true" required="true"
+            pkName="SYS_C007390" primaryKey="true" required="true"
             size="16" type="DECIMAL"/>
         <column dbType="VARCHAR2" javaType="String" name="PRODUCT_NAME"
             required="true" size="50" type="VARCHAR"/>
@@ -515,7 +515,7 @@
     <table comment=": 商品ステータス" name="VD_SYNONYM_PRODUCT_STATUS"
         schema="DFNETEXDB" type="SYNONYM">
         <column dbType="CHAR" javaType="String"
-            name="PRODUCT_STATUS_CODE" pkName="SYS_C007160"
+            name="PRODUCT_STATUS_CODE" pkName="SYS_C007428"
             primaryKey="true" required="true" size="3" type="CHAR"/>
         <column dbType="VARCHAR2" javaType="String"
             name="PRODUCT_STATUS_NAME" required="true" size="50" type="VARCHAR"/>
@@ -525,14 +525,14 @@
     </table>
     <table name="VD_SYNONYM_VENDOR_EXCEPT" schema="DFNETEXDB" type="SYNONYM">
         <column dbType="NUMBER" javaType="long?" name="VENDOR_EXCEPT_ID"
-            pkName="SYS_C007196" primaryKey="true" required="true"
+            pkName="SYS_C007464" primaryKey="true" required="true"
             size="16" type="DECIMAL"/>
         <column dbType="VARCHAR2" javaType="String"
             name="VANDOR_EXCEPT_NAME" size="256" type="VARCHAR"/>
     </table>
     <table name="VD_SYNONYM_VENDOR_REF_EXCEPT" schema="DFNETEXDB" type="SYNONYM">
         <column dbType="NUMBER" javaType="long?"
-            name="VENDOR_REF_EXCEPT_ID" pkName="SYS_C007199"
+            name="VENDOR_REF_EXCEPT_ID" pkName="SYS_C007467"
             primaryKey="true" required="true" size="16" type="DECIMAL"/>
         <column dbType="NUMBER" javaType="long?" name="VENDOR_EXCEPT_ID"
             required="true" size="16" type="DECIMAL"/>
@@ -543,7 +543,7 @@
     </table>
     <table name="VD_SYNONYM_VENDOR_REF_TARGET" schema="DFNETEXDB" type="SYNONYM">
         <column dbType="NUMBER" javaType="long?"
-            name="VENDOR_REF_TARGET_ID" pkName="SYS_C007204"
+            name="VENDOR_REF_TARGET_ID" pkName="SYS_C007472"
             primaryKey="true" required="true" size="16" type="DECIMAL"/>
         <column dbType="NUMBER" javaType="long?" name="VENDOR_TARGET_ID"
             required="true" size="16" type="DECIMAL"/>
@@ -554,14 +554,14 @@
     </table>
     <table name="VD_SYNONYM_VENDOR_TARGET" schema="DFNETEXDB" type="SYNONYM">
         <column dbType="NUMBER" javaType="long?" name="VENDOR_TARGET_ID"
-            pkName="SYS_C007201" primaryKey="true" required="true"
+            pkName="SYS_C007469" primaryKey="true" required="true"
             size="16" type="DECIMAL"/>
         <column dbType="VARCHAR2" javaType="String"
             name="VANDOR_TARGET_NAME" size="256" type="VARCHAR"/>
     </table>
     <table name="VENDOR_CHECK" schema="DFNETEXDB" type="TABLE">
         <column dbType="NUMBER" javaType="long?" name="VENDOR_CHECK_ID"
-            pkName="SYS_C007187" primaryKey="true" required="true"
+            pkName="SYS_C007455" primaryKey="true" required="true"
             size="16" type="DECIMAL"/>
         <column dbType="NUMBER" javaType="decimal?" name="DECIMAL_DIGIT"
             required="true" size="5, 3" type="DECIMAL"/>
@@ -596,14 +596,14 @@
     </table>
     <table name="VENDOR_EXCEPT" schema="DFNETEXDB" type="TABLE">
         <column dbType="NUMBER" javaType="long?" name="VENDOR_EXCEPT_ID"
-            pkName="SYS_C007196" primaryKey="true" required="true"
+            pkName="SYS_C007464" primaryKey="true" required="true"
             size="16" type="DECIMAL"/>
         <column dbType="VARCHAR2" javaType="String"
             name="VANDOR_EXCEPT_NAME" size="256" type="VARCHAR"/>
     </table>
     <table name="VENDOR_LARGE_NAME_901234567890" schema="DFNETEXDB" type="TABLE">
         <column dbType="NUMBER" javaType="long?"
-            name="VENDOR_LARGE_NAME_901234567_ID" pkName="SYS_C007190"
+            name="VENDOR_LARGE_NAME_901234567_ID" pkName="SYS_C007458"
             primaryKey="true" required="true" size="16" type="DECIMAL"/>
         <column dbType="VARCHAR2" javaType="String"
             name="VENDOR_LARGE_NAME_9012345_NAME" required="true"
@@ -611,7 +611,7 @@
     </table>
     <table name="VENDOR_LARGE_NAME_90123456_REF" schema="DFNETEXDB" type="TABLE">
         <column dbType="NUMBER" javaType="long?"
-            name="VENDOR_LARGE_NAME_90123_REF_ID" pkName="SYS_C007193"
+            name="VENDOR_LARGE_NAME_90123_REF_ID" pkName="SYS_C007461"
             primaryKey="true" required="true" size="16" type="DECIMAL"/>
         <column dbType="VARCHAR2" javaType="String"
             name="VENDOR_LARGE_NAME_901_REF_NAME" required="true"
@@ -625,7 +625,7 @@
     </table>
     <table name="VENDOR_REF_EXCEPT" schema="DFNETEXDB" type="TABLE">
         <column dbType="NUMBER" javaType="long?"
-            name="VENDOR_REF_EXCEPT_ID" pkName="SYS_C007199"
+            name="VENDOR_REF_EXCEPT_ID" pkName="SYS_C007467"
             primaryKey="true" required="true" size="16" type="DECIMAL"/>
         <column dbType="NUMBER" javaType="long?" name="VENDOR_EXCEPT_ID"
             required="true" size="16" type="DECIMAL"/>
@@ -636,7 +636,7 @@
     </table>
     <table name="VENDOR_REF_TARGET" schema="DFNETEXDB" type="TABLE">
         <column dbType="NUMBER" javaType="long?"
-            name="VENDOR_REF_TARGET_ID" pkName="SYS_C007204"
+            name="VENDOR_REF_TARGET_ID" pkName="SYS_C007472"
             primaryKey="true" required="true" size="16" type="DECIMAL"/>
         <column dbType="NUMBER" javaType="long?" name="VENDOR_TARGET_ID"
             required="true" size="16" type="DECIMAL"/>
@@ -648,7 +648,7 @@
     <table comment="会員: 会員登録時にInsertされる。&#xa;物理削除されることはない"
         name="VENDOR_SYNONYM_MEMBER" schema="DFNETEXDB" type="SYNONYM">
         <column comment="会員ID: 連番" dbType="NUMBER" javaType="long?"
-            name="MEMBER_ID" pkName="SYS_C007134" primaryKey="true"
+            name="MEMBER_ID" pkName="SYS_C007402" primaryKey="true"
             required="true" size="16" type="DECIMAL"/>
         <column comment="会員名称: 会員検索の条件となる。" dbType="VARCHAR2"
             javaType="String" name="MEMBER_NAME" required="true"
@@ -692,14 +692,14 @@
     </table>
     <table name="VENDOR_TARGET" schema="DFNETEXDB" type="TABLE">
         <column dbType="NUMBER" javaType="long?" name="VENDOR_TARGET_ID"
-            pkName="SYS_C007201" primaryKey="true" required="true"
+            pkName="SYS_C007469" primaryKey="true" required="true"
             size="16" type="DECIMAL"/>
         <column dbType="VARCHAR2" javaType="String"
             name="VANDOR_TARGET_NAME" size="256" type="VARCHAR"/>
     </table>
     <table name="WITHDRAWAL_REASON" schema="DFNETEXDB" type="TABLE">
         <column dbType="CHAR" javaType="String"
-            name="WITHDRAWAL_REASON_CODE" pkName="SYS_C007157"
+            name="WITHDRAWAL_REASON_CODE" pkName="SYS_C007425"
             primaryKey="true" required="true" size="3" type="CHAR"/>
         <column dbType="CLOB" javaType="String"
             name="WITHDRAWAL_REASON_TEXT" required="true" size="4000" type="CLOB"/>
