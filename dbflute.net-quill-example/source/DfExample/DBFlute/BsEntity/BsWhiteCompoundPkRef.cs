@@ -61,10 +61,10 @@ namespace DfExample.DBFlute.ExEntity {
         /// <summary>MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}</summary>
         protected int? _multipleSecondId;
 
-        /// <summary>REF_FIRST_ID: {IX, NotNull, INT(10), FK to white_compound_pk}</summary>
+        /// <summary>REF_FIRST_ID: {IX+, NotNull, INT(10), FK to white_compound_pk}</summary>
         protected int? _refFirstId;
 
-        /// <summary>REF_SECOND_ID: {IX+, NotNull, INT(10), FK to white_compound_pk}</summary>
+        /// <summary>REF_SECOND_ID: {NotNull, INT(10), FK to white_compound_pk}</summary>
         protected int? _refSecondId;
 
         protected EntityModifiedProperties __modifiedProperties = new EntityModifiedProperties();
@@ -243,7 +243,7 @@ namespace DfExample.DBFlute.ExEntity {
             }
         }
 
-        /// <summary>REF_FIRST_ID: {IX, NotNull, INT(10), FK to white_compound_pk}</summary>
+        /// <summary>REF_FIRST_ID: {IX+, NotNull, INT(10), FK to white_compound_pk}</summary>
         [Seasar.Dao.Attrs.Column("REF_FIRST_ID")]
         public int? RefFirstId {
             get { return _refFirstId; }
@@ -253,7 +253,7 @@ namespace DfExample.DBFlute.ExEntity {
             }
         }
 
-        /// <summary>REF_SECOND_ID: {IX+, NotNull, INT(10), FK to white_compound_pk}</summary>
+        /// <summary>REF_SECOND_ID: {NotNull, INT(10), FK to white_compound_pk}</summary>
         [Seasar.Dao.Attrs.Column("REF_SECOND_ID")]
         public int? RefSecondId {
             get { return _refSecondId; }

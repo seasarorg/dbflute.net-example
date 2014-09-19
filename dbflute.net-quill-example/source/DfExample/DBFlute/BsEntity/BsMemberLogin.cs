@@ -58,10 +58,10 @@ namespace DfExample.DBFlute.ExEntity {
         /// <summary>MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}</summary>
         protected long? _memberLoginId;
 
-        /// <summary>MEMBER_ID: {UQ, IX, NotNull, INT(10), FK to member}</summary>
+        /// <summary>MEMBER_ID: {UQ+, IX, NotNull, INT(10), FK to member}</summary>
         protected int? _memberId;
 
-        /// <summary>LOGIN_DATETIME: {UQ+, IX, NotNull, DATETIME(19)}</summary>
+        /// <summary>LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)}</summary>
         protected DateTime? _loginDatetime;
 
         /// <summary>MOBILE_LOGIN_FLG: {NotNull, INT(10), classification=Flg}</summary>
@@ -316,7 +316,7 @@ namespace DfExample.DBFlute.ExEntity {
             }
         }
 
-        /// <summary>MEMBER_ID: {UQ, IX, NotNull, INT(10), FK to member}</summary>
+        /// <summary>MEMBER_ID: {UQ+, IX, NotNull, INT(10), FK to member}</summary>
         [Seasar.Dao.Attrs.Column("MEMBER_ID")]
         public int? MemberId {
             get { return _memberId; }
@@ -326,7 +326,7 @@ namespace DfExample.DBFlute.ExEntity {
             }
         }
 
-        /// <summary>LOGIN_DATETIME: {UQ+, IX, NotNull, DATETIME(19)}</summary>
+        /// <summary>LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)}</summary>
         [Seasar.Dao.Attrs.Column("LOGIN_DATETIME")]
         public DateTime? LoginDatetime {
             get { return _loginDatetime; }

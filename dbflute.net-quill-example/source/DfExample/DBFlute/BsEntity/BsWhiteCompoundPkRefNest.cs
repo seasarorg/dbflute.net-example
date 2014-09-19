@@ -58,13 +58,13 @@ namespace DfExample.DBFlute.ExEntity {
         /// <summary>COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)}</summary>
         protected int? _compoundPkRefNestId;
 
-        /// <summary>FOO_MULTIPLE_ID: {IX, NotNull, INT(10), FK to white_compound_pk_ref}</summary>
+        /// <summary>FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}</summary>
         protected int? _fooMultipleId;
 
-        /// <summary>BAR_MULTIPLE_ID: {IX, NotNull, INT(10), FK to white_compound_pk_ref}</summary>
+        /// <summary>BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}</summary>
         protected int? _barMultipleId;
 
-        /// <summary>QUX_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}</summary>
+        /// <summary>QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref}</summary>
         protected int? _quxMultipleId;
 
         protected EntityModifiedProperties __modifiedProperties = new EntityModifiedProperties();
@@ -218,7 +218,7 @@ namespace DfExample.DBFlute.ExEntity {
             }
         }
 
-        /// <summary>FOO_MULTIPLE_ID: {IX, NotNull, INT(10), FK to white_compound_pk_ref}</summary>
+        /// <summary>FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}</summary>
         [Seasar.Dao.Attrs.Column("FOO_MULTIPLE_ID")]
         public int? FooMultipleId {
             get { return _fooMultipleId; }
@@ -228,7 +228,7 @@ namespace DfExample.DBFlute.ExEntity {
             }
         }
 
-        /// <summary>BAR_MULTIPLE_ID: {IX, NotNull, INT(10), FK to white_compound_pk_ref}</summary>
+        /// <summary>BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}</summary>
         [Seasar.Dao.Attrs.Column("BAR_MULTIPLE_ID")]
         public int? BarMultipleId {
             get { return _barMultipleId; }
@@ -238,7 +238,7 @@ namespace DfExample.DBFlute.ExEntity {
             }
         }
 
-        /// <summary>QUX_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}</summary>
+        /// <summary>QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref}</summary>
         [Seasar.Dao.Attrs.Column("QUX_MULTIPLE_ID")]
         public int? QuxMultipleId {
             get { return _quxMultipleId; }

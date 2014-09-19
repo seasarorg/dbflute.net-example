@@ -59,13 +59,13 @@ namespace DfExample.DBFlute.ExEntity {
         /// <summary>PURCHASE_ID: {PK, ID, NotNull, BIGINT(19)}</summary>
         protected long? _purchaseId;
 
-        /// <summary>MEMBER_ID: {UQ, IX, NotNull, INT(10), FK to member}</summary>
+        /// <summary>MEMBER_ID: {UQ+, IX+, NotNull, INT(10), FK to member}</summary>
         protected int? _memberId;
 
-        /// <summary>PRODUCT_ID: {UQ+, IX, NotNull, INT(10), FK to product}</summary>
+        /// <summary>PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}</summary>
         protected int? _productId;
 
-        /// <summary>PURCHASE_DATETIME: {UQ+, IX, NotNull, DATETIME(19)}</summary>
+        /// <summary>PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)}</summary>
         protected DateTime? _purchaseDatetime;
 
         /// <summary>PURCHASE_COUNT: {NotNull, INT(10)}</summary>
@@ -370,7 +370,7 @@ namespace DfExample.DBFlute.ExEntity {
             }
         }
 
-        /// <summary>MEMBER_ID: {UQ, IX, NotNull, INT(10), FK to member}</summary>
+        /// <summary>MEMBER_ID: {UQ+, IX+, NotNull, INT(10), FK to member}</summary>
         [Seasar.Dao.Attrs.Column("MEMBER_ID")]
         public int? MemberId {
             get { return _memberId; }
@@ -380,7 +380,7 @@ namespace DfExample.DBFlute.ExEntity {
             }
         }
 
-        /// <summary>PRODUCT_ID: {UQ+, IX, NotNull, INT(10), FK to product}</summary>
+        /// <summary>PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}</summary>
         [Seasar.Dao.Attrs.Column("PRODUCT_ID")]
         public int? ProductId {
             get { return _productId; }
@@ -390,7 +390,7 @@ namespace DfExample.DBFlute.ExEntity {
             }
         }
 
-        /// <summary>PURCHASE_DATETIME: {UQ+, IX, NotNull, DATETIME(19)}</summary>
+        /// <summary>PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)}</summary>
         [Seasar.Dao.Attrs.Column("PURCHASE_DATETIME")]
         public DateTime? PurchaseDatetime {
             get { return _purchaseDatetime; }
