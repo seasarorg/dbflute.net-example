@@ -59,10 +59,10 @@ namespace DfExample.DBFlute.MemberDb.ExEntity {
         /// <summary>MEMBER_ADDRESS_ID: {PK, ID, NotNull, INT(10)}</summary>
         protected int? _memberAddressId;
 
-        /// <summary>MEMBER_ID: {UQ, IX, NotNull, INT(10), FK to member}</summary>
+        /// <summary>MEMBER_ID: {UQ+, IX, NotNull, INT(10), FK to member}</summary>
         protected int? _memberId;
 
-        /// <summary>VALID_BEGIN_DATE: {UQ+, NotNull, DATE(10)}</summary>
+        /// <summary>VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}</summary>
         protected DateTime? _validBeginDate;
 
         /// <summary>VALID_END_DATE: {NotNull, DATE(10)}</summary>
@@ -257,7 +257,7 @@ namespace DfExample.DBFlute.MemberDb.ExEntity {
             }
         }
 
-        /// <summary>MEMBER_ID: {UQ, IX, NotNull, INT(10), FK to member}</summary>
+        /// <summary>MEMBER_ID: {UQ+, IX, NotNull, INT(10), FK to member}</summary>
         [Seasar.Dao.Attrs.Column("MEMBER_ID")]
         public int? MemberId {
             get { return _memberId; }
@@ -267,7 +267,7 @@ namespace DfExample.DBFlute.MemberDb.ExEntity {
             }
         }
 
-        /// <summary>VALID_BEGIN_DATE: {UQ+, NotNull, DATE(10)}</summary>
+        /// <summary>VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}</summary>
         [Seasar.Dao.Attrs.Column("VALID_BEGIN_DATE")]
         public DateTime? ValidBeginDate {
             get { return _validBeginDate; }

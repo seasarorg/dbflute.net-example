@@ -56,13 +56,13 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
         //                                                                       Attribute
         //                                                                       =========
         #region Attribute
-        /// <summary>LIBRARY_ID: {PK, UQ, NotNull, INT(10), FK to library_user}</summary>
+        /// <summary>LIBRARY_ID: {PK, NotNull, INT(10), FK to library_user}</summary>
         protected int? _libraryId;
 
-        /// <summary>LB_USER_ID: {PK, UQ+, NotNull, INT(10), FK to library_user}</summary>
+        /// <summary>LB_USER_ID: {PK, NotNull, INT(10), FK to library_user}</summary>
         protected int? _lbUserId;
 
-        /// <summary>LENDING_DATE: {PK, UQ+, NotNull, DATETIME(19)}</summary>
+        /// <summary>LENDING_DATE: {PK, NotNull, DATETIME(19)}</summary>
         protected DateTime? _lendingDate;
 
         /// <summary>R_USER: {NotNull, VARCHAR(100), default=[default-user]}</summary>
@@ -252,7 +252,7 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
         //                                                                        Accessor
         //                                                                        ========
         #region Accessor
-        /// <summary>LIBRARY_ID: {PK, UQ, NotNull, INT(10), FK to library_user}</summary>
+        /// <summary>LIBRARY_ID: {PK, NotNull, INT(10), FK to library_user}</summary>
         [Seasar.Dao.Attrs.Column("LIBRARY_ID")]
         public int? LibraryId {
             get { return _libraryId; }
@@ -262,7 +262,7 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
             }
         }
 
-        /// <summary>LB_USER_ID: {PK, UQ+, NotNull, INT(10), FK to library_user}</summary>
+        /// <summary>LB_USER_ID: {PK, NotNull, INT(10), FK to library_user}</summary>
         [Seasar.Dao.Attrs.Column("LB_USER_ID")]
         public int? LbUserId {
             get { return _lbUserId; }
@@ -272,7 +272,7 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
             }
         }
 
-        /// <summary>LENDING_DATE: {PK, UQ+, NotNull, DATETIME(19)}</summary>
+        /// <summary>LENDING_DATE: {PK, NotNull, DATETIME(19)}</summary>
         [Seasar.Dao.Attrs.Column("LENDING_DATE")]
         public DateTime? LendingDate {
             get { return _lendingDate; }

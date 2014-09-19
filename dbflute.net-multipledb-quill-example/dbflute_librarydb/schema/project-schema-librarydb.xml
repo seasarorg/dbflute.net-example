@@ -375,11 +375,6 @@
             <reference foreign="LIBRARY_ID" local="LIBRARY_ID"/>
             <reference foreign="LB_USER_ID" local="LB_USER_ID"/>
         </foreign-key>
-        <unique name="PRIMARY">
-            <unique-column name="LIBRARY_ID" position="1"/>
-            <unique-column name="LB_USER_ID" position="2"/>
-            <unique-column name="LENDING_DATE" position="3"/>
-        </unique>
     </table>
     <table name="lending_collection" schema="librarydb.$$NoNameSchema$$" type="TABLE">
         <column comment="" dbType="INT" javaType="int?"
@@ -418,12 +413,6 @@
             <reference foreign="LB_USER_ID" local="LB_USER_ID"/>
             <reference foreign="LENDING_DATE" local="LENDING_DATE"/>
         </foreign-key>
-        <unique name="PRIMARY">
-            <unique-column name="LIBRARY_ID" position="1"/>
-            <unique-column name="LB_USER_ID" position="2"/>
-            <unique-column name="LENDING_DATE" position="3"/>
-            <unique-column name="COLLECTION_ID" position="4"/>
-        </unique>
         <index name="FK_LENDING_COLLECTION_COL">
             <index-column name="COLLECTION_ID" position="1"/>
         </index>
@@ -506,10 +495,6 @@
             foreignTable="library" name="FK_LIBRARY_USER_LIBRARY">
             <reference foreign="LIBRARY_ID" local="LIBRARY_ID"/>
         </foreign-key>
-        <unique name="PRIMARY">
-            <unique-column name="LIBRARY_ID" position="1"/>
-            <unique-column name="LB_USER_ID" position="2"/>
-        </unique>
         <index name="FK_LIBRARY_USER_LB_USER">
             <index-column name="LB_USER_ID" position="1"/>
         </index>

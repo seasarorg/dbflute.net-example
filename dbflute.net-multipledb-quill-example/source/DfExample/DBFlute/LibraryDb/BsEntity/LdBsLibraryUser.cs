@@ -56,10 +56,10 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
         //                                                                       Attribute
         //                                                                       =========
         #region Attribute
-        /// <summary>LIBRARY_ID: {PK, UQ, NotNull, INT(10), FK to library}</summary>
+        /// <summary>LIBRARY_ID: {PK, NotNull, INT(10), FK to library}</summary>
         protected int? _libraryId;
 
-        /// <summary>LB_USER_ID: {PK, UQ+, IX, NotNull, INT(10), FK to lb_user}</summary>
+        /// <summary>LB_USER_ID: {PK, IX, NotNull, INT(10), FK to lb_user}</summary>
         protected int? _lbUserId;
 
         /// <summary>R_USER: {NotNull, VARCHAR(100), default=[default-user]}</summary>
@@ -269,7 +269,7 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
         //                                                                        Accessor
         //                                                                        ========
         #region Accessor
-        /// <summary>LIBRARY_ID: {PK, UQ, NotNull, INT(10), FK to library}</summary>
+        /// <summary>LIBRARY_ID: {PK, NotNull, INT(10), FK to library}</summary>
         [Seasar.Dao.Attrs.Column("LIBRARY_ID")]
         public int? LibraryId {
             get { return _libraryId; }
@@ -279,7 +279,7 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
             }
         }
 
-        /// <summary>LB_USER_ID: {PK, UQ+, IX, NotNull, INT(10), FK to lb_user}</summary>
+        /// <summary>LB_USER_ID: {PK, IX, NotNull, INT(10), FK to lb_user}</summary>
         [Seasar.Dao.Attrs.Column("LB_USER_ID")]
         public int? LbUserId {
             get { return _lbUserId; }

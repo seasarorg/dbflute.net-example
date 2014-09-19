@@ -59,10 +59,10 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
         /// <summary>COLLECTION_ID: {PK, ID, NotNull, INT(10)}</summary>
         protected int? _collectionId;
 
-        /// <summary>LIBRARY_ID: {UQ, NotNull, INT(10), FK to library}</summary>
+        /// <summary>LIBRARY_ID: {UQ+, NotNull, INT(10), FK to library}</summary>
         protected int? _libraryId;
 
-        /// <summary>BOOK_ID: {UQ+, IX, NotNull, INT(10), FK to book}</summary>
+        /// <summary>BOOK_ID: {+UQ, IX, NotNull, INT(10), FK to book}</summary>
         protected int? _bookId;
 
         /// <summary>ARRIVAL_DATE: {NotNull, DATETIME(19)}</summary>
@@ -285,7 +285,7 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
             }
         }
 
-        /// <summary>LIBRARY_ID: {UQ, NotNull, INT(10), FK to library}</summary>
+        /// <summary>LIBRARY_ID: {UQ+, NotNull, INT(10), FK to library}</summary>
         [Seasar.Dao.Attrs.Column("LIBRARY_ID")]
         public int? LibraryId {
             get { return _libraryId; }
@@ -295,7 +295,7 @@ namespace DfExample.DBFlute.LibraryDb.ExEntity {
             }
         }
 
-        /// <summary>BOOK_ID: {UQ+, IX, NotNull, INT(10), FK to book}</summary>
+        /// <summary>BOOK_ID: {+UQ, IX, NotNull, INT(10), FK to book}</summary>
         [Seasar.Dao.Attrs.Column("BOOK_ID")]
         public int? BookId {
             get { return _bookId; }

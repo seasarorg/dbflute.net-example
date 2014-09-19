@@ -1,4 +1,39 @@
 map:{
+    ; 2014/09/19 22:26:34 = map:{
+        ; diffDate = 2014/09/19 22:26:34
+        ; tableDiff = map:{
+            ; lending = map:{
+                ; tableName = lending
+                ; diffType = CHANGE
+                ; uniqueKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; lending_collection = map:{
+                ; tableName = lending_collection
+                ; diffType = CHANGE
+                ; uniqueKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; library_user = map:{
+                ; tableName = library_user
+                ; diffType = CHANGE
+                ; uniqueKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
     ; 2014/05/14 06:35:37 = map:{
         ; diffDate = 2014/05/14 06:35:37
         ; tableDiff = map:{
